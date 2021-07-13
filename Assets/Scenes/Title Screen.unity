@@ -2656,16 +2656,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1405672981}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d42d1c3a3fa4d44ba227c72225596d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 93fda01c3b376844c8a4640a0f57dab8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startButton: {fileID: 691858778}
   quitButton: {fileID: 1402522107}
   settingsButton: {fileID: 2002792456}
-  backButton: {fileID: 0}
-  returnToMenuButton: {fileID: 522418464}
+  backButton: {fileID: 522418464}
+  returnToMenuButton: {fileID: 0}
+  returnToGameButton: {fileID: 0}
   mainMenu: {fileID: 1046623939}
   settingsMenu: {fileID: 1812177061}
+  pauseMenu: {fileID: 0}
   volumeSlider: {fileID: 145398367}
 --- !u!1 &1585898648
 GameObject:

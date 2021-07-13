@@ -10,9 +10,11 @@ public class CanvasManager : MonoBehaviour
     public Button settingsButton;
     public Button backButton;
     public Button returnToMenuButton;
+    public Button returnToGameButton;
    
     public GameObject mainMenu;
     public GameObject settingsMenu;
+    public GameObject pauseMenu;
 
  
 
@@ -45,13 +47,36 @@ public class CanvasManager : MonoBehaviour
             settingsButton.onClick.AddListener(() => ShowSettingsMenu());
         }
 
+        if (returnToGameButton)
+        {
+            returnToGameButton.onClick.AddListener(() => ReturnToGame());
+        }
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (pauseMenu)
+        {
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                pauseMenu.SetActive(!pauseMenu.activeSelf);
+            }
 
+            if (pauseMenu.activeSelf)
+            {
+                Time.timeScale = 0;
+              
+            }
+
+            else if (!pauseMenu.activeSelf)
+            {
+                Time.timeScale = 1;
+               
+            }
+        }
     }
 
     void ShowMainMenu()
@@ -64,5 +89,10 @@ public class CanvasManager : MonoBehaviour
     {
         settingsMenu.SetActive(true);
         mainMenu.SetActive(false);
+    }
+
+    public void ReturnToGame()
+    {
+        pauseMenu.SetActive(false);
     }
 }
