@@ -25,12 +25,13 @@ public class transition2 : MonoBehaviour
     {
         if (score > 0)
         {
+
+            MaterialLerp();
+            /*
             // ping-pong between the materials over the duration
             float lerp = Mathf.PingPong(Time.time, duration) / duration;
             rend.material.Lerp(material1, material2, lerp);
-
-      
-
+            */
         }
 
         else 
@@ -46,4 +47,12 @@ public class transition2 : MonoBehaviour
         if (Input.GetButtonDown("Fire2"))
             score -= 1;
     }
+
+    public void MaterialLerp()
+    {
+        float lerp = Time.time / 20;
+        rend.material.Lerp(material1, material2, lerp);
+    }
+
+
 }
