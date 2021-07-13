@@ -8,12 +8,14 @@ using UnityEngine;
 public class WaterPhysics : MonoBehaviour
 {
     MeshFilter mf;
+    MeshCollider mc;
     public WaveManager wm;
 
     // Start is called before the first frame update
     void Start()
     {
         mf = GetComponent<MeshFilter>();
+        mc = GetComponent<MeshCollider>();
     }
 
     // Update is called once per frame
@@ -26,8 +28,10 @@ public class WaterPhysics : MonoBehaviour
             vertices[i].y = wm.WaveHeight(transform.position.x + vertices[i].x, transform.position.z + vertices[i].z);
         }
 
+        mc.sharedMesh = null;
         mf.mesh.vertices = vertices;
         mf.mesh.RecalculateNormals();
         mf.mesh.RecalculateBounds();
+        mc.sharedMesh = mf.mesh;
     }
 }
