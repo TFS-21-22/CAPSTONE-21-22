@@ -46,9 +46,6 @@ public class RhythmCanvas : MonoBehaviour
     {
         if(pulsing && Input.GetButtonDown("Jump"))
         {
-            StartCoroutine(DestroyEnemy());
-            LeanTween.alpha(enemy, 0, 6);
-
             if (beatTime <= 0.15f)
                 beatScore = EBeatScore.perfect;
 
@@ -60,6 +57,10 @@ public class RhythmCanvas : MonoBehaviour
 
             if (beatTime > 0.5f)
                 beatScore = EBeatScore.missed;
+
+            StartCoroutine(DestroyEnemy());
+            LeanTween.alpha(enemy, 0, 6);
+            
         }
 
         if (pulsing)
@@ -121,6 +122,7 @@ public class RhythmCanvas : MonoBehaviour
 
     IEnumerator XPulse()
     {
+        pulsing = true;
         int id  = LeanTween.scale(xButton.gameObject, xScaleBig, 0.15f).id;
         while (LeanTween.isTweening(id))
         {

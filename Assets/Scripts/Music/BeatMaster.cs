@@ -13,6 +13,7 @@ public class BeatMaster : MonoBehaviour
     public float beatFeel = 0.1f;
     public static int temp;
     public static float beatRealTime;
+    public static int beatCount = 0;
 
 
     private void Start()
@@ -51,7 +52,7 @@ public class BeatMaster : MonoBehaviour
         {
             currentBeat = temp;
             Beat?.Invoke(currentBeat);
-
+            beatCount++;
         }
     }    
 }

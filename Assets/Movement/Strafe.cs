@@ -9,6 +9,7 @@ public class Strafe : MonoBehaviour
     public Transform follow;
     public GameObject enemy;
     public Canvas rhythmCanvas;
+    public bool enemySequence = false;
 
     public SmoothCameraScript camera;
 
@@ -29,7 +30,16 @@ public class Strafe : MonoBehaviour
         //var pos = transform.position;
         //pos.y = Mathf.Clamp(follow.transform.position.y, -2.0f, 2.0f);
         //transform.position = pos;
+        if (BeatMaster.beatCount == 44 && !enemySequence)
+        {
+            enemy.SetActive(true);
+            rhythmCanvas.gameObject.SetActive(true);
+            camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetRight;
+            camera.StartCoroutine(camera.CameraSwitch(4));
+            enemySequence = true;
+        }
         
+
 
 
         float h = Input.GetAxis("Horizontal") * speed;
@@ -54,13 +64,13 @@ public class Strafe : MonoBehaviour
             rb.AddForce(transform.up * 8);
         }
 
-        if (other.gameObject.CompareTag("enemyTrigger"))
-        {
-            enemy.SetActive(true);
-            rhythmCanvas.gameObject.SetActive(true);
-            camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetRight;
-            camera.StartCoroutine(camera.CameraSwitch(4));
-        }
+        //if (other.gameObject.CompareTag("enemyTrigger"))
+        //{
+        //    enemy.SetActive(true);
+        //    rhythmCanvas.gameObject.SetActive(true);
+        //    camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetRight;
+        //    camera.StartCoroutine(camera.CameraSwitch(4));
+        //}
 
         if(other.gameObject.CompareTag("reset"))
             camera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
