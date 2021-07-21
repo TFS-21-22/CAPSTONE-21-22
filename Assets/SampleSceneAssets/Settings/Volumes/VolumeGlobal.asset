@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: MotionBlur
   m_EditorClassIdentifier: 
   active: 1
+  <displayName>k__BackingField: 
+  m_AdvancedMode: 0
   quality:
     m_OverrideState: 1
     m_Value: 2
@@ -73,6 +75,8 @@ MonoBehaviour:
   m_Name: Bloom
   m_EditorClassIdentifier: 
   active: 1
+  <displayName>k__BackingField: 
+  m_AdvancedMode: 0
   quality:
     m_OverrideState: 1
     m_Value: 2
@@ -92,7 +96,11 @@ MonoBehaviour:
     max: 1
   tint:
     m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_Value:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
     hdr: 0
     showAlpha: 0
     showEyeDropper: 1
@@ -128,9 +136,11 @@ MonoBehaviour:
   m_Name: HDRISky
   m_EditorClassIdentifier: 
   active: 1
+  <displayName>k__BackingField: 
+  m_AdvancedMode: 0
   rotation:
     m_OverrideState: 1
-    m_Value: 116
+    m_Value: 0
     min: 0
     max: 360
   skyIntensityMode:
@@ -223,7 +233,11 @@ MonoBehaviour:
     max: 100
   shadowTint:
     m_OverrideState: 0
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    m_Value:
+      r: 0.5
+      g: 0.5
+      b: 0.5
+      a: 1
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
@@ -248,19 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
   m_Name: VolumeGlobal
   m_EditorClassIdentifier: 
-  components:
-  - {fileID: 1359070828411649799}
-  - {fileID: -1167143466653396744}
-  - {fileID: 8049981929359091865}
-  - {fileID: 6640133647794636954}
-  - {fileID: 2759069934644561995}
-  - {fileID: 8300247594604814326}
-  - {fileID: 2112682869544596416}
-  - {fileID: 5002876554434076654}
-  - {fileID: -2223948172287066284}
-  - {fileID: -3969488579639410846}
-  - {fileID: 747098994415714109}
-  - {fileID: 4566301752631259820}
+  components: []
 --- !u!114 &747098994415714109
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -274,6 +276,8 @@ MonoBehaviour:
   m_Name: FilmGrain
   m_EditorClassIdentifier: 
   active: 1
+  <displayName>k__BackingField: 
+  m_AdvancedMode: 0
   type:
     m_OverrideState: 1
     m_Value: 0
@@ -303,12 +307,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 1
+  <displayName>k__BackingField: 
+  m_AdvancedMode: 0
   skyType:
     m_OverrideState: 1
     m_Value: 1
-  cloudType:
-    m_OverrideState: 0
-    m_Value: 0
   skyAmbientMode:
     m_OverrideState: 1
     m_Value: 1
@@ -328,6 +331,8 @@ MonoBehaviour:
   m_Name: ContactShadows
   m_EditorClassIdentifier: 
   active: 1
+  <displayName>k__BackingField: Contact Shadows
+  m_AdvancedMode: 0
   quality:
     m_OverrideState: 1
     m_Value: 2
@@ -393,6 +398,8 @@ MonoBehaviour:
   m_Name: Fog
   m_EditorClassIdentifier: 
   active: 1
+  <displayName>k__BackingField: 
+  m_AdvancedMode: 0
   quality:
     m_OverrideState: 1
     m_Value: 1
@@ -404,13 +411,21 @@ MonoBehaviour:
     m_Value: 1
   color:
     m_OverrideState: 0
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    m_Value:
+      r: 0.5
+      g: 0.5
+      b: 0.5
+      a: 1
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
   tint:
     m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_Value:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
@@ -446,7 +461,11 @@ MonoBehaviour:
     m_Value: 1
   albedo:
     m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_Value:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
@@ -498,6 +517,9 @@ MonoBehaviour:
   directionalLightsOnly:
     m_OverrideState: 0
     m_Value: 0
+  filter:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &4566301752631259820
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -511,6 +533,8 @@ MonoBehaviour:
   m_Name: ScreenSpaceRefraction
   m_EditorClassIdentifier: 
   active: 1
+  <displayName>k__BackingField: 
+  m_AdvancedMode: 0
   screenFadeDistance:
     m_OverrideState: 1
     m_Value: 0.001
@@ -529,6 +553,8 @@ MonoBehaviour:
   m_Name: AmbientOcclusion
   m_EditorClassIdentifier: 
   active: 1
+  <displayName>k__BackingField: 
+  m_AdvancedMode: 0
   quality:
     m_OverrideState: 1
     m_Value: 2
@@ -571,7 +597,6 @@ MonoBehaviour:
   layerMask:
     m_OverrideState: 0
     m_Value:
-      serializedVersion: 2
       m_Bits: 4294967295
   m_StepCount:
     m_OverrideState: 1
@@ -624,6 +649,8 @@ MonoBehaviour:
   m_Name: Exposure
   m_EditorClassIdentifier: 
   active: 1
+  <displayName>k__BackingField: 
+  m_AdvancedMode: 0
   mode:
     m_OverrideState: 1
     m_Value: 4
@@ -648,10 +675,8 @@ MonoBehaviour:
   curveMap:
     m_OverrideState: 0
     m_Value:
-      serializedVersion: 2
       m_Curve:
-      - serializedVersion: 3
-        time: -10
+      - time: -10
         value: -10
         inSlope: 0
         outSlope: 1
@@ -659,8 +684,7 @@ MonoBehaviour:
         weightedMode: 0
         inWeight: 0
         outWeight: 0
-      - serializedVersion: 3
-        time: 20
+      - time: 20
         value: 20
         inSlope: 1
         outSlope: 0
@@ -674,10 +698,8 @@ MonoBehaviour:
   limitMinCurveMap:
     m_OverrideState: 0
     m_Value:
-      serializedVersion: 2
       m_Curve:
-      - serializedVersion: 3
-        time: -10
+      - time: -10
         value: -12
         inSlope: 0
         outSlope: 1
@@ -685,8 +707,7 @@ MonoBehaviour:
         weightedMode: 0
         inWeight: 0
         outWeight: 0
-      - serializedVersion: 3
-        time: 20
+      - time: 20
         value: 18
         inSlope: 1
         outSlope: 0
@@ -700,10 +721,8 @@ MonoBehaviour:
   limitMaxCurveMap:
     m_OverrideState: 0
     m_Value:
-      serializedVersion: 2
       m_Curve:
-      - serializedVersion: 3
-        time: -10
+      - time: -10
         value: -8
         inSlope: 0
         outSlope: 1
@@ -711,8 +730,7 @@ MonoBehaviour:
         weightedMode: 0
         inWeight: 0
         outWeight: 0
-      - serializedVersion: 3
-        time: 20
+      - time: 20
         value: 22
         inSlope: 1
         outSlope: 0
@@ -780,6 +798,8 @@ MonoBehaviour:
   m_Name: Tonemapping
   m_EditorClassIdentifier: 
   active: 1
+  <displayName>k__BackingField: 
+  m_AdvancedMode: 0
   mode:
     m_OverrideState: 1
     m_Value: 2
@@ -832,6 +852,17 @@ MonoBehaviour:
   m_Name: HDShadowSettings
   m_EditorClassIdentifier: 
   active: 1
+  <displayName>k__BackingField: Shadows
+  m_AdvancedMode: 0
+  m_CascadeShadowSplits:
+  - 0
+  - 0
+  - 0
+  m_CascadeShadowBorders:
+  - 0
+  - 0
+  - 0
+  - 0
   maxShadowDistance:
     m_OverrideState: 1
     m_Value: 70
@@ -849,21 +880,35 @@ MonoBehaviour:
   cascadeShadowSplit0:
     m_OverrideState: 1
     m_Value: 0.046875
+    normalized: 0
+    minCascadeToAppears: 2
   cascadeShadowSplit1:
     m_OverrideState: 1
     m_Value: 0.140625
+    normalized: 0
+    minCascadeToAppears: 3
   cascadeShadowSplit2:
     m_OverrideState: 1
     m_Value: 0.375
+    normalized: 0
+    minCascadeToAppears: 4
   cascadeShadowBorder0:
     m_OverrideState: 1
     m_Value: 0.6666667
+    normalized: 0
+    minCascadeToAppears: 1
   cascadeShadowBorder1:
     m_OverrideState: 1
     m_Value: 0.33333334
+    normalized: 0
+    minCascadeToAppears: 2
   cascadeShadowBorder2:
     m_OverrideState: 1
     m_Value: 0.13333334
+    normalized: 0
+    minCascadeToAppears: 3
   cascadeShadowBorder3:
     m_OverrideState: 0
     m_Value: 0
+    normalized: 0
+    minCascadeToAppears: 4
