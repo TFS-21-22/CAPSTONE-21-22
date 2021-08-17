@@ -45396,7 +45396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3112939003387740562, guid: 873f833d84f15c7468ab30d3a3670d2c, type: 3}
       propertyPath: speed
-      value: 0.8
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 3112939003387740562, guid: 873f833d84f15c7468ab30d3a3670d2c, type: 3}
       propertyPath: pathCreator
@@ -62182,8 +62182,8 @@ MonoBehaviour:
       - {x: 0.8558878, y: 0, z: 0.00000040024116}
       - {x: 1.5258025, y: 0, z: 0.00000023841852}
       - {x: 2.5128095, y: 0, z: 0}
-      - {x: 1485.7441, y: 0, z: 0}
-      - {x: 1486.0759, y: 0, z: 0}
+      - {x: 1486.2773, y: 0, z: 0}
+      - {x: 1486.3425, y: 0, z: 0}
       isClosed: 0
       space: 0
       controlMode: 0
@@ -62198,7 +62198,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 90
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
