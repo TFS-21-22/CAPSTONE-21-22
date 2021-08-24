@@ -9,7 +9,7 @@ public class WaterPhysics : MonoBehaviour
 {
     MeshFilter mf;
     MeshCollider mc;
-    public WaveManager wm;
+    //public WaveManager wm;
 
     // Start is called before the first frame update
     void Start()
@@ -19,19 +19,20 @@ public class WaterPhysics : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        Vector3[] vertices = mf.mesh.vertices;//Grabs meshes vertices
-
+        
+        //Vector3[] vertices = mf.mesh.vertices;//Grabs meshes vertices
+        /*
         for(int i = 0; i < vertices.Length; i++)
         {
             vertices[i].y = wm.WaveHeight(transform.position.x + vertices[i].x, transform.position.z + vertices[i].z);
         }
-
+        */
         mc.sharedMesh = null;
-        mf.mesh.vertices = vertices;
-        mf.mesh.RecalculateNormals();
-        mf.mesh.RecalculateBounds();
+        //mf.mesh.vertices = vertices;
+        //mf.mesh.RecalculateNormals();
+        //mf.mesh.RecalculateBounds();
         mc.sharedMesh = mf.mesh;
     }
 }
