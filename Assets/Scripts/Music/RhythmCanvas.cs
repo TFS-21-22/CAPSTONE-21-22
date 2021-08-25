@@ -17,24 +17,33 @@ public class RhythmCanvas : MonoBehaviour
 {
     public Image xButton;
     public Image xCircle;
+    [SerializeField] Text rhythmText;
+    [SerializeField] SmoothCameraScript smoothCamera;
+
     Vector3 xScale = new Vector3(3, 3, 3);
     Vector3 xScaleBig = new Vector3(3.5f, 3.5f, 3.5f);
     Vector3 bigCircle = new Vector3(6, 6, 6);
+    Vector3 enemyScale;
+    Vector3 rhythmTextScale;
+    
+    public GameObject enemy;
+   
+    public EBeatScore beatScore;
+
     bool scaling;
     bool pulsing = false;
     float timeBetweenBeats = 3.8f;
     float flux = 1.32f;
-    public GameObject enemy;
-    Vector3 enemyScale;
-    public EBeatScore beatScore;
     float beatTime = 0.0f;
     int scaleCount = 0;
     int tempBeat = 0;
+    int rhythmTextLeanId;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        rhythmTextScale = rhythmText.transform.localScale;
         enemyScale = enemy.transform.localScale;
         scaling = false;
         BeatMaster.Beat += BeatCheck;
@@ -134,25 +143,41 @@ public class RhythmCanvas : MonoBehaviour
     IEnumerator DestroyEnemy()
     {
         Debug.Log(beatScore);
-        int id = LeanTween.scale(enemy, xScale/1.5f, 0.4f).id;
+        rhythmText.text = beatScore.ToString();
+        
+        rhythmText.gameObject.SetActive(true);
+        ResetRhythmTween();
+        rhythmTextLeanId = LeanTween.scale(rhythmText.gameObject, rhythmTextScale, .75f).setEaseOutElastic().id;
+        int id = LeanTween.scale(enemy, xScale/1.5f, 0.9f).id;
         while (LeanTween.isTweening(id))
         {
             yield return null;
         }
+        /*
         int id2 = LeanTween.alpha(enemy, 0, 10f).id;
         while (LeanTween.isTweening(id))
         {
             yield return null;
         }
+        */
+        rhythmText.gameObject.SetActive(false);
         pulsing = false;
         scaling = false;
         enemy.transform.localScale = enemyScale;
         enemy.SetActive(false);
+        smoothCamera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
+        smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(2));
         gameObject.SetActive(false);
     }
 
+    void ResetRhythmTween()
+    {
+        if (rhythmTextLeanId != 0)
+            LeanTween.cancel(rhythmTextLeanId);
+        rhythmText.transform.localScale = Vector3.one * 0.01f;
+    }
 
-   
+
 
 
 }

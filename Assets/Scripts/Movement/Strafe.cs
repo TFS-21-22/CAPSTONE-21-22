@@ -30,12 +30,12 @@ public class Strafe : MonoBehaviour
         //var pos = transform.position;
         //pos.y = Mathf.Clamp(follow.transform.position.y, -2.0f, 2.0f);
         //transform.position = pos;
-        if (BeatMaster.beatCount == 44 && !enemySequence)
+        if (BeatMaster.beatCount == 12 && !enemySequence)
         {
             enemy.SetActive(true);
             rhythmCanvas.gameObject.SetActive(true);
             camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetRight;
-            camera.StartCoroutine(camera.CameraSwitch(4));
+            camera.StartCoroutine(camera.CameraSwitch(2));
             enemySequence = true;
         }
         
