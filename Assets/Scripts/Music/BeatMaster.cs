@@ -41,12 +41,9 @@ public class BeatMaster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //how long by total time 2/60
-        //float temp = Mathf.Ceil(((source.time / source.clip.length) * (source.clip.length * (BPM / 60f))) % 4);
         temp = (int)Mathf.Ceil(((source.time - beatFeel) * (BPM / 60f)) % timeSignature);
 
         beatRealTime = (((source.time - beatFeel) * (BPM / 60f)) % timeSignature);
-      
       
         if(currentBeat != temp)
         {

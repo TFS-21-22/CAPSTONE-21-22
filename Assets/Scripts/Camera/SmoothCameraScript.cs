@@ -41,9 +41,7 @@ public class SmoothCameraScript : MonoBehaviour
         OffsetRight,
         OffsetLeft
     }
-
     public ECameraPosition cameraPosition = ECameraPosition.Normal;
-
 
     private void Update()
     {
