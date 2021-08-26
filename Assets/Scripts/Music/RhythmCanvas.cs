@@ -71,12 +71,10 @@ public class RhythmCanvas : MonoBehaviour
             LeanTween.alpha(enemy, 0, 6);
             
         }
-
         if (pulsing)
             beatTime += Time.deltaTime;
         else
-            beatTime = 0;
-            
+            beatTime = 0;  
     }
 
     public void BeatCheck(int beat)
@@ -100,9 +98,6 @@ public class RhythmCanvas : MonoBehaviour
             scaleCount = 0;
             tempBeat = 0;
         }
-       
-
-
     }
 
     IEnumerator Scale()
