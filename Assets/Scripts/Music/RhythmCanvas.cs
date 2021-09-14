@@ -148,13 +148,6 @@ public class RhythmCanvas : MonoBehaviour
         {
             yield return null;
         }
-        /*
-        int id2 = LeanTween.alpha(enemy, 0, 10f).id;
-        while (LeanTween.isTweening(id))
-        {
-            yield return null;
-        }
-        */
         rhythmText.gameObject.SetActive(false);
         pulsing = false;
         scaling = false;

@@ -41,6 +41,8 @@ public class BeatMaster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //the source audio starts immediately on a beat, which means we can use the beats per minute to get the beats per second and increment the beats
+        //based on the source time.
         temp = (int)Mathf.Ceil(((source.time - beatFeel) * (BPM / 60f)) % timeSignature);
 
         beatRealTime = (((source.time - beatFeel) * (BPM / 60f)) % timeSignature);
