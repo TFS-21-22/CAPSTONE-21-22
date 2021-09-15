@@ -92,7 +92,7 @@ public class SmoothCameraScript : MonoBehaviour
         {
             transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
             transform.LookAt(target);
-            Debug.Log("transitioning");
+            //Debug.Log("transitioning");
             count += Time.deltaTime;
             yield return null;
         }

@@ -6,10 +6,24 @@ namespace PathCreation.Examples
     // Depending on the end of path instruction, will either loop, reverse, or stop at the end of the path.
     public class PathFollower : MonoBehaviour
     {
+        public static PathFollower instance;
         public PathCreator pathCreator;
         public EndOfPathInstruction endOfPathInstruction;
-        public float speed = 5;
+        public float speed = 0;
         float distanceTravelled;
+
+        private void Awake()
+        {
+            if (instance == null)
+            {
+                instance = this;
+                DontDestroyOnLoad(this);
+            }
+            else if(instance != null)
+            {
+                Destroy(this);
+            }
+        }
 
         void Start() {
             if (pathCreator != null)
@@ -21,6 +35,8 @@ namespace PathCreation.Examples
 
         void Update()
         {
+            Debug.Log("Player speed: " + speed);
+
             if (pathCreator != null)
             {
                 distanceTravelled += speed * Time.deltaTime;
