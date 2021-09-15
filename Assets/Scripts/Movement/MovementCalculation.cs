@@ -23,10 +23,7 @@ public class MovementCalculation : MonoBehaviour
     {
         
         distance = Vector3.Distance(player.transform.position, endPoint.transform.position);
-        //Debug.Log(distance);
-
         speed = distance / (229 - Time.time);
-
         PathFollower.instance.speed = speed;
 
         

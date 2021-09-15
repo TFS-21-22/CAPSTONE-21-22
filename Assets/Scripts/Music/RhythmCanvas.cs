@@ -137,7 +137,7 @@ public class RhythmCanvas : MonoBehaviour
 
     IEnumerator DestroyEnemy()
     {
-        Debug.Log(beatScore);
+        //Debug.Log(beatScore);
         rhythmText.text = beatScore.ToString();
         
         rhythmText.gameObject.SetActive(true);
