@@ -15,27 +15,29 @@ public enum EBeatScore
 
 public class RhythmCanvas : MonoBehaviour
 {
-    public Image xButton;
-    public Image xCircle;
-    [SerializeField] Text rhythmText;
-    [SerializeField] SmoothCameraScript smoothCamera;
+    public Image xButton;   //"X" button image
+    public Image xCircle;   //"X" image outer circle
 
-    Vector3 xScale = new Vector3(3, 3, 3);
-    Vector3 xScaleBig = new Vector3(3.5f, 3.5f, 3.5f);
-    Vector3 bigCircle = new Vector3(6, 6, 6);
+    [SerializeField] Text rhythmText;                   //Prints beat score
+    [SerializeField] SmoothCameraScript smoothCamera;   //Camera Smoothing
+
+    Vector3 xScale = new Vector3(3, 3, 3);              //"X" Button Scale
+    Vector3 xScaleBig = new Vector3(3.5f, 3.5f, 3.5f);  //"X" Button Scailing
+    Vector3 bigCircle = new Vector3(6, 6, 6);           //"X" Button Circle Scale
     Vector3 enemyScale;
     Vector3 rhythmTextScale;
     
     public GameObject enemy;
-   
     public EBeatScore beatScore;
 
-    bool scaling;
-    bool pulsing = false;
-    float timeBetweenBeats = 3.8f;
+    bool scaling;                   //Button scailing
+    bool pulsing = false;           //Used to check determine beat check
+    float timeBetweenBeats = 3.8f;  
     float flux = 1.32f;
-    float beatTime = 0.0f;
-    int scaleCount = 0;
+
+    
+    float beatTime = 0.0f;  //Button press time
+    int scaleCount = 0;     
     int tempBeat = 0;
     int rhythmTextLeanId;
 
@@ -55,6 +57,7 @@ public class RhythmCanvas : MonoBehaviour
     {
         if(pulsing && Input.GetButtonDown("Jump"))
         {
+            //Determines player score on how long it took to press the button on beat
             if (beatTime <= 0.15f)
                 beatScore = EBeatScore.perfect;
 
@@ -69,7 +72,6 @@ public class RhythmCanvas : MonoBehaviour
 
             StartCoroutine(DestroyEnemy());
             LeanTween.alpha(enemy, 0, 6);
-            
         }
         if (pulsing)
             beatTime += Time.deltaTime;
@@ -79,9 +81,10 @@ public class RhythmCanvas : MonoBehaviour
 
     public void BeatCheck(int beat)
     {
-    
+        //Checks for beat 0
         if ((beat+3) % 4 == 0 && !pulsing && !scaling)
         {
+            //Starts scaling outer "X" circle
             StartCoroutine(Scale());
         }
 
@@ -102,18 +105,19 @@ public class RhythmCanvas : MonoBehaviour
 
     IEnumerator Scale()
     {
-        Debug.Log("beat");
-        //xCircle.gameObject.SetActive(true);
+        //Scales "X" outer circle
         LeanTween.scale(xCircle.gameObject, bigCircle, 0.15f);
+        //Set scaling true
         scaling = true;
-        //float count = 0f;
         while (scaleCount < 9)
         {
+            //"X" Outer Circle Scale
             xCircle.transform.localScale -= new Vector3(flux * Time.deltaTime, flux * Time.deltaTime, flux * Time.deltaTime);
-            //count += Time.deltaTime;
             yield return null;
         }
+        //X Button pulse
         StartCoroutine(XPulse());
+        //Set pulsing true
         pulsing = true;
     }
 
@@ -137,10 +141,11 @@ public class RhythmCanvas : MonoBehaviour
 
     IEnumerator DestroyEnemy()
     {
-        //Debug.Log(beatScore);
+        //Sets beat score to text
         rhythmText.text = beatScore.ToString();
-        
+        //Enable Text
         rhythmText.gameObject.SetActive(true);
+
         ResetRhythmTween();
         rhythmTextLeanId = LeanTween.scale(rhythmText.gameObject, rhythmTextScale, .75f).setEaseOutElastic().id;
         int id = LeanTween.scale(enemy, xScale/1.5f, 0.9f).id;
