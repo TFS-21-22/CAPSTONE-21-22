@@ -15,6 +15,8 @@ public enum EBeatScore
 
 public class RhythmCanvas : MonoBehaviour
 {
+    public static RhythmCanvas instance;
+
     public Image xButton;   //"X" button image
     public Image xCircle;   //"X" image outer circle
 
@@ -41,6 +43,18 @@ public class RhythmCanvas : MonoBehaviour
     int tempBeat = 0;
     int rhythmTextLeanId;
 
+    void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else if(instance != null)
+        {
+            Destroy(this);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -160,7 +174,8 @@ public class RhythmCanvas : MonoBehaviour
         enemy.SetActive(false);
         smoothCamera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
         smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(2));
-        gameObject.SetActive(false);
+        xButton.gameObject.SetActive(false);
+        xCircle.gameObject.SetActive(false);
     }
 
     void ResetRhythmTween()
@@ -169,8 +184,4 @@ public class RhythmCanvas : MonoBehaviour
             LeanTween.cancel(rhythmTextLeanId);
         rhythmText.transform.localScale = Vector3.one * 0.01f;
     }
-
-
-
-
 }

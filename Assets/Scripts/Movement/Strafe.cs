@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Strafe : MonoBehaviour
 {
+    [SerializeField] Image xCricle;
+    [SerializeField] Image xButton;
+
     public float boundx = 2.25f;
     public float speed = 3.0f;
     public Transform follow;
@@ -44,10 +48,19 @@ public class Strafe : MonoBehaviour
 
     private void EnemySequence()
     {
+        //Set Circle + Button Active
+            //xCricle.gameObject.SetActive(true);
+            //xButton.gameObject.SetActive(true);
+
+        //Set enemy true
         enemy.SetActive(true);
+        //Set Rythm Cavas Active
         rhythmCanvas.gameObject.SetActive(true);
+        //Camera Movement
         camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetRight;
+        //Camera Switch
         camera.StartCoroutine(camera.CameraSwitch(3));
+        //Enemy sqeuence true
         enemySequence = true;
     }
 
