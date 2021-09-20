@@ -35,7 +35,7 @@ namespace PathCreation.Examples
 
         void Update()
         {
-            Debug.Log("Player speed: " + speed);
+            //Debug.Log("Player speed: " + speed);
 
             if (pathCreator != null)
             {

@@ -49,8 +49,8 @@ public class Strafe : MonoBehaviour
     private void EnemySequence()
     {
         //Set Circle + Button Active
-            //xCricle.gameObject.SetActive(true);
-            //xButton.gameObject.SetActive(true);
+        xCricle.gameObject.SetActive(true);
+        xButton.gameObject.SetActive(true);
 
         //Set enemy true
         enemy.SetActive(true);
