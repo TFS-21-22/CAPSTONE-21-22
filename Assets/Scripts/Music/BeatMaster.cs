@@ -25,10 +25,10 @@ public class BeatMaster : MonoBehaviour
 
         this.Invoke("PlayThing", 1);
 
-        Debug.Log("Source.Time: " + source.time);
-        Debug.Log("Source.Clip.Length: " + source.clip.length);
-        Debug.Log("BPM: " + BPM);
-        Debug.Log("BPS: " + BPM / 60f);
+        //Debug.Log("Source.Time: " + source.time);
+        //Debug.Log("Source.Clip.Length: " + source.clip.length);
+        //Debug.Log("BPM: " + BPM);
+        //Debug.Log("BPS: " + BPM / 60f);
     }
 
     public static event Action<float> BPS;

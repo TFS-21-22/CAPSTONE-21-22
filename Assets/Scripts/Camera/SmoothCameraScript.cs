@@ -97,7 +97,7 @@ public class SmoothCameraScript : MonoBehaviour
             yield return null;
         }
         transitioning = false;
-        Debug.Log("done transition");
+        //Debug.Log("done transition");
         yield return 0;
         
     }

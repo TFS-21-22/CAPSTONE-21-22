@@ -35,13 +35,15 @@ public class RhythmCanvas : MonoBehaviour
     bool scaling;                   //Button scailing
     bool pulsing = false;           //Used to check determine beat check
     float timeBetweenBeats = 3.8f;  
-    float flux = 1.32f;
+    float flux = 1.45f;
 
     
     float beatTime = 0.0f;  //Button press time
     int scaleCount = 0;     
     int tempBeat = 0;
     int rhythmTextLeanId;
+
+    float timeDebug;
 
     void Awake()
     {
@@ -69,19 +71,22 @@ public class RhythmCanvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(pulsing && Input.GetButtonDown("Jump"))
+        Debug.Log(beatTime);
+
+        if (pulsing && Input.GetButtonDown("Jump"))
         {
+            
             //Determines player score on how long it took to press the button on beat
-            if (beatTime <= 0.15f)
+            if (beatTime >= 3f && beatTime <= 3.5f)
                 beatScore = EBeatScore.perfect;
 
-            if (beatTime > 0.15f && beatTime <= 0.3f)
+            if (beatTime > 2.5f && beatTime <= 3f)
                 beatScore = EBeatScore.good;
 
-            if (beatTime > 0.3f && beatTime <= 0.5f)
+            if (beatTime > 2.2f && beatTime <= 2.5f)
                 beatScore = EBeatScore.ok;
 
-            if (beatTime > 0.5f)
+            if (beatTime < 2.2f || beatTime > 3.6f)
                 beatScore = EBeatScore.missed;
 
             StartCoroutine(DestroyEnemy());
@@ -119,6 +124,7 @@ public class RhythmCanvas : MonoBehaviour
 
     IEnumerator Scale()
     {
+        pulsing = true;
         //Scales "X" outer circle
         LeanTween.scale(xCircle.gameObject, bigCircle, 0.15f);
         //Set scaling true
@@ -130,7 +136,7 @@ public class RhythmCanvas : MonoBehaviour
             yield return null;
         }
         //X Button pulse
-        StartCoroutine(XPulse());
+        //StartCoroutine(XPulse());
         //Set pulsing true
         pulsing = true;
     }
@@ -145,11 +151,14 @@ public class RhythmCanvas : MonoBehaviour
     IEnumerator XPulse()
     {
         pulsing = true;
-        int id  = LeanTween.scale(xButton.gameObject, xScaleBig, 0.15f).id;
+        //int id  = LeanTween.scale(xButton.gameObject, xScaleBig, 0.15f).id;
+        /*
         while (LeanTween.isTweening(id))
         {
-            yield return null;
+            
         }
+        */
+        yield return null;
         xButton.transform.localScale = xScale;
     }
 
@@ -159,7 +168,6 @@ public class RhythmCanvas : MonoBehaviour
         rhythmText.text = beatScore.ToString();
         //Enable Text
         rhythmText.gameObject.SetActive(true);
-
         ResetRhythmTween();
         rhythmTextLeanId = LeanTween.scale(rhythmText.gameObject, rhythmTextScale, .75f).setEaseOutElastic().id;
         int id = LeanTween.scale(enemy, xScale/1.5f, 0.9f).id;
@@ -174,8 +182,7 @@ public class RhythmCanvas : MonoBehaviour
         enemy.SetActive(false);
         smoothCamera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
         smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(2));
-        xButton.gameObject.SetActive(false);
-        xCircle.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     void ResetRhythmTween()

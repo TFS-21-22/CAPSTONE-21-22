@@ -33,7 +33,12 @@ public class Strafe : MonoBehaviour
             EnemySequence();
         }
 
-        if (BeatMaster.beatCount == 48 && !enemySequence)
+        if (BeatMaster.beatCount == 52 && !enemySequence)
+        {
+            EnemySequence();
+        }
+
+        if (BeatMaster.beatCount == 74 && !enemySequence)
         {
             EnemySequence();
         }
@@ -48,10 +53,6 @@ public class Strafe : MonoBehaviour
 
     private void EnemySequence()
     {
-        //Set Circle + Button Active
-            //xCricle.gameObject.SetActive(true);
-            //xButton.gameObject.SetActive(true);
-
         //Set enemy true
         enemy.SetActive(true);
         //Set Rythm Cavas Active
@@ -66,7 +67,7 @@ public class Strafe : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(name + ": OnTriggerEnter - " + other.gameObject.name);
+        //Debug.Log(name + ": OnTriggerEnter - " + other.gameObject.name);
         if (other.gameObject.CompareTag("Obstacle"))
         {
             Destroy(other.gameObject);
