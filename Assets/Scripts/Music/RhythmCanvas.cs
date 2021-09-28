@@ -71,12 +71,8 @@ public class RhythmCanvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(beatTime);
-
         if (pulsing && Input.GetButtonDown("Jump"))
         {
-            
-            //Determines player score on how long it took to press the button on beat
             if (beatTime >= 3f && beatTime <= 3.5f)
                 beatScore = EBeatScore.perfect;
 
@@ -92,6 +88,7 @@ public class RhythmCanvas : MonoBehaviour
             StartCoroutine(DestroyEnemy());
             LeanTween.alpha(enemy, 0, 6);
         }
+        
         if (pulsing)
             beatTime += Time.deltaTime;
         else
