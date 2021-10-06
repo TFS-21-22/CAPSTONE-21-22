@@ -68,7 +68,7 @@ public class Strafe : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         //Debug.Log(name + ": OnTriggerEnter - " + other.gameObject.name);
-        if (other.gameObject.CompareTag("Obstacle"))
+        if (other.gameObject.CompareTag("Obstacle") || other.gameObject.CompareTag("Lily"))
         {
             Destroy(other.gameObject);
             rb.AddForce(transform.up * 8);
