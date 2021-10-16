@@ -7,6 +7,7 @@ public class Strafe : MonoBehaviour
 {
     [SerializeField] Image xCricle;
     [SerializeField] Image xButton;
+    [SerializeField] GameObject tiger;
 
     public float boundx = 2.25f;
     public float speed = 3.0f;
@@ -22,6 +23,7 @@ public class Strafe : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        tiger.SetActive(false);
         rb = GetComponent<Rigidbody>();
     }
 
@@ -30,23 +32,26 @@ public class Strafe : MonoBehaviour
     {
         if (BeatMaster.beatCount == 16 && !enemySequence)
         {
-            EnemySequence();
+            tiger.SetActive(true);
+            //EnemySequence();
         }
 
         if (BeatMaster.beatCount == 52 && !enemySequence)
         {
-            EnemySequence();
+            tiger.SetActive(true);
         }
 
         if (BeatMaster.beatCount == 74 && !enemySequence)
         {
-            EnemySequence();
+            tiger.SetActive(true);
         }
 
         if (!enemy.activeSelf)
             enemySequence = false;
 
-        
+        if (!tiger.activeSelf)
+            enemySequence = false;
+
         float h = Input.GetAxis("Horizontal") * speed;
         transform.Translate(h * Time.deltaTime, 0, 0);
     }
@@ -65,9 +70,25 @@ public class Strafe : MonoBehaviour
         enemySequence = true;
     }
 
+    public void BossButtonSeuqence()
+    {
+        //Set Button Squence Active
+        rhythmCanvas.gameObject.SetActive(true);
+
+        //Camera Movement
+        camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;
+
+        //Camera Switch
+        camera.StartCoroutine(camera.CameraSwitch(3));
+
+        //Set sqeuence true
+        enemySequence = true;
+    }
+
+
+
     void OnTriggerEnter(Collider other)
     {
-        //Debug.Log(name + ": OnTriggerEnter - " + other.gameObject.name);
         if (other.gameObject.CompareTag("Obstacle") || other.gameObject.CompareTag("Lily"))
         {
             Destroy(other.gameObject);

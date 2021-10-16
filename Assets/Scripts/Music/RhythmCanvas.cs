@@ -85,7 +85,8 @@ public class RhythmCanvas : MonoBehaviour
             if (beatTime < 2.2f || beatTime > 3.6f)
                 beatScore = EBeatScore.missed;
 
-            StartCoroutine(DestroyEnemy());
+            //StartCoroutine(DestroyEnemy());
+            StartCoroutine(DestroyBoss());
             LeanTween.alpha(enemy, 0, 6);
         }
         
@@ -148,13 +149,6 @@ public class RhythmCanvas : MonoBehaviour
     IEnumerator XPulse()
     {
         pulsing = true;
-        //int id  = LeanTween.scale(xButton.gameObject, xScaleBig, 0.15f).id;
-        /*
-        while (LeanTween.isTweening(id))
-        {
-            
-        }
-        */
         yield return null;
         xButton.transform.localScale = xScale;
     }
@@ -177,6 +171,29 @@ public class RhythmCanvas : MonoBehaviour
         scaling = false;
         enemy.transform.localScale = enemyScale;
         enemy.SetActive(false);
+        smoothCamera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
+        smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(2));
+        gameObject.SetActive(false);
+    }
+
+    IEnumerator DestroyBoss()
+    {
+        //Sets beat score to text
+        rhythmText.text = beatScore.ToString();
+        //Enable Text
+        rhythmText.gameObject.SetActive(true);
+        ResetRhythmTween();
+        rhythmTextLeanId = LeanTween.scale(rhythmText.gameObject, rhythmTextScale, .75f).setEaseOutElastic().id;
+        int id = LeanTween.scale(Tiger.instance.gameObject, xScale / 2f, 0.9f).id;
+        while (LeanTween.isTweening(id))
+        {
+            yield return null;
+        }
+        rhythmText.gameObject.SetActive(false);
+        pulsing = false;
+        scaling = false;
+        //Tiger.instance.gameObject.transform.localScale = enemyScale;
+        Tiger.instance.gameObject.SetActive(false);
         smoothCamera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
         smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(2));
         gameObject.SetActive(false);

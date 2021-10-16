@@ -49,21 +49,21 @@ public class SmoothCameraScript : MonoBehaviour
         {
             transitioning = true;
             cameraPosition = ECameraPosition.Normal;
-            StartCoroutine(CameraSwitch(4));
+            StartCoroutine(CameraSwitch(8));
         }
 
         if (Input.GetKeyDown(KeyCode.R) && !transitioning)
         {
             transitioning = true;
             cameraPosition = ECameraPosition.OffsetRight;
-            StartCoroutine(CameraSwitch(4));
+            StartCoroutine(CameraSwitch(8));
         }
 
         if (Input.GetKeyDown(KeyCode.Q) && !transitioning)
         {
             transitioning = true;
             cameraPosition = ECameraPosition.OffsetLeft;
-            StartCoroutine(CameraSwitch(4));
+            StartCoroutine(CameraSwitch(8));
         }
         
     }

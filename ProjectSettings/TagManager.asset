@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Obstacle
   - Lily
+  - Return
   layers:
   - Default
   - TransparentFX
