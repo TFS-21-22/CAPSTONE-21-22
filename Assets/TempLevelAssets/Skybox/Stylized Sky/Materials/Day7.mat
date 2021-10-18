@@ -21,7 +21,7 @@ Material:
     m_TexEnvs: []
     m_Floats:
     - _HorizonLineBlendMode: 0
-    - _HorizonLineContribution: 0.52
+    - _HorizonLineContribution: 0.45
     - _HorizonLineExponent: 4.11
     - _SkyGradientExponent: 3
     - _SunDiscContribution: 1
