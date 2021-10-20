@@ -15,6 +15,7 @@ public class Tiger : MonoBehaviour
     public Queue<GameObject> pool = new Queue<GameObject>();
 
     int shotsFired = 0;
+    bool isShooting = false;
 
     void Awake()
     {
@@ -70,25 +71,25 @@ public class Tiger : MonoBehaviour
                 break;
             case CurrentState.Shoot:
                 //Shoot Projectiles at a random lane
+                if(!isShooting)
                 ShootingState(Random.Range(0,3));
                 break;
         }
     }
 
-    public GameObject GetProjectile()
+    public void GetProjectile()
     {
         if(pool.Count > 0)
         {
             //Get Target
+
             GameObject temp = pool.Dequeue();
             //Reset position
             temp.transform.position = projectileSpawnLocation.transform.position;
 
             temp.SetActive(true);
-
-            return temp;
         }
-        return null;
+        
         
     }
 
@@ -102,18 +103,21 @@ public class Tiger : MonoBehaviour
 
     public void ShootingState(int randomLane)
     {
+        isShooting = true; 
+
         //Choose a lane,
         if (randomLane == 0)
         {
             //Move to lane position
-            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x - 2f,transform.position.y ,transform.position.z), Time.deltaTime * 1);
+            LeanTween.moveLocalX(this.gameObject, -2, Time.time);
             StartCoroutine(Shoot(1f, shotsFired));
             
         }
         if (randomLane == 1)
         {
+          
             //Move to lane position
-            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x + 2f, transform.position.y, transform.position.z), Time.deltaTime * 1);
+            LeanTween.moveLocalX(this.gameObject, 2, Time.time);
             StartCoroutine(Shoot(1f, shotsFired));
         }
         else
@@ -132,6 +136,7 @@ public class Tiger : MonoBehaviour
             Debug.Log(projectilesFired);
             GetProjectile();
             
+            
         }
 
         if (projectilesFired >= 4)
@@ -139,6 +144,8 @@ public class Tiger : MonoBehaviour
             BossState = CurrentState.ButtonSquence;
             shotsFired = 0;
         }
+
+        isShooting = false;
     }
 
     IEnumerator Delay(float wait)
