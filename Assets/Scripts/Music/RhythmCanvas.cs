@@ -31,7 +31,6 @@ public class RhythmCanvas : MonoBehaviour
 
     [SerializeField] private GameObject[] buttonBG = new GameObject[4];
     [SerializeField] private GameObject[] keyDirection = new GameObject[4];
-    [SerializeField] private Vector2[] keyPosition = new Vector2[3];
     public GameObject enemy;
 
 
@@ -46,8 +45,9 @@ public class RhythmCanvas : MonoBehaviour
     int tempBeat = 0;
     int rhythmTextLeanId;
 
-    float smoothSpeed = 4f;
+    float smoothSpeed = 1f;
     [SerializeField] private Transform buttonCenter;
+    [SerializeField] private Transform[] keyPositions = new Transform[3];
 
     float timeDebug;
 
@@ -81,23 +81,23 @@ public class RhythmCanvas : MonoBehaviour
         {
             if (beatTime >= 3f && beatTime <= 3.5f)
             {
-                RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length), false, keyPosition, Random.Range(0, 3));
+                RandomBackground(buttonBG, keyDirection, keyPositions, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length), false, Random.Range(0, 3)); 
                 //beatScore = EBeatScore.perfect;
             }
 
             if (beatTime > 2.5f && beatTime <= 3f)
             {
-                RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length), false, keyPosition, Random.Range(0, 3));
+                RandomBackground(buttonBG, keyDirection, keyPositions, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length), false, Random.Range(0, 3));
             }
 
             if (beatTime > 2.2f && beatTime <= 2.5f)
             {
-                RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length), false, keyPosition, Random.Range(0, 3));
+                RandomBackground(buttonBG, keyDirection, keyPositions, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length), false, Random.Range(0, 3));
             }
 
             if (beatTime < 2.2f || beatTime > 3.6f)
             {
-                RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length), false, keyPosition, Random.Range(0, 3));
+                RandomBackground(buttonBG, keyDirection, keyPositions, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length), false, Random.Range(0, 3));
             }
 
 
@@ -136,18 +136,19 @@ public class RhythmCanvas : MonoBehaviour
         }
     }
 
-    void RandomBackground(GameObject[] bg, GameObject[] key, int randomBG, int randomDirection, bool active, Vector2[] keyPos, int randomPosition)
+    void RandomBackground(GameObject[] bg, GameObject[] key, Transform[] startPos, int randomBG, int randomDirection, bool active, int randomKey)
     {
         float count = 0f;
-        float seconds = 3f;
 
         if (active)
         {
             count += Time.deltaTime;
             bg[randomBG].gameObject.SetActive(true);
-            GameObject arrow = key[randomDirection];
-            arrow.gameObject.SetActive(true);
-            while(count < seconds)
+            GameObject arrow = key[randomKey] as GameObject;
+            arrow.SetActive(true);
+            arrow.transform.position = startPos[randomDirection].transform.position;
+
+            while(count < 5)
             arrow.transform.position = Vector3.Lerp(transform.position, buttonCenter.transform.position, smoothSpeed * Time.deltaTime);
         }
         else
@@ -167,7 +168,7 @@ public class RhythmCanvas : MonoBehaviour
     {
         pulsing = true;
         //Random UI BG + Random Key Direction
-        RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length), true, keyPosition, Random.Range(0, 3));
+        RandomBackground(buttonBG, keyDirection, keyPositions, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length), true, Random.Range(0, 3));
 
         //Scales "X" outer circle
         LeanTween.scale(xCircle.gameObject, bigCircle, 0.15f);
