@@ -30,7 +30,7 @@ public class Strafe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (BeatMaster.beatCount == 16 && !enemySequence)
+        if (BeatMaster.beatCount == 8 && !enemySequence)
         {
             tiger.SetActive(true);
             //EnemySequence();
@@ -95,4 +95,6 @@ public class Strafe : MonoBehaviour
             rb.AddForce(transform.up * 8);
         }
     }
+
+    
 }

@@ -15,7 +15,8 @@ public class Tiger : MonoBehaviour
     public Queue<GameObject> pool = new Queue<GameObject>();
 
     int shotsFired = 0;
-    bool isShooting = false;
+    bool canShoot = false;
+    bool chooseLane = true;
 
     void Awake()
     {
@@ -24,12 +25,12 @@ public class Tiger : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this);
         }
-        else if(instance != null)
+        else if (instance != null)
         {
             Destroy(this);
         }
     }
-    
+
     public enum CurrentState
     {
         Move,
@@ -38,7 +39,7 @@ public class Tiger : MonoBehaviour
     }
 
     public CurrentState BossState;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -47,50 +48,59 @@ public class Tiger : MonoBehaviour
 
 
         //Instantiate projectiles on first frame
-        for(int i = 0; i < 10; i++)
+        for (int i = 0; i < 10; i++)
         {
             GameObject temp = Instantiate(projectile, projectileSpawnLocation.transform.position, Quaternion.identity) as GameObject;
             temp.SetActive(false);
             pool.Enqueue(temp);
         }
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //transform.LookAt(player);
-        Debug.Log(pool.Count);
+        Debug.Log("Shots fired:" + shotsFired);
+        if (shotsFired < 5 && canShoot)
+        {
+            canShoot = false;
+            StartCoroutine(Shoot(1f));
+            shotsFired++;
+        }
+            
+        if (shotsFired >= 5)
+        {
+            BossState = CurrentState.ButtonSquence;
+        }
 
-       switch(BossState)
+        switch (BossState)
         {
             case CurrentState.ButtonSquence:
                 strafeScript.BossButtonSeuqence();
                 break;
             case CurrentState.Move:
-                StartCoroutine(Delay(3f));
+                Move(Random.Range(0, 3));
                 break;
             case CurrentState.Shoot:
                 //Shoot Projectiles at a random lane
-                if(!isShooting)
-                ShootingState(Random.Range(0,3));
+                if (chooseLane)
+                    Move(Random.Range(0, 3));
                 break;
         }
     }
 
     public void GetProjectile()
     {
-        if(pool.Count > 0)
+        if (pool.Count > 0)
         {
             //Get Target
-
-            GameObject temp = pool.Dequeue();
+            GameObject temp = pool.Dequeue() as GameObject;
             //Reset position
             temp.transform.position = projectileSpawnLocation.transform.position;
-
+            //SetActive
             temp.SetActive(true);
         }
-        
-        
     }
 
     public void ReturnProjectile(GameObject obj)
@@ -101,62 +111,45 @@ public class Tiger : MonoBehaviour
         pool.Enqueue(obj);
     }
 
-    public void ShootingState(int randomLane)
+    public void Move(int randomLane)
     {
-        isShooting = true; 
 
         //Choose a lane,
         if (randomLane == 0)
         {
             //Move to lane position
-            LeanTween.moveLocalX(this.gameObject, -2, Time.time);
-            StartCoroutine(Shoot(1f, shotsFired));
-            
+            LeanTween.moveLocalX(this.gameObject, -1.5f, Time.time);
+            chooseLane = false;
+            canShoot = true;
         }
-        if (randomLane == 1)
+        else if (randomLane == 1)
         {
-          
             //Move to lane position
-            LeanTween.moveLocalX(this.gameObject, 2, Time.time);
-            StartCoroutine(Shoot(1f, shotsFired));
+            LeanTween.moveLocalX(this.gameObject, 1.5f, Time.time);
+            chooseLane = false;
+            canShoot = true;
         }
         else
         {
             //Move to lane position
-            StartCoroutine(Shoot(1f, shotsFired));
+            chooseLane = false;
+            canShoot = true;
         }
     }
 
-    IEnumerator Shoot(float wait, int projectilesFired)
+    IEnumerator Shoot(float wait)
     {
-        while(projectilesFired < 4)
-        {
-            yield return new WaitForSecondsRealtime(wait);
-            projectilesFired++;
-            Debug.Log(projectilesFired);
-            GetProjectile();
-            
-            
-        }
-
-        if (projectilesFired >= 4)
-        {
-            BossState = CurrentState.ButtonSquence;
-            shotsFired = 0;
-        }
-
-        isShooting = false;
+        yield return new WaitForSeconds(wait);
+        GetProjectile();
+        canShoot = true;
     }
 
-    IEnumerator Delay(float wait)
-    {
-        //Ping Pong
-        yield return new WaitForSecondsRealtime(wait);
-        BossState = CurrentState.Shoot;
-    }
+}
+
+   
 
     
 
 
 
-}
+
