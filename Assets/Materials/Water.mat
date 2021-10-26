@@ -77,11 +77,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Depth_Fade: 1.22
-    - Noise_Scale: 7.07
-    - Occlusion: 0.71
+    - Noise_Scale: 0.69
+    - Occlusion: 0.4
     - Smoothness: 0.8
-    - Transparency: 1
-    - Wave_Height: 3.28
+    - Transparency: 0.68
+    - Wave_Height: -4
     - Wave_Speed: 0.02
     - _AlphaClip: 0
     - _Blend: 0
@@ -112,8 +112,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Deep: {r: 1, g: 0.97275454, b: 0.3443396, a: 0}
-    - Shallow: {r: 0.39795583, g: 0.6320754, b: 0.2236116, a: 0}
+    - Deep: {r: 0.21698111, g: 0.21342033, b: 0.13203096, a: 0}
+    - Shallow: {r: 0.36158448, g: 0.5188679, b: 0.24719651, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
