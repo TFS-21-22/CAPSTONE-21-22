@@ -39,9 +39,9 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (SceneManager.GetActiveScene().name == "SampleScene")
+            if (SceneManager.GetActiveScene().name == "Blockout")
             {
-                SceneManager.LoadScene("SampleScene");
+                SceneManager.LoadScene("Blockout");
             }
             else if (SceneManager.GetActiveScene().name == "Title Screen")
             {
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Blockout");
     }
 
     public void QuitGame()
