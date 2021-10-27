@@ -16,7 +16,7 @@ public class TigerProjectile : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
         if(collision.gameObject.CompareTag("Return"))
         {

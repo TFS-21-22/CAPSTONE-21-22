@@ -52,37 +52,26 @@ public class Strafe : MonoBehaviour
         if (!tiger.activeSelf)
             enemySequence = false;
 
+        //Movement
         float h = Input.GetAxis("Horizontal") * speed;
         transform.Translate(h * Time.deltaTime, 0, 0);
     }
 
     private void EnemySequence()
     {
-        //Set enemy true
-        enemy.SetActive(true);
-        //Set Rythm Cavas Active
-        rhythmCanvas.gameObject.SetActive(true);
-        //Camera Movement
-        camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetRight;
-        //Camera Switch
-        camera.StartCoroutine(camera.CameraSwitch(3));
-        //Enemy sqeuence true
-        enemySequence = true;
+        enemy.SetActive(true);                                                  //Set enemy true
+        rhythmCanvas.gameObject.SetActive(true);                                //Set Rythm Cavas Active
+        camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetRight; //Camera Movement
+        camera.StartCoroutine(camera.CameraSwitch(3));                          //Camera Switch
+        enemySequence = true;                                                   //Enemy sqeuence true
     }
 
     public void BossButtonSeuqence()
     {
-        //Set Button Squence Active
-        rhythmCanvas.gameObject.SetActive(true);
-
-        //Camera Movement
-        camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;
-
-        //Camera Switch
-        camera.StartCoroutine(camera.CameraSwitch(3));
-
-        //Set sqeuence true
-        enemySequence = true;
+        rhythmCanvas.gameObject.SetActive(true);                                //Set Button Squence Active
+        camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;  //Camera Movement
+        camera.StartCoroutine(camera.CameraSwitch(3));                          //Camera Switch
+        enemySequence = true;                                                   //Set sqeuence true
     }
 
 

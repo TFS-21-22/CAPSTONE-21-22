@@ -61,7 +61,7 @@ public class Tiger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Shots fired:" + shotsFired);
+        
         if (shotsFired < 5 && canShoot)
         {
             canShoot = false;
@@ -90,19 +90,6 @@ public class Tiger : MonoBehaviour
         }
     }
 
-    public void GetProjectile()
-    {
-        if (pool.Count > 0)
-        {
-            //Get Target
-            GameObject temp = pool.Dequeue() as GameObject;
-            //Reset position
-            temp.transform.position = projectileSpawnLocation.transform.position;
-            //SetActive
-            temp.SetActive(true);
-        }
-    }
-
     public void ReturnProjectile(GameObject obj)
     {
         //Set projectile in-active
@@ -118,14 +105,14 @@ public class Tiger : MonoBehaviour
         if (randomLane == 0)
         {
             //Move to lane position
-            LeanTween.moveLocalX(this.gameObject, -1.5f, Time.time);
+            LeanTween.moveLocalX(this.gameObject, -1f, Time.time * 0.05f);
             chooseLane = false;
             canShoot = true;
         }
         else if (randomLane == 1)
         {
             //Move to lane position
-            LeanTween.moveLocalX(this.gameObject, 1.5f, Time.time);
+            LeanTween.moveLocalX(this.gameObject, 1f, Time.time * 0.05f);
             chooseLane = false;
             canShoot = true;
         }
@@ -140,7 +127,6 @@ public class Tiger : MonoBehaviour
     IEnumerator Shoot(float wait)
     {
         yield return new WaitForSeconds(wait);
-        GetProjectile();
         canShoot = true;
     }
 

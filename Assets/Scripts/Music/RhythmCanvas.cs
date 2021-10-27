@@ -20,7 +20,6 @@ public class RhythmCanvas : MonoBehaviour
     public Image xButton;   //"X" button image
     public Image xCircle;   //"X" image outer circle
 
-    [SerializeField] private Text rhythmText;                   //Prints beat score
     [SerializeField] private SmoothCameraScript smoothCamera;   //Camera Smoothing
 
     private Vector3 xScale = new Vector3(3, 3, 3);              //"X" Button Scale
@@ -29,10 +28,15 @@ public class RhythmCanvas : MonoBehaviour
     private Vector3 enemyScale;
     private Vector3 rhythmTextScale;
 
-    [SerializeField] private GameObject[] buttonBG = new GameObject[4];
-    [SerializeField] private GameObject[] keyDirection = new GameObject[4];
+    [SerializeField] private GameObject[] buttonBG = new GameObject[4];     //Button Backgrounds
+    [SerializeField] private GameObject[] keyDirection = new GameObject[4]; //Arrow Keys
     public GameObject enemy;
 
+    //Score Text
+    [SerializeField] private GameObject perfect;
+    [SerializeField] private GameObject good;
+    [SerializeField] private GameObject okay;
+    [SerializeField] private GameObject miss;
 
     bool scaling;                   //Button scailing
     bool pulsing = false;           //Used to check determine beat check
@@ -46,6 +50,7 @@ public class RhythmCanvas : MonoBehaviour
     int rhythmTextLeanId;
 
     float smoothSpeed = 1f;
+
     [SerializeField] private Transform buttonCenter;
     [SerializeField] private Transform[] keyPositions = new Transform[3];
 
@@ -67,8 +72,6 @@ public class RhythmCanvas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rhythmTextScale = rhythmText.transform.localScale;
-        //enemyScale = enemy.transform.localScale;
         scaling = false;
         BeatMaster.Beat += BeatCheck;
         BeatMaster.Beat += BeatX;
@@ -77,33 +80,36 @@ public class RhythmCanvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(beatTime);
         if (pulsing && Input.GetButtonDown("Jump"))
         {
-            if (beatTime >= 3f && beatTime <= 3.5f)
-            {
-                RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length), false, Random.Range(0, 3)); 
-                //beatScore = EBeatScore.perfect;
-            }
-
-            if (beatTime > 2.5f && beatTime <= 3f)
+            if ( beatTime <= 1.5f)
             {
                 RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length), false, Random.Range(0, 3));
+                StartCoroutine(ScoreTextResult(miss, 1f));
             }
 
-            if (beatTime > 2.2f && beatTime <= 2.5f)
+            if (beatTime > 1.5f && beatTime < 2f)
             {
                 RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length), false, Random.Range(0, 3));
+                StartCoroutine(ScoreTextResult(okay, 1f));
             }
 
-            if (beatTime < 2.2f || beatTime > 3.6f)
+            if (beatTime >= 2f && beatTime <= 2.3f)
             {
                 RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length), false, Random.Range(0, 3));
+                StartCoroutine(ScoreTextResult(good, 1f));
+            }
+
+            if (beatTime > 2.3f)
+            {
+                RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length), false, Random.Range(0, 3));
+                StartCoroutine(ScoreTextResult(perfect, 1f));
             }
 
 
             //StartCoroutine(DestroyEnemy());
-            StartCoroutine(DestroyBoss());
-            //LeanTween.alpha(enemy, 0, 6);
+            StartCoroutine(DestroyBoss(1f));
         }
         
         if (pulsing)
@@ -145,7 +151,7 @@ public class RhythmCanvas : MonoBehaviour
             count += Time.deltaTime;
             bg[randomBG].gameObject.SetActive(true);
             GameObject arrow = key[randomKey] as GameObject;
-            //arrow.SetActive(true);
+            arrow.SetActive(true);
         }
         else
         {
@@ -165,11 +171,7 @@ public class RhythmCanvas : MonoBehaviour
         pulsing = true;
         //Random UI BG + Random Key Direction
         RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length), true, Random.Range(0, 3));
-
-        //Scales "X" outer circle
-        LeanTween.scale(xCircle.gameObject, bigCircle, 0.15f);
-
-        //Set scaling true
+        LeanTween.scale(xCircle.gameObject, bigCircle, 0.15f);  //Scales "X" outer circle
         scaling = true;
 
         while (scaleCount < 9)
@@ -199,41 +201,29 @@ public class RhythmCanvas : MonoBehaviour
     IEnumerator DestroyEnemy()
     {
         //Enable Text
-        rhythmText.gameObject.SetActive(true);
         ResetRhythmTween();
-        rhythmTextLeanId = LeanTween.scale(rhythmText.gameObject, rhythmTextScale, .75f).setEaseOutElastic().id;
         int id = LeanTween.scale(enemy, xScale/1.5f, 0.9f).id;
         while (LeanTween.isTweening(id))
         {
             yield return null;
         }
-        rhythmText.gameObject.SetActive(false);
         pulsing = false;
         scaling = false;
         enemy.transform.localScale = enemyScale;
         enemy.SetActive(false);
-        //-------------
         //Camera
         smoothCamera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
         smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(2));
-        //-------------
         gameObject.SetActive(false);
     }
 
-    IEnumerator DestroyBoss()
+    IEnumerator DestroyBoss(float wait)
     {
-        //Enable Text
-        rhythmText.gameObject.SetActive(true);
-        ResetRhythmTween();
-        rhythmTextLeanId = LeanTween.scale(rhythmText.gameObject, rhythmTextScale, .75f).setEaseOutElastic().id;
-        int id = LeanTween.scale(Tiger.instance.gameObject, xScale / 2f, 0.9f).id;
-        while (LeanTween.isTweening(id))
-        {
-            yield return null;
-        }
-        rhythmText.gameObject.SetActive(false);
+        LeanTween.scale(Tiger.instance.gameObject, new Vector3(5f, 5f, 5f), 1f);
         pulsing = false;
         scaling = false;
+        yield return new WaitForSeconds(wait);
+        Tiger.instance.gameObject.transform.localScale = new Vector3(1, 1, 1);
         Tiger.instance.gameObject.SetActive(false);
         smoothCamera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
         smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(2));
@@ -244,6 +234,15 @@ public class RhythmCanvas : MonoBehaviour
     {
         if (rhythmTextLeanId != 0)
             LeanTween.cancel(rhythmTextLeanId);
-        rhythmText.transform.localScale = Vector3.one * 0.01f;
     }
+
+    IEnumerator ScoreTextResult(GameObject scoreText, float wait)
+    {
+        scoreText.SetActive(true);
+        LeanTween.scale(scoreText, new Vector3(1.5f, 1.5f, 1.5f), 0.15f);
+        yield return new WaitForSeconds(wait);
+        LeanTween.scale(scoreText, new Vector3(1f, 1f, 1f), 0.15f);
+        scoreText.SetActive(false);
+    }
+
 }
