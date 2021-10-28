@@ -20,13 +20,13 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - _HorizonLineContribution: 0.26
+    - _HorizonLineContribution: 0.56
     - _HorizonLineExponent: 6
     - _SkyGradientExponent: 1
     - _SunDiscContribution: 1
     - _SunDiscExponent: 250000
     - _SunDiscMultiplier: 200
-    - _SunHaloContribution: 1
+    - _SunHaloContribution: 0.52
     - _SunHaloExponent: 50
     - _Title: 0
     - __dirty: 0

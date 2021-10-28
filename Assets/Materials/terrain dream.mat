@@ -9,9 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: terrain dream
   m_Shader: {fileID: 4800000, guid: 7ffc1bc2bbb1ef64f84b552b2d2f0619, type: 3}
-  m_ShaderKeywords: TCP2_OCCLUSION TCP2_RAMP_BANDS TCP2_REFLECTIONS TCP2_REFLECTIONS_FRESNEL
-    TCP2_RIM_LIGHTING TCP2_RIM_LIGHTING_LIGHTMASK TCP2_SHADOW_LIGHT_COLOR TCP2_SHADOW_TEXTURE
-    TCP2_UV_NORMALS_FULL
+  m_ShaderKeywords: TCP2_OCCLUSION TCP2_RAMP_BANDS TCP2_REFLECTIONS_FRESNEL TCP2_RIM_LIGHTING
+    TCP2_RIM_LIGHTING_LIGHTMASK TCP2_SHADOW_LIGHT_COLOR TCP2_SHADOW_TEXTURE TCP2_UV_NORMALS_FULL
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -147,8 +146,8 @@ Material:
     - _ReflectionMapType: 0
     - _ReflectionSmoothness: 0.25
     - _RenderingMode: 0
-    - _RimMax: 1.27
-    - _RimMin: 0.5
+    - _RimMax: 1.98
+    - _RimMin: 0.73
     - _ShadowColorLightAtten: 1
     - _SingleIndirectColor: 0
     - _Smoothness: 0.5
@@ -170,7 +169,7 @@ Material:
     - _UseNormalMap: 0
     - _UseOcclusion: 1
     - _UseOutline: 0
-    - _UseReflections: 1
+    - _UseReflections: 0
     - _UseRim: 1
     - _UseRimLightMask: 1
     - _UseShadowTexture: 1
@@ -178,7 +177,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.3154385, g: 0.3047348, b: 0.6037736, a: 0.50980395}
+    - _BaseColor: {r: 0.54208153, g: 0.5396493, b: 0.6320754, a: 0.50980395}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HColor: {r: 0, g: 0, b: 0, a: 1}
