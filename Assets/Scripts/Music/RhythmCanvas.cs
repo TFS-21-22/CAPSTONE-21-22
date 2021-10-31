@@ -38,16 +38,18 @@ public class RhythmCanvas : MonoBehaviour
     [SerializeField] private GameObject okay;
     [SerializeField] private GameObject miss;
 
-    bool scaling;                   //Button scailing
-    bool pulsing = false;           //Used to check determine beat check
-    float timeBetweenBeats = 3.8f;  
-    float flux = 1.45f;
+    private bool scaling;                   //Button scailing
+    private bool pulsing = false;           //Used to check determine beat check
+    private float timeBetweenBeats = 3.8f;
+    private float flux = 1.85f;
 
-    
-    float beatTime = 0.0f;  //Button press time
-    int scaleCount = 0;     
-    int tempBeat = 0;
-    int rhythmTextLeanId;
+    private bool sequencePressed = false;
+    int arrayIndex;
+
+    private double beatTime = 0.0f;  //Button press time
+    private int scaleCount = 0;
+    private int tempBeat = 0;
+    private int rhythmTextLeanId;
 
     float smoothSpeed = 1f;
 
@@ -83,39 +85,48 @@ public class RhythmCanvas : MonoBehaviour
         Debug.Log(beatTime);
         if (pulsing && Input.GetButtonDown("Jump"))
         {
-            if ( beatTime <= 1.5f)
+            sequencePressed = true;
+
+            Debug.Log(beatTime);
+            if ( beatTime < 1.85f && beatTime >= 0)
             {
-                RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length), false, Random.Range(0, 3));
+                RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length), false);
                 StartCoroutine(ScoreTextResult(miss, 1f));
             }
 
-            if (beatTime > 1.5f && beatTime < 2f)
+            if (beatTime > 1.84f && beatTime < 1.85f)
             {
-                RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length), false, Random.Range(0, 3));
+                RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length), false);
                 StartCoroutine(ScoreTextResult(okay, 1f));
             }
 
-            if (beatTime >= 2f && beatTime <= 2.3f)
+            if (beatTime >= 1.99f && beatTime < 2f)
             {
-                RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length), false, Random.Range(0, 3));
+                RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length), false);
                 StartCoroutine(ScoreTextResult(good, 1f));
             }
 
-            if (beatTime > 2.3f)
+            if (beatTime > 2.2f && beatTime <= 2.3f)
             {
-                RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length), false, Random.Range(0, 3));
+                RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length), false);
                 StartCoroutine(ScoreTextResult(perfect, 1f));
             }
 
 
             //StartCoroutine(DestroyEnemy());
+            if(Tiger.instance.gameObject.activeSelf)
             StartCoroutine(DestroyBoss(1f));
         }
         
         if (pulsing)
             beatTime += Time.deltaTime;
         else
-            beatTime = 0;  
+            beatTime = 0;
+
+        if (xCircle.gameObject.activeSelf)
+            buttonBG[arrayIndex].gameObject.SetActive(true);
+
+       
     }
 
     public void BeatCheck(int beat)
@@ -142,15 +153,13 @@ public class RhythmCanvas : MonoBehaviour
         }
     }
 
-    void RandomBackground(GameObject[] bg, GameObject[] key, int randomBG, int randomDirection, bool active, int randomKey)
+    void RandomBackground(GameObject[] bg, GameObject[] key, int random, int randomDirection, bool active)
     {
-        float count = 0f;
-
+        arrayIndex = random;
         if (active)
         {
-            count += Time.deltaTime;
-            bg[randomBG].gameObject.SetActive(true);
-            GameObject arrow = key[randomKey] as GameObject;
+            bg[random].gameObject.SetActive(true);
+            GameObject arrow = key[random];
             arrow.SetActive(true);
         }
         else
@@ -161,16 +170,13 @@ public class RhythmCanvas : MonoBehaviour
                 key[i].gameObject.SetActive(false);
             }
         }
-        
-
-
     }
 
     IEnumerator ScaleCircle()
     {
         pulsing = true;
         //Random UI BG + Random Key Direction
-        RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length), true, Random.Range(0, 3));
+        RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length), true);
         LeanTween.scale(xCircle.gameObject, bigCircle, 0.15f);  //Scales "X" outer circle
         scaling = true;
 
@@ -187,15 +193,14 @@ public class RhythmCanvas : MonoBehaviour
 
     public void BeatX(int beat)
     {
-        if(pulsing == true)
-        StartCoroutine(XPulse());
+        if(sequencePressed)
+        StartCoroutine(Pulsing());
     }
 
-    IEnumerator XPulse()
+    IEnumerator Pulsing()
     {
-        pulsing = true;
         yield return null;
-        xButton.transform.localScale = xScale;
+        xCircle.transform.localScale = xScale;
     }
 
     IEnumerator DestroyEnemy()
@@ -219,10 +224,15 @@ public class RhythmCanvas : MonoBehaviour
 
     IEnumerator DestroyBoss(float wait)
     {
-        LeanTween.scale(Tiger.instance.gameObject, new Vector3(5f, 5f, 5f), 1f);
+        ResetRhythmTween();
+        int id = LeanTween.scale(Tiger.instance.gameObject, new Vector3(5f, 5f, 5f), 1f).id;
+        while (LeanTween.isTweening(id))
+        {
+            yield return null;
+        }
         pulsing = false;
         scaling = false;
-        yield return new WaitForSeconds(wait);
+
         Tiger.instance.gameObject.transform.localScale = new Vector3(1, 1, 1);
         Tiger.instance.gameObject.SetActive(false);
         smoothCamera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
@@ -238,11 +248,28 @@ public class RhythmCanvas : MonoBehaviour
 
     IEnumerator ScoreTextResult(GameObject scoreText, float wait)
     {
+        if(!scoreText.activeSelf)
         scoreText.SetActive(true);
-        LeanTween.scale(scoreText, new Vector3(1.5f, 1.5f, 1.5f), 0.15f);
-        yield return new WaitForSeconds(wait);
-        LeanTween.scale(scoreText, new Vector3(1f, 1f, 1f), 0.15f);
+
+        ResetRhythmTween();
+        int id = LeanTween.scale(scoreText, new Vector3(2f, 2f, 2f), 1f).id;
+        int id2 = LeanTween.moveY(scoreText, 0.05f, 5f).id;
+
+        while (LeanTween.isTweening(id))
+        {
+            yield return null;
+
+        }
+
+        while (LeanTween.isTweening(id2))
+        {
+            yield return null;
+        }
+
+        if (scoreText.activeSelf)
         scoreText.SetActive(false);
     }
+
+    
 
 }

@@ -58,8 +58,8 @@ public class transition2 : MonoBehaviour
         if (Input.GetButtonDown("Fire2"))
             score -= 1;
 
-        score = scoreSystem.score;
-        scoreMultiplyer = scoreSystem.scoreMulitplyer;
+        //score = scoreSystem.score;
+        //scoreMultiplyer = scoreSystem.scoreMulitplyer;
     }
     /*
     public void MaterialLerp()

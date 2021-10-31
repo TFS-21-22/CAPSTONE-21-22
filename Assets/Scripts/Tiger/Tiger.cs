@@ -129,6 +129,37 @@ public class Tiger : MonoBehaviour
         yield return new WaitForSeconds(wait);
         canShoot = true;
     }
+    IEnumerator MoveTiger(int lane)
+    {
+        if (lane == 0)
+        {
+            //Move to lane position
+            int id = LeanTween.moveX(this.gameObject, -1f, 0.1f).id;
+            while (LeanTween.isTweening(id))
+            {
+                yield return null;
+            }
+            chooseLane = false;
+            canShoot = true;
+        }
+        else if (lane == 1)
+        {
+            //Move to lane position
+            int id = LeanTween.moveX(this.gameObject, 1f, 0.1f).id;
+            while (LeanTween.isTweening(id))
+            {
+                yield return null;
+            }
+            chooseLane = false;
+            canShoot = true;
+        }
+        else
+        {
+            //Move to lane position
+            chooseLane = false;
+            canShoot = true;
+        }
+    }
 
 }
 
