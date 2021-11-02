@@ -23,7 +23,7 @@ public class Strafe : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tiger.SetActive(false);
+        
         rb = GetComponent<Rigidbody>();
     }
 
@@ -33,7 +33,9 @@ public class Strafe : MonoBehaviour
         if (BeatMaster.beatCount == 8 && !enemySequence)
         {
             tiger.SetActive(true);
-            //EnemySequence();
+            Tiger.instance.BossState = Tiger.CurrentState.Move;
+            Tiger.instance.chooseLane = true;
+            
         }
 
         if (BeatMaster.beatCount == 52 && !enemySequence)

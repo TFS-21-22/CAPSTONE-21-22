@@ -21,6 +21,7 @@ public class Wisp : MonoBehaviour
 
     public void WispMovement()
     {
+        /*
        if (Vector3.Distance(wayPoints[current].transform.position, transform.position) < wPRadius)
        {
             current++;
@@ -30,6 +31,7 @@ public class Wisp : MonoBehaviour
             }  
        }
        transform.position = Vector3.MoveTowards(transform.position, wayPoints[current].transform.position, Time.deltaTime * speed);
+        */
     }
 }
 
