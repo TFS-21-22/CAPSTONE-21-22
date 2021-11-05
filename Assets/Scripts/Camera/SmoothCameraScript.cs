@@ -5,6 +5,7 @@ using UnityEditor;
 
 public class SmoothCameraScript : MonoBehaviour
 {
+    [SerializeField] private Transform cameraLookPoint;
 
     public Transform target;
 
@@ -45,6 +46,8 @@ public class SmoothCameraScript : MonoBehaviour
 
     private void Update()
     {
+        transform.LookAt(cameraLookPoint);
+
         if (Input.GetKeyDown(KeyCode.E) && !transitioning)
         {
             transitioning = true;

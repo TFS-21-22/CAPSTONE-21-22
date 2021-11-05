@@ -33,6 +33,7 @@ public class Tiger : MonoBehaviour
 
     public enum CurrentState
     {
+        Idle,
         Move,
         Shoot,
         ButtonSquence,
@@ -48,6 +49,8 @@ public class Tiger : MonoBehaviour
 
         strafeScript = FindObjectOfType<Strafe>();
 
+        BossState = CurrentState.Idle;
+
         //Instantiate projectiles on first frame
         for (int i = 0; i < 10; i++)
         {
@@ -62,8 +65,6 @@ public class Tiger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
             
         if (shotsFired >= 5)
         {
@@ -74,12 +75,15 @@ public class Tiger : MonoBehaviour
 
         switch (BossState)
         {
+            case CurrentState.Idle:
+                
+                break;
             case CurrentState.ButtonSquence:
                 strafeScript.BossButtonSeuqence();
                 break;
             case CurrentState.Move:
                 if(chooseLane)
-                StartCoroutine(MoveTiger(Random.Range(0, 3)));
+                StartCoroutine(MoveTiger(1f));
                 break;
             case CurrentState.Shoot:
                 if (shotsFired < 5 && canShoot)
@@ -115,37 +119,33 @@ public class Tiger : MonoBehaviour
     IEnumerator Shoot(float wait)
     {
         shotsFired++;
-        Debug.Log(shotsFired);
+        GetProjectile();
         yield return new WaitForSeconds(wait);
         canShoot = true;
     }
-    IEnumerator MoveTiger(int lane)
+    IEnumerator MoveTiger(float wait)
     {
+        int lane = Random.Range(0, 4);
+
         Debug.Log("Move");
         if (lane == 0)
         {
             //Move to lane position
             RhythmCanvas.instance.ResetRhythmTween();
-            int id = LeanTween.moveX(this.gameObject, -1f, 1f).id;
-            while (LeanTween.isTweening(id))
-            {
-                yield return null;
-            }
+            LeanTween.moveX(this.gameObject, -1f, 1f);
             chooseLane = false;
             canShoot = true;
+            yield return new WaitForSecondsRealtime(wait);
             BossState = CurrentState.Shoot;
         }
         else if (lane == 1)
         {
             //Move to lane position
             RhythmCanvas.instance.ResetRhythmTween();
-            int id = LeanTween.moveX(this.gameObject, 1f, 1f).id;
-            while (LeanTween.isTweening(id))
-            {
-                yield return null;
-            }
+            LeanTween.moveX(this.gameObject, 1f, 1f);
             chooseLane = false;
             canShoot = true;
+            yield return new WaitForSecondsRealtime(wait);
             BossState = CurrentState.Shoot;
 
         }
@@ -154,6 +154,7 @@ public class Tiger : MonoBehaviour
             //Move to lane position
             chooseLane = false;
             canShoot = true;
+            yield return new WaitForSecondsRealtime(wait);
             BossState = CurrentState.Shoot;
 
         }

@@ -58,6 +58,8 @@ public class RhythmCanvas : MonoBehaviour
 
     float timeDebug;
 
+    int bossButtonPresses = 0;
+
     void Awake()
     {
         if(instance == null)
@@ -77,6 +79,7 @@ public class RhythmCanvas : MonoBehaviour
         scaling = false;
         BeatMaster.Beat += BeatCheck;
         BeatMaster.Beat += BeatX;
+        BeatMaster.Beat += BossBattle;
     }
 
     // Update is called once per frame
@@ -86,7 +89,6 @@ public class RhythmCanvas : MonoBehaviour
         if (pulsing && Input.GetButtonDown("Jump"))
         {
             sequencePressed = true;
-
             if ( beatTime < 1.85f && beatTime >= 0)
             {
                 RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
@@ -139,11 +141,6 @@ public class RhythmCanvas : MonoBehaviour
         else
             beatTime = 0;
 
-        
-
-
-
-
     }
 
     public void BeatCheck(int beat)
@@ -169,6 +166,10 @@ public class RhythmCanvas : MonoBehaviour
             tempBeat = 0;
         }
     }
+
+
+
+
 
     public void RandomBackground(GameObject[] bg, GameObject[] key, int random, int randomDirection)
     {
@@ -216,6 +217,14 @@ public class RhythmCanvas : MonoBehaviour
         StartCoroutine(Pulsing());
     }
 
+    public void BossBattle(int beat)
+    {
+        if(Tiger.instance.BossState == Tiger.CurrentState.ButtonSquence)
+        {
+            //StartCoroutine(BossButtonPress(Random.Range(0,4), Random.Range(0, 2)));
+        }
+    }
+
     IEnumerator Pulsing()
     {
         yield return null;
@@ -251,7 +260,7 @@ public class RhythmCanvas : MonoBehaviour
         }
         pulsing = false;
         scaling = false;
-
+        sequencePressed = false;
         Tiger.instance.gameObject.transform.localScale = new Vector3(1, 1, 1);
         Tiger.instance.gameObject.SetActive(false);
         smoothCamera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
@@ -289,6 +298,25 @@ public class RhythmCanvas : MonoBehaviour
         scoreText.SetActive(false);
     }
 
+    IEnumerator BossButtonPress(int wait, int random)
+    {
+        yield return null;
+        /*
+        bool spawnButton = false;
+
+        if (random == 0)
+            spawnButton = true;
+        else
+            spawnButton = false;
+
+        if(spawnButton)
+        {
+            //Instantiate
+        }
+        */
+    }
     
+
+
 
 }

@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class Strafe : MonoBehaviour
 {
-    [SerializeField] Image xCricle;
-    [SerializeField] Image xButton;
-    [SerializeField] GameObject tiger;
+    [SerializeField] private Image xCricle;
+    [SerializeField] private Image xButton;
+    [SerializeField] private GameObject tiger;
 
     public float boundx = 2.25f;
     public float speed = 3.0f;
@@ -15,6 +15,7 @@ public class Strafe : MonoBehaviour
     public GameObject enemy;
     public Canvas rhythmCanvas;
     public bool enemySequence = false;
+    public bool bossSequence = false;
 
     public SmoothCameraScript camera;
 
@@ -30,29 +31,27 @@ public class Strafe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (BeatMaster.beatCount == 8 && !enemySequence)
         {
-            tiger.SetActive(true);
-            Tiger.instance.BossState = Tiger.CurrentState.Move;
-            Tiger.instance.chooseLane = true;
             
         }
 
         if (BeatMaster.beatCount == 52 && !enemySequence)
         {
-            tiger.SetActive(true);
+            TigerSequence();
         }
 
         if (BeatMaster.beatCount == 74 && !enemySequence)
         {
-            tiger.SetActive(true);
+            
         }
 
         if (!enemy.activeSelf)
             enemySequence = false;
 
         if (!tiger.activeSelf)
-            enemySequence = false;
+            bossSequence = false;
 
         //Movement
         float h = Input.GetAxis("Horizontal") * speed;
@@ -73,10 +72,17 @@ public class Strafe : MonoBehaviour
         rhythmCanvas.gameObject.SetActive(true);                                //Set Button Squence Active
         camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;  //Camera Movement
         camera.StartCoroutine(camera.CameraSwitch(3));                          //Camera Switch
-        enemySequence = true;                                                   //Set sqeuence true
+        bossSequence = true;                                                   //Set sqeuence true
     }
+    void TigerSequence()
+    {
+        Tiger.instance.gameObject.SetActive(true);
+        camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;
+        Tiger.instance.BossState = Tiger.CurrentState.Move;
+        camera.StartCoroutine(camera.CameraSwitch(3));
+        enemySequence = true;
 
-
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -86,6 +92,8 @@ public class Strafe : MonoBehaviour
             rb.AddForce(transform.up * 8);
         }
     }
+
+    
 
     
 }
