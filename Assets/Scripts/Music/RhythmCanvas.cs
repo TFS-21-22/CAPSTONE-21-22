@@ -246,7 +246,7 @@ public class RhythmCanvas : MonoBehaviour
         enemy.SetActive(false);
         //Camera
         smoothCamera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
-        smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(2));
+        smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(3));
         gameObject.SetActive(false);
     }
 
@@ -264,7 +264,7 @@ public class RhythmCanvas : MonoBehaviour
         Tiger.instance.gameObject.transform.localScale = new Vector3(1, 1, 1);
         Tiger.instance.gameObject.SetActive(false);
         smoothCamera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
-        smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(2));
+        smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(3));
         gameObject.SetActive(false);
     }
 
