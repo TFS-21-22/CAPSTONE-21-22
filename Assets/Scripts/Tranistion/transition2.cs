@@ -31,13 +31,13 @@ public class transition2 : MonoBehaviour
             lerpTime = 0;
             StartCoroutine(MatLerp(material1, material2));
             dreamState = true;
-            // MaterialLerp();
+            MaterialLerp();
 
-            // ping-pong between the materials over the duration
+            ////ping - pong between the materials over the duration
             //float lerp = Mathf.PingPong(Time.time, duration) / duration;
             //rend.material.Lerp(material1, material2, lerpTime / duration);
             //lerpTime += Time.deltaTime;
-            
+
         }
 
         if(scoreMultiplyer <= 1 && dreamState == true)
@@ -45,8 +45,8 @@ public class transition2 : MonoBehaviour
             lerpTime = 0;
             StartCoroutine(MatLerp(material2, material1));
             dreamState = false;
-            //float lerp = Mathf.PingPong(Time.time, duration) / duration;
-            //rend.material.Lerp(material2, material1, lerp);
+         
+            rend.material.Lerp(material2, material1, lerpTime);
         } 
   
         if (Input.GetButtonDown("Fire1"))
@@ -58,16 +58,16 @@ public class transition2 : MonoBehaviour
         if (Input.GetButtonDown("Fire2"))
             score -= 1;
 
-        //score = scoreSystem.score;
-        //scoreMultiplyer = scoreSystem.scoreMulitplyer;
+        score = scoreSystem.score;
+        scoreMultiplyer = scoreSystem.scoreMulitplyer;
     }
-    /*
+    
     public void MaterialLerp()
     {
         float lerp = Time.time / 20;
         rend.material.Lerp(material1, material2, lerp);
     }
-    */
+    
     IEnumerator MatLerp(Material material1, Material material2)
     {
         lerpTime = 0;

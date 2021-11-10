@@ -24,7 +24,11 @@ public class ScoreSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        if (!transitionActive && timer < 5.0f)
+        {
+            timer = 5.0f;
+            //StartCoroutine(ScoreAdder());
+        }
     }
 
 
@@ -38,7 +42,7 @@ public class ScoreSystem : MonoBehaviour
         timer = 0f;
         while (time < timer)
         {
-            time += Time.deltaTime;
+            time += Time.fixedDeltaTime;
             yield return null;
         }
     }
@@ -47,11 +51,13 @@ public class ScoreSystem : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Lily"))
         {
-            transitionActive = true;
+           // transitionActive = true;
             score += 1;
             scoreMulitplyer += 1;
             timer += 5.0f;
             StartCoroutine(ScoreAdder());
+
+           
         }
     }
 }
