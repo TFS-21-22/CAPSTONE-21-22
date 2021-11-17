@@ -9703,6 +9703,7 @@ GameObject:
   - component: {fileID: 3073026458252952929}
   - component: {fileID: 182192770}
   - component: {fileID: 182192776}
+  - component: {fileID: 6073746823946589028}
   - component: {fileID: 3073026458252952931}
   m_Layer: 0
   m_Name: Cube
@@ -9835,6 +9836,22 @@ MonoBehaviour:
   time: 0
   timer: 5
   transition: {fileID: 0}
+--- !u!114 &6073746823946589028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4033822839321833552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 953e9b4df80c45244be4d0e735e9930b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 5
+  timeZeroToMax: 2
+  acelRatePerSecond: 0
+  velocity: 0
 --- !u!114 &3073026458252952931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9856,6 +9873,7 @@ MonoBehaviour:
   enemy: {fileID: 0}
   rhythmCanvas: {fileID: 0}
   enemySequence: 0
+  bossSequence: 0
   camera: {fileID: 0}
 --- !u!64 &39005262
 MeshCollider:

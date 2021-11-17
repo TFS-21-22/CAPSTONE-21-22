@@ -17,6 +17,11 @@ public class Tiger : MonoBehaviour
     int shotsFired = 0;
     bool canShoot = false;
     public bool chooseLane = true;
+    bool chooseInt = false;
+    int chosenLane = 0;
+
+    float lerpDuration = 4f;
+    
 
     void Awake()
     {
@@ -82,7 +87,6 @@ public class Tiger : MonoBehaviour
                 strafeScript.BossButtonSeuqence();
                 break;
             case CurrentState.Move:
-                if(chooseLane)
                 StartCoroutine(MoveTiger(1f));
                 break;
             case CurrentState.Shoot:
@@ -125,39 +129,46 @@ public class Tiger : MonoBehaviour
     }
     IEnumerator MoveTiger(float wait)
     {
-        int lane = Random.Range(0, 4);
-
-        Debug.Log("Move");
-        if (lane == 0)
+        chooseInt = true;
+        if(chooseInt)
         {
-            //Move to lane position
-            RhythmCanvas.instance.ResetRhythmTween();
-            LeanTween.moveX(this.gameObject, -1f, 1f);
-            chooseLane = false;
-            canShoot = true;
-            yield return new WaitForSecondsRealtime(wait);
-            BossState = CurrentState.Shoot;
+            chosenLane = RandomLane();
+            chooseInt = false;
         }
-        else if (lane == 1)
-        {
-            //Move to lane position
-            RhythmCanvas.instance.ResetRhythmTween();
-            LeanTween.moveX(this.gameObject, 1f, 1f);
-            chooseLane = false;
-            canShoot = true;
-            yield return new WaitForSecondsRealtime(wait);
-            BossState = CurrentState.Shoot;
 
+        Debug.Log(chosenLane);
+
+        if (chosenLane == 1)
+        {
+            
+            int id = LeanTween.moveLocalX(this.gameObject, 2f, 1).id;
+
+            while (LeanTween.isTweening(id))
+            {
+                yield return null;
+            }
+
+            BossState = CurrentState.Shoot;
         }
         else
         {
-            //Move to lane position
-            chooseLane = false;
-            canShoot = true;
-            yield return new WaitForSecondsRealtime(wait);
+
+            int id = LeanTween.moveLocalX(this.gameObject, -2f, 1).id;
+
+            while (LeanTween.isTweening(id))
+            {
+                yield return null;
+            }
+
             BossState = CurrentState.Shoot;
 
         }
+
+    }
+
+    int RandomLane()
+    {
+        return Random.Range(0, 2);
     }
 
 }

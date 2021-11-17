@@ -21,13 +21,8 @@ public class MovementCalculation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         distance = Vector3.Distance(player.transform.position, endPoint.transform.position);
         speed = distance / (229 - Time.time);
         PathFollower.instance.speed = speed;
-
-        
-
-
     }
 }
