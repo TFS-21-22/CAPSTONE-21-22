@@ -10,9 +10,10 @@ public class transition2 : MonoBehaviour
     public float scoreMultiplyer = 1;
     public Material material1;
     public Material material2;
-    float lerpDuration = 2.0f;
+    float lerpDuration = 5.0f;
     float lerpTime = 0;
     bool dreamState = false;
+    bool changedState = true;
     Renderer rend;
 
     public ScoreSystem scoreSystem;
@@ -28,10 +29,10 @@ public class transition2 : MonoBehaviour
     {
         if (scoreMultiplyer > 1 && !dreamState)
         {
-            lerpTime = 0;
-            StartCoroutine(MatLerp(material1, material2));
+            //lerpTime = 0;
+            //StartCoroutine(MatLerp(material1, material2));
             dreamState = true;
-            MaterialLerp();
+            //MaterialLerp(material1, material2);
 
             ////ping - pong between the materials over the duration
             //float lerp = Mathf.PingPong(Time.time, duration) / duration;
@@ -42,11 +43,10 @@ public class transition2 : MonoBehaviour
 
         if(scoreMultiplyer <= 1 && dreamState == true)
         {
-            lerpTime = 0;
-            StartCoroutine(MatLerp(material2, material1));
+            //lerpTime = 0;
+            //StartCoroutine(MatLerp(material2, material1));
             dreamState = false;
-         
-            rend.material.Lerp(material2, material1, lerpTime);
+            //MaterialLerp(material2, material1);
         } 
   
         if (Input.GetButtonDown("Fire1"))
@@ -58,28 +58,66 @@ public class transition2 : MonoBehaviour
         if (Input.GetButtonDown("Fire2"))
             score -= 1;
 
+
+        if (dreamState)
+        {
+            if (rend.material.mainTexture == material1.mainTexture)
+                changedState = false;
+
+            if (rend.material.mainTexture == material2.mainTexture)
+                changedState = true;
+
+            MaterialLerp(material1, material2);
+        }
+        else
+        {
+            if (rend.material.mainTexture == material2.mainTexture)
+                changedState = false;
+
+            if (rend.material.mainTexture == material1.mainTexture)
+                changedState = true;
+
+            MaterialLerp(material2, material1);
+        }
+
         score = scoreSystem.score;
         scoreMultiplyer = scoreSystem.scoreMulitplyer;
     }
     
-    public void MaterialLerp()
-    {
-        float lerp = Time.time / 20;
-        rend.material.Lerp(material1, material2, lerp);
+    public void MaterialLerp(Material _mat1, Material _mat2)
+    { 
+        if (!changedState)
+        {
+            lerpTime += Time.deltaTime;
+            float lerp = lerpTime / lerpDuration;
+            rend.material.Lerp(_mat1, _mat2, lerp);
+        }
+
+        if (lerpTime > lerpDuration)
+        {
+            lerpTime = 0;
+            changedState = true;
+            rend.material = _mat2;
+        }
+
     }
     
-    IEnumerator MatLerp(Material material1, Material material2)
-    {
-        lerpTime = 0;
+    //IEnumerator MatLerp(Material material1, Material material2)
+    //{
+    //    lerpTime = 0;
 
-        while(lerpTime < lerpDuration)
-        {
-            rend.material.Lerp(material1, material2, lerpTime / lerpDuration);
-            lerpTime += Time.deltaTime;
-            yield return null;
-        }
-        rend.material = material2;
-        
-    }
+    //    while(lerpTime < lerpDuration)
+    //    {
+    //        rend.material.Lerp(material1, material2, lerpTime / lerpDuration);
+    //        lerpTime += Time.deltaTime;
+           
+    //    }
+    //    rend.material = material2;
+
+    //    yield return null;
+    //}
+
+
+
 
 }
