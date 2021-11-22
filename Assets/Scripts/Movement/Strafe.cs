@@ -34,7 +34,7 @@ public class Strafe : MonoBehaviour
 
         if (BeatMaster.beatCount == 8 && !enemySequence)
         {
-            TigerSequence();
+            //TigerSequence();
         }
 
         if (BeatMaster.beatCount == 52 && !enemySequence)
@@ -71,7 +71,7 @@ public class Strafe : MonoBehaviour
     {
         rhythmCanvas.gameObject.SetActive(true);                                //Set Button Squence Active
         camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;  //Camera Movement
-        //camera.StartCoroutine(camera.CameraSwitch(3));                          //Camera Switch      //CAUSES CAMERA JITTER, what is the point of this if we already have tiger sequence?
+        //camera.StartCoroutine(camera.CameraSwitch(3));                        //Camera Switch      //CAUSES CAMERA JITTER, what is the point of this if we already have tiger sequence?
         bossSequence = true;                                                   //Set sqeuence true
     }
     void TigerSequence()
