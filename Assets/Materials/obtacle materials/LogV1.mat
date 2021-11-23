@@ -147,19 +147,19 @@ Material:
     - _OutlineWidth: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
-    - _RampBands: 12
+    - _RampBands: 1
     - _RampBandsSmoothing: 0.1
     - _RampOffset: 0
     - _RampScale: 1
-    - _RampSmoothing: 0.48
-    - _RampThreshold: 0.75
+    - _RampSmoothing: 0.199
+    - _RampThreshold: 0.713
     - _RampType: 3
     - _ReceiveShadows: 1
     - _ReceiveShadowsOff: 1
     - _ReflectionMapType: 0
     - _ReflectionSmoothness: 0.5
     - _RenderingMode: 0
-    - _RimMax: 1
+    - _RimMax: 2
     - _RimMin: 0.5
     - _ShadowColorLightAtten: 1
     - _SingleIndirectColor: 0
