@@ -34,7 +34,7 @@ public class Strafe : MonoBehaviour
 
         if (BeatMaster.beatCount == 8 && !enemySequence)
         {
-            //TigerSequence();
+            TigerSequence();
         }
 
         if (BeatMaster.beatCount == 52 && !enemySequence)

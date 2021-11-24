@@ -39,7 +39,7 @@ public class ScoreSystem : MonoBehaviour
         scoreMulitplyer = 1;
         transitionActive = false;
         time = 0f;
-        timer = 0f;
+        timer = 5.0f;
         while (time < timer)
         {
             time += Time.fixedDeltaTime;
