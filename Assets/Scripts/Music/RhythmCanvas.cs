@@ -79,7 +79,6 @@ public class RhythmCanvas : MonoBehaviour
         scaling = false;
         BeatMaster.Beat += BeatCheck;
         BeatMaster.Beat += BeatX;
-        BeatMaster.Beat += BossBattle;
     }
 
     // Update is called once per frame
@@ -206,23 +205,12 @@ public class RhythmCanvas : MonoBehaviour
             xCircle.transform.localScale -= new Vector3(flux * Time.deltaTime, flux * Time.deltaTime, flux * Time.deltaTime);
             yield return null;
         }
-
-        
     }
-
 
     public void BeatX(int beat)
     {
         if(sequencePressed)
         StartCoroutine(Pulsing());
-    }
-
-    public void BossBattle(int beat)
-    {
-        if(Tiger.instance.BossState == Tiger.CurrentState.ButtonSquence)
-        {
-            //StartCoroutine(BossButtonPress(Random.Range(0,4), Random.Range(0, 2)));
-        }
     }
 
     IEnumerator Pulsing()
@@ -297,26 +285,4 @@ public class RhythmCanvas : MonoBehaviour
         if (scoreText.activeSelf)
         scoreText.SetActive(false);
     }
-
-    IEnumerator BossButtonPress(int wait, int random)
-    {
-        yield return null;
-        /*
-        bool spawnButton = false;
-
-        if (random == 0)
-            spawnButton = true;
-        else
-            spawnButton = false;
-
-        if(spawnButton)
-        {
-            //Instantiate
-        }
-        */
-    }
-    
-
-
-
 }

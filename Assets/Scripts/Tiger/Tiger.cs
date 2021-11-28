@@ -15,7 +15,7 @@ public class Tiger : MonoBehaviour
     public Queue<GameObject> pool = new Queue<GameObject>();
 
     int shotsFired = 0;
-    bool canShoot = false;
+    bool canShoot = true;
     public bool chooseLane = true;
     bool chooseInt = false;
     int chosenLane = 0;
@@ -50,6 +50,8 @@ public class Tiger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        chosenLane = RandomLane();
+
         gameObject.SetActive(false);
 
         strafeScript = FindObjectOfType<Strafe>();
@@ -70,8 +72,8 @@ public class Tiger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            
-        if (shotsFired >= 5)
+        
+        if (shotsFired >= 5 && canShoot)
         {
             BossState = CurrentState.ButtonSquence;
             shotsFired = 0;
@@ -129,15 +131,7 @@ public class Tiger : MonoBehaviour
     }
     IEnumerator MoveTiger(float wait)
     {
-        chooseInt = true;
-        if(chooseInt)
-        {
-            chosenLane = RandomLane();
-            chooseInt = false;
-        }
-
-        Debug.Log(chosenLane);
-
+       
         if (chosenLane == 1)
         {
             
@@ -150,7 +144,7 @@ public class Tiger : MonoBehaviour
 
             BossState = CurrentState.Shoot;
         }
-        else
+        else if(chosenLane == 0)
         {
 
             int id = LeanTween.moveLocalX(this.gameObject, -2f, 1).id;
@@ -162,6 +156,10 @@ public class Tiger : MonoBehaviour
 
             BossState = CurrentState.Shoot;
 
+        }
+        else
+        {
+            BossState = CurrentState.Shoot;
         }
 
     }
