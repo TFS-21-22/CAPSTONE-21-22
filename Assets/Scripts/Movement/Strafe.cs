@@ -89,7 +89,7 @@ public class Strafe : MonoBehaviour
         if (other.gameObject.CompareTag("Obstacle") || other.gameObject.CompareTag("Lily"))
         {
             Destroy(other.gameObject);
-            rb.AddForce(transform.up * 8);
+            //rb.AddForce(transform.up * 8);
         }
     }
 
