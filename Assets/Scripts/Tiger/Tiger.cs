@@ -72,7 +72,8 @@ public class Tiger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(chooseLane);
+        transform.LookAt(player.transform);
         if (shotsFired >= 5 && canShoot)
         {
             BossState = CurrentState.ButtonSquence;
@@ -131,7 +132,7 @@ public class Tiger : MonoBehaviour
     }
     IEnumerator MoveTiger(float wait)
     {
-       
+        
         if (chosenLane == 1)
         {
             
@@ -166,7 +167,7 @@ public class Tiger : MonoBehaviour
 
     int RandomLane()
     {
-        return Random.Range(0, 2);
+        return Random.Range(0, 4);
     }
 
 }
