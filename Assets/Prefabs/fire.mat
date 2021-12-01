@@ -10,7 +10,7 @@ Material:
   m_Name: fire
   m_Shader: {fileID: -6465566751694194690, guid: 5b5be5d9fa3525b4cb0a94dda4e41a42, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 6
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -76,9 +76,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_392473c1e40b425fb07fe384603c06a6: 1.55
-    - Vector1_5be53b6e6a454c96b6231cd91b84757b: 2.58
-    - Vector1_6a9d2cf8a78b422c9ddb42a814359084: 1.53
+    - Vector1_392473c1e40b425fb07fe384603c06a6: 1.79
+    - Vector1_5be53b6e6a454c96b6231cd91b84757b: 3.3
+    - Vector1_6a9d2cf8a78b422c9ddb42a814359084: 0.78
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
