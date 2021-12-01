@@ -883,7 +883,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1357002027
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1009,6 +1009,7 @@ GameObject:
   - component: {fileID: 1397181810}
   - component: {fileID: 1397181812}
   - component: {fileID: 1397181811}
+  - component: {fileID: 1397181813}
   m_Layer: 5
   m_Name: LoadingSlider
   m_TagString: Untagged
@@ -1074,6 +1075,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397181809}
   m_CullTransparentMesh: 1
+--- !u!114 &1397181813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397181809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 613038afdfdfaf642b5fc45630e4b940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadingScreen: {fileID: 1397181809}
+  slider: {fileID: 376476267}
+  progressText: {fileID: 696556047}
 --- !u!1 &1526291865
 GameObject:
   m_ObjectHideFlags: 0
