@@ -9,6 +9,8 @@ public class Strafe : MonoBehaviour
     [SerializeField] private Image xButton;
     [SerializeField] private GameObject tiger;
 
+    Vector2 input;
+
     public float boundx = 2.25f;
     public float speed = 3.0f;
     public Transform follow;
@@ -34,7 +36,7 @@ public class Strafe : MonoBehaviour
 
         if (BeatMaster.beatCount == 8 && !enemySequence)
         {
-            TigerSequence();
+            //TigerSequence();
         }
 
         if (BeatMaster.beatCount == 52 && !enemySequence)
@@ -53,6 +55,7 @@ public class Strafe : MonoBehaviour
         if (!tiger.activeSelf)
             bossSequence = false;
 
+        
         //Movement
         float h = Input.GetAxis("Horizontal") * speed;
         transform.Translate(h * Time.deltaTime, 0, 0);
