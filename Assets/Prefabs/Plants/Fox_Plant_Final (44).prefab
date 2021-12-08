@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7011658697025503668}
   - component: {fileID: 6260480647617629713}
   - component: {fileID: 8143993236560820955}
+  - component: {fileID: 476808406708522039}
   m_Layer: 0
   m_Name: Fox_Plant_Final (44)
   m_TagString: Untagged
@@ -25,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7639717690001300238}
-  m_LocalRotation: {x: 0.002894435, y: -0.18738092, z: 0.98170274, w: 0.033760373}
+  m_LocalRotation: {x: 0.0028980076, y: -0.18737648, z: 0.9817036, w: 0.03376015}
   m_LocalPosition: {x: 8.967772, y: -27.260498, z: -1.7069937}
-  m_LocalScale: {x: 0.4435959, y: 0.44359568, z: 0.44359574}
+  m_LocalScale: {x: 1.0566927, y: 1.0566921, z: 1.0566918}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -65.471, y: -27.545, z: 205.805}
+  m_LocalEulerAnglesHint: {x: 21.598, y: -0.429, z: 175.979}
 --- !u!33 &6260480647617629713
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -81,3 +82,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &476808406708522039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7639717690001300238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1315e459894b1b4a9440ce6dd93b65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  scoreMultiplyer: 1
+  material1: {fileID: 2100000, guid: c83f437e37b4d9944a3be17c567ed568, type: 2}
+  material2: {fileID: 2100000, guid: dcb636ae847d83340a7b515d7b4743bf, type: 2}
+  player: {fileID: 0}
+  scoreSystem: {fileID: 0}

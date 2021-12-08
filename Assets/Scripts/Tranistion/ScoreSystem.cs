@@ -34,12 +34,12 @@ public class ScoreSystem : MonoBehaviour
 
     IEnumerator ScoreAdder()
     {
-        score *= scoreMulitplyer;
+        score += scoreMulitplyer;
         yield return new WaitForSeconds(timer);
         scoreMulitplyer = 1;
         transitionActive = false;
         time = 0f;
-        timer = 5.0f;
+        timer += 5.0f;
         while (time < timer)
         {
             time += Time.fixedDeltaTime;
@@ -57,6 +57,10 @@ public class ScoreSystem : MonoBehaviour
             timer += 5.0f;
             StartCoroutine(ScoreAdder());
 
+            if(scoreMulitplyer > 3.0f)
+            {
+                scoreMulitplyer = 3.0f;
+            }
            
         }
     }
