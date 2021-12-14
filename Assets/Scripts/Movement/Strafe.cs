@@ -66,7 +66,7 @@ public class Strafe : MonoBehaviour
         enemy.SetActive(true);                                                  //Set enemy true
         rhythmCanvas.gameObject.SetActive(true);                                //Set Rythm Cavas Active
         camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetRight; //Camera Movement
-        camera.StartCoroutine(camera.CameraSwitch(3));                          //Camera Switch
+        //camera.StartCoroutine(camera.CameraSwitch(3));                          //Camera Switch
         enemySequence = true;                                                   //Enemy sqeuence true
     }
 
@@ -77,6 +77,7 @@ public class Strafe : MonoBehaviour
         //camera.StartCoroutine(camera.CameraSwitch(3));                        //Camera Switch      //CAUSES CAMERA JITTER, what is the point of this if we already have tiger sequence?
         bossSequence = true;                                                   //Set sqeuence true
     }
+
     void TigerSequence()
     {
         Tiger.instance.gameObject.SetActive(true);

@@ -12,6 +12,8 @@ public class Wisp : MonoBehaviour
     public Rigidbody attackBall;
     private int counter = 0;
 
+
+
     void Start()
     {
         // Keep a note of the time the movement started.

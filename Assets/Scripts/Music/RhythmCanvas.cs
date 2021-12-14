@@ -30,7 +30,7 @@ public class RhythmCanvas : MonoBehaviour
 
     [SerializeField] private GameObject[] buttonBG = new GameObject[4];     //Button Backgrounds
     [SerializeField] private GameObject[] keyDirection = new GameObject[4]; //Arrow Keys
-    public GameObject enemy;
+    public GameObject wisp;
 
     //Score Text
     [SerializeField] private GameObject perfect;
@@ -93,6 +93,9 @@ public class RhythmCanvas : MonoBehaviour
                 RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
                 StartCoroutine(ScoreTextResult(miss, 1f));
 
+                if (wisp.gameObject.activeSelf)
+                    StartCoroutine(DestroyWisp(1f));
+
                 if (Tiger.instance.gameObject.activeSelf)
                     StartCoroutine(DestroyBoss(1f));
             }
@@ -101,6 +104,9 @@ public class RhythmCanvas : MonoBehaviour
             {
                 RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
                 StartCoroutine(ScoreTextResult(okay, 1f));
+
+                if (wisp.gameObject.activeSelf)
+                    StartCoroutine(DestroyWisp(1f));
 
                 if (Tiger.instance.gameObject.activeSelf)
                     StartCoroutine(DestroyBoss(1f));
@@ -111,15 +117,20 @@ public class RhythmCanvas : MonoBehaviour
                 RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
                 StartCoroutine(ScoreTextResult(good, 1f));
 
+                if (wisp.gameObject.activeSelf)
+                    StartCoroutine(DestroyWisp(1f));
+
                 if (Tiger.instance.gameObject.activeSelf)
                     StartCoroutine(DestroyBoss(1f));
-
             }
 
             if (beatTime > 2.2f && beatTime <= 2.3f)
             {
                 RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
                 StartCoroutine(ScoreTextResult(perfect, 1f));
+
+                if (wisp.gameObject.activeSelf)
+                    StartCoroutine(DestroyWisp(1f));
 
                 if (Tiger.instance.gameObject.activeSelf)
                     StartCoroutine(DestroyBoss(1f));
@@ -129,6 +140,9 @@ public class RhythmCanvas : MonoBehaviour
             {
                 RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
                 StartCoroutine(ScoreTextResult(miss, 1f));
+
+                if (wisp.gameObject.activeSelf)
+                    StartCoroutine(DestroyWisp(1f));
 
                 if (Tiger.instance.gameObject.activeSelf)
                     StartCoroutine(DestroyBoss(1f));
@@ -165,10 +179,6 @@ public class RhythmCanvas : MonoBehaviour
             tempBeat = 0;
         }
     }
-
-
-
-
 
     public void RandomBackground(GameObject[] bg, GameObject[] key, int random, int randomDirection)
     {
@@ -223,15 +233,37 @@ public class RhythmCanvas : MonoBehaviour
     {
         //Enable Text
         ResetRhythmTween();
-        int id = LeanTween.scale(enemy, xScale/1.5f, 0.9f).id;
+        int id = LeanTween.scale(wisp, xScale/1.5f, 0.9f).id;
         while (LeanTween.isTweening(id))
         {
             yield return null;
         }
         pulsing = false;
         scaling = false;
-        enemy.transform.localScale = enemyScale;
-        enemy.SetActive(false);
+        wisp.transform.localScale = enemyScale;
+        wisp.SetActive(false);
+        //Camera
+        smoothCamera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
+        smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(3));
+        gameObject.SetActive(false);
+    }
+
+    IEnumerator DestroyWisp(float wait)
+    {
+        //Enable Text
+        ResetRhythmTween();
+        int id = LeanTween.scale(wisp.gameObject, new Vector3(5f, 5f, 5f), 1f).id;
+        while (LeanTween.isTweening(id))
+        {
+            yield return null;
+        }
+        pulsing = false;
+        scaling = false;
+
+        wisp.SetActive(false);
+        wisp = null;
+        sequencePressed = false;
+
         //Camera
         smoothCamera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
         smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(3));
