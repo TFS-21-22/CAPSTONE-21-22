@@ -36,7 +36,7 @@ public class Strafe : MonoBehaviour
 
         if (BeatMaster.beatCount == 8 && !enemySequence)
         {
-            //TigerSequence();
+            TigerSequence();
         }
 
         if (BeatMaster.beatCount == 52 && !enemySequence)
@@ -82,7 +82,6 @@ public class Strafe : MonoBehaviour
     {
         Tiger.instance.gameObject.SetActive(true);
         camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;
-        Tiger.instance.BossState = Tiger.CurrentState.Move;
         camera.StartCoroutine(camera.CameraSwitch(3));
         enemySequence = true;
 

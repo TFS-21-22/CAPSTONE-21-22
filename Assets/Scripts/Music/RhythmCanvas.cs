@@ -38,6 +38,8 @@ public class RhythmCanvas : MonoBehaviour
     [SerializeField] private GameObject okay;
     [SerializeField] private GameObject miss;
 
+    [SerializeField] private GameObject tiger;
+
     private bool scaling;                   //Button scailing
     private bool pulsing = false;           //Used to check determine beat check
     private float timeBetweenBeats = 3.8f;
@@ -136,7 +138,7 @@ public class RhythmCanvas : MonoBehaviour
                     StartCoroutine(DestroyBoss(1f));
             }
 
-            if(beatTime > 3)
+            if(beatTime > 2.3f)
             {
                 RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
                 StartCoroutine(ScoreTextResult(miss, 1f));
@@ -144,7 +146,7 @@ public class RhythmCanvas : MonoBehaviour
                 if (wisp.gameObject.activeSelf)
                     StartCoroutine(DestroyWisp(1f));
 
-                if (Tiger.instance.gameObject.activeSelf)
+                if (tiger.gameObject.activeSelf)
                     StartCoroutine(DestroyBoss(1f));
             }
         }
@@ -185,19 +187,19 @@ public class RhythmCanvas : MonoBehaviour
         
         if (!sequencePressed)
         {
-            Debug.Log("Active");
+            //Debug.Log("Active");
             arrayIndex = random;
             bg[random].gameObject.SetActive(true);
             key[random].gameObject.SetActive(true);
+           
             
         }
 
         if (sequencePressed)
         {
-            Debug.Log("In-Active");
+            //Debug.Log("In-Active");
             bg[arrayIndex].gameObject.SetActive(false);
             key[arrayIndex].gameObject.SetActive(false);
-            //RhythmCanvas.instance.gameObject.SetActive(false);
         }
     }
 
@@ -250,13 +252,6 @@ public class RhythmCanvas : MonoBehaviour
 
     IEnumerator DestroyWisp(float wait)
     {
-        //Enable Text
-        ResetRhythmTween();
-        int id = LeanTween.scale(wisp.gameObject, new Vector3(5f, 5f, 5f), 1f).id;
-        while (LeanTween.isTweening(id))
-        {
-            yield return null;
-        }
         pulsing = false;
         scaling = false;
 
@@ -268,6 +263,15 @@ public class RhythmCanvas : MonoBehaviour
         smoothCamera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
         smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(3));
         gameObject.SetActive(false);
+
+        //Enable Text
+        ResetRhythmTween();
+        int id = LeanTween.scale(wisp.gameObject, new Vector3(5f, 5f, 5f), 1f).id;
+        while (LeanTween.isTweening(id))
+        {
+            yield return null;
+        }
+       
     }
 
     IEnumerator DestroyBoss(float wait)
@@ -278,6 +282,8 @@ public class RhythmCanvas : MonoBehaviour
         {
             yield return null;
         }
+        
+
         pulsing = false;
         scaling = false;
         sequencePressed = false;
@@ -285,7 +291,8 @@ public class RhythmCanvas : MonoBehaviour
         Tiger.instance.gameObject.SetActive(false);
         smoothCamera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
         smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(3));
-        gameObject.SetActive(false);
+        this.gameObject.SetActive(false);
+
     }
 
     public void ResetRhythmTween()

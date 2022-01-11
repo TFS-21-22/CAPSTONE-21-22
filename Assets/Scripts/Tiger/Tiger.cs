@@ -72,19 +72,19 @@ public class Tiger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(chooseLane);
+        Debug.Log(BossState);
+        //Debug.Log(chooseLane);
         transform.LookAt(player.transform);
-        if (shotsFired >= 5 && canShoot)
+
+        if (shotsFired >= 5)
         {
             BossState = CurrentState.ButtonSquence;
-            shotsFired = 0;
-            canShoot = false;
         }
 
         switch (BossState)
         {
             case CurrentState.Idle:
-                
+                StartCoroutine(SwitchState(1f));
                 break;
             case CurrentState.ButtonSquence:
                 strafeScript.BossButtonSeuqence();
@@ -136,7 +136,7 @@ public class Tiger : MonoBehaviour
         if (chosenLane == 1)
         {
             
-            int id = LeanTween.moveLocalX(this.gameObject, 2f, 1).id;
+            int id = LeanTween.moveLocalX(this.gameObject, 2f, 4).id;
 
             while (LeanTween.isTweening(id))
             {
@@ -148,7 +148,7 @@ public class Tiger : MonoBehaviour
         else if(chosenLane == 0)
         {
 
-            int id = LeanTween.moveLocalX(this.gameObject, -2f, 1).id;
+            int id = LeanTween.moveLocalX(this.gameObject, -2f, 4).id;
 
             while (LeanTween.isTweening(id))
             {
@@ -168,6 +168,12 @@ public class Tiger : MonoBehaviour
     int RandomLane()
     {
         return Random.Range(0, 4);
+    }
+
+    IEnumerator SwitchState(float _wait)
+    {
+        yield return new WaitForSeconds(_wait);
+        BossState = CurrentState.Move;
     }
 
 }
