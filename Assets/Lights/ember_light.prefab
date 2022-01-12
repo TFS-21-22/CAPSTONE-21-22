@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2653490265842785850}
   - component: {fileID: 9211876513190132992}
-  - component: {fileID: 2685138363843362223}
+  - component: {fileID: 557928420814151894}
   m_Layer: 0
   m_Name: ember_light
   m_TagString: Untagged
@@ -95,7 +95,7 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &2685138363843362223
+--- !u!114 &557928420814151894
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

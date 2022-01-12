@@ -29,7 +29,6 @@ public class RhythmCanvas : MonoBehaviour
     private Vector3 rhythmTextScale;
 
     [SerializeField] private GameObject[] buttonBG = new GameObject[4];     //Button Backgrounds
-    [SerializeField] private GameObject[] keyDirection = new GameObject[4]; //Arrow Keys
     public GameObject wisp;
 
     //Score Text
@@ -38,8 +37,10 @@ public class RhythmCanvas : MonoBehaviour
     [SerializeField] private GameObject okay;
     [SerializeField] private GameObject miss;
 
+    [SerializeField] private GameObject tiger;
+
     private bool scaling;                   //Button scailing
-    private bool pulsing = false;           //Used to check determine beat check
+    public bool pulsing = false;           //Used to check determine beat check
     private float timeBetweenBeats = 3.8f;
     private float flux = 1.85f;
 
@@ -87,65 +88,57 @@ public class RhythmCanvas : MonoBehaviour
         
         if (pulsing && Input.GetButtonDown("Jump"))
         {
-            sequencePressed = true;
+            xCircle.gameObject.SetActive(false);
+            //sequencePressed = true;
             if ( beatTime < 1.85f && beatTime >= 0)
             {
-                RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
+                RandomBackground(buttonBG, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
                 StartCoroutine(ScoreTextResult(miss, 1f));
 
-                if (wisp.gameObject.activeSelf)
-                    StartCoroutine(DestroyWisp(1f));
-
-                if (Tiger.instance.gameObject.activeSelf)
-                    StartCoroutine(DestroyBoss(1f));
+                //Enemy Destroy
+                StartCoroutine(DestroyWisp(1f));
+                StartCoroutine(DestroyBoss(1f));
             }
 
             if (beatTime > 1.84f && beatTime < 1.85f)
             {
-                RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
+                RandomBackground(buttonBG, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
                 StartCoroutine(ScoreTextResult(okay, 1f));
 
-                if (wisp.gameObject.activeSelf)
-                    StartCoroutine(DestroyWisp(1f));
-
-                if (Tiger.instance.gameObject.activeSelf)
-                    StartCoroutine(DestroyBoss(1f));
+                //Enemy Destroy
+                StartCoroutine(DestroyWisp(1f));
+                StartCoroutine(DestroyBoss(1f));
             }
 
             if (beatTime >= 1.99f && beatTime < 2f)
             {
-                RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
+                RandomBackground(buttonBG, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
                 StartCoroutine(ScoreTextResult(good, 1f));
 
-                if (wisp.gameObject.activeSelf)
-                    StartCoroutine(DestroyWisp(1f));
-
-                if (Tiger.instance.gameObject.activeSelf)
-                    StartCoroutine(DestroyBoss(1f));
+                //Enemy Destroy
+                StartCoroutine(DestroyWisp(1f));
+                StartCoroutine(DestroyBoss(1f));
             }
 
             if (beatTime > 2.2f && beatTime <= 2.3f)
             {
-                RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
+                RandomBackground(buttonBG, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
                 StartCoroutine(ScoreTextResult(perfect, 1f));
 
-                if (wisp.gameObject.activeSelf)
-                    StartCoroutine(DestroyWisp(1f));
-
-                if (Tiger.instance.gameObject.activeSelf)
-                    StartCoroutine(DestroyBoss(1f));
+                //Enemy Destroy
+                StartCoroutine(DestroyWisp(1f));
+                StartCoroutine(DestroyBoss(1f));
             }
 
-            if(beatTime > 3)
+            if(beatTime > 2.3f)
             {
-                RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
+                RandomBackground(buttonBG, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
                 StartCoroutine(ScoreTextResult(miss, 1f));
 
-                if (wisp.gameObject.activeSelf)
-                    StartCoroutine(DestroyWisp(1f));
 
-                if (Tiger.instance.gameObject.activeSelf)
-                    StartCoroutine(DestroyBoss(1f));
+                //Enemy Destroy
+                StartCoroutine(DestroyWisp(1f));
+                StartCoroutine(DestroyBoss(1f));
             }
         }
         
@@ -180,24 +173,19 @@ public class RhythmCanvas : MonoBehaviour
         }
     }
 
-    public void RandomBackground(GameObject[] bg, GameObject[] key, int random, int randomDirection)
+    public void RandomBackground(GameObject[] bg, int random, int randomDirection)
     {
         
         if (!sequencePressed)
         {
-            Debug.Log("Active");
             arrayIndex = random;
             bg[random].gameObject.SetActive(true);
-            key[random].gameObject.SetActive(true);
-            
         }
 
         if (sequencePressed)
         {
-            Debug.Log("In-Active");
+            //Debug.Log("In-Active");
             bg[arrayIndex].gameObject.SetActive(false);
-            key[arrayIndex].gameObject.SetActive(false);
-            //RhythmCanvas.instance.gameObject.SetActive(false);
         }
     }
 
@@ -205,7 +193,7 @@ public class RhythmCanvas : MonoBehaviour
     {
         scaling = true;
         pulsing = true;
-        RandomBackground(buttonBG, keyDirection, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));//Random UI BG + Random Key Direction
+        RandomBackground(buttonBG, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));//Random UI BG + Random Key Direction
         LeanTween.scale(xCircle.gameObject, bigCircle, 0.15f);                                                              //Scales "X" outer circle
         
 
@@ -250,6 +238,7 @@ public class RhythmCanvas : MonoBehaviour
 
     IEnumerator DestroyWisp(float wait)
     {
+
         //Enable Text
         ResetRhythmTween();
         int id = LeanTween.scale(wisp.gameObject, new Vector3(5f, 5f, 5f), 1f).id;
@@ -257,21 +246,24 @@ public class RhythmCanvas : MonoBehaviour
         {
             yield return null;
         }
-        pulsing = false;
-        scaling = false;
-
-        wisp.SetActive(false);
-        wisp = null;
-        sequencePressed = false;
 
         //Camera
         smoothCamera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
         smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(3));
         gameObject.SetActive(false);
+
+        pulsing = false;
+        scaling = false;
+
+        wisp.SetActive(false);
+        wisp = null;
+        //sequencePressed = false;
+
     }
 
     IEnumerator DestroyBoss(float wait)
     {
+        Debug.Log("Disable Tiger");
         ResetRhythmTween();
         int id = LeanTween.scale(Tiger.instance.gameObject, new Vector3(5f, 5f, 5f), 1f).id;
         while (LeanTween.isTweening(id))
@@ -280,12 +272,14 @@ public class RhythmCanvas : MonoBehaviour
         }
         pulsing = false;
         scaling = false;
-        sequencePressed = false;
+        //sequencePressed = false;
         Tiger.instance.gameObject.transform.localScale = new Vector3(1, 1, 1);
         Tiger.instance.gameObject.SetActive(false);
         smoothCamera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
         smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(3));
-        gameObject.SetActive(false);
+        xCircle.gameObject.SetActive(true);
+        this.gameObject.SetActive(false);
+
     }
 
     public void ResetRhythmTween()

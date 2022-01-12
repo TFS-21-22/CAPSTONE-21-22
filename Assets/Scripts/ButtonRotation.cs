@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class ButtonRotation : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float speed = 0f;
+    RectTransform rectTransform;
+
     void Start()
     {
-        
+        rectTransform = GetComponent<RectTransform>();
     }
-
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(Vector3.right * (5 * Time.deltaTime));
+        rectTransform.Rotate(new Vector3(0, 0, 10));
     }
 }
