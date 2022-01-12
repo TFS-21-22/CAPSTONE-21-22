@@ -72,7 +72,7 @@ public class Tiger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(BossState);
+        
         //Debug.Log(chooseLane);
         transform.LookAt(player.transform);
 
