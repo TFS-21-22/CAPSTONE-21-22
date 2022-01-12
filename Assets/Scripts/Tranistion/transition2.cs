@@ -14,7 +14,7 @@ public class transition2 : MonoBehaviour
     float lerpTime = 0;
     bool dreamState = false;
     bool changedState = true;
-    bool treeInView = false;
+    bool objectInView = false;
     Renderer rend;
 
     public GameObject player;
@@ -87,23 +87,20 @@ public class transition2 : MonoBehaviour
         score = scoreSystem.score;
         scoreMultiplyer = scoreSystem.scoreMulitplyer;
 
-        if(player.transform.position.z >= gameObject.transform.position.z)
+        if((player.transform.position.z + 10.0f) >= gameObject.transform.position.z)
         {
-            treeInView = true;          
+            objectInView = true;          
         }
         else
         {
-            treeInView = false;
+            objectInView = false;
         }
 
-        if(treeInView)
+        if(!objectInView)
         {
-            this.enabled = true;
+            transform.parent.gameObject.SetActive(false);
         }
-        else
-        {
-            this.enabled = false;
-        }
+       
     }
     
     public void MaterialLerp(Material _mat1, Material _mat2)
