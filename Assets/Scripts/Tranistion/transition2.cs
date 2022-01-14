@@ -8,14 +8,20 @@ public class transition2 : MonoBehaviour
 
     public float score;
     public float scoreMultiplyer = 1;
+  
     public Material material1;
     public Material material2;
+   
     float lerpDuration = 5.0f;
     float lerpTime = 0;
+    
     bool dreamState = false;
     bool changedState = true;
     bool objectInView = false;
+    
     Renderer rend;
+
+    
 
     public GameObject player;
 
@@ -23,25 +29,21 @@ public class transition2 : MonoBehaviour
     public ScoreSystem scoreSystem;
     void Start()
     {
+
         rend = GetComponent<Renderer>();
 
         // At start, use the first material
         rend.material = material1;
+
+
     }
 
     void Update()
     {
-        if (scoreMultiplyer > 1 && !dreamState)
+       
+        if (scoreMultiplyer >= 30.0f && !dreamState)
         {
-            //lerpTime = 0;
-            //StartCoroutine(MatLerp(material1, material2));
-            dreamState = true;
-            //MaterialLerp(material1, material2);
-
-            ////ping - pong between the materials over the duration
-            //float lerp = Mathf.PingPong(Time.time, duration) / duration;
-            //rend.material.Lerp(material1, material2, lerpTime / duration);
-            //lerpTime += Time.deltaTime;
+            dreamState = true;        
 
         }
 
@@ -54,13 +56,13 @@ public class transition2 : MonoBehaviour
         } 
   
         if (Input.GetButtonDown("Fire1"))
-            score += 1;
+            score += 30;
         
 
 
         
         if (Input.GetButtonDown("Fire2"))
-            score -= 1;
+            score -= 30;
 
 
         if (dreamState)
@@ -96,7 +98,7 @@ public class transition2 : MonoBehaviour
             objectInView = false;
         }
 
-        if(!objectInView)
+        if(!objectInView && !gameObject.CompareTag("Ground"))
         {
             transform.parent.gameObject.SetActive(false);
         }
@@ -121,22 +123,7 @@ public class transition2 : MonoBehaviour
 
     }
     
-    //IEnumerator MatLerp(Material material1, Material material2)
-    //{
-    //    lerpTime = 0;
-
-    //    while(lerpTime < lerpDuration)
-    //    {
-    //        rend.material.Lerp(material1, material2, lerpTime / lerpDuration);
-    //        lerpTime += Time.deltaTime;
-           
-    //    }
-    //    rend.material = material2;
-
-    //    yield return null;
-    //}
-
-
+  
 
 
 }
