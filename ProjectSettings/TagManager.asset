@@ -8,6 +8,7 @@ TagManager:
   - Lily
   - Return
   - Checkpoint
+  - Log
   layers:
   - Default
   - TransparentFX
