@@ -62,7 +62,8 @@ public class ScoreSystem : MonoBehaviour
             collectableHit = true;
             score += 1;
             scoreMulitplyer += 1;
-            timer += 3.0f;
+            timer += 2.0f;
+            time = 0.0f;
             StartCoroutine(ScoreAdder());
 
             if(scoreMulitplyer > 30.0f)

@@ -8,6 +8,8 @@ public class transition2 : MonoBehaviour
 
     public float score;
     public float scoreMultiplyer = 1;
+
+    
   
     public Material material1;
     public Material material2;
@@ -33,8 +35,9 @@ public class transition2 : MonoBehaviour
         rend = GetComponent<Renderer>();
 
         // At start, use the first material
-        rend.material = material1;
+        rend.sharedMaterial = material1;
 
+        
 
     }
 
@@ -67,20 +70,20 @@ public class transition2 : MonoBehaviour
 
         if (dreamState)
         {
-            if (rend.material.mainTexture == material1.mainTexture)
+            if (rend.sharedMaterial.mainTexture == material1.mainTexture)
                 changedState = false;
 
-            if (rend.material.mainTexture == material2.mainTexture)
+            if (rend.sharedMaterial.mainTexture == material2.mainTexture)
                 changedState = true;
 
             MaterialLerp(material1, material2);
         }
         else
         {
-            if (rend.material.mainTexture == material2.mainTexture)
+            if (rend.sharedMaterial.mainTexture == material2.mainTexture)
                 changedState = false;
 
-            if (rend.material.mainTexture == material1.mainTexture)
+            if (rend.sharedMaterial.mainTexture == material1.mainTexture)
                 changedState = true;
 
             MaterialLerp(material2, material1);
@@ -111,14 +114,14 @@ public class transition2 : MonoBehaviour
         {
             lerpTime += Time.deltaTime;
            // float lerp = lerpTime / lerpDuration;
-            rend.material.Lerp(_mat1, _mat2, lerpTime / lerpDuration);
+            rend.sharedMaterial.Lerp(_mat1, _mat2, lerpTime / lerpDuration);
         }
 
         if (lerpTime > lerpDuration)
         {
             lerpTime = 0;
             changedState = true;
-            rend.material = _mat2;
+            rend.sharedMaterial = _mat2;
         }
 
     }
