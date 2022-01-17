@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace PathCreation.Examples
 {
@@ -37,7 +39,7 @@ namespace PathCreation.Examples
         {
             //Debug.Log("Player speed: " + speed);
 
-            if (pathCreator != null)
+            if (pathCreator != null && !PauseMenuManager.instance.isPaused)
             {
                 distanceTravelled += speed * Time.deltaTime;
                 transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);

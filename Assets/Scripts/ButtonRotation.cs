@@ -14,6 +14,7 @@ public class ButtonRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!PauseMenuManager.instance.isPaused)
         rectTransform.Rotate(new Vector3(0, 0, 10));
     }
 }

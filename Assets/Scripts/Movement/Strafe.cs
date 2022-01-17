@@ -122,7 +122,7 @@ public class Strafe : MonoBehaviour
     }
     void OnTriggerStay(Collider other)
     {
-        Debug.Log("AAAAA");
+        //Debug.Log("AAAAA");
         if (other.gameObject.name == "Wall_1")
         {
             stopperL = true;
@@ -140,7 +140,7 @@ public class Strafe : MonoBehaviour
     }
     void OnTriggerExit(Collider other)
     {
-        Debug.Log("AAAAA");
+        //Debug.Log("AAAAA");
         if (other.gameObject.name == "Wall_1")
         {
             stopperL = false;
