@@ -62,7 +62,7 @@ QualitySettings:
     softVegetation: 1
     realtimeReflectionProbes: 1
     billboardsFaceCameraPosition: 1
-    vSyncCount: 0
+    vSyncCount: 1
     lodBias: 1
     maximumLODLevel: 0
     streamingMipmapsActive: 0
@@ -117,7 +117,6 @@ QualitySettings:
   m_PerPlatformDefaultQuality:
     Android: 0
     PS4: 1
-    Server: 0
     Standalone: 1
     Windows Store Apps: 1
     XboxOne: 1

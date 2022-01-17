@@ -8,7 +8,7 @@ public class ScoreSystem : MonoBehaviour
     public float score;
     public float scoreMulitplyer = 1;
 
-    bool transitionActive;
+    bool collectableHit;
 
     public float time;
     public float timer = 5.0f;
@@ -18,48 +18,57 @@ public class ScoreSystem : MonoBehaviour
     void Start()
     {
         score = 0;
-        transitionActive = false;
+        collectableHit = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!transitionActive && timer < 5.0f)
+        if (!collectableHit && timer < 5.0f)
         {
             timer = 5.0f;
             //StartCoroutine(ScoreAdder());
+        }
+
+        if(time >= timer)
+        {
+            time = 0.0f;
+            timer = 5.0f;
+
+            scoreMulitplyer = 1.0f;
+
+            collectableHit = false;
         }
     }
 
 
     IEnumerator ScoreAdder()
     {
-        score += scoreMulitplyer;
-        yield return new WaitForSeconds(timer);
-        scoreMulitplyer = 1;
-        transitionActive = false;
-        time = 0f;
-        timer += 5.0f;
-        while (time < timer)
+        while (time < timer && collectableHit)
         {
             time += Time.fixedDeltaTime;
             yield return null;
         }
+
+        yield return new WaitForSeconds(timer);
+      
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Lily"))
         {
-           // transitionActive = true;
+            collectableHit = true;
             score += 1;
             scoreMulitplyer += 1;
-            timer += 5.0f;
+            timer += 2.0f;
+            time = 0.0f;
             StartCoroutine(ScoreAdder());
 
-            if(scoreMulitplyer > 3.0f)
+            if(scoreMulitplyer > 30.0f)
             {
-                scoreMulitplyer = 3.0f;
+                scoreMulitplyer = 30.0f;
             }
            
         }
