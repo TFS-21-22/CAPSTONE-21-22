@@ -9,15 +9,12 @@ public class Strafe : MonoBehaviour
     [SerializeField] private Image xButton;
     [SerializeField] private GameObject tiger;
 
+    [SerializeField] private AudioSource logCollisionSFX;
+
     Vector2 input;
 
     public float boundx = 2.25f;
     public float speed = 3.0f;
-
-    public bool stopperL;
-    public bool stopperR;
-    public float h;
-
     public Transform follow;
     public GameObject enemy;
     public Canvas rhythmCanvas;
@@ -60,19 +57,9 @@ public class Strafe : MonoBehaviour
         if (!tiger.activeSelf)
             bossSequence = false;
 
-
+        
         //Movement
-        h = Input.GetAxis("Horizontal") * speed;
-        //h = Mathf.Clamp(h, -2, 2);
-
-        if (stopperL && h < 0)
-        {
-            h = 0;
-        }
-        if (stopperR && h > 0)
-        {
-            h = 0;
-        }
+        float h = Input.GetAxis("Horizontal") * speed;
         transform.Translate(h * Time.deltaTime, 0, 0);
     }
 
@@ -110,31 +97,18 @@ public class Strafe : MonoBehaviour
             Destroy(other.gameObject);
             //rb.AddForce(transform.up * 8);
         }
+
+        if (other.gameObject.tag == "Log")
+        {
+            logCollisionSFX.Play(); 
+        }
     }
-    void OnTriggerStay(Collider other)
+
+    void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("AAAAA");
-        if (other.gameObject.name == "Wall_1")
-        {
-            stopperL = true;
-        }
-        if (other.gameObject.name == "Wall_2")
-        {
-            stopperR = true;
-        }
+      
     }
-    void OnTriggerExit(Collider other)
-    {
-        Debug.Log("AAAAA");
-        if (other.gameObject.name == "Wall_1")
-        {
-            stopperL = false;
-        }
-        if (other.gameObject.name == "Wall_2")
-        {
-            stopperR = false;
-        }
-    }
+
 
 
 
