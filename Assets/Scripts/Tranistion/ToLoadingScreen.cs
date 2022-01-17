@@ -9,10 +9,10 @@ public class ToLoadingScreen : MonoBehaviour
     public GameObject loadingScreen;
     public Slider slider;
     public Text progressText;
-
-    public void Start()
+    
+    public void LoadLevel(int sceneIndex)
     {
-        StartCoroutine(LoadAsynchronously(2));
+        StartCoroutine(LoadAsynchronously(sceneIndex));
 
     }
 

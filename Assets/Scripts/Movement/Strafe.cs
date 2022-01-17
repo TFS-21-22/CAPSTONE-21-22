@@ -9,6 +9,8 @@ public class Strafe : MonoBehaviour
     [SerializeField] private Image xButton;
     [SerializeField] private GameObject tiger;
 
+    [SerializeField] private AudioSource logCollisionSFX;
+
     Vector2 input;
 
     public float boundx = 2.25f;
@@ -95,9 +97,19 @@ public class Strafe : MonoBehaviour
             Destroy(other.gameObject);
             //rb.AddForce(transform.up * 8);
         }
+
+        if (other.gameObject.tag == "Log")
+        {
+            logCollisionSFX.Play(); 
+        }
     }
 
-    
+    void OnCollisionEnter(Collision collision)
+    {
+      
+    }
 
-    
+
+
+
 }
