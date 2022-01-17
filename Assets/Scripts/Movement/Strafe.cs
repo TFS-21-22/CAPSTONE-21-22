@@ -9,6 +9,9 @@ public class Strafe : MonoBehaviour
     [SerializeField] private Image xButton;
     [SerializeField] private GameObject tiger;
 
+    [SerializeField] private AudioSource logCollisionSFX;
+
+
     Vector2 input;
 
     public float boundx = 2.25f;
@@ -31,7 +34,7 @@ public class Strafe : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
         rb = GetComponent<Rigidbody>();
     }
 
@@ -46,12 +49,12 @@ public class Strafe : MonoBehaviour
 
         if (BeatMaster.beatCount == 52 && !enemySequence && !bossSequence)
         {
-            
+
         }
 
         if (BeatMaster.beatCount == 74 && !enemySequence && !bossSequence)
         {
-            
+
         }
 
         if (!enemy.activeSelf)
@@ -73,6 +76,7 @@ public class Strafe : MonoBehaviour
         {
             h = 0;
         }
+       
         transform.Translate(h * Time.deltaTime, 0, 0);
     }
 
@@ -121,6 +125,12 @@ public class Strafe : MonoBehaviour
         if (other.gameObject.name == "Wall_2")
         {
             stopperR = true;
+        }
+
+        if (other.gameObject.tag == "Log")
+        {
+            //stopperR = true;
+            logCollisionSFX.Play();
         }
     }
     void OnTriggerExit(Collider other)

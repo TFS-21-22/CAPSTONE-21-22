@@ -63,12 +63,12 @@ public class RhythmCanvas : MonoBehaviour
 
     void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(this);
         }
-        else if(instance != null)
+        else if (instance != null)
         {
             Destroy(this);
         }
@@ -85,12 +85,12 @@ public class RhythmCanvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         if (pulsing && Input.GetButtonDown("Jump"))
         {
             xCircle.gameObject.SetActive(false);
             //sequencePressed = true;
-            if ( beatTime < 1.85f && beatTime >= 0)
+            if (beatTime < 1.85f && beatTime >= 0)
             {
                 RandomBackground(buttonBG, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
                 StartCoroutine(ScoreTextResult(miss, 1f));
@@ -130,7 +130,7 @@ public class RhythmCanvas : MonoBehaviour
                 StartCoroutine(DestroyBoss(1f));
             }
 
-            if(beatTime > 2.3f)
+            if (beatTime > 2.3f)
             {
                 RandomBackground(buttonBG, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
                 StartCoroutine(ScoreTextResult(miss, 1f));
@@ -141,7 +141,7 @@ public class RhythmCanvas : MonoBehaviour
                 StartCoroutine(DestroyBoss(1f));
             }
         }
-        
+
         if (pulsing)
             beatTime += Time.deltaTime;
         else
@@ -152,7 +152,7 @@ public class RhythmCanvas : MonoBehaviour
     public void BeatCheck(int beat)
     {
         //Checks for beat 0
-        if ((beat+3) % 4 == 0 && !pulsing && !scaling)
+        if ((beat + 3) % 4 == 0 && !pulsing && !scaling)
         {
             //Starts scaling outer "X" circle
             StartCoroutine(ScaleCircle());
@@ -160,7 +160,7 @@ public class RhythmCanvas : MonoBehaviour
 
         if (scaling)
         {
-            if(beat != tempBeat)
+            if (beat != tempBeat)
             {
                 scaleCount++;
             }
@@ -175,7 +175,7 @@ public class RhythmCanvas : MonoBehaviour
 
     public void RandomBackground(GameObject[] bg, int random, int randomDirection)
     {
-        
+
         if (!sequencePressed)
         {
             arrayIndex = random;
@@ -195,7 +195,7 @@ public class RhythmCanvas : MonoBehaviour
         pulsing = true;
         RandomBackground(buttonBG, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));//Random UI BG + Random Key Direction
         LeanTween.scale(xCircle.gameObject, bigCircle, 0.15f);                                                              //Scales "X" outer circle
-        
+
 
         while (scaleCount < 9)
         {
@@ -207,8 +207,8 @@ public class RhythmCanvas : MonoBehaviour
 
     public void BeatX(int beat)
     {
-        if(sequencePressed)
-        StartCoroutine(Pulsing());
+        if (sequencePressed)
+            StartCoroutine(Pulsing());
     }
 
     IEnumerator Pulsing()
@@ -221,7 +221,7 @@ public class RhythmCanvas : MonoBehaviour
     {
         //Enable Text
         ResetRhythmTween();
-        int id = LeanTween.scale(wisp, xScale/1.5f, 0.9f).id;
+        int id = LeanTween.scale(wisp, xScale / 1.5f, 0.9f).id;
         while (LeanTween.isTweening(id))
         {
             yield return null;
@@ -290,8 +290,8 @@ public class RhythmCanvas : MonoBehaviour
 
     IEnumerator ScoreTextResult(GameObject scoreText, float wait)
     {
-        if(!scoreText.activeSelf)
-        scoreText.SetActive(true);
+        if (!scoreText.activeSelf)
+            scoreText.SetActive(true);
 
         ResetRhythmTween();
         int id = LeanTween.scale(scoreText, new Vector3(2f, 2f, 2f), 1f).id;
@@ -309,6 +309,6 @@ public class RhythmCanvas : MonoBehaviour
         }
 
         if (scoreText.activeSelf)
-        scoreText.SetActive(false);
+            scoreText.SetActive(false);
     }
 }
