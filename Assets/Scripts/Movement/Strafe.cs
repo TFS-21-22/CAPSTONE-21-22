@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 
 public class Strafe : MonoBehaviour
 {
@@ -9,7 +10,11 @@ public class Strafe : MonoBehaviour
     [SerializeField] private Image xButton;
     [SerializeField] private GameObject tiger;
 
+    //Audio
     [SerializeField] private AudioSource logCollisionSFX;
+
+    //VFX
+    [SerializeField] private VisualEffect obstacleCollisionParticle;
 
 
     Vector2 input;
@@ -129,8 +134,8 @@ public class Strafe : MonoBehaviour
 
         if (other.gameObject.tag == "Log")
         {
-            //stopperR = true;
             logCollisionSFX.Play();
+            obstacleCollisionParticle.Play();
         }
     }
     void OnTriggerExit(Collider other)
