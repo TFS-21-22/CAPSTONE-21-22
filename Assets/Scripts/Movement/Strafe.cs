@@ -13,6 +13,11 @@ public class Strafe : MonoBehaviour
 
     public float boundx = 2.25f;
     public float speed = 3.0f;
+
+    public bool stopperL;
+    public bool stopperR;
+    public float h;
+
     public Transform follow;
     public GameObject enemy;
     public Canvas rhythmCanvas;
@@ -55,9 +60,19 @@ public class Strafe : MonoBehaviour
         if (!tiger.activeSelf)
             bossSequence = false;
 
-        
+
         //Movement
-        float h = Input.GetAxis("Horizontal") * speed;
+        h = Input.GetAxis("Horizontal") * speed;
+        //h = Mathf.Clamp(h, -2, 2);
+
+        if (stopperL && h < 0)
+        {
+            h = 0;
+        }
+        if (stopperR && h > 0)
+        {
+            h = 0;
+        }
         transform.Translate(h * Time.deltaTime, 0, 0);
     }
 
@@ -96,8 +111,31 @@ public class Strafe : MonoBehaviour
             //rb.AddForce(transform.up * 8);
         }
     }
+    void OnTriggerStay(Collider other)
+    {
+        Debug.Log("AAAAA");
+        if (other.gameObject.name == "Wall_1")
+        {
+            stopperL = true;
+        }
+        if (other.gameObject.name == "Wall_2")
+        {
+            stopperR = true;
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        Debug.Log("AAAAA");
+        if (other.gameObject.name == "Wall_1")
+        {
+            stopperL = false;
+        }
+        if (other.gameObject.name == "Wall_2")
+        {
+            stopperR = false;
+        }
+    }
 
-    
 
-    
+
 }
