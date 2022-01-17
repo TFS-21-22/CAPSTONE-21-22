@@ -38,15 +38,7 @@ public class HUD : MonoBehaviour
         string minutes = ((int) t / 60).ToString();
         string seconds = (t % 60).ToString("f0");
 
-        if((t % 60) < 10)
-        {
-            timeText.text = minutes + ": 0" + seconds;
-        }
-        else
-        {
-            timeText.text = minutes + ":" + seconds;
-
-        }
+        timeText.text = minutes + ":" + seconds;
 
         //COLLECTABLES
         collText.text = collectables.ToString();
