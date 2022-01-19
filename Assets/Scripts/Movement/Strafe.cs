@@ -116,7 +116,10 @@ public class Strafe : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Obstacle") || other.gameObject.CompareTag("Lily"))
         {
+            
             Destroy(other.gameObject);
+
+            
             //rb.AddForce(transform.up * 8);
         }
     }
@@ -136,6 +139,9 @@ public class Strafe : MonoBehaviour
         {
             logCollisionSFX.Play();
             obstacleCollisionParticle.Play();
+            camera.hit = true;
+            camera.InduceStress(1);
+          
         }
     }
     void OnTriggerExit(Collider other)
@@ -148,6 +154,13 @@ public class Strafe : MonoBehaviour
         if (other.gameObject.name == "Wall_2")
         {
             stopperR = false;
+        }
+
+        if (other.gameObject.CompareTag("Log"))
+        {
+            camera.trauma = 0;
+            camera.InduceStress(0);
+            camera.hit = false;
         }
     }
 
