@@ -130,16 +130,18 @@ public class RhythmCanvas : MonoBehaviour
                 StartCoroutine(DestroyBoss(1f));
             }
 
-            if (beatTime > 2.3f)
-            {
-                RandomBackground(buttonBG, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
-                StartCoroutine(ScoreTextResult(miss, 1f));
+            
+        }
+
+        if (beatTime > 2.3f)
+        {
+            RandomBackground(buttonBG, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
+            StartCoroutine(ScoreTextResult(miss, 1f));
 
 
-                //Enemy Destroy
-                StartCoroutine(DestroyWisp(1f));
-                StartCoroutine(DestroyBoss(1f));
-            }
+            //Enemy Destroy
+            StartCoroutine(DestroyWisp(1f));
+            StartCoroutine(DestroyBoss(1f));
         }
 
         if (pulsing)
