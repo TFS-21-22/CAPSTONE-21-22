@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Loading Screen.unity
     guid: 2331fccba4e0cb747b4f38ced0565b5a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Blockout.unity
     guid: 7a5230731cd0d7f449af8cc73321c3e1
+  - enabled: 1
+    path: Assets/Scenes/LevelDesignBlockout.unity
+    guid: 7215547b8336ab04ab4de5ae055edd4a
   m_configObjects: {}

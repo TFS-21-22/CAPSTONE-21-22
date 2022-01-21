@@ -137,7 +137,7 @@ public class Strafe : MonoBehaviour
             stopperR = true;
         }
 
-        if (other.gameObject.tag == "Log")
+        if (other.gameObject.CompareTag("Log") || other.gameObject.CompareTag("Obstacle"))
         {
             if (!camera.hit)
                 camPos = Camera.main.transform.localPosition;
@@ -147,10 +147,10 @@ public class Strafe : MonoBehaviour
             camera.hit = true;
             camera.InduceStress(1);
 
-           
-
         }
     }
+
+    
     void OnTriggerExit(Collider other)
     {
         //Debug.Log("AAAAA");
@@ -163,11 +163,12 @@ public class Strafe : MonoBehaviour
             stopperR = false;
         }
 
-        if (other.gameObject.CompareTag("Log"))
+        if (other.gameObject.CompareTag("Log") || other.gameObject.CompareTag("Obstacle"))
         {
 
             camera.hit = false;
-            Debug.Log("hit");
+            camera.InduceStress(0);
+            // Debug.Log("hit");
             Camera.main.transform.localPosition = camPos;
         }
     }
