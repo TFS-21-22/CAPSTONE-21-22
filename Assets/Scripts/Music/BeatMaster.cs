@@ -5,6 +5,7 @@ using System;
 
 public class BeatMaster : MonoBehaviour
 {
+    public static BeatMaster instance;
     public AudioSource source;
     [Range(0.01f, 0.2f)] public float beatGate = 0.1f;
     public float BPM = 0f;
@@ -15,6 +16,18 @@ public class BeatMaster : MonoBehaviour
     public static float beatRealTime;
     public static int beatCount = 0;
 
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else if (instance != null)
+        {
+            Destroy(this);
+        }
+    }
 
     private void Start()
     {

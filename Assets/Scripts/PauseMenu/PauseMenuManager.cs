@@ -58,6 +58,9 @@ public class PauseMenuManager : MonoBehaviour
                 //Disable Movement
                 strafeScript.enabled = true;
 
+                //Disable beatmaster
+                //BeatMaster.instance.enabled = true;
+
             }
         }
        
@@ -74,6 +77,8 @@ public class PauseMenuManager : MonoBehaviour
 
             //Disable Movement
             strafeScript.enabled = false;
+
+            //BeatMaster.instance.enabled = false;
 
         }
         

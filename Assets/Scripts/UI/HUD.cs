@@ -33,35 +33,19 @@ public class HUD : MonoBehaviour
         scoreText.text = score.ToString();
 
         //TIMER
+        
+
+       
         float t = Time.time - time;
 
-        string minutes = ((int) t / 60).ToString();
+        string minutes = ((int)t / 60).ToString();
         string seconds = (t % 60).ToString("f0");
 
         timeText.text = minutes + ":" + seconds;
 
         //COLLECTABLES
         collText.text = collectables.ToString();
-
-        //PAUSEMENU
-        /*
-        if (pauseMenu)
-        {
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                pauseMenu.SetActive(!pauseMenu.activeSelf);
-            }
-
-            if (pauseMenu.activeSelf)
-            {
-                Time.timeScale = 0;   
-            }
-
-            else if (!pauseMenu.activeSelf)
-            {
-                Time.timeScale = 1;
-            }
-        }
-        */
+        
+        
     }
 }
