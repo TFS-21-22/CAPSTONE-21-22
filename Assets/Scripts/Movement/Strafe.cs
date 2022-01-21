@@ -13,7 +13,9 @@ public class Strafe : MonoBehaviour
     Vector3 camPos;
 
     //Audio
-    //[SerializeField] private AudioSource logCollisionSFX;
+    [SerializeField] private AudioSource logCollisionSFX;
+
+ 
 
     //VFX
     [SerializeField] private VisualEffect obstacleCollisionParticle;
@@ -121,8 +123,13 @@ public class Strafe : MonoBehaviour
             
             Destroy(other.gameObject);
 
-            
             //rb.AddForce(transform.up * 8);
+        }
+
+        if(other.gameObject.CompareTag("Log"))
+        {
+            if(gameObject != null)
+            logCollisionSFX.Play();
         }
     }
     void OnTriggerStay(Collider other)
@@ -137,12 +144,13 @@ public class Strafe : MonoBehaviour
             stopperR = true;
         }
 
-        if (other.gameObject.CompareTag("Log") || other.gameObject.CompareTag("Obstacle"))
+        if (other.gameObject.CompareTag("Log"))
         {
             if (!camera.hit)
                 camPos = Camera.main.transform.localPosition;
 
             //logCollisionSFX.Play();
+            
             obstacleCollisionParticle.Play();
             camera.hit = true;
             camera.InduceStress(1);
