@@ -165,8 +165,7 @@ public class Strafe : MonoBehaviour
 
         if (other.gameObject.CompareTag("Log"))
         {
-            camera.trauma = 0;
-            camera.InduceStress(0);
+
             camera.hit = false;
             Debug.Log("hit");
             Camera.main.transform.localPosition = camPos;

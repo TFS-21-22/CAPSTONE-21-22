@@ -34,10 +34,10 @@ public class SmoothCameraScript : MonoBehaviour
     float frequency = 25;
 
     [SerializeField]
-    Vector3 maximumTranslationShake = Vector3.one * 0.5f;
+    Vector3 maximumTranslationShake = Vector3.one;
 
     [SerializeField]
-    Vector3 maximumAngularShake = Vector3.one * 2;
+    Vector3 maximumAngularShake = Vector3.one;
 
     private float seed;
 
