@@ -13,7 +13,7 @@ public class Strafe : MonoBehaviour
     Vector3 camPos;
 
     //Audio
-    [SerializeField] private AudioSource logCollisionSFX;
+    //[SerializeField] private AudioSource logCollisionSFX;
 
     //VFX
     [SerializeField] private VisualEffect obstacleCollisionParticle;
@@ -142,7 +142,7 @@ public class Strafe : MonoBehaviour
             if (!camera.hit)
                 camPos = Camera.main.transform.localPosition;
 
-            logCollisionSFX.Play();
+            //logCollisionSFX.Play();
             obstacleCollisionParticle.Play();
             camera.hit = true;
             camera.InduceStress(1);
