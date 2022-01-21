@@ -39,7 +39,7 @@ public class RhythmCanvas : MonoBehaviour
 
     [SerializeField] private GameObject tiger;
 
-    private bool scaling;                   //Button scailing
+    public bool scaling;                   //Button scailing
     public bool pulsing = false;           //Used to check determine beat check
     private float timeBetweenBeats = 3.8f;
     private float flux = 1.85f;
@@ -143,7 +143,12 @@ public class RhythmCanvas : MonoBehaviour
         }
 
         if (pulsing)
-            beatTime += Time.deltaTime;
+        {
+            if (!PauseMenuManager.instance.isPaused)
+            {
+                beatTime += Time.deltaTime;
+            }
+        }
         else
             beatTime = 0;
 
@@ -200,6 +205,7 @@ public class RhythmCanvas : MonoBehaviour
         while (scaleCount < 9)
         {
             //Outer Circle Scale
+            if(!PauseMenuManager.instance.isPaused)
             xCircle.transform.localScale -= new Vector3(flux * Time.deltaTime, flux * Time.deltaTime, flux * Time.deltaTime);
             yield return null;
         }

@@ -5,13 +5,8 @@ using UnityEditor;
 
 public class SmoothCameraScript : MonoBehaviour
 {
-    [SerializeField] private Transform cameraLookPoint;
 
     public Transform target;
-
-    public Transform targetDeath;
-
-    public Transform targetPlayer;
 
     public float smoothSpeed = 0.6f;
 
@@ -35,6 +30,37 @@ public class SmoothCameraScript : MonoBehaviour
 
     bool transitioning = false;
 
+    [SerializeField]
+    float frequency = 25;
+
+    [SerializeField]
+    Vector3 maximumTranslationShake = Vector3.one;
+
+    [SerializeField]
+    Vector3 maximumAngularShake = Vector3.one;
+
+    private float seed;
+
+    [SerializeField]
+    float recoverySpeed = 1.5f;
+
+    public float trauma = 0;
+
+    [SerializeField]
+    float traumaExponent = 2;
+
+    public bool hit = false;
+
+    public void InduceStress(float stress)
+    {
+        trauma = Mathf.Clamp01(trauma + stress);
+    }
+
+    private void Awake()
+    {
+        seed = Random.value;
+    }
+
 
     public enum ECameraPosition
     {
@@ -46,29 +72,36 @@ public class SmoothCameraScript : MonoBehaviour
 
     private void Update()
     {
-        transform.LookAt(cameraLookPoint);
-
-        if (Input.GetKeyDown(KeyCode.E) && !transitioning)
+        if (hit)
         {
-            transitioning = true;
-            cameraPosition = ECameraPosition.Normal;
-            StartCoroutine(CameraSwitch(8));
-        }
 
-        if (Input.GetKeyDown(KeyCode.R) && !transitioning)
-        {
-            transitioning = true;
-            cameraPosition = ECameraPosition.OffsetRight;
-            StartCoroutine(CameraSwitch(8));
-        }
+            shake();
 
-        if (Input.GetKeyDown(KeyCode.Q) && !transitioning)
-        {
-            transitioning = true;
-            cameraPosition = ECameraPosition.OffsetLeft;
-            StartCoroutine(CameraSwitch(8));
         }
-        
+        else
+        {
+
+            if (Input.GetKeyDown(KeyCode.E) && !transitioning)
+            {
+                transitioning = true;
+                cameraPosition = ECameraPosition.Normal;
+                StartCoroutine(CameraSwitch(8));
+            }
+
+            if (Input.GetKeyDown(KeyCode.R) && !transitioning)
+            {
+                transitioning = true;
+                cameraPosition = ECameraPosition.OffsetRight;
+                StartCoroutine(CameraSwitch(8));
+            }
+
+            if (Input.GetKeyDown(KeyCode.Q) && !transitioning)
+            {
+                transitioning = true;
+                cameraPosition = ECameraPosition.OffsetLeft;
+                StartCoroutine(CameraSwitch(8));
+            }
+        }
     }
 
 
@@ -105,20 +138,24 @@ public class SmoothCameraScript : MonoBehaviour
         
     }
 
-    IEnumerator DeathWaitTime(float wait)
+    public void shake()
     {
-        yield return new WaitForSeconds(wait);
-        QuitGame();
-    }
+        float shake = Mathf.Pow(trauma, traumaExponent);
 
+        transform.localPosition = new Vector3(
+         maximumTranslationShake.x * (Mathf.PerlinNoise(seed, Time.time * frequency) * 2 - 1),
+         maximumTranslationShake.y * (Mathf.PerlinNoise(seed + 1, Time.time * frequency) * 2 - 1),
+         maximumTranslationShake.z * (Mathf.PerlinNoise(seed + 2, Time.time * frequency) * 2 - 1)
+     ) * shake;
 
-    public void QuitGame()
-    {
-#if UNITY_EDITOR
-        EditorApplication.isPlaying = false;
-#else
-         Application.Quit();
-#endif
+        transform.localRotation = Quaternion.Euler(new Vector3(
+            maximumAngularShake.x * (Mathf.PerlinNoise(seed + 3, Time.time * frequency) * 2 - 1),
+            maximumAngularShake.y * (Mathf.PerlinNoise(seed + 4, Time.time * frequency) * 2 - 1),
+            maximumAngularShake.z * (Mathf.PerlinNoise(seed + 5, Time.time * frequency) * 2 - 1)
+        ) * shake);
+
+        trauma = Mathf.Clamp01(trauma - recoverySpeed * Time.deltaTime);
+
     }
 
 }
