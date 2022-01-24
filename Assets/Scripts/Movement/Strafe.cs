@@ -154,11 +154,11 @@ public class Strafe : MonoBehaviour
     void OnTriggerStay(Collider other)
     {
         //Debug.Log("AAAAA");
-        if (other.gameObject.CompareTag("Wall_1"))
+        if (other.gameObject.name == "Wall_1")
         {
             stopperL = true;
         }
-        if (other.gameObject.CompareTag("Wall_2"))
+        if (other.gameObject.name == "Wall_2")
         {
             stopperR = true;
         }
@@ -180,11 +180,11 @@ public class Strafe : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         //Debug.Log("AAAAA");
-        if (other.gameObject.CompareTag("Wall_1"))
+        if (other.gameObject.name == "Wall_1")
         {
             stopperL = false;
         }
-        if (other.gameObject.CompareTag("Wall_2"))
+        if (other.gameObject.name == "Wall_2")
         {
             stopperR = false;
         }
