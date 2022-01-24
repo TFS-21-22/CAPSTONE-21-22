@@ -6,45 +6,59 @@ using UnityEngine.VFX;
 
 public class Strafe : MonoBehaviour
 {
+    [Header("Image")]
     [SerializeField] private Image xCricle;
     [SerializeField] private Image xButton;
     [SerializeField] private GameObject tiger;
 
-    Vector3 camPos;
-
     //Audio
-    [SerializeField] private AudioSource logCollisionSFX;
+    [Header("Audio")]
+    [SerializeField] private AudioClip logCollisionSFX;
+    [SerializeField] private AudioClip transitionSFX;
+    [SerializeField] private AudioClip wispSFX;
+    [SerializeField] private AudioClip tigerSFX;
 
- 
+    public AudioSource source;
 
     //VFX
+    [Header("VFX")]
     [SerializeField] private VisualEffect obstacleCollisionParticle;
 
-
+    //Vectors
+    Vector3 camPos;
     Vector2 input;
 
+    [Header("Floats")]
     public float boundx = 2.25f;
     public float speed = 3.0f;
-
-    public bool stopperL;
-    public bool stopperR;
     public float h;
 
     public Transform follow;
     public GameObject enemy;
     public Canvas rhythmCanvas;
+
+    //bools
+    [Header("Bool")]
     public bool enemySequence = false;
     public bool bossSequence = false;
+    public bool stopperL;
+    public bool stopperR;
 
     public SmoothCameraScript camera;
 
     private Rigidbody rb;
+
+    //Scripts
+    public ScoreSystem scoresystem;
+    
 
     // Start is called before the first frame update
     void Start()
     {
 
         rb = GetComponent<Rigidbody>();
+
+        
     }
 
     // Update is called once per frame
@@ -77,6 +91,11 @@ public class Strafe : MonoBehaviour
         }
        
         transform.Translate(h * Time.deltaTime, 0, 0);
+
+        if(scoresystem.transitionEnding)
+        {
+            source.PlayOneShot(transitionSFX);
+        }
     }
 
     private void EnemySequence()
@@ -110,6 +129,8 @@ public class Strafe : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Obstacle") || other.gameObject.CompareTag("Lily"))
         {
+
+            source.PlayOneShot(transitionSFX);
             
             Destroy(other.gameObject);
 
@@ -118,19 +139,26 @@ public class Strafe : MonoBehaviour
 
         if(other.gameObject.CompareTag("Log"))
         {
-            if(gameObject != null)
-            logCollisionSFX.Play();
+            source.PlayOneShot(logCollisionSFX);
+            //logCollisionSFX.Play();
+            GameManager.instance.health--;
+        }
+
+        if (other.gameObject.CompareTag("Tiger"))
+        {
+            source.PlayOneShot(tigerSFX);
+            //logCollisionSFX.Play();
             GameManager.instance.health--;
         }
     }
     void OnTriggerStay(Collider other)
     {
         //Debug.Log("AAAAA");
-        if (other.gameObject.name == "Wall_1")
+        if (other.gameObject.CompareTag("Wall_1"))
         {
             stopperL = true;
         }
-        if (other.gameObject.name == "Wall_2")
+        if (other.gameObject.CompareTag("Wall_2"))
         {
             stopperR = true;
         }
@@ -140,8 +168,8 @@ public class Strafe : MonoBehaviour
             if (!camera.hit)
                 camPos = Camera.main.transform.localPosition;
 
-            //logCollisionSFX.Play();
             
+
             obstacleCollisionParticle.Play();
             camera.hit = true;
             camera.InduceStress(1);           
@@ -152,11 +180,11 @@ public class Strafe : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         //Debug.Log("AAAAA");
-        if (other.gameObject.name == "Wall_1")
+        if (other.gameObject.CompareTag("Wall_1"))
         {
             stopperL = false;
         }
-        if (other.gameObject.name == "Wall_2")
+        if (other.gameObject.CompareTag("Wall_2"))
         {
             stopperR = false;
         }

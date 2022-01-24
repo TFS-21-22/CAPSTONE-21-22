@@ -8,7 +8,8 @@ public class ScoreSystem : MonoBehaviour
     public float score;
     public float scoreMulitplyer = 1;
 
-    bool collectableHit;
+    private bool collectableHit;
+    public bool transitionEnding;
 
     public float time;
     public float timer = 5.0f;
@@ -19,6 +20,7 @@ public class ScoreSystem : MonoBehaviour
     {
         score = 0;
         collectableHit = false;
+        transitionEnding = false;
     }
 
     // Update is called once per frame
@@ -38,6 +40,7 @@ public class ScoreSystem : MonoBehaviour
             scoreMulitplyer = 1.0f;
 
             collectableHit = false;
+            transitionEnding = true;
         }
     }
 

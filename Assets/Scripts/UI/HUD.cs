@@ -8,7 +8,12 @@ public class HUD : MonoBehaviour
 {
     public float score;
     public float collectables;
-    public float time;
+    
+    private float time;
+
+    private int minCount;
+    //private int secCount;
+
     public ScoreSystem scoreSystem;
 
     public TMP_Text scoreText;
@@ -22,7 +27,7 @@ public class HUD : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        time += Time.time;
+        
     }
 
     // Update is called once per frame
@@ -35,13 +40,15 @@ public class HUD : MonoBehaviour
         score = scoreSystem.score;
         scoreText.text = score.ToString();
 
-        //TIMER       
-        float t = Time.time - time;
+        //TIMER     
+        time += Time.deltaTime;
+        timeText.text = minCount.ToString("00") + ":" + ((int)time).ToString("00");
 
-        string minutes = ((int)t / 60).ToString();
-        string seconds = (t % 60).ToString("f0");
-
-        timeText.text = minutes + ":" + seconds;
+        if (time >= 60)
+        {
+            minCount++;
+            time = 0;
+        }
 
         //COLLECTABLES
         collText.text = collectables.ToString();
