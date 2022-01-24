@@ -15,7 +15,7 @@ namespace PathCreation.Examples
         float distanceTravelled;
         float time;
 
-        public CheckpointManager cpManager;
+        public CPManager cpManager;
         public PathCreator[] otherPaths;
 
         public int checkPoint;
@@ -35,7 +35,7 @@ namespace PathCreation.Examples
 
         void Start() 
         {
-            cpManager = GameObject.FindObjectOfType<CheckpointManager>();
+            cpManager = GameObject.FindObjectOfType<CPManager>();
             checkPoint = cpManager.checkPoint;
             pathCreator = otherPaths[cpManager.checkPoint];
 
