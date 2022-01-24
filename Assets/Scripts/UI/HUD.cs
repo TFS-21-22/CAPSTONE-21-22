@@ -9,7 +9,7 @@ public class HUD : MonoBehaviour
     public float score;
     public float collectables;
     
-    private float time;
+    public float time;
 
     private int minCount;
     //private int secCount;
@@ -24,6 +24,8 @@ public class HUD : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject hud;
 
+    [SerializeField] PauseMenuManager pm;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,26 +35,35 @@ public class HUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //HEALTH
-        livesText.text = "Lives: " + GameManager.instance.health;
-
-        //SCORE
-        score = scoreSystem.score;
-        scoreText.text = score.ToString();
-
-        //TIMER     
-        time += Time.deltaTime;
-        timeText.text = minCount.ToString("00") + ":" + ((int)time).ToString("00");
-
-        if (time >= 60)
+        if (pm.isPaused)
         {
-            minCount++;
-            time = 0;
+            Time.timeScale = 0;
         }
+        else
+        {
+            Time.timeScale = 1;
+            //HEALTH
+            livesText.text = "Lives: " + GameManager.instance.health;
 
-        //COLLECTABLES
-        collText.text = collectables.ToString();
-        
-        
+            //SCORE
+            score = scoreSystem.score;
+            scoreText.text = score.ToString();
+
+            //TIMER     
+            time += Time.deltaTime;
+            timeText.text = minCount.ToString("00") + ":" + ((int)time).ToString("00");
+
+            if (time >= 60)
+            {
+                minCount++;
+                time = 0;
+            }
+
+
+
+            //COLLECTABLES
+            collText.text = collectables.ToString();
+
+        } 
     }
 }

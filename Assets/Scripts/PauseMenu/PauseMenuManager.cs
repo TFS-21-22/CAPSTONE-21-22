@@ -7,6 +7,7 @@ public class PauseMenuManager : MonoBehaviour
     public static PauseMenuManager instance;
     [SerializeField] private Strafe strafeScript;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private HUD hud;
     [SerializeField] private AudioSource music;
 
     public bool isPaused = false;
@@ -94,6 +95,8 @@ public class PauseMenuManager : MonoBehaviour
             strafeScript.enabled = false;
 
             //BeatMaster.instance.enabled = false;
+
+    
 
         }
         
