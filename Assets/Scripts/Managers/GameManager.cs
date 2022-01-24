@@ -14,10 +14,7 @@ public class GameManager : MonoBehaviour
         set { _instance = value; }
     }
 
-
-
-    
-
+    public int health;
 
     // Start is called before the first frame update
     void Start()
@@ -40,16 +37,10 @@ public class GameManager : MonoBehaviour
 
     }
 
-
-
-
-
     public void StartGame()
     {
         SceneManager.LoadScene("LevelDesignBlockout");
     }
-
-
 
     public void QuitGame()
     {

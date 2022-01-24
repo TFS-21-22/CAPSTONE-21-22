@@ -39,6 +39,12 @@ namespace PathCreation.Examples
         // Update is called once per frame
         void Update()
         {
+            if (GameManager.instance.health <= 0)
+            {
+                checkPoint = 0;
+                SceneManager.LoadScene("LevelDesignBlockout");
+                GameManager.instance.health = 3;
+            }
             if (Input.GetKeyDown("1"))
             {
                 checkPoint = 0;

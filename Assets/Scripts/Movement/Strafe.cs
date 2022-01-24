@@ -120,6 +120,7 @@ public class Strafe : MonoBehaviour
         {
             if(gameObject != null)
             logCollisionSFX.Play();
+            GameManager.instance.health--;
         }
     }
     void OnTriggerStay(Collider other)
@@ -143,8 +144,7 @@ public class Strafe : MonoBehaviour
             
             obstacleCollisionParticle.Play();
             camera.hit = true;
-            camera.InduceStress(1);
-
+            camera.InduceStress(1);           
         }
     }
 

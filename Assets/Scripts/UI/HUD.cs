@@ -13,6 +13,7 @@ public class HUD : MonoBehaviour
 
     public TMP_Text scoreText;
     public TMP_Text timeText;
+    public TMP_Text livesText;
     public TMP_Text collText;
 
     public GameObject pauseMenu;
@@ -27,15 +28,14 @@ public class HUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //HEALTH
+        livesText.text = "Lives: " + GameManager.instance.health;
+
         //SCORE
         score = scoreSystem.score;
-
         scoreText.text = score.ToString();
 
-        //TIMER
-        
-
-       
+        //TIMER       
         float t = Time.time - time;
 
         string minutes = ((int)t / 60).ToString();
