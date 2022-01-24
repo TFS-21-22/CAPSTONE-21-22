@@ -11,8 +11,14 @@ namespace PathCreation.Examples
         public static PathFollower instance;
         public PathCreator pathCreator;
         public EndOfPathInstruction endOfPathInstruction;
-        public float speed = 0;
+        public float speed = 5;
         float distanceTravelled;
+        float time;
+
+        public CheckpointManager cpManager;
+        public PathCreator[] otherPaths;
+
+        public int checkPoint;
 
         private void Awake()
         {
@@ -27,7 +33,12 @@ namespace PathCreation.Examples
             }
         }
 
-        void Start() {
+        void Start() 
+        {
+            cpManager = GameObject.FindObjectOfType<CheckpointManager>();
+            checkPoint = cpManager.checkPoint;
+            pathCreator = otherPaths[cpManager.checkPoint];
+
             if (pathCreator != null)
             {
                 // Subscribed to the pathUpdated event so that we're notified if the path changes during the game
@@ -37,6 +48,7 @@ namespace PathCreation.Examples
 
         void Update()
         {
+            checkPoint = cpManager.checkPoint;
             //Debug.Log("Player speed: " + speed);
 
             if (pathCreator != null && !PauseMenuManager.instance.isPaused)

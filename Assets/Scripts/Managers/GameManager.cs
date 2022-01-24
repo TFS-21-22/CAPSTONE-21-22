@@ -37,17 +37,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (SceneManager.GetActiveScene().name == "Blockout")
-            {
-                SceneManager.LoadScene("Blockout");
-            }
-            else if (SceneManager.GetActiveScene().name == "Title Screen")
-            {
-                SceneManager.LoadScene("Level");
-            }
-        }
+
     }
 
 
@@ -56,8 +46,10 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Blockout");
+        SceneManager.LoadScene("LevelDesignBlockout");
     }
+
+
 
     public void QuitGame()
     {

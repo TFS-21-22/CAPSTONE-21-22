@@ -1,39 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+using UnityEngine.SceneManagement;
 
-public class CheckPointManager : MonoBehaviour
+namespace PathCreation.Examples
 {
-    static CheckPointManager _instance = null;
-    public static CheckPointManager instance
+    public class CheckpointManager : MonoBehaviour
     {
-        get { return _instance; }
-        set { _instance = value; }
-    }
-    public GameObject Player;
-    public GameObject[] Checkpoint;
-    public int current;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        current = 0;
-        instance = this;
-        DontDestroyOnLoad(this);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public void revive()
-    {
-        if (Player)
+        static CheckpointManager _instance = null;
+        public static CheckpointManager instance
         {
-            if (Checkpoint[current])
+            get { return _instance; }
+            set { _instance = value; }
+        }
+
+        public PathFollower Player;
+        public int checkPoint;
+
+        //public PathCreator pathCreator;
+        // Start is called before the first frame update
+        void Start()
+        {
+            if (instance)
             {
-                Player.transform.position = Checkpoint[current].transform.position;
+                Destroy(gameObject);
+
+            }
+            else
+            {
+                instance = this;
+                DontDestroyOnLoad(this);
+            }
+            //Player.pathCreator = Player.otherPaths[0];
+            checkPoint = 0;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (Input.GetKeyDown("1"))
+            {
+                checkPoint = 0;
+                SceneManager.LoadScene("LevelDesignBlockout");              
+            }
+            if (Input.GetKeyDown("2"))
+            {
+                checkPoint = 1;
+                SceneManager.LoadScene("LevelDesignBlockout");   
+            }
+            if (Input.GetKeyDown("3"))
+            {
+                checkPoint = 2;
+                SceneManager.LoadScene("LevelDesignBlockout");
             }
         }
     }

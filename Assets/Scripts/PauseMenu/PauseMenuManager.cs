@@ -35,6 +35,21 @@ public class PauseMenuManager : MonoBehaviour
             Application.Quit();
         }
 
+        ////////for hayden spline testing
+        if (Input.GetKeyDown(KeyCode.KeypadPlus))
+        {
+            Time.timeScale = 2;
+        }
+        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            Time.timeScale = 3;
+        }
+        if (Input.GetKeyDown(KeyCode.KeypadMinus))
+        {
+            Time.timeScale = 1;
+        }
+        //////////
+
         if (Input.GetKeyDown(KeyCode.P))
         {
             //Debug.Log("Escape key was pressed");
