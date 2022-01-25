@@ -7,7 +7,6 @@ public class PauseMenuManager : MonoBehaviour
     public static PauseMenuManager instance;
     [SerializeField] private Strafe strafeScript;
     [SerializeField] private GameObject pauseMenu;
-    [SerializeField] private HUD hud;
     [SerializeField] private AudioSource music;
 
     public bool isPaused = false;
@@ -69,13 +68,14 @@ public class PauseMenuManager : MonoBehaviour
                 music.UnPause();
 
                 //Disable Canvas
-                RhythmCanvas.instance.enabled = true;
+                if(!RhythmCanvas.instance.gameObject.activeSelf)
+                    RhythmCanvas.instance.enabled = true;
 
                 //Disable Movement
                 strafeScript.enabled = true;
 
                 //Disable beatmaster
-                //BeatMaster.instance.enabled = true;
+                BeatMaster.instance.enabled = true;
 
             }
         }
@@ -87,9 +87,10 @@ public class PauseMenuManager : MonoBehaviour
 
             //Disable Audio + BeatMaster
             music.Pause();
-            
+
             //Disable Canvas
-            RhythmCanvas.instance.enabled = false;
+            if (RhythmCanvas.instance.gameObject.activeSelf)
+                RhythmCanvas.instance.enabled = false;
 
             //Disable Movement
             strafeScript.enabled = false;

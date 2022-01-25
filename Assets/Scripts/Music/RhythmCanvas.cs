@@ -57,6 +57,8 @@ public class RhythmCanvas : MonoBehaviour
     [SerializeField] private Transform buttonCenter;
     [SerializeField] private Transform[] keyPositions = new Transform[3];
 
+    private bool buttonPressed = false;
+
     float timeDebug;
 
     int bossButtonPresses = 0;
@@ -85,12 +87,15 @@ public class RhythmCanvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(beatTime);
 
         if (pulsing && Input.GetButtonDown("Jump"))
         {
+
+            buttonPressed = true;
             xCircle.gameObject.SetActive(false);
             //sequencePressed = true;
-            if (beatTime < 1.85f && beatTime >= 0)
+            if (beatTime < 1.284f && beatTime >= 0)
             {
                 RandomBackground(buttonBG, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
                 StartCoroutine(ScoreTextResult(miss, 1f));
@@ -100,7 +105,7 @@ public class RhythmCanvas : MonoBehaviour
                 StartCoroutine(DestroyBoss(1f));
             }
 
-            if (beatTime > 1.84f && beatTime < 1.85f)
+            if (beatTime >= 1.284f && beatTime < 1.647f)
             {
                 RandomBackground(buttonBG, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
                 StartCoroutine(ScoreTextResult(okay, 1f));
@@ -110,7 +115,7 @@ public class RhythmCanvas : MonoBehaviour
                 StartCoroutine(DestroyBoss(1f));
             }
 
-            if (beatTime >= 1.99f && beatTime < 2f)
+            if (beatTime >= 1.647f && beatTime < 1.985f)
             {
                 RandomBackground(buttonBG, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
                 StartCoroutine(ScoreTextResult(good, 1f));
@@ -120,7 +125,7 @@ public class RhythmCanvas : MonoBehaviour
                 StartCoroutine(DestroyBoss(1f));
             }
 
-            if (beatTime > 2.2f && beatTime <= 2.3f)
+            if (beatTime > 1.985f && beatTime < 2.126f)
             {
                 RandomBackground(buttonBG, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
                 StartCoroutine(ScoreTextResult(perfect, 1f));
@@ -133,8 +138,9 @@ public class RhythmCanvas : MonoBehaviour
             
         }
 
-        if (beatTime > 2.3f)
+        if (beatTime > 2.2f && !buttonPressed)
         {
+            
             RandomBackground(buttonBG, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
             StartCoroutine(ScoreTextResult(miss, 1f));
 
@@ -271,7 +277,6 @@ public class RhythmCanvas : MonoBehaviour
 
     IEnumerator DestroyBoss(float wait)
     {
-        Debug.Log("Disable Tiger");
         ResetRhythmTween();
         int id = LeanTween.scale(Tiger.instance.gameObject, new Vector3(5f, 5f, 5f), 1f).id;
         while (LeanTween.isTweening(id))

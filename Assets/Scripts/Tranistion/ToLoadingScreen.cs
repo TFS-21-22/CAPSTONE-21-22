@@ -12,8 +12,12 @@ public class ToLoadingScreen : MonoBehaviour
 
     public void Start()
     {
-        StartCoroutine(LoadAsynchronously(2));
 
+    }
+
+    public void LoadLevel(int sceneIndex)
+    {
+        StartCoroutine(LoadAsynchronously(sceneIndex));
     }
 
     IEnumerator LoadAsynchronously(int sceneIndex)
