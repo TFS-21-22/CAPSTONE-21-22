@@ -87,7 +87,7 @@ public class RhythmCanvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(beatTime);
+        //Debug.Log(beatTime);
 
         if (pulsing && Input.GetButtonDown("Jump"))
         {
