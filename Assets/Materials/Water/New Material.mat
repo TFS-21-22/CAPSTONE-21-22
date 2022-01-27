@@ -77,11 +77,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _flowmap:
-        m_Texture: {fileID: 2800000, guid: cd5e82122c1c9e444a40b860791c9d53, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _normals:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: f9d8b252b0a372e409bd532d908b970d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texture:
@@ -127,16 +127,24 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _Tiling: 10.44
+    - _Tiling: 18
     - _WorkflowMode: 1
     - _ZWrite: 1
+    - _alpha_adjust: 1
     - _flowmap_tiling: 1
+    - _foam_cutoff: 0
+    - _foam_cutoff_softness: 1
+    - _foam_thicnkess: 0.59
+    - _noise_scale: 6.81
     - _slider: 1
-    - _speed: 0.39
+    - _speed: 0.1
     - _strength: 1
+    - _wave_height: 15.25
+    - _wave_speed: 0.03
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _water_tint: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
