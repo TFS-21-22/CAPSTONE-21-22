@@ -20,7 +20,7 @@ MonoBehaviour:
       m_RotationRangeMax: {x: 0, y: 360, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
       m_ScaleRangeMax: {x: 1, y: 1, z: 1}
-      m_UniformScale: {x: 1, y: 2.9463086}
+      m_UniformScale: {x: 0.5, y: 1}
       m_UniformBool: 1
       m_XRotationBool: 0
       m_YRotationBool: 1
@@ -33,7 +33,7 @@ MonoBehaviour:
     settings:
       m_Strength: 55.3
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
-      m_RotationRangeMax: {x: 0, y: 360, z: 0}
+      m_RotationRangeMax: {x: 0, y: 95.135124, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
       m_ScaleRangeMax: {x: 1, y: 1, z: 1}
       m_UniformScale: {x: 1.1677853, y: 6.7382545}
@@ -173,14 +173,46 @@ MonoBehaviour:
       m_YScaleBool: 0
       m_ZScaleBool: 0
     name: SwampGrass
-  - gameObject: {fileID: 3680432221721492063, guid: 371cefb498e6062408ab34270f41e8f2, type: 3}
+  - gameObject: {fileID: 4605107394519534878, guid: 66d19b825d3f17e43a0a2ce922ab2201, type: 3}
     settings:
-      m_Strength: 50
+      m_Strength: 43.760506
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 0, y: 360, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
       m_ScaleRangeMax: {x: 1, y: 1, z: 1}
-      m_UniformScale: {x: 1, y: 1.9731543}
+      m_UniformScale: {x: 0.7580645, y: 1}
+      m_UniformBool: 1
+      m_XRotationBool: 0
+      m_YRotationBool: 1
+      m_ZRotationBool: 0
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: Mangrove_Normal_03 1
+  - gameObject: {fileID: 6945202218321948209, guid: 7f8782a4f78cee546a7f456a14f47070, type: 3}
+    settings:
+      m_Strength: 52.579838
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 0, y: 360, z: 0}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 0.9596774, y: 1}
+      m_UniformBool: 1
+      m_XRotationBool: 0
+      m_YRotationBool: 1
+      m_ZRotationBool: 0
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: Mangrove_Normal_02 1
+  - gameObject: {fileID: 661022720830886418, guid: 371cefb498e6062408ab34270f41e8f2, type: 3}
+    settings:
+      m_Strength: 58.319332
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 0, y: 360, z: 0}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 0.87903225, y: 1}
       m_UniformBool: 1
       m_XRotationBool: 0
       m_YRotationBool: 1
@@ -189,3 +221,51 @@ MonoBehaviour:
       m_YScaleBool: 0
       m_ZScaleBool: 0
     name: Mangrove_Normal_01 1
+  - gameObject: {fileID: 6629159957237729980, guid: d68d83e15adb85f4684967d85993dfdf, type: 3}
+    settings:
+      m_Strength: 50
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 0, y: 0, z: 0}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 1, y: 1}
+      m_UniformBool: 1
+      m_XRotationBool: 0
+      m_YRotationBool: 1
+      m_ZRotationBool: 0
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: Mangrove_Dream_03 1
+  - gameObject: {fileID: 408907999734678036, guid: baf8dd9e0ec21ae4aace8b66c89e71ef, type: 3}
+    settings:
+      m_Strength: 50
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 0, y: 0, z: 0}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 1, y: 1}
+      m_UniformBool: 1
+      m_XRotationBool: 0
+      m_YRotationBool: 1
+      m_ZRotationBool: 0
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: Mangrove_Dream_02 1
+  - gameObject: {fileID: 5354395734080977174, guid: be34930a6bb86b04e8d69c9c4db1e26d, type: 3}
+    settings:
+      m_Strength: 50
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 0, y: 0, z: 0}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 1, y: 1}
+      m_UniformBool: 1
+      m_XRotationBool: 0
+      m_YRotationBool: 1
+      m_ZRotationBool: 0
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: Mangrove_Dream_01 1
