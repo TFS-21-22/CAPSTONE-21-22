@@ -100,6 +100,29 @@ public class PauseMenuManager : MonoBehaviour
     
 
         }
+
+       
         
+    }
+
+    public void EnableGame()
+    {
+        isPaused = false;
+
+        //Enable Pause Menu UI
+        pauseMenu.SetActive(false);
+
+        //Disable Audio + BeatMaster
+        music.UnPause();
+
+        //Disable Canvas
+        if (!RhythmCanvas.instance.gameObject.activeSelf)
+            RhythmCanvas.instance.enabled = true;
+
+        //Disable Movement
+        strafeScript.enabled = true;
+
+        //Disable beatmaster
+        BeatMaster.instance.enabled = true;
     }
 }

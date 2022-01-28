@@ -27,6 +27,7 @@ public class RhythmCanvas : MonoBehaviour
     private Vector3 bigCircle = new Vector3(6, 6, 6);           //"X" Button Circle Scale
     private Vector3 enemyScale;
     private Vector3 rhythmTextScale;
+    public Transform scoreTextStartPos;
 
     [SerializeField] private GameObject[] buttonBG = new GameObject[4];     //Button Backgrounds
     public GameObject wisp;
@@ -36,7 +37,6 @@ public class RhythmCanvas : MonoBehaviour
     [SerializeField] private GameObject good;
     [SerializeField] private GameObject okay;
     [SerializeField] private GameObject miss;
-
     [SerializeField] private GameObject tiger;
 
     public bool scaling;                   //Button scailing
@@ -45,7 +45,8 @@ public class RhythmCanvas : MonoBehaviour
     private float flux = 1.85f;
 
     private bool sequencePressed = false;
-    int arrayIndex;
+    int buttonBGarrayIndex;
+    int buttonScoreTextarrayIndex;
 
     private double beatTime = 0.0f;  //Button press time
     private int scaleCount = 0;
@@ -82,6 +83,7 @@ public class RhythmCanvas : MonoBehaviour
         scaling = false;
         BeatMaster.Beat += BeatCheck;
         BeatMaster.Beat += BeatX;
+        
     }
 
     // Update is called once per frame
@@ -138,7 +140,7 @@ public class RhythmCanvas : MonoBehaviour
             
         }
 
-        if (beatTime > 2.2f && !buttonPressed)
+        if (beatTime > 2.126f && !buttonPressed)
         {
             
             RandomBackground(buttonBG, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
@@ -191,19 +193,21 @@ public class RhythmCanvas : MonoBehaviour
 
         if (!sequencePressed)
         {
-            arrayIndex = random;
-            bg[random].gameObject.SetActive(true);
+            buttonBGarrayIndex = random;
+            bg[buttonBGarrayIndex].gameObject.SetActive(true);
         }
 
         if (sequencePressed)
         {
             //Debug.Log("In-Active");
-            bg[arrayIndex].gameObject.SetActive(false);
+            buttonBGarrayIndex = random;
+            bg[buttonBGarrayIndex].gameObject.SetActive(false);
         }
     }
 
     IEnumerator ScaleCircle()
     {
+        ResetRhythmTween();
         scaling = true;
         pulsing = true;
         RandomBackground(buttonBG, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));//Random UI BG + Random Key Direction
@@ -247,7 +251,10 @@ public class RhythmCanvas : MonoBehaviour
         //Camera
         smoothCamera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
         smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(3));
+
+
         gameObject.SetActive(false);
+        buttonBGarrayIndex = -1;
     }
 
     IEnumerator DestroyWisp(float wait)
@@ -264,14 +271,14 @@ public class RhythmCanvas : MonoBehaviour
         //Camera
         smoothCamera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
         smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(3));
-        gameObject.SetActive(false);
+        this.gameObject.SetActive(false);
 
         pulsing = false;
         scaling = false;
-
+        xCircle.gameObject.SetActive(true);
         wisp.SetActive(false);
         wisp = null;
-        //sequencePressed = false;
+        buttonBGarrayIndex = -1;
 
     }
 
@@ -292,6 +299,8 @@ public class RhythmCanvas : MonoBehaviour
         smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(3));
         xCircle.gameObject.SetActive(true);
         this.gameObject.SetActive(false);
+        buttonBGarrayIndex = -1;
+
 
     }
 
@@ -321,7 +330,14 @@ public class RhythmCanvas : MonoBehaviour
             yield return null;
         }
 
+        //scoreText.transform.localScale = new Vector3(1f, 1f, 1f);
+        //scoreText.transform.position = scoreTextStartPos.position;
+
         if (scoreText.activeSelf)
             scoreText.SetActive(false);
+
+        
+
+
     }
 }
