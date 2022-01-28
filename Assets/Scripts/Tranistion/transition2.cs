@@ -17,7 +17,7 @@ public class transition2 : MonoBehaviour
     float lerpDuration = 5.0f;
     float lerpTime = 0;
     
-    bool dreamState = false;
+    public bool dreamState = false;
     bool changedState = true;
     bool objectInView = false;
     
@@ -44,7 +44,7 @@ public class transition2 : MonoBehaviour
     void Update()
     {
        
-        if (scoreMultiplyer >= 30.0f && !dreamState)
+        if (scoreMultiplyer >= 1.0f && !dreamState)
         {
             dreamState = true;        
 

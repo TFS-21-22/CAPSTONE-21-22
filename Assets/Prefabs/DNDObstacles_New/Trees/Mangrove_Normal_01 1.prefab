@@ -92,7 +92,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 173313840692725928}
-  - component: {fileID: 6416415502761777402}
   m_Layer: 0
   m_Name: Mangrove_Normal_01 1
   m_TagString: Untagged
@@ -109,7 +108,7 @@ Transform:
   m_GameObject: {fileID: 661022720830886418}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.9279613, y: 8.729418, z: 17.51968}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.96164775, y: 0.96164787, z: 0.96164775}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6696560433137849502}
@@ -117,24 +116,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6416415502761777402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 661022720830886418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1315e459894b1b4a9440ce6dd93b65f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 0
-  scoreMultiplyer: 1
-  material1: {fileID: 0}
-  material2: {fileID: 0}
-  player: {fileID: 0}
-  scoreSystem: {fileID: 0}
 --- !u!1 &880018133431437529
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,6 +127,7 @@ GameObject:
   - component: {fileID: 6696560433137849502}
   - component: {fileID: 7730744218767432476}
   - component: {fileID: 9154908698587232791}
+  - component: {fileID: 9158803922372681539}
   m_Layer: 0
   m_Name: Leaves_Dream
   m_TagString: Untagged
@@ -218,3 +200,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &9158803922372681539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880018133431437529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1315e459894b1b4a9440ce6dd93b65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  scoreMultiplyer: 1
+  material1: {fileID: 2100000, guid: 93d2e14e3a8f62140bb8ab43bac378e2, type: 2}
+  material2: {fileID: 2100000, guid: 56db6582965e24742b1720bd40fc87a3, type: 2}
+  dreamState: 0
+  player: {fileID: 0}
+  scoreSystem: {fileID: 0}
