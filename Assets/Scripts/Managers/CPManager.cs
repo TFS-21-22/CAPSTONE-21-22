@@ -4,62 +4,74 @@ using UnityEngine;
 using UnityEditor;
 using UnityEngine.SceneManagement;
 
-namespace PathCreation.Examples
+
+public class CPManager : MonoBehaviour
 {
-    public class CPManager : MonoBehaviour
+    static CPManager _instance = null;
+    public static CPManager instance
     {
-        static CPManager _instance = null;
-        public static CPManager instance
+        get { return _instance; }
+        set { _instance = value; }
+    }
+
+    public int checkPoint;
+
+    public HUD hud;
+
+    //public PathCreator pathCreator;
+    // Start is called before the first frame update
+    void Start()
+    {
+        if (instance)
         {
-            get { return _instance; }
-            set { _instance = value; }
+            Destroy(gameObject);
+
         }
-
-        public PathFollower Player;
-        public int checkPoint;
-
-        //public PathCreator pathCreator;
-        // Start is called before the first frame update
-        void Start()
+        else
         {
-            if (instance)
-            {
-                Destroy(gameObject);
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+        //Player.pathCreator = Player.otherPaths[0];
+        checkPoint = 0;
+    }
 
-            }
-            else
-            {
-                instance = this;
-                DontDestroyOnLoad(this);
-            }
-            //Player.pathCreator = Player.otherPaths[0];
+    // Update is called once per frame
+    void Update()
+    {
+        hud = FindObjectOfType<HUD>();
+
+        if (GameManager.instance.health <= 0)
+        {
+            GameManager.instance.health = 3;
+            SceneManager.LoadScene("LevelDesignBlockout");           
+        }
+        if (Input.GetKeyDown("1"))
+        {
             checkPoint = 0;
+            BeatMaster.instance.beatCount = 0;
+            GameManager.instance.health = 3;
+            SceneManager.LoadScene("LevelDesignBlockout");
+        }
+        if (Input.GetKeyDown("2"))
+        {
+            checkPoint = 1;
+            BeatMaster.instance.beatCount = 100;
+            GameManager.instance.health = 3;
+            SceneManager.LoadScene("LevelDesignBlockout");
+        }
+        if (Input.GetKeyDown("3"))
+        {
+            checkPoint = 2;
+            BeatMaster.instance.beatCount = 300;
+            GameManager.instance.health = 3;
+            SceneManager.LoadScene("LevelDesignBlockout");
         }
 
-        // Update is called once per frame
-        void Update()
+        //INSTA-LOSE BUTTON
+        if (Input.GetKeyDown("0"))
         {
-            if (GameManager.instance.health <= 0)
-            {
-                checkPoint = 0;
-                SceneManager.LoadScene("LevelDesignBlockout");
-                GameManager.instance.health = 3;
-            }
-            if (Input.GetKeyDown("1"))
-            {
-                checkPoint = 0;
-                SceneManager.LoadScene("LevelDesignBlockout");
-            }
-            if (Input.GetKeyDown("2"))
-            {
-                checkPoint = 1;
-                SceneManager.LoadScene("LevelDesignBlockout");
-            }
-            if (Input.GetKeyDown("3"))
-            {
-                checkPoint = 2;
-                SceneManager.LoadScene("LevelDesignBlockout");
-            }
+            SceneManager.LoadScene("LevelDesignBlockout");
         }
     }
 }

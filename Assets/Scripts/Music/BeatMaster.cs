@@ -14,7 +14,7 @@ public class BeatMaster : MonoBehaviour
     public float beatFeel = 0.1f;
     public static int temp;
     public static float beatRealTime;
-    public static int beatCount = 0;
+    public int beatCount = 0;
 
     private void Awake()
     {
@@ -31,12 +31,30 @@ public class BeatMaster : MonoBehaviour
 
     private void Start()
     {
+
+
         source = GetComponent<AudioSource>();
         source.playOnAwake = false;
         //broadcast BPS of track...
         BPS?.Invoke(BPM / 60f);
 
         this.Invoke("PlayThing", 1);
+
+        if (CPManager.instance.checkPoint == 0)
+        {
+            beatCount = 0;
+            source.time = 0;
+        }
+        if (CPManager.instance.checkPoint == 1)
+        {
+            beatCount = 100;
+            source.time = 46f;
+        }
+        if (CPManager.instance.checkPoint == 2)
+        {
+            beatCount = 300;
+            source.time = 6;
+        }
 
         //Debug.Log("Source.Time: " + source.time);
         //Debug.Log("Source.Clip.Length: " + source.clip.length);
@@ -67,6 +85,19 @@ public class BeatMaster : MonoBehaviour
             currentBeat = temp;
             Beat?.Invoke(currentBeat);
             beatCount++;
+        }
+
+        if (beatCount >= 0)
+        {
+            CPManager.instance.checkPoint = 0;
+        }
+        if (beatCount >= 100)
+        {
+            CPManager.instance.checkPoint = 1;
+        }
+        if (beatCount >= 300)
+        {
+            CPManager.instance.checkPoint = 2;
         }
     }    
 }
