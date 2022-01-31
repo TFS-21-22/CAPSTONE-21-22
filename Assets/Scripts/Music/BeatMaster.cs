@@ -40,21 +40,25 @@ public class BeatMaster : MonoBehaviour
 
         this.Invoke("PlayThing", 1);
 
-        if (CPManager.instance.checkPoint == 0)
+       if(CPManager.instance)
         {
-            beatCount = 0;
-            source.time = 0;
+            if (CPManager.instance.checkPoint == 0)
+            {
+                beatCount = 0;
+                source.time = 0;
+            }
+            if (CPManager.instance.checkPoint == 1)
+            {
+                beatCount = 100;
+                source.time = 46f;
+            }
+            if (CPManager.instance.checkPoint == 2)
+            {
+                beatCount = 300;
+                source.time = 6;
+            }
         }
-        if (CPManager.instance.checkPoint == 1)
-        {
-            beatCount = 100;
-            source.time = 46f;
-        }
-        if (CPManager.instance.checkPoint == 2)
-        {
-            beatCount = 300;
-            source.time = 6;
-        }
+        
 
         //Debug.Log("Source.Time: " + source.time);
         //Debug.Log("Source.Clip.Length: " + source.clip.length);

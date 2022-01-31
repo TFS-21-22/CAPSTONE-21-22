@@ -10,6 +10,7 @@ TagManager:
   - Checkpoint
   - Ground
   - Log
+  - Tiger
   layers:
   - Default
   - TransparentFX

@@ -96,7 +96,8 @@ public class Strafe : MonoBehaviour
        
         transform.Translate(h * Time.deltaTime, 0, 0);
 
-        if(scoresystem.transitionEnding)
+       
+        if(scoresystem && scoresystem.transitionEnding)
         {
             source.PlayOneShot(transitionSFX);
         }

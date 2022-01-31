@@ -80,31 +80,43 @@ public class transition2 : MonoBehaviour
         }
         else
         {
-            if (rend.sharedMaterial.mainTexture == material2.mainTexture)
-                changedState = false;
+            if(rend.sharedMaterial.mainTexture)
+            {
+                if (rend.sharedMaterial.mainTexture == material2.mainTexture)
+                    changedState = false;
 
-            if (rend.sharedMaterial.mainTexture == material1.mainTexture)
-                changedState = true;
+                if (rend.sharedMaterial.mainTexture == material1.mainTexture)
+                    changedState = true;
 
-            MaterialLerp(material2, material1);
+                MaterialLerp(material2, material1);
+            }
+       
         }
 
-        score = scoreSystem.score;
-        scoreMultiplyer = scoreSystem.scoreMulitplyer;
-
-        if((player.transform.position.z + 10.0f) >= gameObject.transform.position.z)
+        if(scoreSystem)
         {
-            objectInView = true;          
+            score = scoreSystem.score;
+            scoreMultiplyer = scoreSystem.scoreMulitplyer;
         }
-        else
+        
+        
+        if(player)
         {
-            objectInView = false;
-        }
+            if ((player.transform.position.z + 10.0f) >= gameObject.transform.position.z)
+            {
+                objectInView = true;
+            }
+            else
+            {
+                objectInView = false;
+            }
 
-        if(!objectInView && !gameObject.CompareTag("Ground"))
-        {
-            transform.parent.gameObject.SetActive(false);
+            if (!objectInView && !gameObject.CompareTag("Ground"))
+            {
+                transform.parent.gameObject.SetActive(false);
+            }
         }
+      
      
     }
     
