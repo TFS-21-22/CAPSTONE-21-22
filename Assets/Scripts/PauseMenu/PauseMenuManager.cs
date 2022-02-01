@@ -1,13 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class PauseMenuManager : MonoBehaviour
 {
     public static PauseMenuManager instance;
     [SerializeField] private Strafe strafeScript;
-    [SerializeField] private GameObject pauseMenu;
     [SerializeField] private AudioSource music;
+
+    //Buttons
+    [SerializeField] private Button resumeButton;
+    [SerializeField] private Button settingsButton;
+    [SerializeField] private Button settingsBackButton;
+    [SerializeField] private Button compendiumButton;
+    [SerializeField] private Button compendiumnBackButton;
+    [SerializeField] private Button titlescreenButton;
+
+    //Menu
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject settingsMenu;
+    [SerializeField] private GameObject startMenu;
+    [SerializeField] private GameObject compendiumMenu;
+    
 
     public bool isPaused = false;
 
@@ -21,6 +37,39 @@ public class PauseMenuManager : MonoBehaviour
         else if (instance != null)
         {
             Destroy(this);
+        }
+    }
+
+    void Start()
+    {
+        if(resumeButton)
+        {
+            resumeButton.onClick.AddListener(ResumeGame);
+        }
+
+        if(settingsButton)
+        {
+            settingsButton.onClick.AddListener(EnableSettingsMenu);
+        }
+
+        if(compendiumButton)
+        {
+            compendiumButton.onClick.AddListener(EnableCompendium);
+        }
+
+        if(titlescreenButton)
+        {
+            titlescreenButton.onClick.AddListener(LoadTitlescreen);
+        }
+
+        if(settingsBackButton)
+        {
+            settingsBackButton.onClick.AddListener(DisableSettings);
+        }
+
+        if(compendiumnBackButton)
+        {
+            compendiumnBackButton.onClick.AddListener(DisableCompendium);
         }
     }
 
@@ -96,9 +145,6 @@ public class PauseMenuManager : MonoBehaviour
             strafeScript.enabled = false;
 
             //BeatMaster.instance.enabled = false;
-
-    
-
         }
 
        
@@ -106,6 +152,54 @@ public class PauseMenuManager : MonoBehaviour
     }
 
     public void EnableGame()
+    {
+        isPaused = false;
+
+        //Enable Pause Menu UI
+        pauseMenu.SetActive(false);
+
+        //Disable Audio + BeatMaster
+        music.UnPause();
+
+        //Disable Canvas
+        if (!RhythmCanvas.instance.gameObject.activeSelf)
+            RhythmCanvas.instance.enabled = true;
+
+        //Disable Movement
+        strafeScript.enabled = true;
+
+        //Disable beatmaster
+        BeatMaster.instance.enabled = true;
+    }
+
+    void DisableCompendium()
+    {
+        compendiumMenu.SetActive(false);
+        pauseMenu.SetActive(true);
+    }
+
+    void DisableSettings()
+    {
+        settingsMenu.SetActive(false);
+        pauseMenu.SetActive(true);
+    }
+
+    void EnableCompendium()
+    {
+        compendiumMenu.SetActive(true);
+    }
+
+    void EnableSettingsMenu()
+    {
+        settingsMenu.SetActive(true);
+    }
+
+    void LoadTitlescreen()
+    {
+        
+    }
+
+    void ResumeGame()
     {
         isPaused = false;
 
