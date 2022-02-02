@@ -64,7 +64,7 @@ public class Strafe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (BeatMaster.instance.beatCount == 58 && !enemySequence && !bossSequence)
+        if (BeatMaster.instance.beatCount == 50 && !enemySequence && !bossSequence)
         {
             TigerSequence();
         }

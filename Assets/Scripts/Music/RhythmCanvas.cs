@@ -84,7 +84,7 @@ public class RhythmCanvas : MonoBehaviour
         scaling = false;
         BeatMaster.Beat += BeatCheck;
         BeatMaster.Beat += BeatX;
-        
+
     }
 
     // Update is called once per frame
@@ -141,12 +141,12 @@ public class RhythmCanvas : MonoBehaviour
                 StartCoroutine(DestroyBoss(1f, perfect));
             }
 
-            
+
         }
 
         if (beatTime > 2.126f && !buttonPressed)
         {
-            
+
             RandomBackground(buttonBG, Random.Range(0, buttonBG.Length), Random.Range(0, buttonBG.Length));
             StartCoroutine(ScoreTextResult(miss, 1f));
 
@@ -221,8 +221,8 @@ public class RhythmCanvas : MonoBehaviour
         while (scaleCount < 9)
         {
             //Outer Circle Scale
-            if(!PauseMenuManager.instance.isPaused)
-            xCircle.transform.localScale -= new Vector3(flux * Time.deltaTime, flux * Time.deltaTime, flux * Time.deltaTime);
+            if (!PauseMenuManager.instance.isPaused)
+                xCircle.transform.localScale -= new Vector3(flux * Time.deltaTime, flux * Time.deltaTime, flux * Time.deltaTime);
             yield return null;
         }
     }
@@ -273,19 +273,29 @@ public class RhythmCanvas : MonoBehaviour
         //Camera
         smoothCamera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
         smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(3));
-        this.gameObject.SetActive(false);
+
 
         pulsing = false;
         scaling = false;
         xCircle.gameObject.SetActive(true);
         wisp.SetActive(false);
         wisp = null;
-
         _scoreText.transform.localScale = new Vector3(1f, 1f, 1f);
         _scoreText.transform.position = scoreTextStartPos;
 
+        /*
+        id = LeanTween.scale(Tiger.instance.gameObject, Vector3.one, 0.1f).id;
+        while (LeanTween.isTweening(id))
+        {
+            yield return null;
+        }
+        */
         if (_scoreText.activeSelf)
             _scoreText.SetActive(false);
+
+        LeanTween.cancelAll(true);
+
+        this.gameObject.SetActive(false);
 
     }
 
@@ -305,13 +315,21 @@ public class RhythmCanvas : MonoBehaviour
         smoothCamera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
         smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(3));
         xCircle.gameObject.SetActive(true);
-        this.gameObject.SetActive(false);
-
-        _scoreText.transform.localScale = new Vector3(1f, 1f, 1f);
-        _scoreText.transform.position = scoreTextStartPos;
+        string message = "Old position: " + _scoreText.transform.position + " | Old Scale: " + _scoreText.transform.localScale;
+        //_scoreText.GetComponent<RectTransform>().LeanScale(Vector2.one, 0);
+        //_scoreText.transform.localScale = new Vector3(1f, 1f, 1f);
+        //_scoreText.transform.position = scoreTextStartPos;
+        //message += "  |||  New Position: " + _scoreText.transform.position + " | New Scale: " + _scoreText.transform.localScale;
+        //Debug.Log(message + Time.time);
+        //LeanTween.reset();
 
         if (_scoreText.activeSelf)
             _scoreText.SetActive(false);
+
+        LeanTween.cancelAll(true);
+
+        this.gameObject.SetActive(false);
+
 
 
     }
@@ -330,6 +348,7 @@ public class RhythmCanvas : MonoBehaviour
         ResetRhythmTween();
         int id = LeanTween.scale(scoreText, new Vector3(2f, 2f, 2f), 1f).id;
         int id2 = LeanTween.moveY(scoreText, 0.05f, 5f).id;
+        
 
         while (LeanTween.isTweening(id))
         {
@@ -341,12 +360,15 @@ public class RhythmCanvas : MonoBehaviour
         {
             yield return null;
         }
+
+        LeanTween.cancel(id);
+        LeanTween.cancel(id2);
     }
 
     IEnumerator ResetScoreTextResult(float _wait, GameObject _scoreText)
     {
         yield return new WaitForSecondsRealtime(_wait);
 
-        
+
     }
 }
