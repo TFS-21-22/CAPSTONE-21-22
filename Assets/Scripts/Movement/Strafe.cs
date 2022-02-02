@@ -123,11 +123,12 @@ public class Strafe : MonoBehaviour
 
     void TigerSequence()
     {
+        /*
         tiger.SetActive(true);
         camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;
         camera.StartCoroutine(camera.CameraSwitch(3));
         enemySequence = true;
-
+        */
     }
 
     void OnTriggerEnter(Collider other)
@@ -146,13 +147,12 @@ public class Strafe : MonoBehaviour
         {
             source.PlayOneShot(logCollisionSFX);
             //logCollisionSFX.Play();
-            GameManager.instance.health--;
+            //GameManager.instance.health--;
         }
 
         if (other.gameObject.CompareTag("Tiger"))
         {
             source.PlayOneShot(tigerSFX);
-            //logCollisionSFX.Play();
             GameManager.instance.health--;
         }
     }
