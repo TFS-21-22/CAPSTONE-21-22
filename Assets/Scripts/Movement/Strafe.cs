@@ -43,6 +43,7 @@ public class Strafe : MonoBehaviour
     public bool bossSequence = false;
     public bool stopperL;
     public bool stopperR;
+    public bool canHurt = true;
 
     public SmoothCameraScript camera;
 
@@ -50,6 +51,8 @@ public class Strafe : MonoBehaviour
 
     //Scripts
     public ScoreSystem scoresystem;
+
+    public ResultsScreen resultsScreen;
     
 
     // Start is called before the first frame update
@@ -58,7 +61,7 @@ public class Strafe : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
 
-        
+        canHurt = true;
     }
 
     // Update is called once per frame
@@ -145,8 +148,11 @@ public class Strafe : MonoBehaviour
         if(other.gameObject.CompareTag("Log"))
         {
             source.PlayOneShot(logCollisionSFX);
+            //GameManager.instance.health--;
+           
+            StartCoroutine(Collision(2.0f));
             //logCollisionSFX.Play();
-            GameManager.instance.health--;
+           
         }
 
         if (other.gameObject.CompareTag("Tiger"))
@@ -154,6 +160,14 @@ public class Strafe : MonoBehaviour
             source.PlayOneShot(tigerSFX);
             //logCollisionSFX.Play();
             GameManager.instance.health--;
+        }
+
+        if(other.gameObject.CompareTag("End"))
+        {
+            if(resultsScreen)
+            {
+                resultsScreen.resultsScreen.SetActive(true);
+            }
         }
     }
     void OnTriggerStay(Collider other)
@@ -204,6 +218,21 @@ public class Strafe : MonoBehaviour
         }
     }
 
+    IEnumerator Collision(float waitTime)
+    {
+        if(canHurt)
+        {
+            GameManager.instance.health--;
+            canHurt = false;
+           
+        }
+        else
+        {
+            yield return new WaitForSeconds(waitTime);
+            canHurt = true;
+        }
+     
 
+    }
 
 }
