@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612e70f49e5124da0a95111a57250300, type: 3}
   m_Name: DistanceFog
   m_EditorClassIdentifier: 
-  raymarchQuality: 6
+  raymarchQuality: 3
   raymarchMinStep: 0.2
   jittering: 3
-  dithering: 0.81
+  dithering: 0.58
   renderQueue: 3100
   sortingLayerID: 0
   sortingOrder: 0
   noiseTexture: {fileID: 2800000, guid: 9c79340e1a1054275ba04070a27de306, type: 3}
-  noiseStrength: 1.41
-  noiseScale: 6.04
+  noiseStrength: 2.03
+  noiseScale: 25.63
   noiseFinalMultiplier: 1.12
   useDetailNoise: 0
   detailTexture: {fileID: 11700000, guid: 950add8d241c6479bbab1f10e1035d60, type: 2}
