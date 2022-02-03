@@ -44,8 +44,8 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Base_Colour_1: {r: 0.5566038, g: 0.04463333, b: 0.5441453, a: 0}
-    - _Base_Colour_2: {r: 0.7924528, g: 0.03364185, b: 0.572914, a: 0}
+    - _Base_Colour_1: {r: 0.2264151, g: 0.05446778, b: 0.7019608, a: 0}
+    - _Base_Colour_2: {r: 0.6792453, g: 0, b: 0.13811842, a: 0}
     - _Fresnel_Colour: {r: 0.7264151, g: 0.1678978, b: 0.385724, a: 0}
     - _Glitter_Colour: {r: 1, g: 0, b: 0, a: 0}
     - _Noise_Scale: {r: 15, g: 15, b: 0, a: 0}
