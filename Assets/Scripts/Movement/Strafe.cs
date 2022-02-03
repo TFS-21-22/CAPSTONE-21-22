@@ -64,7 +64,7 @@ public class Strafe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (BeatMaster.instance.beatCount == 50 && !enemySequence && !bossSequence)
+        if (BeatMaster.instance.beatCount == 8 && !enemySequence && !bossSequence)
         {
             TigerSequence();
         }
@@ -123,12 +123,12 @@ public class Strafe : MonoBehaviour
 
     void TigerSequence()
     {
-        /*
+        
         tiger.SetActive(true);
         camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;
         camera.StartCoroutine(camera.CameraSwitch(3));
         enemySequence = true;
-        */
+        
     }
 
     void OnTriggerEnter(Collider other)

@@ -6,9 +6,14 @@ using UnityEngine.UI;
 
 public class PauseMenuManager : MonoBehaviour
 {
+    [SerializeField] private RhythmCanvas rhythmCanvas;
     public static PauseMenuManager instance;
     [SerializeField] private Strafe strafeScript;
     [SerializeField] private AudioSource music;
+    [SerializeField] private AudioSource waterSFX;
+    [SerializeField] private Slider musicVolumeSlider;
+    [SerializeField] private Slider waterVolumeSlider;
+
 
     //Buttons
     [SerializeField] private Button resumeButton;
@@ -16,14 +21,36 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private Button settingsBackButton;
     [SerializeField] private Button compendiumButton;
     [SerializeField] private Button compendiumnBackButton;
-    [SerializeField] private Button titlescreenButton;
+
+    //Settings Buttons
+    [SerializeField] private Button controlsButton;
+    [SerializeField] private Button videoSettingsButton;
+    [SerializeField] private Button volumeSettingsButton;
+
+    [SerializeField] private Toggle vsyncToggle;
+    [SerializeField] private Toggle fullscreenToggle;
+    [SerializeField] private Button applyGraphics;
+
+    //Settings Menus
+    [SerializeField] private GameObject videoSettingsMenuParent;
+    [SerializeField] private GameObject volumeSettingsMenuParent;
+    [SerializeField] private GameObject controlsSettingsMenuParent;
+
 
     //Menu
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject startMenu;
     [SerializeField] private GameObject compendiumMenu;
-    
+
+    //Resolutons
+    [SerializeField] private Toggle resolutionOne;      //1920 x 1080
+    [SerializeField] private Toggle resolutionTwo;      //1360 x 764
+    [SerializeField] private Toggle resolutionThree;    //1280 x 720
+    [SerializeField] private Toggle resolutionFour;     //1152 x 648
+
+    private float defaultVolume = 0.5f;
+
 
     public bool isPaused = false;
 
@@ -42,7 +69,15 @@ public class PauseMenuManager : MonoBehaviour
 
     void Start()
     {
-        if(resumeButton)
+        QualitySettings.vSyncCount = 0;
+
+        //Set Volume to 0.5f
+        waterSFX.volume = defaultVolume;
+        waterVolumeSlider.value = defaultVolume;
+        musicVolumeSlider.value = defaultVolume;
+        music.volume = defaultVolume;
+
+        if (resumeButton)
         {
             resumeButton.onClick.AddListener(ResumeGame);
         }
@@ -57,11 +92,6 @@ public class PauseMenuManager : MonoBehaviour
             compendiumButton.onClick.AddListener(EnableCompendium);
         }
 
-        if(titlescreenButton)
-        {
-            titlescreenButton.onClick.AddListener(LoadTitlescreen);
-        }
-
         if(settingsBackButton)
         {
             settingsBackButton.onClick.AddListener(DisableSettings);
@@ -71,6 +101,31 @@ public class PauseMenuManager : MonoBehaviour
         {
             compendiumnBackButton.onClick.AddListener(DisableCompendium);
         }
+
+        if(applyGraphics)
+        {
+            applyGraphics.onClick.AddListener(ApplyGraphics);
+        }
+
+        if (controlsButton)
+        {
+            controlsButton.onClick.AddListener(controlsMenu);
+        }
+
+        if (videoSettingsButton)
+        {
+            videoSettingsButton.onClick.AddListener(videoSettingsMenu);
+        }
+
+        if (controlsButton)
+        {
+            controlsButton.onClick.AddListener(controlsMenu);
+        }
+
+        if (volumeSettingsButton)
+        {
+            volumeSettingsButton.onClick.AddListener(volumeSettings);
+        }
     }
 
 
@@ -79,7 +134,37 @@ public class PauseMenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        
+        if(resolutionOne.isOn)
+        {
+            resolutionTwo.isOn = false;
+            resolutionThree.isOn = false;
+            resolutionFour.isOn = false;
+
+        }
+        else if (resolutionTwo.isOn)
+        {
+            resolutionOne.isOn = false;
+            resolutionThree.isOn = false;
+            resolutionFour.isOn = false;
+
+        }
+        else if (resolutionThree.isOn)
+        {
+            resolutionOne.isOn = false;
+            resolutionTwo.isOn = false;
+            resolutionFour.isOn = false;
+
+        }
+        else if (resolutionFour.isOn)
+        {
+            resolutionOne.isOn = false;
+            resolutionTwo.isOn = false;
+            resolutionThree.isOn = false;
+
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
         }
@@ -101,10 +186,24 @@ public class PauseMenuManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            //Debug.Log("Escape key was pressed");
             if (!isPaused)
             {
                 isPaused = true;
+
+                //Enable Pause Menu UI
+                pauseMenu.SetActive(true);
+
+                //Disable Audio + BeatMaster
+                music.Pause();
+
+                waterSFX.Pause();
+
+                //Disable Canvas
+                if (rhythmCanvas.gameObject.activeSelf)
+                    rhythmCanvas.gameObject.SetActive(false);
+
+                //Disable Movement
+                strafeScript.enabled = false;
             }
             else
             {
@@ -115,10 +214,12 @@ public class PauseMenuManager : MonoBehaviour
 
                 //Disable Audio + BeatMaster
                 music.UnPause();
+                waterSFX.UnPause();
+
 
                 //Disable Canvas
-                if(!RhythmCanvas.instance.gameObject.activeSelf)
-                    RhythmCanvas.instance.enabled = true;
+                if (rhythmCanvas.gameObject.activeSelf)
+                    rhythmCanvas.gameObject.SetActive(true);
 
                 //Disable Movement
                 strafeScript.enabled = true;
@@ -129,23 +230,8 @@ public class PauseMenuManager : MonoBehaviour
             }
         }
        
-        if(isPaused)
-        {
-            //Enable Pause Menu UI
-            pauseMenu.SetActive(true);
-
-            //Disable Audio + BeatMaster
-            music.Pause();
-
-            //Disable Canvas
-            if (RhythmCanvas.instance.gameObject.activeSelf)
-                RhythmCanvas.instance.enabled = false;
-
-            //Disable Movement
-            strafeScript.enabled = false;
-
-            //BeatMaster.instance.enabled = false;
-        }
+        
+        
 
        
         
@@ -172,34 +258,69 @@ public class PauseMenuManager : MonoBehaviour
         BeatMaster.instance.enabled = true;
     }
 
-    void DisableCompendium()
+    private void ApplyGraphics()
+    {
+        music.volume = musicVolumeSlider.value;
+        waterSFX.volume = waterVolumeSlider.value;
+
+        if (vsyncToggle.isOn)
+        {
+            QualitySettings.vSyncCount = 1;
+        }
+        else
+        {
+            QualitySettings.vSyncCount = 0;
+        }
+
+        fullscreenToggle.isOn = Screen.fullScreen;
+
+        if (resolutionOne.isOn)
+        {
+            Screen.SetResolution(1980, 1080, fullscreenToggle.isOn = Screen.fullScreen);
+
+        }
+        else if (resolutionTwo.isOn)
+        {
+            Screen.SetResolution(1360, 764, fullscreenToggle.isOn = Screen.fullScreen);
+
+        }
+        else if (resolutionThree.isOn)
+        {
+            Screen.SetResolution(1280, 720, fullscreenToggle.isOn = Screen.fullScreen);
+
+        }
+        else if (resolutionFour.isOn)
+        {
+            Screen.SetResolution(1152, 648, fullscreenToggle.isOn = Screen.fullScreen);
+        }
+    }
+
+    private void DisableCompendium()
     {
         compendiumMenu.SetActive(false);
         pauseMenu.SetActive(true);
     }
 
-    void DisableSettings()
+    private void DisableSettings()
     {
         settingsMenu.SetActive(false);
         pauseMenu.SetActive(true);
     }
 
-    void EnableCompendium()
+    private void EnableCompendium()
     {
         compendiumMenu.SetActive(true);
     }
 
-    void EnableSettingsMenu()
+    private void EnableSettingsMenu()
     {
         settingsMenu.SetActive(true);
+        videoSettingsMenuParent.SetActive(false);
+        volumeSettingsMenuParent.SetActive(false);
+        controlsSettingsMenuParent.SetActive(false);
     }
 
-    void LoadTitlescreen()
-    {
-        
-    }
-
-    void ResumeGame()
+    private void ResumeGame()
     {
         isPaused = false;
 
@@ -218,5 +339,27 @@ public class PauseMenuManager : MonoBehaviour
 
         //Disable beatmaster
         BeatMaster.instance.enabled = true;
+    }
+
+    private void videoSettingsMenu()
+    {
+        videoSettingsMenuParent.SetActive(true);
+        volumeSettingsMenuParent.SetActive(false);
+        controlsSettingsMenuParent.SetActive(false);
+
+    }
+
+    private void volumeSettings()
+    {
+        volumeSettingsMenuParent.SetActive(true);
+        videoSettingsMenuParent.SetActive(false);
+        controlsSettingsMenuParent.SetActive(false);
+    }
+    private void controlsMenu()
+    {
+        controlsSettingsMenuParent.SetActive(true);
+        videoSettingsMenuParent.SetActive(false);
+        volumeSettingsMenuParent.SetActive(false);
+
     }
 }

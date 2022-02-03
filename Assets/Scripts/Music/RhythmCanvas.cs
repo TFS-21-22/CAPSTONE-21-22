@@ -283,13 +283,6 @@ public class RhythmCanvas : MonoBehaviour
         _scoreText.transform.localScale = new Vector3(1f, 1f, 1f);
         _scoreText.transform.position = scoreTextStartPos;
 
-        /*
-        id = LeanTween.scale(Tiger.instance.gameObject, Vector3.one, 0.1f).id;
-        while (LeanTween.isTweening(id))
-        {
-            yield return null;
-        }
-        */
         if (_scoreText.activeSelf)
             _scoreText.SetActive(false);
 
@@ -309,26 +302,24 @@ public class RhythmCanvas : MonoBehaviour
         }
         pulsing = false;
         scaling = false;
-        //sequencePressed = false;
-        Tiger.instance.gameObject.transform.localScale = new Vector3(1, 1, 1);
-        Tiger.instance.gameObject.SetActive(false);
+        sequencePressed = false;
+        tiger.gameObject.transform.localScale = new Vector3(1, 1, 1);
+        tiger.gameObject.SetActive(false);
+        this.gameObject.SetActive(false);
+        //Camera
         smoothCamera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
         smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(3));
+
         xCircle.gameObject.SetActive(true);
-        string message = "Old position: " + _scoreText.transform.position + " | Old Scale: " + _scoreText.transform.localScale;
-        //_scoreText.GetComponent<RectTransform>().LeanScale(Vector2.one, 0);
-        //_scoreText.transform.localScale = new Vector3(1f, 1f, 1f);
-        //_scoreText.transform.position = scoreTextStartPos;
-        //message += "  |||  New Position: " + _scoreText.transform.position + " | New Scale: " + _scoreText.transform.localScale;
-        //Debug.Log(message + Time.time);
-        //LeanTween.reset();
 
         if (_scoreText.activeSelf)
             _scoreText.SetActive(false);
 
+        
+
         LeanTween.cancelAll(true);
 
-        this.gameObject.SetActive(false);
+       
 
 
 
