@@ -223,7 +223,7 @@ MonoBehaviour:
     name: Mangrove_Normal_03_W Variant
   - gameObject: {fileID: 8111636331635984587, guid: 782fb6ff8917e764cb3c1971e6778d39, type: 3}
     settings:
-      m_Strength: 50
+      m_Strength: 100
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 0, y: 360, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
