@@ -80,7 +80,7 @@ public class transition2 : MonoBehaviour
         }
         else
         {
-            if(rend.sharedMaterial.mainTexture)
+            if(rend.sharedMaterial)
             {
                 if (rend.sharedMaterial.mainTexture == material2.mainTexture)
                     changedState = false;

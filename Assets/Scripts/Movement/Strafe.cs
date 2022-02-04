@@ -166,9 +166,10 @@ public class Strafe : MonoBehaviour
         {
             if(resultsScreen)
             {
-                resultsScreen.resultsScreen.SetActive(true);
+                resultsScreen.endHit = true;
             }
         }
+
     }
     void OnTriggerStay(Collider other)
     {
