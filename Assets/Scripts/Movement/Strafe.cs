@@ -43,6 +43,7 @@ public class Strafe : MonoBehaviour
     public bool bossSequence = false;
     public bool stopperL;
     public bool stopperR;
+    public bool canHurt = true;
 
     public SmoothCameraScript camera;
 
@@ -50,6 +51,8 @@ public class Strafe : MonoBehaviour
 
     //Scripts
     public ScoreSystem scoresystem;
+
+    public ResultsScreen resultsScreen;
     
 
     // Start is called before the first frame update
@@ -58,15 +61,15 @@ public class Strafe : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
 
-        
+        canHurt = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (BeatMaster.instance.beatCount == 8 && !enemySequence && !bossSequence)
+        if (BeatMaster.instance.beatCount == 58 && !enemySequence && !bossSequence)
         {
-            //TigerSequence();
+            TigerSequence();
         }
 
         if (BeatMaster.instance.beatCount == 352 && !enemySequence && !bossSequence)
@@ -123,12 +126,11 @@ public class Strafe : MonoBehaviour
 
     void TigerSequence()
     {
-        
         tiger.SetActive(true);
         camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;
         camera.StartCoroutine(camera.CameraSwitch(3));
         enemySequence = true;
-        
+
     }
 
     void OnTriggerEnter(Collider other)
@@ -146,15 +148,28 @@ public class Strafe : MonoBehaviour
         if(other.gameObject.CompareTag("Log"))
         {
             source.PlayOneShot(logCollisionSFX);
-            //logCollisionSFX.Play();
             //GameManager.instance.health--;
+           
+            StartCoroutine(Collision(2.0f));
+            //logCollisionSFX.Play();
+           
         }
 
         if (other.gameObject.CompareTag("Tiger"))
         {
             source.PlayOneShot(tigerSFX);
+            //logCollisionSFX.Play();
             GameManager.instance.health--;
         }
+
+        if(other.gameObject.CompareTag("End"))
+        {
+            if(resultsScreen)
+            {
+                resultsScreen.endHit = true;
+            }
+        }
+
     }
     void OnTriggerStay(Collider other)
     {
@@ -204,6 +219,21 @@ public class Strafe : MonoBehaviour
         }
     }
 
+    IEnumerator Collision(float waitTime)
+    {
+        if(canHurt)
+        {
+            GameManager.instance.health--;
+            canHurt = false;
+           
+        }
+        else
+        {
+            yield return new WaitForSeconds(waitTime);
+            canHurt = true;
+        }
+     
 
+    }
 
 }

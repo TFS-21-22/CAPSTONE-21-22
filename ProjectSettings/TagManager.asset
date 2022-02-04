@@ -11,6 +11,7 @@ TagManager:
   - Ground
   - Log
   - Tiger
+  - End
   layers:
   - Default
   - TransparentFX
