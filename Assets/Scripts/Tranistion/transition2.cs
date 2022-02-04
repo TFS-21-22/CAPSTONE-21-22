@@ -70,13 +70,17 @@ public class transition2 : MonoBehaviour
 
         if (dreamState)
         {
-            if (rend.sharedMaterial.mainTexture == material1.mainTexture)
-                changedState = false;
+            if(rend.sharedMaterial)
+            {
+                if (rend.sharedMaterial.mainTexture == material1.mainTexture)
+                    changedState = false;
 
-            if (rend.sharedMaterial.mainTexture == material2.mainTexture)
-                changedState = true;
+                if (rend.sharedMaterial.mainTexture == material2.mainTexture)
+                    changedState = true;
 
-            MaterialLerp(material1, material2);
+                MaterialLerp(material1, material2);
+            }
+        
         }
         else
         {
