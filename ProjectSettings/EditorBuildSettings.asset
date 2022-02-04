@@ -8,12 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Title Screen.unity
     guid: 4b3ce6e28094e044c8263f546e7d9c88
-  - enabled: 1
-    path: Assets/Scenes/Loading Screen.unity
-    guid: 2331fccba4e0cb747b4f38ced0565b5a
   - enabled: 0
-    path: Assets/Scenes/Blockout.unity
-    guid: 7a5230731cd0d7f449af8cc73321c3e1
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/LevelDesignBlockout.unity
     guid: 7215547b8336ab04ab4de5ae055edd4a
