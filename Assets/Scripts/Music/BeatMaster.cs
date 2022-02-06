@@ -16,6 +16,8 @@ public class BeatMaster : MonoBehaviour
     public static float beatRealTime;
     public int beatCount = 0;
 
+    public ScoreSystem scoreSystem;
+
     private void Awake()
     {
         if (instance == null)
@@ -31,8 +33,7 @@ public class BeatMaster : MonoBehaviour
 
     private void Start()
     {
-
-
+        scoreSystem = FindObjectOfType<ScoreSystem>();
         source = GetComponent<AudioSource>();
         source.playOnAwake = false;
         //broadcast BPS of track...
@@ -44,18 +45,21 @@ public class BeatMaster : MonoBehaviour
         {
             if (CPManager.instance.checkPoint == 0)
             {
+                scoreSystem.score = CPManager.instance.scoreSaved;
                 beatCount = 0;
                 source.time = 0;
             }
             if (CPManager.instance.checkPoint == 1)
             {
+                scoreSystem.score = CPManager.instance.scoreSaved;
                 beatCount = 100;
                 source.time = 46f;
             }
             if (CPManager.instance.checkPoint == 2)
             {
-                beatCount = 300;
-                source.time = 6;
+                scoreSystem.score = CPManager.instance.scoreSaved;
+                beatCount = 278;
+                source.time = 129f;
             }
         }
         
@@ -78,6 +82,7 @@ public class BeatMaster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        scoreSystem = FindObjectOfType<ScoreSystem>();
         //the source audio starts immediately on a beat, which means we can use the beats per minute to get the beats per second and increment the beats
         //based on the source time.
         temp = (int)Mathf.Ceil(((source.time - beatFeel) * (BPM / 60f)) % timeSignature);
@@ -91,17 +96,20 @@ public class BeatMaster : MonoBehaviour
             beatCount++;
         }
 
-        if (beatCount >= 0)
+        if (beatCount >= 0 && CPManager.instance.checkPoint < 0)
         {
             CPManager.instance.checkPoint = 0;
+            CPManager.instance.scoreSaved = scoreSystem.score;
         }
-        if (beatCount >= 100)
+        if (beatCount >= 100 && CPManager.instance.checkPoint < 1)
         {
             CPManager.instance.checkPoint = 1;
+            CPManager.instance.scoreSaved = scoreSystem.score;
         }
-        if (beatCount >= 300)
+        if (beatCount >= 278 && CPManager.instance.checkPoint < 2)
         {
             CPManager.instance.checkPoint = 2;
+            CPManager.instance.scoreSaved = scoreSystem.score;
         }
     }    
 }

@@ -169,7 +169,7 @@ public class PauseMenuManager : MonoBehaviour
             Application.Quit();
         }
 
-        ////////for hayden spline testing
+        ////////for hayden spline testing //HUD contains if-else statement if game is paused or not
         if (Input.GetKeyDown(KeyCode.KeypadPlus))
         {
             Time.timeScale = 2;

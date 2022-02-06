@@ -15,6 +15,7 @@ public class CPManager : MonoBehaviour
     }
 
     public int checkPoint;
+    public float scoreSaved;
 
     public HUD hud;
 
@@ -36,6 +37,7 @@ public class CPManager : MonoBehaviour
         checkPoint = 0;
     }
 
+    //Beatmaster script contains the rest of the CP code
     // Update is called once per frame
     void Update()
     {
@@ -63,7 +65,7 @@ public class CPManager : MonoBehaviour
         if (Input.GetKeyDown("3"))
         {
             checkPoint = 2;
-            BeatMaster.instance.beatCount = 300;
+            BeatMaster.instance.beatCount = 278;
             GameManager.instance.health = 3;
             SceneManager.LoadScene("LevelDesignBlockout");
         }

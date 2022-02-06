@@ -41,7 +41,7 @@ public class HUD : MonoBehaviour
         }
         else
         {
-            Time.timeScale = 1;
+            //Time.timeScale = 1;
             //HEALTH
             livesText.text = "Lives: " + GameManager.instance.health;
 
