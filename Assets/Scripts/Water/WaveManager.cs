@@ -16,6 +16,7 @@ public class WaveManager : MonoBehaviour
     public float length = 2f;
     bool maxOffset;
     public float direction = 1;
+    public float heightoffset = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +39,7 @@ public class WaveManager : MonoBehaviour
     
     public float GetWaveHeight(float xCordinate)
     {
-        return amplitude * Mathf.Sin(xCordinate / length + offset);
+        return amplitude * Mathf.Sin(xCordinate / length + offset) + heightoffset;
     }
     public float GetfloatHeight()
     {

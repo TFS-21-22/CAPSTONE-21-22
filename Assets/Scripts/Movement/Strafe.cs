@@ -53,14 +53,14 @@ public class Strafe : MonoBehaviour
     public ScoreSystem scoresystem;
 
     public ResultsScreen resultsScreen;
-    
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
 
         rb = GetComponent<Rigidbody>();
-
+        anim = GetComponent<Animator>();
         canHurt = true;
     }
 
@@ -87,7 +87,7 @@ public class Strafe : MonoBehaviour
         //Movement
         h = Input.GetAxis("Horizontal") * speed;
         //h = Mathf.Clamp(h, -2, 2);
-
+        anim.SetFloat("Direction", h);
         if (stopperL && h < 0)
         {
             h = 0;
@@ -141,7 +141,7 @@ public class Strafe : MonoBehaviour
             source.PlayOneShot(transitionSFX);
             
             Destroy(other.gameObject);
-
+            anim.SetTrigger("Low Collision");
             //rb.AddForce(transform.up * 8);
         }
 
@@ -152,7 +152,8 @@ public class Strafe : MonoBehaviour
            
             StartCoroutine(Collision(2.0f));
             //logCollisionSFX.Play();
-           
+            anim.SetTrigger("High Collision");
+
         }
 
         if (other.gameObject.CompareTag("Tiger"))
@@ -169,7 +170,6 @@ public class Strafe : MonoBehaviour
                 resultsScreen.endHit = true;
             }
         }
-
     }
     void OnTriggerStay(Collider other)
     {
@@ -225,7 +225,10 @@ public class Strafe : MonoBehaviour
         {
             GameManager.instance.health--;
             canHurt = false;
-           
+           if(GameManager.instance.health <= 0)
+            {
+                anim.SetTrigger("Death");
+            }
         }
         else
         {
