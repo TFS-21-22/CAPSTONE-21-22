@@ -85,9 +85,10 @@ public class Strafe : MonoBehaviour
 
 
         //Movement
-        h = Input.GetAxis("Horizontal") * speed;
+        h = Input.GetAxisRaw("Horizontal");
         //h = Mathf.Clamp(h, -2, 2);
         anim.SetFloat("Direction", h);
+        h *= speed;
         if (stopperL && h < 0)
         {
             h = 0;
