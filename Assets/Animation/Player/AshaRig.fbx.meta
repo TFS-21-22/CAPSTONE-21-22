@@ -84,7 +84,447 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-    human: []
+    human:
+    - boneName: Asha_Root_JNT
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_Leg_JNT
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_RT_Leg_JNT
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_Knee_JNT
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_RT_Knee_JNT
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_Ankle_JNT
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_RT_Ankle_JNT
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_Spine3_JNT
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_Spine2_JNT
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_Neck_JNT
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_Head_JNT
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_Clavicle_JNT
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_RT_Clavicle_JNT
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_Shoulder_JNT
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_RT_Shoulder_JNT
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_Elbow_JNT
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_RT_Elbow_JNT
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_Wrist_JNT
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_RT_Wrist_JNT
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_Toes_JNT
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_RT_Toes_JNT
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_Eye_JNT
+      humanName: LeftEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_Hair1_JNT
+      humanName: RightEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_RT_Hair1_JNT
+      humanName: Jaw
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_ThumbMeta_JNT
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_Thumb3_JNT
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_Thumb2_JNT
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_IndexMeta_JNT
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_Index4_JNT
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_Index3_JNT
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_MiddleMeta_JNT
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_Middle4_JNT
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_Middle3_JNT
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_RingMeta_JNT
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_Ring4_JNT
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_Ring3_JNT
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_PinkyMeta_JNT
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_Pinky4_JNT
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_Pinky3_JNT
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_RT_ThumbMeta_JNT
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_RT_Thumb3_JNT
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_RT_Thumb2_JNT
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_RT_IndexMeta_JNT
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_RT_Index4_JNT
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_RT_Index3_JNT
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_RT_MiddleMeta_JNT
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_RT_Middle4_JNT
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_RT_Middle3_JNT
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_RT_RingMeta_JNT
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_RT_Ring4_JNT
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_RT_Ring3_JNT
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_RT_PinkyMeta_JNT
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_RT_Pinky4_JNT
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_RT_Pinky3_JNT
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_Spine1_JNT
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
     skeleton:
     - name: AshaRig(Clone)
       parentName: 
@@ -404,7 +844,7 @@ ModelImporter:
     - name: Asha_LF_Clavicle_JNT
       parentName: Asha_Chest_JNT
       position: {x: -0.025184575, y: -0.016407765, z: 0.049890626}
-      rotation: {x: -0.4422764, y: 0.585366, z: 0.4671142, w: 0.49350026}
+      rotation: {x: -0.45572826, y: 0.54065865, z: 0.45572826, w: 0.54065865}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_LF_Arm_IK_CTRL_GRP
       parentName: Asha_LF_Clavicle_JNT
@@ -514,12 +954,12 @@ ModelImporter:
     - name: Asha_LF_Shoulder_JNT
       parentName: Asha_LF_Clavicle_JNT
       position: {x: -0.041045614, y: 0.016754616, z: -0.0116198845}
-      rotation: {x: 0.36148027, y: -0.07793199, z: 0.003844231, w: 0.9291092}
+      rotation: {x: 0.33429042, y: 0.071788885, z: 0.37331527, w: 0.86239904}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_LF_Elbow_JNT
       parentName: Asha_LF_Shoulder_JNT
       position: {x: -0.16108587, y: 0.009781022, z: 0.0066165593}
-      rotation: {x: 0.050674845, y: 0.03712662, z: -0.02144379, w: 0.9977945}
+      rotation: {x: 0.05582024, y: 0.065950155, z: -0.13763644, w: 0.9867071}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_LF_Forearm_JNT
       parentName: Asha_LF_Elbow_JNT
@@ -529,7 +969,7 @@ ModelImporter:
     - name: Asha_LF_Wrist_JNT
       parentName: Asha_LF_Forearm_JNT
       position: {x: -0.07216276, y: -0.000027276828, z: 0.0031783315}
-      rotation: {x: -0.31175032, y: 0.027122423, z: 0.010610446, w: 0.9497176}
+      rotation: {x: -0.3119459, y: 0.021918803, z: 0.0023960448, w: 0.949844}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_LF_Finger_CTRL_GRP
       parentName: Asha_LF_Wrist_JNT
@@ -679,17 +1119,17 @@ ModelImporter:
     - name: Asha_LF_IndexMeta_JNT
       parentName: Asha_LF_Wrist_JNT
       position: {x: -0.028918244, y: 0.00072890543, z: 0.008870809}
-      rotation: {x: 0.010277419, y: 0.013121815, z: -0.11946434, w: 0.99269867}
+      rotation: {x: 0.01299688, y: 0.040853526, z: -0.16097213, w: 0.9860274}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_LF_Index4_JNT
       parentName: Asha_LF_IndexMeta_JNT
       position: {x: -0.04107893, y: 8.5265126e-16, z: -1.7763567e-16}
-      rotation: {x: -0.015051098, y: -0.016493864, z: 0.033392537, w: 0.9991929}
+      rotation: {x: -0.014940046, y: -0.056110267, z: 0.113602385, w: 0.9918281}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_LF_Index3_JNT
       parentName: Asha_LF_Index4_JNT
       position: {x: -0.019268747, y: 9.947598e-16, z: -7.105427e-17}
-      rotation: {x: 0.026550345, y: 0.011270762, z: 0.03431913, w: 0.9989946}
+      rotation: {x: 0.026273457, y: 0.04631808, z: 0.14104225, w: 0.9885704}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_LF_Index2_JNT
       parentName: Asha_LF_Index3_JNT
@@ -704,17 +1144,17 @@ ModelImporter:
     - name: Asha_LF_MiddleMeta_JNT
       parentName: Asha_LF_Wrist_JNT
       position: {x: -0.028678598, y: 0.00303559, z: -0.0017875968}
-      rotation: {x: -0.006911427, y: -0.022156594, z: -0.13309854, w: 0.9908311}
+      rotation: {x: -0.005252508, y: -0.017490258, z: -0.17712358, w: 0.98401916}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_LF_Middle4_JNT
       parentName: Asha_LF_MiddleMeta_JNT
       position: {x: -0.03921169, y: 4.2632563e-16, z: -7.105427e-17}
-      rotation: {x: -0.007822915, y: -0.022034254, z: 0.033051644, w: 0.99918014}
+      rotation: {x: -0.0078051942, y: -0.04323436, z: 0.06485148, w: 0.9969274}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_LF_Middle3_JNT
       parentName: Asha_LF_Middle4_JNT
       position: {x: -0.014374057, y: -2.842171e-16, z: -1.7763568e-17}
-      rotation: {x: 0.02311585, y: 0.007156867, z: 0.031979073, w: 0.99919564}
+      rotation: {x: 0.022599429, y: 0.046441708, z: 0.2075151, w: 0.97686744}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_LF_Middle2_JNT
       parentName: Asha_LF_Middle3_JNT
@@ -729,17 +1169,17 @@ ModelImporter:
     - name: Asha_LF_PinkyMeta_JNT
       parentName: Asha_LF_Wrist_JNT
       position: {x: -0.025620136, y: 0.0028588425, z: -0.016814176}
-      rotation: {x: -0.044859022, y: -0.08493078, z: -0.10829759, w: 0.9894676}
+      rotation: {x: -0.0458555, y: -0.15097322, z: -0.17188531, w: 0.972399}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_LF_Pinky4_JNT
       parentName: Asha_LF_PinkyMeta_JNT
       position: {x: -0.036493346, y: 1.4210854e-16, z: -1.1546319e-16}
-      rotation: {x: 0.0066280277, y: 0.02625315, z: 0.06118183, w: 0.99775934}
+      rotation: {x: 0.006880898, y: 0.03531144, z: 0.07242012, w: 0.9967252}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_LF_Pinky3_JNT
       parentName: Asha_LF_Pinky4_JNT
       position: {x: -0.016540896, y: 0.0009732638, z: -0.00002736802}
-      rotation: {x: 0.0016002017, y: -0.0001559034, z: 0.02235126, w: 0.99974895}
+      rotation: {x: 0.0016063318, y: 0.0033540626, z: 0.18066205, w: 0.9835382}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_LF_Pinky2_JNT
       parentName: Asha_LF_Pinky3_JNT
@@ -754,17 +1194,17 @@ ModelImporter:
     - name: Asha_LF_RingMeta_JNT
       parentName: Asha_LF_Wrist_JNT
       position: {x: -0.02729971, y: 0.002359774, z: -0.010959559}
-      rotation: {x: -0.030638997, y: -0.06879602, z: -0.12233898, w: 0.989627}
+      rotation: {x: -0.03033535, y: -0.10380478, z: -0.18337305, w: 0.9770766}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_LF_Ring4_JNT
       parentName: Asha_LF_RingMeta_JNT
       position: {x: -0.03848867, y: -1.4210854e-16, z: -1.0658141e-16}
-      rotation: {x: 0.01154729, y: -0.0062141023, z: 0.04231858, w: 0.99901813}
+      rotation: {x: 0.015384044, y: 0.07857624, z: 0.09409529, w: 0.99233824}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_LF_Ring3_JNT
       parentName: Asha_LF_Ring4_JNT
       position: {x: -0.016552031, y: 0.0007791559, z: 0.0012378372}
-      rotation: {x: 0.020209927, y: 0.059896212, z: 0.06470933, w: 0.9959}
+      rotation: {x: 0.019126883, y: 0.035812363, z: 0.2011142, w: 0.9787261}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_LF_Ring2_JNT
       parentName: Asha_LF_Ring3_JNT
@@ -779,17 +1219,17 @@ ModelImporter:
     - name: Asha_LF_ThumbMeta_JNT
       parentName: Asha_LF_Wrist_JNT
       position: {x: -0.03469284, y: -0.00031473293, z: 0.019677645}
-      rotation: {x: 0.58347446, y: 0.21434273, z: -0.21634065, w: 0.75286883}
+      rotation: {x: 0.62443024, y: 0.15577635, z: 0.042325594, w: 0.764218}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_LF_Thumb3_JNT
       parentName: Asha_LF_ThumbMeta_JNT
       position: {x: -0.009089071, y: 0.00013378676, z: -0.0007656371}
-      rotation: {x: 0.11995268, y: -0.11434871, z: -0.028275773, w: 0.9857668}
+      rotation: {x: 0.117484234, y: -0.23049185, z: -0.10307944, w: 0.96044034}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_LF_Thumb2_JNT
       parentName: Asha_LF_Thumb3_JNT
       position: {x: -0.029265516, y: -0.00013021588, z: 0.0025394633}
-      rotation: {x: 0.006231493, y: 0.015541624, z: 0.02944134, w: 0.99942625}
+      rotation: {x: 0.0074376194, y: -0.012942131, z: 0.05666959, w: 0.9982814}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_LF_Thumb1_JNT
       parentName: Asha_LF_Thumb2_JNT
@@ -879,7 +1319,7 @@ ModelImporter:
     - name: Asha_RT_Clavicle_JNT
       parentName: Asha_Chest_JNT
       position: {x: -0.025184777, y: -0.016407741, z: -0.049890596}
-      rotation: {x: 0.58536553, y: 0.44227663, z: -0.49350092, w: 0.467114}
+      rotation: {x: 0.54065865, y: 0.45572826, z: -0.54065865, w: 0.45572826}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_RT_Arm_IK_CTRL_GRP
       parentName: Asha_RT_Clavicle_JNT
@@ -989,12 +1429,12 @@ ModelImporter:
     - name: Asha_RT_Shoulder_JNT
       parentName: Asha_RT_Clavicle_JNT
       position: {x: 0.0410456, y: -0.01675451, z: 0.011619875}
-      rotation: {x: 0.3614802, y: -0.07793182, z: 0.0038428898, w: 0.9291092}
+      rotation: {x: 0.33429042, y: 0.071788885, z: 0.37331527, w: 0.86239904}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_RT_Elbow_JNT
       parentName: Asha_RT_Shoulder_JNT
       position: {x: 0.16108604, y: -0.0097806, z: -0.006616913}
-      rotation: {x: 0.050674815, y: 0.0371282, z: -0.021441726, w: 0.99779445}
+      rotation: {x: 0.05582024, y: 0.065950155, z: -0.13763644, w: 0.9867071}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_RT_Forearm_JNT
       parentName: Asha_RT_Elbow_JNT
@@ -1004,7 +1444,7 @@ ModelImporter:
     - name: Asha_RT_Wrist_JNT
       parentName: Asha_RT_Forearm_JNT
       position: {x: 0.07216312, y: 0.00002744559, z: -0.003178434}
-      rotation: {x: -0.3117503, y: 0.0271214, z: 0.010608869, w: 0.94971764}
+      rotation: {x: -0.3119459, y: 0.021918803, z: 0.0023960448, w: 0.949844}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_RT_Finger_CTRL_GRP
       parentName: Asha_RT_Wrist_JNT
@@ -1154,17 +1594,17 @@ ModelImporter:
     - name: Asha_RT_IndexMeta_JNT
       parentName: Asha_RT_Wrist_JNT
       position: {x: 0.028917493, y: -0.00072914944, z: -0.008870961}
-      rotation: {x: 0.010277241, y: 0.013122842, z: -0.11946245, w: 0.9926988}
+      rotation: {x: 0.01299688, y: 0.040853526, z: -0.16097213, w: 0.9860274}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_RT_Index4_JNT
       parentName: Asha_RT_IndexMeta_JNT
       position: {x: 0.041079152, y: -0.00000012847111, z: 0.000000112763516}
-      rotation: {x: -0.015050504, y: -0.016491162, z: 0.03338857, w: 0.9991931}
+      rotation: {x: -0.014940046, y: -0.056110267, z: 0.113602385, w: 0.9918281}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_RT_Index3_JNT
       parentName: Asha_RT_Index4_JNT
       position: {x: 0.019269165, y: 0.00000003084062, z: 0.00000014272631}
-      rotation: {x: 0.026550533, y: 0.011263003, z: 0.034312446, w: 0.99899495}
+      rotation: {x: 0.026273457, y: 0.04631808, z: 0.14104225, w: 0.9885704}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_RT_Index2_JNT
       parentName: Asha_RT_Index3_JNT
@@ -1179,17 +1619,17 @@ ModelImporter:
     - name: Asha_RT_MiddleMeta_JNT
       parentName: Asha_RT_Wrist_JNT
       position: {x: 0.02867794, y: -0.0030355651, z: 0.0017874371}
-      rotation: {x: -0.006911547, y: -0.02215575, z: -0.13309158, w: 0.990832}
+      rotation: {x: -0.005252508, y: -0.017490258, z: -0.17712358, w: 0.98401916}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_RT_Middle4_JNT
       parentName: Asha_RT_MiddleMeta_JNT
       position: {x: 0.03921229, y: -0.0000003489174, z: 0.00000015054545}
-      rotation: {x: -0.007823073, y: -0.022033297, z: 0.03303657, w: 0.9991806}
+      rotation: {x: -0.0078051942, y: -0.04323436, z: 0.06485148, w: 0.9969274}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_RT_Middle3_JNT
       parentName: Asha_RT_Middle4_JNT
       position: {x: 0.014373643, y: 0.00000028543724, z: -0.00000006346171}
-      rotation: {x: 0.023115933, y: 0.0071579088, z: 0.03197929, w: 0.9991955}
+      rotation: {x: 0.022599429, y: 0.046441708, z: 0.2075151, w: 0.97686744}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_RT_Middle2_JNT
       parentName: Asha_RT_Middle3_JNT
@@ -1204,17 +1644,17 @@ ModelImporter:
     - name: Asha_RT_PinkyMeta_JNT
       parentName: Asha_RT_Wrist_JNT
       position: {x: 0.025620062, y: -0.002858889, z: 0.01681417}
-      rotation: {x: -0.044858605, y: -0.08492681, z: -0.10829076, w: 0.9894687}
+      rotation: {x: -0.0458555, y: -0.15097322, z: -0.17188531, w: 0.972399}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_RT_Pinky4_JNT
       parentName: Asha_RT_PinkyMeta_JNT
       position: {x: 0.036492947, y: -0.0000005388578, z: 0.000000057767423}
-      rotation: {x: 0.0066277636, y: 0.026246075, z: 0.06116974, w: 0.99776024}
+      rotation: {x: 0.006880898, y: 0.03531144, z: 0.07242012, w: 0.9967252}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_RT_Pinky3_JNT
       parentName: Asha_RT_Pinky4_JNT
       position: {x: 0.01654136, y: -0.00097289775, z: 0.0000273384}
-      rotation: {x: 0.0016006866, y: -0.0001524482, z: 0.022362554, w: 0.99974865}
+      rotation: {x: 0.0016063318, y: 0.0033540626, z: 0.18066205, w: 0.9835382}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_RT_Pinky2_JNT
       parentName: Asha_RT_Pinky3_JNT
@@ -1229,17 +1669,17 @@ ModelImporter:
     - name: Asha_RT_RingMeta_JNT
       parentName: Asha_RT_Wrist_JNT
       position: {x: 0.027299037, y: -0.0023594734, z: 0.01095938}
-      rotation: {x: -0.030638784, y: -0.06879329, z: -0.12233293, w: 0.98962796}
+      rotation: {x: -0.03033535, y: -0.10380478, z: -0.18337305, w: 0.9770766}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_RT_Ring4_JNT
       parentName: Asha_RT_RingMeta_JNT
       position: {x: 0.038489543, y: -0.00000045771935, z: 0.000000042636305}
-      rotation: {x: 0.011546531, y: -0.006218082, z: 0.042312033, w: 0.99901843}
+      rotation: {x: 0.015384044, y: 0.07857624, z: 0.09409529, w: 0.99233824}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_RT_Ring3_JNT
       parentName: Asha_RT_Ring4_JNT
       position: {x: 0.01655154, y: -0.0007790661, z: -0.0012379214}
-      rotation: {x: 0.020209992, y: 0.059900217, z: 0.06471418, w: 0.99589944}
+      rotation: {x: 0.019126883, y: 0.035812363, z: 0.2011142, w: 0.9787261}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_RT_Ring2_JNT
       parentName: Asha_RT_Ring3_JNT
@@ -1254,17 +1694,17 @@ ModelImporter:
     - name: Asha_RT_ThumbMeta_JNT
       parentName: Asha_RT_Wrist_JNT
       position: {x: 0.03469275, y: 0.00031445027, z: -0.019677613}
-      rotation: {x: 0.5834814, y: 0.21434909, z: -0.21632881, w: 0.752865}
+      rotation: {x: 0.62443024, y: 0.15577635, z: 0.042325594, w: 0.764218}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_RT_Thumb3_JNT
       parentName: Asha_RT_ThumbMeta_JNT
       position: {x: 0.009088957, y: -0.0001338434, z: 0.00076589227}
-      rotation: {x: 0.11995258, y: -0.114381805, z: -0.028278975, w: 0.9857629}
+      rotation: {x: 0.117484234, y: -0.23049185, z: -0.10307944, w: 0.96044034}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_RT_Thumb2_JNT
       parentName: Asha_RT_Thumb3_JNT
       position: {x: 0.029265076, y: 0.00012987785, z: -0.0025401956}
-      rotation: {x: 0.0062309955, y: 0.015578129, z: 0.029419197, w: 0.99942636}
+      rotation: {x: 0.0074376194, y: -0.012942131, z: 0.05666959, w: 0.9982814}
       scale: {x: 1, y: 1, z: 1}
     - name: Asha_RT_Thumb1_JNT
       parentName: Asha_RT_Thumb2_JNT
@@ -1310,7 +1750,7 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
   avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1

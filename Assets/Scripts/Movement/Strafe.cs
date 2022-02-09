@@ -33,6 +33,7 @@ public class Strafe : MonoBehaviour
     public float speed = 3.0f;
     public float h;
 
+
     public Transform follow;
     public GameObject enemy;
     public Canvas rhythmCanvas;
@@ -55,6 +56,8 @@ public class Strafe : MonoBehaviour
     public ResultsScreen resultsScreen;
     public Animator anim;
 
+   // private int lastHeartInstanceID;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +65,7 @@ public class Strafe : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         canHurt = true;
+
     }
 
     // Update is called once per frame
@@ -171,6 +175,9 @@ public class Strafe : MonoBehaviour
                 resultsScreen.endHit = true;
             }
         }
+
+ 
+
     }
     void OnTriggerStay(Collider other)
     {
@@ -217,6 +224,21 @@ public class Strafe : MonoBehaviour
             camera.InduceStress(0);
             // Debug.Log("hit");
             Camera.main.transform.localPosition = camPos;
+        }
+
+        if (other.gameObject.CompareTag("Heart") )
+        {
+           // lastHeartInstanceID = other.gameObject.GetInstanceID();
+            // GameManager.instance.health = GameManager.instance.health + 1 ;
+
+            GameManager.instance.health++;
+
+           // Debug.Log("Heart - " + other.gameObject.GetInstanceID());
+
+            if (GameManager.instance.health >= 3)
+            {
+                GameManager.instance.health = 3;
+            }
         }
     }
 
