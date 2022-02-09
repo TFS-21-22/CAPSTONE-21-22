@@ -29,38 +29,6 @@ MonoBehaviour:
       m_YScaleBool: 0
       m_ZScaleBool: 0
     name: GrassCluster
-  - gameObject: {fileID: 8282713458063562307, guid: cc449f152dc9a0942b06208b25519201, type: 3}
-    settings:
-      m_Strength: 55.3
-      m_RotationRangeMin: {x: 0, y: 0, z: 0}
-      m_RotationRangeMax: {x: 0, y: 95.135124, z: 0}
-      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
-      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
-      m_UniformScale: {x: 1.1677853, y: 6.7382545}
-      m_UniformBool: 1
-      m_XRotationBool: 0
-      m_YRotationBool: 1
-      m_ZRotationBool: 0
-      m_XScaleBool: 0
-      m_YScaleBool: 0
-      m_ZScaleBool: 0
-    name: PlantSet
-  - gameObject: {fileID: 3650664684080552339, guid: 12efa16e8af95b647a57f438c9483a0c, type: 3}
-    settings:
-      m_Strength: 50
-      m_RotationRangeMin: {x: 0, y: 0, z: 0}
-      m_RotationRangeMax: {x: 0, y: 360, z: 0}
-      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
-      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
-      m_UniformScale: {x: 1.0738256, y: 3.422819}
-      m_UniformBool: 1
-      m_XRotationBool: 0
-      m_YRotationBool: 1
-      m_ZRotationBool: 0
-      m_XScaleBool: 0
-      m_YScaleBool: 0
-      m_ZScaleBool: 0
-    name: SingleGrass
   - gameObject: {fileID: 858071839992264615, guid: 50bf0dea59ec4f149b6b7a42902eb762, type: 3}
     settings:
       m_Strength: 50
