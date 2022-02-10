@@ -67,7 +67,7 @@ public class transition2 : MonoBehaviour
         if (Input.GetButtonDown("Fire2"))
             score -= 30;
 
-
+        
         if (dreamState)
         {
             if(rend.sharedMaterial)
@@ -96,7 +96,7 @@ public class transition2 : MonoBehaviour
             }
        
         }
-
+        
         if(scoreSystem)
         {
             score = scoreSystem.score;

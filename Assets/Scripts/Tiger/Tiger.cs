@@ -6,9 +6,7 @@ public class Tiger : MonoBehaviour
 {
     public static Tiger instance;
     Strafe strafeScript;
-    [SerializeField] private Transform[] lanePositions = new Transform[3]; //0 = Left lane, 1 = middle lane 2 = Right Lane
     [SerializeField] private Transform player;
-
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform projectileSpawnLocation;
 
@@ -72,7 +70,6 @@ public class Tiger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         //Debug.Log(chooseLane);
         transform.LookAt(player.transform);
 
@@ -81,6 +78,7 @@ public class Tiger : MonoBehaviour
             BossState = CurrentState.ButtonSquence;
         }
 
+        //Tiger State
         switch (BossState)
         {
             case CurrentState.Idle:
@@ -99,7 +97,6 @@ public class Tiger : MonoBehaviour
                     StartCoroutine(Shoot(1f));
                     shotsFired++;
                 }
-
                 break;
         }
     }
@@ -120,9 +117,6 @@ public class Tiger : MonoBehaviour
 
         temp.transform.position = projectileSpawnLocation.transform.position;
     }
-
-    
-
     IEnumerator Shoot(float wait)
     {
         shotsFired++;
@@ -135,7 +129,6 @@ public class Tiger : MonoBehaviour
         
         if (chosenLane == 1)
         {
-            
             int id = LeanTween.moveLocalX(this.gameObject, 2f, 4).id;
 
             while (LeanTween.isTweening(id))
@@ -162,7 +155,6 @@ public class Tiger : MonoBehaviour
         {
             BossState = CurrentState.Shoot;
         }
-
     }
 
     int RandomLane()

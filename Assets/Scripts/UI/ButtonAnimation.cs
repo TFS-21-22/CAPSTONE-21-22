@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class ButtonAnimation : MonoBehaviour
 {
-    private Animator anim;
-    // Start is called before the first frame update
-    void Start()
+    public void Shake()
     {
-        anim = GetComponent<Animator>();
+        StartCoroutine(ShakeAnimation());
     }
-    public void ButtonShake()
+
+    IEnumerator ShakeAnimation()
     {
-        anim.SetTrigger("Rotate");
+        int id = LeanTween.rotate(this.gameObject, new Vector3(0,0,20), 1f).id;
+
+        while (LeanTween.isTweening(id))
+        {
+            yield return null;
+        }
+
+        int id2 = LeanTween.rotate(this.gameObject, new Vector3(0, 0, -20), 1f).id;
+
+        while (LeanTween.isTweening(id2))
+        {
+            yield return null;
+        }
     }
 
 }

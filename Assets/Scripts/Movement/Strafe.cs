@@ -10,6 +10,7 @@ public class Strafe : MonoBehaviour
     [SerializeField] private Image xCricle;
     [SerializeField] private Image xButton;
     [SerializeField] private GameObject tiger;
+    [SerializeField] private Transform tigerSpawnPos;
 
     //Audio
     [Header("Audio")]
@@ -40,7 +41,7 @@ public class Strafe : MonoBehaviour
 
     //bools
     [Header("Bool")]
-    public bool enemySequence = false;
+    public bool activeQTE = false;
     public bool bossSequence = false;
     public bool stopperL;
     public bool stopperR;
@@ -61,7 +62,9 @@ public class Strafe : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        //var spawn = (GameObject)Instantiate(tiger, tigerSpawnPos.transform.position, Quaternion.identity) as GameObject;
+        //spawn.SetActive(false);
+        //tiger = spawn;
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         canHurt = true;
@@ -71,22 +74,17 @@ public class Strafe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (BeatMaster.instance.beatCount == 58 && !enemySequence && !bossSequence)
+        if (BeatMaster.instance.beatCount == 10 && !activeQTE)
         {
-           // TigerSequence();
+           //TigerEnable();
         }
 
-        if (BeatMaster.instance.beatCount == 352 && !enemySequence && !bossSequence)
+        if (BeatMaster.instance.beatCount == 352 && !activeQTE)
         {
-            TigerSequence();
+            //TigerEnable();
         }
 
-        if (!enemy.activeSelf)
-            enemySequence = false;
-
-        if (!tiger.activeSelf)
-            bossSequence = false;
-
+      
 
         //Movement
         h = Input.GetAxisRaw("Horizontal");
@@ -111,15 +109,6 @@ public class Strafe : MonoBehaviour
         }
     }
 
-    private void EnemySequence()
-    {
-        enemy.SetActive(true);                                                  //Set enemy true
-        rhythmCanvas.gameObject.SetActive(true);                                //Set Rythm Cavas Active
-        camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetRight; //Camera Movement
-        //camera.StartCoroutine(camera.CameraSwitch(3));                          //Camera Switch
-        enemySequence = true;                                                   //Enemy sqeuence true
-    }
-
     public void BossButtonSeuqence()
     {
         rhythmCanvas.gameObject.SetActive(true);                                //Set Button Squence Active
@@ -127,24 +116,30 @@ public class Strafe : MonoBehaviour
         //camera.StartCoroutine(camera.CameraSwitch(3));                        //Camera Switch      //CAUSES CAMERA JITTER, what is the point of this if we already have tiger sequence?
         bossSequence = true;                                                   //Set sqeuence true
         //RhythmCanvas.instance.pulsing = true;
+        RhythmCanvas.instance.currentEnemyQTE = tiger.gameObject;
     }
 
-    void TigerSequence()
+    void TigerEnable()
     {
-        tiger.SetActive(true);
+        Instantiate<GameObject>(tiger, tigerSpawnPos.transform.position, Quaternion.identity);
         camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;
         camera.StartCoroutine(camera.CameraSwitch(3));
-        enemySequence = true;
+        activeQTE = true;
+    }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("TigerProjectile"))
+        {
+            GameManager.instance.health--;
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Obstacle") || other.gameObject.CompareTag("Lily"))
         {
-
             source.PlayOneShot(transitionSFX);
-            
             Destroy(other.gameObject);
             anim.SetTrigger("Low Collision");
             //rb.AddForce(transform.up * 8);
@@ -154,7 +149,6 @@ public class Strafe : MonoBehaviour
         {
             source.PlayOneShot(logCollisionSFX);
             //GameManager.instance.health--;
-           
             StartCoroutine(Collision(2.0f));
             //logCollisionSFX.Play();
             anim.SetTrigger("High Collision");
@@ -175,10 +169,8 @@ public class Strafe : MonoBehaviour
                 resultsScreen.endHit = true;
             }
         }
-
- 
-
     }
+
     void OnTriggerStay(Collider other)
     {
         //Debug.Log("AAAAA");
@@ -195,8 +187,6 @@ public class Strafe : MonoBehaviour
         {
             if (!camera.hit)
                 camPos = Camera.main.transform.localPosition;
-
-            
 
             obstacleCollisionParticle.Play();
             camera.hit = true;
@@ -228,12 +218,8 @@ public class Strafe : MonoBehaviour
 
         if (other.gameObject.CompareTag("Heart") )
         {
-           // lastHeartInstanceID = other.gameObject.GetInstanceID();
-            // GameManager.instance.health = GameManager.instance.health + 1 ;
-
-            GameManager.instance.health++;
-
-           // Debug.Log("Heart - " + other.gameObject.GetInstanceID());
+            if (GameManager.instance.health < 3)
+                 GameManager.instance.health++;
 
             if (GameManager.instance.health >= 3)
             {
@@ -258,8 +244,5 @@ public class Strafe : MonoBehaviour
             yield return new WaitForSeconds(waitTime);
             canHurt = true;
         }
-     
-
     }
-
 }

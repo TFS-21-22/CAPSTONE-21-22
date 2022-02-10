@@ -13,6 +13,7 @@ TagManager:
   - Tiger
   - End
   - Heart
+  - TigerProjectile
   layers:
   - Default
   - TransparentFX
