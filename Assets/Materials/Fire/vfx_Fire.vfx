@@ -24,37 +24,13 @@ MonoBehaviour:
     - model: {fileID: 8926484042661614555}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614556}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661614583}
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661614585}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614589}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614643}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614591}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614593}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661614558}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614569}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614635}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614580}
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661614604}
@@ -262,7 +238,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"8b50bd1d72b5d484bb6e6d1e14190314","type":3}}'
+      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"82351c26ff673d544bdd00b8d66b106e","type":3}}'
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -1549,7 +1525,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
   m_OutputSlots:
@@ -1610,7 +1586,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"8b50bd1d72b5d484bb6e6d1e14190314","type":3}}'
+      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"82351c26ff673d544bdd00b8d66b106e","type":3}}'
     m_Space: 2147483647
   m_Property:
     name: o
@@ -3251,7 +3227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
-  m_Parent: {fileID: 0}
+  m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
@@ -4016,7 +3992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
-  m_Parent: {fileID: 0}
+  m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
@@ -5997,7 +5973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
-  m_Parent: {fileID: 0}
+  m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
@@ -6895,7 +6871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
-  m_Parent: {fileID: 0}
+  m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
