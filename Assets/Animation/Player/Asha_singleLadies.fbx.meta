@@ -26,7 +26,14 @@ ModelImporter:
     removeConstantScaleCurves: 1
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
+      copied configuration does not match position in animation file:\n\t'mixamorig:LeftUpLeg'
+      : position error = 26.919359 mm\n\t'mixamorig:LeftLeg' : position error = 151.911987
+      mm\n\t'mixamorig:LeftFoot' : position error = 102.849808 mm\n\t'mixamorig:LeftToeBase'
+      : position error = 65.790993 mm\n\t'mixamorig:RightUpLeg' : position error
+      = 24.585180 mm\n\t'mixamorig:RightLeg' : position error = 152.014008 mm\n\t'mixamorig:RightFoot'
+      : position error = 101.971817 mm\n\t'mixamorig:RightToeBase' : position error
+      = 62.988991 mm\n"
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -147,7 +154,7 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human:
-    - boneName: mixamorig:Hips
+    - boneName: Asha_Root_JNT_GRP
       humanName: Hips
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -155,7 +162,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:LeftUpLeg
+    - boneName: Asha_LF_Leg_JNT_GRP
       humanName: LeftUpperLeg
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -163,7 +170,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:RightUpLeg
+    - boneName: Asha_RT_Leg_JNT_GRP
       humanName: RightUpperLeg
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -171,7 +178,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:LeftLeg
+    - boneName: Asha_LF_Knee_JNT
       humanName: LeftLowerLeg
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -179,7 +186,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:RightLeg
+    - boneName: Asha_RT_Knee_JNT
       humanName: RightLowerLeg
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -187,7 +194,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:LeftFoot
+    - boneName: Asha_LF_Ankle_JNT
       humanName: LeftFoot
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -195,7 +202,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:RightFoot
+    - boneName: Asha_RT_Ankle_JNT
       humanName: RightFoot
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -203,7 +210,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:Spine
+    - boneName: Asha_Spine3_JNT
       humanName: Spine
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -211,7 +218,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:Spine1
+    - boneName: Asha_Spine2_JNT
       humanName: Chest
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -219,7 +226,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:Neck
+    - boneName: Asha_Neck_JNT
       humanName: Neck
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -227,7 +234,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:Head
+    - boneName: Asha_Head_JNT_GRP
       humanName: Head
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -235,7 +242,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:LeftShoulder
+    - boneName: Asha_LF_Clavicle_JNT_GRP
       humanName: LeftShoulder
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -243,7 +250,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:RightShoulder
+    - boneName: Asha_RT_Clavicle_JNT_GRP
       humanName: RightShoulder
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -251,7 +258,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:LeftArm
+    - boneName: Asha_LF_Shoulder_JNT
       humanName: LeftUpperArm
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -259,7 +266,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:RightArm
+    - boneName: Asha_RT_Shoulder_JNT
       humanName: RightUpperArm
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -267,7 +274,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:LeftForeArm
+    - boneName: Asha_LF_Elbow_JNT
       humanName: LeftLowerArm
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -275,7 +282,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:RightForeArm
+    - boneName: Asha_RT_Elbow_JNT
       humanName: RightLowerArm
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -283,7 +290,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:LeftHand
+    - boneName: Asha_LF_Wrist_JNT_GRP
       humanName: LeftHand
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -291,7 +298,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:RightHand
+    - boneName: Asha_RT_Wrist_JNT_GRP
       humanName: RightHand
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -299,7 +306,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:LeftToeBase
+    - boneName: Asha_LF_Toes_JNT
       humanName: LeftToes
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -307,7 +314,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:RightToeBase
+    - boneName: Asha_RT_Toes_JNT
       humanName: RightToes
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -315,7 +322,31 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:LeftHandThumb1
+    - boneName: Asha_LF_Eye_JNT
+      humanName: LeftEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_Hair1_JNT
+      humanName: RightEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_RT_Hair1_JNT
+      humanName: Jaw
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Asha_LF_ThumbMeta_JNT_GRP
       humanName: Left Thumb Proximal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -323,7 +354,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:LeftHandThumb2
+    - boneName: Asha_LF_Thumb3_JNT
       humanName: Left Thumb Intermediate
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -331,7 +362,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:LeftHandThumb3
+    - boneName: Asha_LF_Thumb2_JNT
       humanName: Left Thumb Distal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -339,7 +370,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:LeftHandIndex1
+    - boneName: Asha_LF_IndexMeta_JNT_GRP
       humanName: Left Index Proximal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -347,7 +378,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:LeftHandIndex2
+    - boneName: Asha_LF_Index4_JNT
       humanName: Left Index Intermediate
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -355,7 +386,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:LeftHandIndex3
+    - boneName: Asha_LF_Index3_JNT
       humanName: Left Index Distal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -363,7 +394,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:LeftHandMiddle1
+    - boneName: Asha_LF_MiddleMeta_JNT_GRP
       humanName: Left Middle Proximal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -371,7 +402,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:LeftHandMiddle2
+    - boneName: Asha_LF_Middle4_JNT
       humanName: Left Middle Intermediate
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -379,7 +410,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:LeftHandMiddle3
+    - boneName: Asha_LF_Middle3_JNT
       humanName: Left Middle Distal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -387,7 +418,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:LeftHandRing1
+    - boneName: Asha_LF_RingMeta_JNT_GRP
       humanName: Left Ring Proximal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -395,7 +426,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:LeftHandRing2
+    - boneName: Asha_LF_Ring4_JNT
       humanName: Left Ring Intermediate
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -403,7 +434,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:LeftHandRing3
+    - boneName: Asha_LF_Ring3_JNT
       humanName: Left Ring Distal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -411,7 +442,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:LeftHandPinky1
+    - boneName: Asha_LF_PinkyMeta_JNT_GRP
       humanName: Left Little Proximal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -419,7 +450,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:LeftHandPinky2
+    - boneName: Asha_LF_Pinky4_JNT
       humanName: Left Little Intermediate
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -427,7 +458,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:LeftHandPinky3
+    - boneName: Asha_LF_Pinky3_JNT
       humanName: Left Little Distal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -435,7 +466,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:RightHandThumb1
+    - boneName: Asha_RT_ThumbMeta_JNT_GRP
       humanName: Right Thumb Proximal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -443,7 +474,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:RightHandThumb2
+    - boneName: Asha_RT_Thumb3_JNT
       humanName: Right Thumb Intermediate
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -451,7 +482,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:RightHandThumb3
+    - boneName: Asha_RT_Thumb2_JNT
       humanName: Right Thumb Distal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -459,7 +490,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:RightHandIndex1
+    - boneName: Asha_RT_IndexMeta_JNT_GRP
       humanName: Right Index Proximal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -467,7 +498,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:RightHandIndex2
+    - boneName: Asha_RT_Index4_JNT
       humanName: Right Index Intermediate
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -475,7 +506,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:RightHandIndex3
+    - boneName: Asha_RT_Index3_JNT
       humanName: Right Index Distal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -483,7 +514,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:RightHandMiddle1
+    - boneName: Asha_RT_MiddleMeta_JNT_GRP
       humanName: Right Middle Proximal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -491,7 +522,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:RightHandMiddle2
+    - boneName: Asha_RT_Middle4_JNT
       humanName: Right Middle Intermediate
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -499,7 +530,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:RightHandMiddle3
+    - boneName: Asha_RT_Middle3_JNT
       humanName: Right Middle Distal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -507,7 +538,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:RightHandRing1
+    - boneName: Asha_RT_RingMeta_JNT
       humanName: Right Ring Proximal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -515,7 +546,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:RightHandRing2
+    - boneName: Asha_RT_Ring4_JNT
       humanName: Right Ring Intermediate
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -523,7 +554,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:RightHandRing3
+    - boneName: Asha_RT_Ring3_JNT
       humanName: Right Ring Distal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -531,7 +562,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:RightHandPinky1
+    - boneName: Asha_RT_PinkyMeta_JNT
       humanName: Right Little Proximal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -539,7 +570,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:RightHandPinky2
+    - boneName: Asha_RT_Pinky4_JNT
       humanName: Right Little Intermediate
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -547,7 +578,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:RightHandPinky3
+    - boneName: Asha_RT_Pinky3_JNT
       humanName: Right Little Distal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -555,7 +586,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: mixamorig:Spine2
+    - boneName: Asha_Spine1_JNT
       humanName: UpperChest
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -564,335 +595,1220 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: Ch30_nonPBR@Nervously Look Around(Clone)
+    - name: Asha_Test_v08(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:Hips
-      parentName: Ch30_nonPBR@Nervously Look Around(Clone)
-      position: {x: 0.0024810545, y: 0.97144336, z: 0.010677261}
-      rotation: {x: -0.03600397, y: 0.07569463, z: -0.0046939664, w: 0.9964698}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:Spine
-      parentName: mixamorig:Hips
-      position: {x: -0, y: 0.10057, z: -0.011205999}
-      rotation: {x: -0.02127641, y: -0.0032686528, z: 0.000026337753, w: 0.9997683}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:Spine1
-      parentName: mixamorig:Spine
-      position: {x: -0, y: 0.118057, z: 0}
-      rotation: {x: 0.06836085, y: -0.006347011, z: -0.0011573841, w: 0.99763983}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:Spine2
-      parentName: mixamorig:Spine1
-      position: {x: -0, y: 0.134923, z: 0}
-      rotation: {x: 0.06836088, y: -0.0063469848, z: -0.0011573827, w: 0.99763983}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:Neck
-      parentName: mixamorig:Spine2
-      position: {x: -0, y: 0.151788, z: 0}
-      rotation: {x: -0.029793471, y: 0.0061475816, z: -0.011972709, w: 0.9994655}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:Head
-      parentName: mixamorig:Neck
-      position: {x: -0, y: 0.063469, z: 0.023879}
-      rotation: {x: -0.07958435, y: -0.010143438, z: 0.027749028, w: 0.9963902}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:HeadTop_End
-      parentName: mixamorig:Head
-      position: {x: -0, y: 0.198279, z: 0.074599996}
+    - name: Asha_MESH
+      parentName: Asha_Test_v08(Clone)
+      position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftShoulder
-      parentName: mixamorig:Spine2
-      position: {x: -0.063981, y: 0.131669, z: -0.002275}
-      rotation: {x: 0.55295414, y: -0.4351549, z: 0.5712827, w: 0.42251393}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftArm
-      parentName: mixamorig:LeftShoulder
-      position: {x: -0, y: 0.136673, z: 0}
-      rotation: {x: -0.12109497, y: -0.17978229, z: 0.0024185767, w: 0.97622156}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftForeArm
-      parentName: mixamorig:LeftArm
-      position: {x: -0, y: 0.269422, z: 0}
-      rotation: {x: -0.0108206915, y: 0.022868717, z: -0.0064057303, w: 0.9996595}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftHand
-      parentName: mixamorig:LeftForeArm
-      position: {x: -0, y: 0.231908, z: 0}
-      rotation: {x: -0.21504125, y: -0.3191903, z: -0.06290381, w: 0.92082465}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftHandThumb1
-      parentName: mixamorig:LeftHand
-      position: {x: 0.0301, y: 0.0347, z: 0.014084999}
-      rotation: {x: -0.24617888, y: 0.17544888, z: -0.15219869, w: 0.9409832}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftHandThumb2
-      parentName: mixamorig:LeftHandThumb1
-      position: {x: 0.008776, y: 0.037421998, z: 0}
-      rotation: {x: 0.018744515, y: 0.08929286, z: -0.07394161, w: 0.99308014}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftHandThumb3
-      parentName: mixamorig:LeftHandThumb2
-      position: {x: 0.000485, y: 0.03665, z: 0}
-      rotation: {x: 0.000682529, y: -0.005016007, z: -0.14794672, w: 0.9889824}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftHandThumb4
-      parentName: mixamorig:LeftHandThumb3
-      position: {x: -0.009261999, y: 0.03176, z: 0}
+    - name: Arms_and_Legs
+      parentName: Asha_MESH
+      position: {x: -0, y: -0.005094309, z: -2.226793e-10}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 2.54, y: 2.54, z: 2.54}
+    - name: Bangles
+      parentName: Asha_MESH
+      position: {x: -0, y: -0.005094309, z: -2.226793e-10}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 2.54, y: 2.54, z: 2.54}
+    - name: Eyeballs
+      parentName: Asha_MESH
+      position: {x: -0, y: -0.005094309, z: -2.226793e-10}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 2.54, y: 2.54, z: 2.54}
+    - name: Hair
+      parentName: Asha_MESH
+      position: {x: -0, y: -0.005094309, z: -2.226793e-10}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 2.54, y: 2.54, z: 2.54}
+    - name: Head
+      parentName: Asha_MESH
+      position: {x: -0, y: -0.005094309, z: -2.226793e-10}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 2.54, y: 2.54, z: 2.54}
+    - name: Pants
+      parentName: Asha_MESH
+      position: {x: -0, y: -0.005094309, z: -2.226793e-10}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 2.54, y: 2.54, z: 2.54}
+    - name: Scarf
+      parentName: Asha_MESH
+      position: {x: 0.061358016, y: 0.07130539, z: -0.95835716}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 2.54, y: 2.54, z: 2.54}
+    - name: Asha_Scaled
+      parentName: Asha_Test_v08(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.56820565, y: 0.56820565, z: 0.56820565}
+    - name: Asha_Root_CTRL
+      parentName: Asha_Scaled
+      position: {x: -1.2621774e-31, y: 0.6295143, z: 0.010623699}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftHandIndex1
-      parentName: mixamorig:LeftHand
-      position: {x: 0.034913, y: 0.105656, z: 0.0021870001}
-      rotation: {x: 0.07909956, y: 0.050837286, z: -0.04293754, w: 0.9946433}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftHandIndex2
-      parentName: mixamorig:LeftHandIndex1
-      position: {x: -0.00072199997, y: 0.035395, z: 0}
-      rotation: {x: 0.034687303, y: -0.00007313486, z: 0.012780284, w: 0.9993165}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftHandIndex3
-      parentName: mixamorig:LeftHandIndex2
-      position: {x: 0.000041999996, y: 0.031538, z: 0}
-      rotation: {x: 0.000016554637, y: 0.0013312587, z: 0.0110778855, w: 0.9999378}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftHandIndex4
-      parentName: mixamorig:LeftHandIndex3
-      position: {x: 0.000679, y: 0.028903, z: 0}
+    - name: Asha_Hips_CTRL
+      parentName: Asha_Root_CTRL
+      position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftHandMiddle1
-      parentName: mixamorig:LeftHand
-      position: {x: 0.010322, y: 0.10178799, z: 0.0015469999}
-      rotation: {x: 0.087134466, y: -0.0021040132, z: -0.046491124, w: 0.99510896}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftHandMiddle2
-      parentName: mixamorig:LeftHandMiddle1
-      position: {x: -0.000816, y: 0.036438998, z: 0}
-      rotation: {x: 0.03370218, y: -0.0008286239, z: 0.0139772985, w: 0.99933386}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftHandMiddle3
-      parentName: mixamorig:LeftHandMiddle2
-      position: {x: 0.000323, y: 0.034999, z: 0}
-      rotation: {x: 0.000004197029, y: 0.00035299134, z: 0.0026985838, w: 0.9999963}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftHandMiddle4
-      parentName: mixamorig:LeftHandMiddle3
-      position: {x: 0.00049199996, y: 0.033637, z: 0}
+    - name: Asha_LF_F_Kameez1_CTRL
+      parentName: Asha_Hips_CTRL
+      position: {x: -0.08527062, y: -0.013595073, z: 0.04692352}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftHandRing1
-      parentName: mixamorig:LeftHand
-      position: {x: -0.0120439995, y: 0.10171799, z: -0.0021179998}
-      rotation: {x: 0.08036619, y: 0.005509074, z: -0.04304937, w: 0.99582016}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftHandRing2
-      parentName: mixamorig:LeftHandRing1
-      position: {x: -0.000506, y: 0.032516997, z: 0}
-      rotation: {x: 0.031924408, y: -0.0002858977, z: 0.0033151987, w: 0.9994848}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftHandRing3
-      parentName: mixamorig:LeftHandRing2
-      position: {x: -0.00019099998, y: 0.030453, z: 0}
-      rotation: {x: 0.000015927671, y: 0.0017627621, z: 0.01529817, w: 0.99988145}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftHandRing4
-      parentName: mixamorig:LeftHandRing3
-      position: {x: 0.000696, y: 0.028606, z: 0}
+    - name: Asha_LF_F_Kameez2_CTRL
+      parentName: Asha_LF_F_Kameez1_CTRL
+      position: {x: -0.0024211353, y: -0.08421131, z: -0.006529622}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftHandPinky1
-      parentName: mixamorig:LeftHand
-      position: {x: -0.033192, y: 0.091822006, z: 0.000529}
-      rotation: {x: 0.076619245, y: 0.007476921, z: -0.05273799, w: 0.99563664}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftHandPinky2
-      parentName: mixamorig:LeftHandPinky1
-      position: {x: -0.000456, y: 0.030866, z: 0}
-      rotation: {x: 0.039675873, y: -0.0005524556, z: 0.003784222, w: 0.99920535}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftHandPinky3
-      parentName: mixamorig:LeftHandPinky2
-      position: {x: -0.00003, y: 0.025664, z: 0}
-      rotation: {x: 0.000011929349, y: 0.0012505548, z: 0.010749044, w: 0.99994147}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftHandPinky4
-      parentName: mixamorig:LeftHandPinky3
-      position: {x: 0.00048599998, y: 0.023903, z: 0}
+    - name: Asha_LF_F_Kameez3_CTRL
+      parentName: Asha_LF_F_Kameez2_CTRL
+      position: {x: -0.0019929833, y: -0.087300286, z: 0.0026949018}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightShoulder
-      parentName: mixamorig:Spine2
-      position: {x: 0.063981, y: 0.131661, z: -0.002209}
-      rotation: {x: -0.5532734, y: -0.43491808, z: 0.57102144, w: -0.42269295}
+    - name: Asha_LF_R_Kameez1_CTRL
+      parentName: Asha_Hips_CTRL
+      position: {x: -0.08502756, y: 0.0009858056, z: -0.0556013}
+      rotation: {x: -1.6653345e-16, y: -5.551115e-17, z: 3.330669e-16, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightArm
-      parentName: mixamorig:RightShoulder
-      position: {x: -0, y: 0.136673, z: 0}
-      rotation: {x: -0.123910174, y: 0.1451675, z: -0.011102524, w: 0.9815546}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightForeArm
-      parentName: mixamorig:RightArm
-      position: {x: -0, y: 0.269545, z: 0}
-      rotation: {x: -0.010782052, y: -0.023818785, z: 0.004385307, w: 0.99964863}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightHand
-      parentName: mixamorig:RightForeArm
-      position: {x: -0, y: 0.23198098, z: 0}
-      rotation: {x: -0.18482454, y: 0.27260283, z: 0.062167425, w: 0.94215864}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightHandThumb1
-      parentName: mixamorig:RightHand
-      position: {x: -0.029579999, y: 0.033659, z: 0.013332999}
-      rotation: {x: -0.22744611, y: -0.1278942, z: 0.19091274, w: 0.9462895}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightHandThumb2
-      parentName: mixamorig:RightHandThumb1
-      position: {x: -0.007931, y: 0.036551, z: 0}
-      rotation: {x: 0.00976574, y: -0.032196373, z: 0.06982899, w: 0.99699146}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightHandThumb3
-      parentName: mixamorig:RightHandThumb2
-      position: {x: 0.000064, y: 0.036842998, z: 0}
-      rotation: {x: -0.00007764574, y: -0.0006417644, z: 0.11848152, w: 0.9929561}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightHandThumb4
-      parentName: mixamorig:RightHandThumb3
-      position: {x: 0.007867, y: 0.032251, z: 0}
+    - name: Asha_LF_R_Kameez2_CTRL
+      parentName: Asha_LF_R_Kameez1_CTRL
+      position: {x: -0.0023944466, y: -0.08250429, z: -0.018818492}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightHandIndex1
-      parentName: mixamorig:RightHand
-      position: {x: -0.034862, y: 0.10362, z: 0.001852}
-      rotation: {x: 0.08396013, y: -0.058669727, z: 0.032629877, w: 0.9942052}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightHandIndex2
-      parentName: mixamorig:RightHandIndex1
-      position: {x: 0.000726, y: 0.036224, z: 0}
-      rotation: {x: 0.039567515, y: 0.0006237958, z: -0.014279452, w: 0.9991147}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightHandIndex3
-      parentName: mixamorig:RightHandIndex2
-      position: {x: -0.000052999996, y: 0.032693997, z: 0}
-      rotation: {x: 0.000013846289, y: -0.0011518706, z: -0.010371674, w: 0.9999456}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightHandIndex4
-      parentName: mixamorig:RightHandIndex3
-      position: {x: -0.000673, y: 0.030086998, z: 0}
+    - name: Asha_LF_R_Kameez3_CTRL
+      parentName: Asha_LF_R_Kameez2_CTRL
+      position: {x: -0.0035643333, y: -0.10303182, z: -0.01006487}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightHandMiddle1
-      parentName: mixamorig:RightHand
-      position: {x: -0.010453, y: 0.101714, z: 0.001598}
-      rotation: {x: 0.08505678, y: -0.012456661, z: 0.056390837, w: 0.9947011}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightHandMiddle2
-      parentName: mixamorig:RightHandMiddle1
-      position: {x: 0.00093999994, y: 0.035685, z: 0}
-      rotation: {x: 0.033561807, y: 0.0011864707, z: -0.016815739, w: 0.9992945}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightHandMiddle3
-      parentName: mixamorig:RightHandMiddle2
-      position: {x: -0.000327, y: 0.035821, z: 0}
-      rotation: {x: 0.000008087987, y: -0.0006009788, z: -0.004369792, w: 0.9999903}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightHandMiddle4
-      parentName: mixamorig:RightHandMiddle3
-      position: {x: -0.00061299995, y: 0.034303, z: 0}
+    - name: Asha_RT_F_Kameez1_CTRL
+      parentName: Asha_Hips_CTRL
+      position: {x: 0.08527059, y: -0.013595356, z: 0.0469235}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightHandRing1
-      parentName: mixamorig:RightHand
-      position: {x: 0.011685999, y: 0.101914994, z: -0.000981}
-      rotation: {x: 0.08237253, y: 0.0135359075, z: 0.036292493, w: 0.9958486}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightHandRing2
-      parentName: mixamorig:RightHandRing1
-      position: {x: 0.000477, y: 0.031524997, z: 0}
-      rotation: {x: 0.020497883, y: -0.00077633606, z: -0.00482585, w: 0.999778}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightHandRing3
-      parentName: mixamorig:RightHandRing2
-      position: {x: 0.000089999994, y: 0.030576998, z: 0}
-      rotation: {x: 0.000010919939, y: -0.0012475328, z: -0.011702104, w: 0.99993074}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightHandRing4
-      parentName: mixamorig:RightHandRing3
-      position: {x: -0.00056699995, y: 0.027707, z: 0}
+    - name: Asha_RT_F_Kameez2_CTRL
+      parentName: Asha_RT_F_Kameez1_CTRL
+      position: {x: 0.0024211998, y: -0.08421104, z: -0.00652961}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightHandPinky1
-      parentName: mixamorig:RightHand
-      position: {x: 0.033629, y: 0.091937, z: -0.000739}
-      rotation: {x: 0.07874817, y: 0.0295438, z: 0.055673905, w: 0.9949002}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightHandPinky2
-      parentName: mixamorig:RightHandPinky1
-      position: {x: 0.000357, y: 0.030783998, z: 0}
-      rotation: {x: 0.02672353, y: 0.00022568532, z: -0.0012132961, w: 0.9996421}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightHandPinky3
-      parentName: mixamorig:RightHandPinky2
-      position: {x: 0.000071999995, y: 0.025255999, z: 0}
-      rotation: {x: 0.0000067145297, y: -0.00086480135, z: -0.010657162, w: 0.99994284}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightHandPinky4
-      parentName: mixamorig:RightHandPinky3
-      position: {x: -0.00042899998, y: 0.023232, z: 0}
+    - name: Asha_RT_F_Kameez3_CTRL
+      parentName: Asha_RT_F_Kameez2_CTRL
+      position: {x: 0.0019929, y: -0.08730046, z: 0.002694909}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftUpLeg
-      parentName: mixamorig:Hips
-      position: {x: -0.07949299, y: -0.055767998, z: -0.011018}
-      rotation: {x: -0.012629831, y: 0.039226845, z: 0.9980482, w: 0.0469207}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftLeg
-      parentName: mixamorig:LeftUpLeg
-      position: {x: -0, y: 0.422629, z: 0}
-      rotation: {x: -0.21050948, y: 0.00009282523, z: 0.024850657, w: 0.9772759}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftFoot
-      parentName: mixamorig:LeftLeg
-      position: {x: -0, y: 0.411949, z: 0}
-      rotation: {x: 0.5949203, y: 0.106701255, z: -0.04947006, w: 0.7951336}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftToeBase
-      parentName: mixamorig:LeftFoot
-      position: {x: -0, y: 0.184564, z: 0}
-      rotation: {x: 0.25542134, y: 0.061671633, z: -0.016215812, w: 0.9647246}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:LeftToe_End
-      parentName: mixamorig:LeftToeBase
-      position: {x: -0, y: 0.06956, z: 0}
+    - name: Asha_RT_R_Kameez1_CTRL
+      parentName: Asha_Hips_CTRL
+      position: {x: 0.0850276, y: 0.0009856607, z: -0.0556013}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightUpLeg
-      parentName: mixamorig:Hips
-      position: {x: 0.07949299, y: -0.055767998, z: -0.008956}
-      rotation: {x: -0.0021816376, y: 0.053753827, z: 0.9973998, w: -0.04795241}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightLeg
-      parentName: mixamorig:RightUpLeg
-      position: {x: -0, y: 0.422772, z: 0}
-      rotation: {x: -0.23888028, y: -0.0014458984, z: -0.026192907, w: 0.97069466}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightFoot
-      parentName: mixamorig:RightLeg
-      position: {x: -0, y: 0.411618, z: 0}
-      rotation: {x: 0.61237437, y: -0.077923395, z: 0.040574826, w: 0.78567123}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightToeBase
-      parentName: mixamorig:RightFoot
-      position: {x: -0, y: 0.182618, z: 0}
-      rotation: {x: 0.25797236, y: -0.064207226, z: 0.016797645, w: 0.9638701}
-      scale: {x: 1, y: 1, z: 1}
-    - name: mixamorig:RightToe_End
-      parentName: mixamorig:RightToeBase
-      position: {x: -0, y: 0.068725996, z: 0}
+    - name: Asha_RT_R_Kameez2_CTRL
+      parentName: Asha_RT_R_Kameez1_CTRL
+      position: {x: 0.0023943998, y: -0.08250444, z: -0.018818516}
       rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_R_Kameez3_CTRL
+      parentName: Asha_RT_R_Kameez2_CTRL
+      position: {x: 0.0035642998, y: -0.103031985, z: -0.010064895}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_Spine3_CTRL
+      parentName: Asha_Hips_CTRL
+      position: {x: 1.2621774e-31, y: 0.0860701, z: -0.010623699}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 11, y: 11, z: 11}
+    - name: Asha_Spine2_CTRL
+      parentName: Asha_Spine3_CTRL
+      position: {x: -0, y: 0.0056149983, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_Spine1_CTRL
+      parentName: Asha_Spine2_CTRL
+      position: {x: -0, y: 0.0042540166, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_Neck_CTRL
+      parentName: Asha_Spine1_CTRL
+      position: {x: -0, y: 0.010732119, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.8181818, y: 0.8181818, z: 0.8181818}
+    - name: Asha_Head_CTRL
+      parentName: Asha_Neck_CTRL
+      position: {x: 1.005627e-15, y: 0.018023038, z: 0.0051728}
+      rotation: {x: -0, y: -0.7071068, z: 0, w: 0.7071068}
+      scale: {x: 1.3333334, y: 1.3333334, z: 1.3333334}
+    - name: Asha_Root_JNT
+      parentName: Asha_Scaled
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_Leg_IK_GRP
+      parentName: Asha_Root_JNT
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Leg_IK_GRP
+      parentName: Asha_Leg_IK_GRP
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Knee_IK_CTRL
+      parentName: Asha_LF_Leg_IK_GRP
+      position: {x: -0.08721138, y: 0.36228296, z: 0.15574999}
+      rotation: {x: -0.7071068, y: 0.7071068, z: -8.659561e-17, w: -8.7157646e-33}
+      scale: {x: 2, y: 2, z: 2}
+    - name: Asha_LF_Leg_IK_CTRL
+      parentName: Asha_LF_Leg_IK_GRP
+      position: {x: -0.11, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Leg_IK_HDL
+      parentName: Asha_LF_Leg_IK_GRP
+      position: {x: -0.1111416, y: 0.039581228, z: -0.037744626}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Leg_IK_GRP
+      parentName: Asha_Leg_IK_GRP
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Knee_IK_CTRL
+      parentName: Asha_RT_Leg_IK_GRP
+      position: {x: 0.0872114, y: 0.36228287, z: 0.15574996}
+      rotation: {x: -0.7071068, y: 0.7071068, z: -8.659561e-17, w: -8.7157646e-33}
+      scale: {x: 2, y: 2, z: 2}
+    - name: Asha_RT_Leg_IK_CTRL
+      parentName: Asha_RT_Leg_IK_GRP
+      position: {x: 0.11, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Leg_IK_HDL
+      parentName: Asha_RT_Leg_IK_GRP
+      position: {x: 0.111141995, y: 0.03958125, z: -0.03774458}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_Root_JNT_GRP
+      parentName: Asha_Root_JNT
+      position: {x: -3.1554434e-31, y: 0.6295143, z: 0.010623699}
+      rotation: {x: -0.008119879, y: -0, z: -0, w: 0.99996704}
+      scale: {x: 1, y: 0.9999993, z: 0.9999993}
+    - name: Asha_Hips_JNT_GRP
+      parentName: Asha_Root_JNT_GRP
+      position: {x: 9.4663307e-32, y: 0.015874904, z: 0.0071163904}
+      rotation: {x: 0.5187534, y: -0.48051527, z: -0.5187534, w: 0.48051527}
+      scale: {x: 1.0000008, y: 0.9999989, z: 0.99999815}
+    - name: Asha_Kameez_JNT_GRP
+      parentName: Asha_Hips_JNT_GRP
+      position: {x: 0.6453942, y: -0.01755652, z: 0}
+      rotation: {x: 0, y: -0, z: -0.086644925, w: 0.9962393}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_F_Kameez1_JNT
+      parentName: Asha_Kameez_JNT_GRP
+      position: {x: -0.61923677, y: -0.04829791, z: 0.08527062}
+      rotation: {x: -0.5245173, y: -0.47421694, z: -0.5107096, w: -0.48905587}
+      scale: {x: 1.0000014, y: 1.0000006, z: 0.999998}
+    - name: Asha_LF_F_Kameez2_JNT
+      parentName: Asha_LF_F_Kameez1_JNT
+      position: {x: 0.015674476, y: 0.0012972641, z: 0.0830221}
+      rotation: {x: 0.00012257697, y: 0.0028944165, z: -0.029563667, w: 0.99955875}
+      scale: {x: 1.0000005, y: 1.0000008, z: 1.0000017}
+    - name: Asha_LF_F_Kameez3_JNT
+      parentName: Asha_LF_F_Kameez2_JNT
+      position: {x: 0.02478933, y: 0.0016748129, z: 0.08375714}
+      rotation: {x: -2.910383e-11, y: -0, z: 9.764847e-10, w: 1}
+      scale: {x: 1.0000001, y: 1.0000018, z: 1.0000017}
+    - name: Asha_LF_R_Kameez1_JNT
+      parentName: Asha_Kameez_JNT_GRP
+      position: {x: -0.6096723, y: -0.15141173, z: 0.08502756}
+      rotation: {x: -0.4890559, y: -0.5107095, z: 0.47421688, w: 0.52451736}
+      scale: {x: 1.0000011, y: 1.0000008, z: 0.9999978}
+    - name: Asha_LF_R_Kameez2_JNT
+      parentName: Asha_LF_R_Kameez1_JNT
+      position: {x: 0.0033934517, y: -0.002155989, z: -0.084561594}
+      rotation: {x: 0.00012302397, y: 0.0028943121, z: -0.029563721, w: 0.99955875}
+      scale: {x: 1.0000012, y: 1.0000011, z: 1.0000015}
+    - name: Asha_LF_R_Kameez3_JNT
+      parentName: Asha_LF_R_Kameez2_JNT
+      position: {x: 0.017920267, y: -0.0013176193, z: -0.102013186}
+      rotation: {x: 1.45519135e-11, y: -2.3283062e-10, z: -0.000000002167212, w: 1}
+      scale: {x: 0.99999994, y: 1.0000014, z: 1.0000019}
+    - name: Asha_RT_F_Kameez1_JNT
+      parentName: Asha_Kameez_JNT_GRP
+      position: {x: -0.61923647, y: -0.048297863, z: -0.08527059}
+      rotation: {x: -0.48905584, y: 0.51071, z: -0.47421688, w: 0.52451706}
+      scale: {x: 1.0000011, y: 1.0000004, z: 0.9999979}
+    - name: Asha_RT_F_Kameez2_JNT
+      parentName: Asha_RT_F_Kameez1_JNT
+      position: {x: -0.010555831, y: 0.0031885786, z: 0.08377591}
+      rotation: {x: 0.00012332202, y: 0.0028942525, z: -0.029563697, w: 0.99955875}
+      scale: {x: 1.0000007, y: 1.0000006, z: 1.0000013}
+    - name: Asha_RT_F_Kameez3_JNT
+      parentName: Asha_RT_F_Kameez2_JNT
+      position: {x: -0.02088258, y: 0.00226123, z: 0.08480218}
+      rotation: {x: -1.4551915e-11, y: -2.3283064e-10, z: 0.0000000025654856, w: 1}
+      scale: {x: 0.99999946, y: 1.0000011, z: 1.000001}
+    - name: Asha_RT_R_Kameez1_JNT
+      parentName: Asha_Kameez_JNT_GRP
+      position: {x: -0.6096721, y: -0.1514117, z: -0.0850276}
+      rotation: {x: -0.524517, y: 0.4742169, z: 0.51070994, w: -0.48905587}
+      scale: {x: 1.0000013, y: 1.0000006, z: 0.9999978}
+    - name: Asha_RT_R_Kameez2_JNT
+      parentName: Asha_RT_R_Kameez1_JNT
+      position: {x: 0.001789106, y: -0.002271618, z: -0.084607854}
+      rotation: {x: 0.000121995814, y: 0.0028948188, z: -0.029563623, w: 0.99955875}
+      scale: {x: 1.0000007, y: 1.0000007, z: 1.0000014}
+    - name: Asha_RT_R_Kameez3_JNT
+      parentName: Asha_RT_R_Kameez2_JNT
+      position: {x: -0.009971735, y: -0.0049964455, z: -0.10298153}
+      rotation: {x: -2.1827873e-11, y: -2.3283064e-10, z: 0.0000000026094824, w: 1}
+      scale: {x: 1.0000001, y: 1.0000013, z: 1.000002}
+    - name: Asha_Spine3_JNT
+      parentName: Asha_Hips_JNT_GRP
+      position: {x: -0.071027555, y: 0.012448981, z: -1.4197379e-15}
+      rotation: {x: -0, y: -0, z: -0.0048897862, w: -0.9999881}
+      scale: {x: 0.99999964, y: 0.99999934, z: 0.9999997}
+    - name: Asha_Spine2_JNT
+      parentName: Asha_Spine3_JNT
+      position: {x: -0.061776437, y: -7.771561e-18, z: -1.2194171e-15}
+      rotation: {x: 0, y: -0, z: -0.052118182, w: -0.99864095}
+      scale: {x: 1.0000006, y: 0.9999995, z: 0.9999995}
+    - name: Asha_Spine1_JNT
+      parentName: Asha_Spine2_JNT
+      position: {x: -0.04684678, y: 2.0428103e-16, z: -9.343136e-16}
+      rotation: {x: -0, y: -0, z: 0.041595586, w: 0.9991346}
+      scale: {x: 1.000001, y: 0.99999934, z: 0.9999991}
+    - name: Asha_Chest_JNT
+      parentName: Asha_Spine1_JNT
+      position: {x: -0.061876725, y: 7.105427e-17, z: -1.2070611e-15}
+      rotation: {x: -0, y: -0, z: 0.00037254387, w: 1}
+      scale: {x: 0.9999969, y: 1.0000002, z: 1.0000029}
+    - name: Asha_LF_Clavicle_JNT_GRP
+      parentName: Asha_Chest_JNT
+      position: {x: -0.025184575, y: -0.016407765, z: 0.049890626}
+      rotation: {x: -0.4422762, y: 0.5853659, z: 0.4671141, w: 0.49350074}
+      scale: {x: 1.0000018, y: 0.999998, z: 1.0000001}
+    - name: Asha_LF_Arm_IK_CTRL_GRP
+      parentName: Asha_LF_Clavicle_JNT_GRP
+      position: {x: -0.27720004, y: -0.16320004, z: 0.007568817}
+      rotation: {x: -0.2531613, y: 0.07357837, z: 0.28016385, w: 0.9230405}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Arm_IK_CTRL
+      parentName: Asha_LF_Arm_IK_CTRL_GRP
+      position: {x: -1.4210854e-16, y: -2.842171e-16, z: -1.2656542e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Arm_IK_HDL
+      parentName: Asha_LF_Arm_IK_CTRL
+      position: {x: -0.000000038146972, y: 0, z: -0.0000000047683715}
+      rotation: {x: 0.23822299, y: -0.06904468, z: -0.28131545, w: 0.9270082}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Elbow_IK_CTRL_GRP
+      parentName: Asha_LF_Clavicle_JNT_GRP
+      position: {x: 0.049890626, y: -0.90785795, z: 0.022709029}
+      rotation: {x: -0.016148057, y: 0, z: -0, w: 0.99986964}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Elbow_IK_CTRL
+      parentName: Asha_LF_Elbow_IK_CTRL_GRP
+      position: {x: -0.20960961, y: 0.8164341, z: -0.12424126}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Shoulder_FK_CTRL_GRP
+      parentName: Asha_LF_Clavicle_JNT_GRP
+      position: {x: -0.041045614, y: 0.04239166, z: -0.012448187}
+      rotation: {x: -0.016148057, y: 0, z: -0, w: 0.99986964}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Shoulder_FK_CTRL
+      parentName: Asha_LF_Shoulder_FK_CTRL_GRP
+      position: {x: -0, y: 1.4210854e-16, z: 1.110223e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Elbow_FK_CTRL_GRP
+      parentName: Asha_LF_Shoulder_FK_CTRL
+      position: {x: -0.11788404, y: -0.13534695, z: -0.012575254}
+      rotation: {x: 0.35763317, y: 0.19021092, z: 0.27080134, w: 0.8732611}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Elbow_FK_CTRL
+      parentName: Asha_LF_Elbow_FK_CTRL_GRP
+      position: {x: -7.105427e-17, y: 1.4210854e-16, z: 8.8817837e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Forearm_FK_CTRL_GRP
+      parentName: Asha_LF_Elbow_FK_CTRL
+      position: {x: -0.06807794, y: 0.005461644, z: -0.00024823664}
+      rotation: {x: 0.00022427696, y: -0.07488152, z: -0.07634725, w: 0.99426544}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Forearm_FK_CTRL
+      parentName: Asha_LF_Forearm_FK_CTRL_GRP
+      position: {x: 7.105427e-17, y: -1.4210854e-16, z: -1.1546319e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Wrist_FK_CTRL_GRP
+      parentName: Asha_LF_Forearm_FK_CTRL
+      position: {x: -0.07216276, y: -0.000027275084, z: 0.0031783676}
+      rotation: {x: -0.3119459, y: 0.021918803, z: 0.0023960448, w: 0.949844}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Wrist_FK_CTRL
+      parentName: Asha_LF_Wrist_FK_CTRL_GRP
+      position: {x: -7.105427e-17, y: 2.842171e-16, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Shoulder_FK_JNT_GRP
+      parentName: Asha_LF_Clavicle_JNT_GRP
+      position: {x: -0.041045614, y: 0.016754616, z: -0.0116198845}
+      rotation: {x: -0.7184331, y: -0.00000002793967, z: -0.000000024214382, w: 0.6955961}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1.0000006}
+    - name: Asha_LF_Elbow_FK_JNT
+      parentName: Asha_LF_Shoulder_FK_JNT_GRP
+      position: {x: -0.16108587, y: 0.009781022, z: 0.0066165593}
+      rotation: {x: 0.000000089406946, y: 0.0000000019957773, z: 0.00000003955004, w: 1}
+      scale: {x: 0.9999998, y: 1.0000011, z: 1.0000013}
+    - name: Asha_LF_Forearm_FK_JNT
+      parentName: Asha_LF_Elbow_FK_JNT
+      position: {x: -0.06807794, y: 0.005461643, z: -0.00024823679}
+      rotation: {x: -0.000000089406946, y: 8.5078146e-11, z: -0.000000005267664, w: 1}
+      scale: {x: 1.0000004, y: 0.9999993, z: 0.9999991}
+    - name: Asha_LF_Wrist_FK_JNT
+      parentName: Asha_LF_Forearm_FK_JNT
+      position: {x: -0.07216276, y: -0.000027276828, z: 0.0031783315}
+      rotation: {x: -0, y: 0.0000000024211473, z: 0.000000013211704, w: 1}
+      scale: {x: 1.0000001, y: 1.000001, z: 1.0000013}
+    - name: Asha_LF_Shoulder_IK_JNT_GRP
+      parentName: Asha_LF_Clavicle_JNT_GRP
+      position: {x: -0.041045614, y: 0.016754616, z: -0.0116198845}
+      rotation: {x: -0.7184331, y: -0.0000000037252899, z: -0.000000055879347, w: 0.6955962}
+      scale: {x: 1.0000001, y: 1.0000006, z: 1.0000013}
+    - name: Asha_LF_Elbow_IK_JNT
+      parentName: Asha_LF_Shoulder_IK_JNT_GRP
+      position: {x: -0.16108587, y: 0.009781022, z: 0.0066165593}
+      rotation: {x: -0.00000008940694, y: -0.000000037511732, z: 0.00000003891199, w: 1}
+      scale: {x: 1.0000001, y: 1.0000002, z: 0.9999998}
+    - name: Asha_LF_Forearm_IK_JNT
+      parentName: Asha_LF_Elbow_IK_JNT
+      position: {x: -0.06807794, y: 0.005461643, z: -0.00024823679}
+      rotation: {x: -0, y: -4.254018e-11, z: 0.0000000026338356, w: 1}
+      scale: {x: 0.99999994, y: 1.0000017, z: 1.0000017}
+    - name: Asha_LF_Wrist_IK_JNT
+      parentName: Asha_LF_Forearm_IK_JNT
+      position: {x: -0.07216276, y: -0.000027276828, z: 0.0031783315}
+      rotation: {x: 8.461377e-27, y: 4.254018e-11, z: -0.0000000026338354, w: 1}
+      scale: {x: 0.9999998, y: 1.0000011, z: 1.0000013}
+    - name: Asha_LF_Shoulder_JNT
+      parentName: Asha_LF_Clavicle_JNT_GRP
+      position: {x: -0.041045614, y: 0.016754616, z: -0.0116198845}
+      rotation: {x: 0.36147988, y: -0.07793094, z: 0.0038453331, w: 0.92910945}
+      scale: {x: 1.0000012, y: 0.9999991, z: 1.0000005}
+    - name: Asha_LF_Elbow_JNT
+      parentName: Asha_LF_Shoulder_JNT
+      position: {x: -0.16108587, y: 0.009781022, z: 0.0066165593}
+      rotation: {x: 0.050674886, y: 0.037126034, z: -0.021445574, w: 0.99779445}
+      scale: {x: 0.9999995, y: 1.000002, z: 1.0000013}
+    - name: Asha_LF_Forearm_JNT
+      parentName: Asha_LF_Elbow_JNT
+      position: {x: -0.06807794, y: 0.005461643, z: -0.00024823679}
+      rotation: {x: 0.0002242922, y: -0.074881524, z: -0.07634699, w: 0.9942655}
+      scale: {x: 0.99999833, y: 0.9999999, z: 1.0000001}
+    - name: Asha_LF_Wrist_JNT_GRP
+      parentName: Asha_LF_Forearm_JNT
+      position: {x: -0.07216276, y: -0.000027276828, z: 0.0031783315}
+      rotation: {x: -0.91149443, y: -0.03036211, z: -0.05968072, w: 0.40582553}
+      scale: {x: 0.99999833, y: 1.0000006, z: 1.0000021}
+    - name: Asha_LF_Finger_CTRL_GRP
+      parentName: Asha_LF_Wrist_JNT_GRP
+      position: {x: -0.04388357, y: -0.8039842, z: 0.115829535}
+      rotation: {x: -0.058195032, y: -0.10761831, z: -0.22416085, w: 0.96684206}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Index4_CTRL_GRP
+      parentName: Asha_LF_Finger_CTRL_GRP
+      position: {x: -0.389331, y: 0.74047077, z: 0.035431076}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Index4_CTRL
+      parentName: Asha_LF_Index4_CTRL_GRP
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Index3_CTRL_GRP
+      parentName: Asha_LF_Index4_CTRL
+      position: {x: -0.017702598, y: -0.021337818, z: 0.003255473}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Index3_CTRL
+      parentName: Asha_LF_Index3_CTRL_GRP
+      position: {x: -0, y: 0, z: 1.3322676e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Index2_CTRL_GRP
+      parentName: Asha_LF_Index3_CTRL
+      position: {x: -0.011197521, y: -0.008898941, z: 0.0030205636}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Index2_CTRL
+      parentName: Asha_LF_Index2_CTRL_GRP
+      position: {x: -0, y: 0, z: 2.6645352e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Middle4_CTRL_GRP
+      parentName: Asha_LF_Finger_CTRL_GRP
+      position: {x: -0.39218867, y: 0.7451609, z: 0.020388974}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Middle4_CTRL
+      parentName: Asha_LF_Middle4_CTRL_GRP
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Middle3_CTRL_GRP
+      parentName: Asha_LF_Middle4_CTRL
+      position: {x: -0.01393347, y: -0.0177178, z: 0.0013633008}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Middle3_CTRL
+      parentName: Asha_LF_Middle3_CTRL_GRP
+      position: {x: -7.105427e-17, y: 0, z: 1.3322676e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Middle2_CTRL_GRP
+      parentName: Asha_LF_Middle3_CTRL
+      position: {x: -0.015442117, y: -0.011971816, z: 0.0025969169}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Middle2_CTRL
+      parentName: Asha_LF_Middle2_CTRL_GRP
+      position: {x: -7.105427e-17, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Pinky4_CTRL
+      parentName: Asha_LF_Finger_CTRL_GRP
+      position: {x: -0.39195937, y: 0.74076843, z: -0.005029897}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Pinky4_CTRL
+      parentName: Asha_LF_Pinky4_CTRL
+      position: {x: -0.39195937, y: 0.74076843, z: -0.005029897}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Pinky3_CTRL_GRP
+      parentName: Asha_LF_Pinky4_CTRL
+      position: {x: -0.016286636, y: -0.017488517, z: -0.00035025808}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Pinky3_CTRL
+      parentName: Asha_LF_Pinky3_CTRL_GRP
+      position: {x: 1.4210854e-16, y: 0, z: 2.220446e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Pinky2_JNT_GRP
+      parentName: Asha_LF_Pinky3_CTRL
+      position: {x: -0.012685784, y: -0.008135069, z: -0.00051001494}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Pinky2_JNT
+      parentName: Asha_LF_Pinky2_JNT_GRP
+      position: {x: -7.105427e-17, y: 0, z: 2.220446e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Ring4_CTRL_GRP
+      parentName: Asha_LF_Finger_CTRL_GRP
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Ring4_CTRL
+      parentName: Asha_LF_Ring4_CTRL_GRP
+      position: {x: -0.39294055, y: 0.746839, z: 0.0042034695}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Ring3_CTRL_GRP
+      parentName: Asha_LF_Ring4_CTRL
+      position: {x: -0.015691502, y: -0.018320028, z: 0.003871153}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Ring3_CTRL
+      parentName: Asha_LF_Ring3_CTRL_GRP
+      position: {x: -0, y: 0, z: 2.220446e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Ring2_CTRL_GRP
+      parentName: Asha_LF_Ring3_CTRL
+      position: {x: 0.40863204, y: -0.72851896, z: -0.0080746235}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Ring2_CTRL
+      parentName: Asha_LF_Ring2_CTRL_GRP
+      position: {x: -0.42339075, y: 0.7188918, z: 0.010284004}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Thumb3_CTRL_GRP
+      parentName: Asha_LF_Finger_CTRL_GRP
+      position: {x: -0.35941258, y: 0.7222639, z: 0.059069376}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Thumb3_CTRL
+      parentName: Asha_LF_Thumb3_CTRL_GRP
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Thumb2_CTRL_GRP
+      parentName: Asha_LF_Thumb3_CTRL
+      position: {x: -0.02340971, y: -0.009247418, z: -0.006678213}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Thumb2_CTRL
+      parentName: Asha_LF_Thumb2_CTRL_GRP
+      position: {x: -0, y: 0, z: -2.6645352e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_IndexMeta_JNT_GRP
+      parentName: Asha_LF_Wrist_JNT_GRP
+      position: {x: -0.028918244, y: 0.00072890543, z: 0.008870809}
+      rotation: {x: -0, y: -0, z: -0.0000000055879337, w: 1}
+      scale: {x: 1.0000004, y: 1.0000007, z: 1.0000006}
+    - name: Asha_LF_Index4_JNT
+      parentName: Asha_LF_IndexMeta_JNT_GRP
+      position: {x: -0.04107893, y: 5.684342e-16, z: -1.4210854e-16}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000004, y: 1.0000014, z: 1.0000008}
+    - name: Asha_LF_Index3_JNT
+      parentName: Asha_LF_Index4_JNT
+      position: {x: -0.019268747, y: 1.2789769e-15, z: -8.8817837e-17}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 0.99999994, y: 1.0000005, z: 1.0000005}
+    - name: Asha_LF_Index2_JNT
+      parentName: Asha_LF_Index3_JNT
+      position: {x: -0.014618462, y: -5.684342e-16, z: -7.105427e-17}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000001, y: 1.0000008, z: 1.0000012}
+    - name: Asha_LF_Index1_JNT
+      parentName: Asha_LF_Index2_JNT
+      position: {x: -0.010689438, y: -0.0019145483, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000001, y: 1.0000013, z: 1.0000006}
+    - name: Asha_LF_MiddleMeta_JNT_GRP
+      parentName: Asha_LF_Wrist_JNT_GRP
+      position: {x: -0.028678598, y: 0.00303559, z: -0.0017875968}
+      rotation: {x: -0, y: -0, z: -0.0000000055879337, w: 1}
+      scale: {x: 1.0000001, y: 1.0000015, z: 1.0000006}
+    - name: Asha_LF_Middle4_JNT
+      parentName: Asha_LF_MiddleMeta_JNT_GRP
+      position: {x: -0.03921169, y: 4.2632563e-16, z: -8.8817837e-17}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 0.9999998, y: 1.0000004, z: 1.0000008}
+    - name: Asha_LF_Middle3_JNT
+      parentName: Asha_LF_Middle4_JNT
+      position: {x: -0.014374057, y: -4.2632563e-16, z: -8.881784e-18}
+      rotation: {x: 4.943959e-17, y: -0.000000008847563, z: 0.000000021420414, w: 1}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000007}
+    - name: Asha_LF_Middle2_JNT
+      parentName: Asha_LF_Middle3_JNT
+      position: {x: -0.019711098, y: -5.684342e-16, z: 1.7763568e-17}
+      rotation: {x: 1.3234887e-23, y: -0, z: 4.3741987e-25, w: 1}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000004}
+    - name: Asha_LF_Middle1_JNT
+      parentName: Asha_LF_Middle2_JNT
+      position: {x: -0.015460572, y: -0.00025397958, z: 0.0010312351}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000004, y: 1.0000008, z: 1.0000006}
+    - name: Asha_LF_PinkyMeta_JNT_GRP
+      parentName: Asha_LF_Wrist_JNT_GRP
+      position: {x: -0.025620136, y: 0.0028588425, z: -0.016814176}
+      rotation: {x: -0, y: -0, z: -0.0000000055879337, w: 1}
+      scale: {x: 0.9999998, y: 1.0000006, z: 1.0000007}
+    - name: Asha_LF_Pinky4_JNT
+      parentName: Asha_LF_PinkyMeta_JNT_GRP
+      position: {x: -0.036493346, y: 2.842171e-16, z: -1.4210854e-16}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000002, y: 1.000001, z: 1.000001}
+    - name: Asha_LF_Pinky3_JNT
+      parentName: Asha_LF_Pinky4_JNT
+      position: {x: -0.016540896, y: 0.0009732638, z: -0.00002736802}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000002, y: 1.0000008, z: 1.000001}
+    - name: Asha_LF_Pinky2_JNT
+      parentName: Asha_LF_Pinky3_JNT
+      position: {x: -7.105427e-17, y: 0, z: 2.220446e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Pinky1_JNT
+      parentName: Asha_LF_Pinky2_JNT
+      position: {x: -0.013961083, y: -1.8415322e-16, z: -4.3352375e-18}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 0.99999976, y: 1.0000006, z: 1.000001}
+    - name: Asha_LF_RingMeta_JNT_GRP
+      parentName: Asha_LF_Wrist_JNT_GRP
+      position: {x: -0.02729971, y: 0.002359774, z: -0.010959559}
+      rotation: {x: -0, y: -0, z: -0.0000000055879337, w: 1}
+      scale: {x: 0.99999964, y: 1.0000011, z: 1.0000008}
+    - name: Asha_LF_Ring4_JNT
+      parentName: Asha_LF_RingMeta_JNT_GRP
+      position: {x: -0.03848867, y: 0, z: -1.1546319e-16}
+      rotation: {x: 0.0000000298148, y: -0.0022345225, z: 0.0014063283, w: 0.99999654}
+      scale: {x: 1.0000001, y: 1.000001, z: 1.0000004}
+    - name: Asha_LF_Ring3_JNT
+      parentName: Asha_LF_Ring4_JNT
+      position: {x: -0.016552031, y: 0.0007791559, z: 0.0012378372}
+      rotation: {x: 0.002494846, y: 0.030729448, z: 0.014015329, w: 0.9994264}
+      scale: {x: 1.0000005, y: 1.0000005, z: 1.0000013}
+    - name: Asha_LF_Ring2_JNT
+      parentName: Asha_LF_Ring3_JNT
+      position: {x: -0.01762358, y: 0.0019148381, z: -0.0010612577}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000001, y: 1.0000008, z: 1.0000005}
+    - name: Asha_LF_Ring1_JNT
+      parentName: Asha_LF_Ring2_JNT
+      position: {x: -0.013953064, y: -0.00015786411, z: -0.0006492203}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000002, y: 1.000001, z: 1.0000008}
+    - name: Asha_LF_ThumbMeta_JNT_GRP
+      parentName: Asha_LF_Wrist_JNT_GRP
+      position: {x: -0.03469284, y: -0.00031473293, z: 0.019677645}
+      rotation: {x: -0.022191247, y: 0.045363702, z: 0.27136728, w: 0.9611501}
+      scale: {x: 1.000001, y: 1.0000008, z: 1.0000006}
+    - name: Asha_LF_Thumb3_JNT
+      parentName: Asha_LF_ThumbMeta_JNT_GRP
+      position: {x: -0.009089071, y: 0.00013378676, z: -0.0007656371}
+      rotation: {x: -0.00024358358, y: -0.046185564, z: -0.005174907, w: 0.9989194}
+      scale: {x: 0.9999994, y: 1.0000004, z: 1.0000019}
+    - name: Asha_LF_Thumb2_JNT
+      parentName: Asha_LF_Thumb3_JNT
+      position: {x: -0.029265516, y: -0.00013021588, z: 0.0025394633}
+      rotation: {x: -0.00000017222186, y: 0.002808961, z: 0.00014099873, w: 0.99999607}
+      scale: {x: 1.0000002, y: 1.0000012, z: 1.0000019}
+    - name: Asha_LF_Thumb1_JNT
+      parentName: Asha_LF_Thumb2_JNT
+      position: {x: -0.016933402, y: 6.217249e-17, z: -0.000030434769}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 0.9999999, y: 1.0000011, z: 1.0000005}
+    - name: Asha_LF_RT_IK_FK_Switch_CTRL_GRP
+      parentName: Asha_Chest_JNT
+      position: {x: 0.8734197, y: -0.14767857, z: 4.78053e-15}
+      rotation: {x: -0.46439943, y: 0.533229, z: 0.46439943, w: 0.533229}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_IK_FK_Switch_CTRL
+      parentName: Asha_LF_RT_IK_FK_Switch_CTRL_GRP
+      position: {x: -0.32709068, y: 0.83081824, z: -0.23705347}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_IK_FK_Switch_CTRL
+      parentName: Asha_LF_RT_IK_FK_Switch_CTRL_GRP
+      position: {x: 0.32709098, y: 0.83081776, z: -0.23705347}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_Neck_JNT
+      parentName: Asha_Chest_JNT
+      position: {x: -0.05766012, y: -6.0929037e-15, z: 1.6610085e-15}
+      rotation: {x: -0, y: -0, z: -0.1543393, w: 0.9880179}
+      scale: {x: 1.0000013, y: 1.0000002, z: 0.9999991}
+    - name: Asha_Head_JNT_GRP
+      parentName: Asha_Neck_JNT
+      position: {x: -0.16431074, y: -0.0000070109945, z: 0.00000840427}
+      rotation: {x: 0.04530094, y: 0.0015439027, z: 0.0042040767, w: 0.99896336}
+      scale: {x: 1.0000017, y: 0.9999996, z: 0.9999988}
+    - name: Asha_Hair_CTRL_GRP
+      parentName: Asha_Head_JNT_GRP
+      position: {x: 1.0960548, y: 0.14331779, z: 9.050643e-15}
+      rotation: {x: 0.54113317, y: -0.4551647, z: -0.54113317, w: -0.4551647}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Hair1_CTRL
+      parentName: Asha_Hair_CTRL_GRP
+      position: {x: -0.051481556, y: 1.0620817, z: -0.09739557}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Hair2_CTRL
+      parentName: Asha_Hair_CTRL_GRP
+      position: {x: -0.055173833, y: 0.99423236, z: -0.10587703}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Hair1_CTRL
+      parentName: Asha_Hair_CTRL_GRP
+      position: {x: 0.051481597, y: 1.0620837, z: -0.097395554}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Hair2_CTRL
+      parentName: Asha_Hair_CTRL_GRP
+      position: {x: 0.0551738, y: 0.99423283, z: -0.105877034}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_LF_Eye_JNT
+      parentName: Asha_Head_JNT_GRP
+      position: {x: -0.009539142, y: 0.08157826, z: 0.037814453}
+      rotation: {x: -0, y: 4.6566118e-10, z: -0.000000007450579, w: 1}
+      scale: {x: 1.0000019, y: 0.99999964, z: 0.9999983}
+    - name: Asha_LF_Hair1_JNT
+      parentName: Asha_Head_JNT_GRP
+      position: {x: 0.062302243, y: -0.11125966, z: 0.051481556}
+      rotation: {x: 0.7714373, y: -0.10605457, z: 0.6209424, w: -0.089819625}
+      scale: {x: 1.0000017, y: 1.0000001, z: 0.99999875}
+    - name: Asha_LF_Hair2_JNT
+      parentName: Asha_LF_Hair1_JNT
+      position: {x: -0.069775626, y: 0, z: 0.010958139}
+      rotation: {x: 0.000000007450579, y: -0.000000029802315, z: -0, w: 1}
+      scale: {x: 1.0000013, y: 1.0000005, z: 0.9999985}
+    - name: Asha_RT_Eye_JNT
+      parentName: Asha_Head_JNT_GRP
+      position: {x: -0.009539142, y: 0.08157826, z: -0.037809998}
+      rotation: {x: -0, y: 4.6566118e-10, z: -0.000000007450579, w: 1}
+      scale: {x: 1.0000019, y: 0.99999964, z: 0.9999983}
+    - name: Asha_RT_Hair1_JNT
+      parentName: Asha_Head_JNT_GRP
+      position: {x: 0.06230021, y: -0.11125999, z: -0.051481597}
+      rotation: {x: 0.08981963, y: 0.6209424, z: 0.10605455, w: 0.7714373}
+      scale: {x: 1.0000026, y: 1, z: 0.99999857}
+    - name: Asha_RT_Hair2_JNT
+      parentName: Asha_RT_Hair1_JNT
+      position: {x: 0.06977712, y: -0.00000040331693, z: -0.010958559}
+      rotation: {x: -0, y: -0.000000029802315, z: -0.0000000037252894, w: 1}
+      scale: {x: 1.0000008, y: 1.0000006, z: 0.99999857}
+    - name: Asha_RT_Clavicle_JNT_GRP
+      parentName: Asha_Chest_JNT
+      position: {x: -0.025184777, y: -0.016407741, z: -0.049890596}
+      rotation: {x: 0.5853655, y: 0.44227645, z: -0.49350134, w: 0.4671138}
+      scale: {x: 1.0000018, y: 0.99999964, z: 1.0000014}
+    - name: Asha_RT_Arm_IK_CTRL_GRP
+      parentName: Asha_RT_Clavicle_JNT_GRP
+      position: {x: 0.2772004, y: 0.16320072, z: -0.0075688553}
+      rotation: {x: -0.25309816, y: 0.07361485, z: 0.28016555, w: 0.9230544}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Arm_IK_CTRL
+      parentName: Asha_RT_Arm_IK_CTRL_GRP
+      position: {x: 7.105427e-17, y: 1.4210854e-16, z: -3.5527136e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Arm_IK_HDL
+      parentName: Asha_RT_Arm_IK_CTRL
+      position: {x: -0, y: 0, z: 0.0000000047683715}
+      rotation: {x: 0.92702115, y: -0.28131777, z: 0.06908113, w: -0.23815961}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Elbow_IK_CTRL_GRP
+      parentName: Asha_RT_Clavicle_JNT_GRP
+      position: {x: -0.049890596, y: 0.9078581, z: -0.022709036}
+      rotation: {x: 0.99986964, y: -0, z: 0, w: 0.016148057}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Elbow_IK_CTRL
+      parentName: Asha_RT_Elbow_IK_CTRL_GRP
+      position: {x: 0.20961052, y: 0.81643486, z: -0.12424072}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Shoulder_FK_CTRL_GRP
+      parentName: Asha_RT_Clavicle_JNT_GRP
+      position: {x: -0.049890596, y: 0.9078581, z: -0.022709036}
+      rotation: {x: 0.99986964, y: -0, z: 0, w: 0.016148057}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Shoulder_FK_CTRL
+      parentName: Asha_RT_Shoulder_FK_CTRL_GRP
+      position: {x: 0.0909362, y: 0.95088947, z: -0.00445351}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Elbow_FK_CTRL_GRP
+      parentName: Asha_RT_Shoulder_FK_CTRL
+      position: {x: 0.117883794, y: -0.13534747, z: -0.01257529}
+      rotation: {x: 0.8732611, y: -0.27080134, z: 0.19021092, w: -0.35763317}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Elbow_FK_CTRL
+      parentName: Asha_RT_Elbow_FK_CTRL_GRP
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Forearm_FK_CTRL_GRP
+      parentName: Asha_RT_Elbow_FK_CTRL
+      position: {x: 0.06807802, y: -0.0054619596, z: 0.0002485609}
+      rotation: {x: 0.00022427696, y: -0.07488152, z: -0.07634725, w: 0.99426544}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Forearm_FK_CTRL
+      parentName: Asha_RT_Forearm_FK_CTRL_GRP
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Wrist_FK_CTRL_GRP
+      parentName: Asha_RT_Forearm_FK_CTRL
+      position: {x: 0.07216311, y: 0.000027446746, z: -0.0031784056}
+      rotation: {x: -0.3119459, y: 0.021918803, z: 0.0023960448, w: 0.949844}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Wrist_FK_CTRL
+      parentName: Asha_RT_Wrist_FK_CTRL_GRP
+      position: {x: -0, y: 0, z: -2.220446e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Shoulder_FK_JNT
+      parentName: Asha_RT_Clavicle_JNT_GRP
+      position: {x: 0.0410456, y: -0.01675451, z: 0.011619875}
+      rotation: {x: -0.6955962, y: 0.00000004470348, z: 0.00000001117587, w: -0.7184331}
+      scale: {x: 1.0000008, y: 1.0000033, z: 1.0000029}
+    - name: Asha_RT_Elbow_FK_JNT
+      parentName: Asha_RT_Shoulder_FK_JNT
+      position: {x: 0.16108604, y: -0.0097806, z: -0.006616913}
+      rotation: {x: -0, y: -0.0000000023786122, z: -0.000000015845544, w: 1}
+      scale: {x: 1.0000001, y: 1.0000011, z: 1.0000011}
+    - name: Asha_RT_Forearm_FK_JNT
+      parentName: Asha_RT_Elbow_FK_JNT
+      position: {x: 0.06807803, y: -0.0054619643, z: 0.000248564}
+      rotation: {x: -0.00000008940694, y: 0.000000042226425, z: -0.000000004587072, w: 1}
+      scale: {x: 1, y: 0.99999976, z: 1.0000001}
+    - name: Asha_RT_Wrist_FK_JNT
+      parentName: Asha_RT_Forearm_FK_JNT
+      position: {x: 0.07216312, y: 0.00002744559, z: -0.003178434}
+      rotation: {x: -0, y: 0.0000000024211486, z: 0.000000013211707, w: 1}
+      scale: {x: 1.0000002, y: 1.0000018, z: 1.0000012}
+    - name: Asha_RT_Shoulder_IK_JNT
+      parentName: Asha_RT_Clavicle_JNT_GRP
+      position: {x: 0.0410456, y: -0.01675451, z: 0.011619875}
+      rotation: {x: -0.6955962, y: 0.000000035390254, z: 0.000000024214383, w: -0.7184331}
+      scale: {x: 1.0000008, y: 1.0000033, z: 1.0000027}
+    - name: Asha_RT_Elbow_IK_JNT
+      parentName: Asha_RT_Shoulder_IK_JNT
+      position: {x: 0.16108604, y: -0.0097806, z: -0.006616913}
+      rotation: {x: -0.00000008940694, y: 0.000000042311495, z: -0.000000009854742, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1.0000001}
+    - name: Asha_RT_Forearm_IK_JNT
+      parentName: Asha_RT_Elbow_IK_JNT
+      position: {x: 0.06807803, y: -0.0054619643, z: 0.000248564}
+      rotation: {x: -0, y: 0.0000000024636853, z: 0.000000010577875, w: 1}
+      scale: {x: 0.9999999, y: 1.0000019, z: 1.0000019}
+    - name: Asha_RT_Wrist_IK_JNT
+      parentName: Asha_RT_Forearm_IK_JNT
+      position: {x: 0.07216312, y: 0.00002744559, z: -0.003178434}
+      rotation: {x: 0.000000029802312, y: -0.000000046685884, z: -0.00000004554085, w: 1}
+      scale: {x: 1.0000001, y: 1.0000013, z: 1.0000008}
+    - name: Asha_RT_Shoulder_JNT
+      parentName: Asha_RT_Clavicle_JNT_GRP
+      position: {x: 0.0410456, y: -0.01675451, z: 0.011619875}
+      rotation: {x: 0.36147982, y: -0.07793117, z: 0.0038441182, w: 0.9291094}
+      scale: {x: 1.0000026, y: 1.000002, z: 1.0000039}
+    - name: Asha_RT_Elbow_JNT
+      parentName: Asha_RT_Shoulder_JNT
+      position: {x: 0.16108604, y: -0.0097806, z: -0.006616913}
+      rotation: {x: 0.050674986, y: 0.037127607, z: -0.02144318, w: 0.9977945}
+      scale: {x: 1.0000002, y: 1.000002, z: 1.0000002}
+    - name: Asha_RT_Forearm_JNT
+      parentName: Asha_RT_Elbow_JNT
+      position: {x: 0.06807803, y: -0.0054619643, z: 0.000248564}
+      rotation: {x: 0.0002242773, y: -0.07488155, z: -0.07634716, w: 0.99426544}
+      scale: {x: 0.9999996, y: 1.0000013, z: 1.0000005}
+    - name: Asha_RT_Wrist_JNT_GRP
+      parentName: Asha_RT_Forearm_JNT
+      position: {x: 0.07216312, y: 0.00002744559, z: -0.003178434}
+      rotation: {x: -0.40969586, y: 0.013760188, z: -0.04290895, w: -0.91110855}
+      scale: {x: 0.99999905, y: 1.0000012, z: 1.0000025}
+    - name: Asha_RT_Finger_CTRL_GRP
+      parentName: Asha_RT_Wrist_JNT_GRP
+      position: {x: 0.04388311, y: 0.803984, z: -0.11582958}
+      rotation: {x: 0.96684206, y: -0.22416085, z: 0.10761831, w: 0.058195032}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Index4_CTRL_GRP
+      parentName: Asha_RT_Finger_CTRL_GRP
+      position: {x: 0.389331, y: 0.74047095, z: 0.0354311}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Index4_CTRL
+      parentName: Asha_RT_Index4_CTRL_GRP
+      position: {x: 0.0036273955, y: -0.00097001414, z: 4.440892e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Index3_CTRL_GRP
+      parentName: Asha_RT_Index4_CTRL
+      position: {x: -0.3929584, y: -0.73950094, z: -0.0354311}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Index3_CTRL
+      parentName: Asha_RT_Index3_CTRL_GRP
+      position: {x: 0.40703398, y: 0.71913296, z: 0.0386865}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Index2_CTRL_GRP
+      parentName: Asha_RT_Index3_CTRL
+      position: {x: -0.40703398, y: -0.71913296, z: -0.0386865}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Index2_CTRL
+      parentName: Asha_RT_Index2_CTRL_GRP
+      position: {x: 0.418231, y: 0.710234, z: 0.0417071}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Middle4_CTRL_GRP
+      parentName: Asha_RT_Finger_CTRL_GRP
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Middle4_CTRL
+      parentName: Asha_RT_Middle4_CTRL_GRP
+      position: {x: 0.3958164, y: 0.744191, z: 0.020388998}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Middle3_CTRL_GRP
+      parentName: Asha_RT_Middle4_CTRL
+      position: {x: 0.010305605, y: -0.016747972, z: 0.0013632999}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Middle3_CTRL
+      parentName: Asha_RT_Middle3_CTRL_GRP
+      position: {x: -0, y: -2.842171e-16, z: -8.881784e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Middle2_CTRL_GRP
+      parentName: Asha_RT_Middle3_CTRL
+      position: {x: 0.015441999, y: -0.011971999, z: 0.0025968999}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Middle2_CTRL
+      parentName: Asha_RT_Middle2_CTRL_GRP
+      position: {x: -0, y: 1.4210854e-16, z: -4.440892e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Pinky4_CTRL_GRP
+      parentName: Asha_RT_Finger_CTRL_GRP
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Pinky4_CTRL
+      parentName: Asha_RT_Pinky4_CTRL_GRP
+      position: {x: 0.3945104, y: 0.7470489, z: -0.00539914}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Pinky3_CTRL_GRP
+      parentName: Asha_RT_Pinky4_CTRL
+      position: {x: 0.012659605, y: -0.016518971, z: -0.00035025997}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Pinky3_CTRL
+      parentName: Asha_RT_Pinky3_CTRL_GRP
+      position: {x: -0, y: 0, z: -2.220446e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Pinky2_CTRL_GRP
+      parentName: Asha_RT_Pinky3_CTRL
+      position: {x: 0.012685999, y: -0.008134999, z: -0.00051002}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Pinky2_CTRL
+      parentName: Asha_RT_Pinky2_CTRL_GRP
+      position: {x: -0, y: -2.842171e-16, z: 2.220446e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Ring4_CTRL_GRP
+      parentName: Asha_RT_Finger_CTRL_GRP
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Ring4_CTRL
+      parentName: Asha_RT_Ring4_CTRL_GRP
+      position: {x: 0.39656842, y: 0.745869, z: 0.00420347}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Ring3_CTRL_GRP
+      parentName: Asha_RT_Ring4_CTRL
+      position: {x: 0.012063605, y: -0.017349971, z: 0.0038711498}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Ring3_CTRL
+      parentName: Asha_RT_Ring3_CTRL_GRP
+      position: {x: -0, y: 1.4210854e-16, z: 1.3322676e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Ring2_CTRL_GRP
+      parentName: Asha_RT_Ring3_CTRL
+      position: {x: 0.014759, y: -0.0096269995, z: 0.00220938}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Ring2_CTRL
+      parentName: Asha_RT_Ring2_CTRL_GRP
+      position: {x: -0, y: 2.842171e-16, z: -6.661338e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Thumb3_CTRL_GRP
+      parentName: Asha_RT_Finger_CTRL_GRP
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Thumb3_CTRL
+      parentName: Asha_RT_Thumb3_CTRL_GRP
+      position: {x: 0.359413, y: 0.722264, z: 0.0590694}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Thumb2_CTRL_GRP
+      parentName: Asha_RT_Thumb3_CTRL
+      position: {x: 0.023409, y: -0.009248, z: -0.0066781985}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_Thumb2_CTRL
+      parentName: Asha_RT_Thumb2_CTRL_GRP
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asha_RT_IndexMeta_JNT_GRP
+      parentName: Asha_RT_Wrist_JNT_GRP
+      position: {x: 0.028917493, y: -0.00072914944, z: -0.008870961}
+      rotation: {x: -0.000000029802312, y: -0, z: -0.000000007450578, w: 1}
+      scale: {x: 1.0000002, y: 1.0000014, z: 1.0000018}
+    - name: Asha_RT_Index4_JNT
+      parentName: Asha_RT_IndexMeta_JNT_GRP
+      position: {x: 0.041079152, y: -0.00000012847111, z: 0.000000112763516}
+      rotation: {x: 0.000000029802312, y: -0.000000029802312, z: 0.000000007450577, w: 1}
+      scale: {x: 1.0000012, y: 1.0000008, z: 0.9999992}
+    - name: Asha_RT_Index3_JNT
+      parentName: Asha_RT_Index4_JNT
+      position: {x: 0.019269165, y: 0.00000003084062, z: 0.00000014272631}
+      rotation: {x: -0.000000029802312, y: 0.000000029802312, z: 8.881781e-16, w: 1}
+      scale: {x: 1, y: 1.0000018, z: 1.0000017}
+    - name: Asha_RT_Index2_JNT
+      parentName: Asha_RT_Index3_JNT
+      position: {x: 0.014618105, y: 0.00000033301845, z: -0.00000019878738}
+      rotation: {x: -0, y: -0, z: -0.000000007450578, w: 1}
+      scale: {x: 0.9999998, y: 1.0000006, z: 1.0000012}
+    - name: Asha_RT_Index1_JNT
+      parentName: Asha_RT_Index2_JNT
+      position: {x: 0.010689827, y: 0.0019145124, z: 0.00000010156139}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000005, y: 1.0000015, z: 1.0000018}
+    - name: Asha_RT_MiddleMeta_JNT_GRP
+      parentName: Asha_RT_Wrist_JNT_GRP
+      position: {x: 0.02867794, y: -0.0030355651, z: 0.0017874371}
+      rotation: {x: -0.000000029802312, y: -0, z: -0.000000007450578, w: 1}
+      scale: {x: 1.0000002, y: 1.000001, z: 1.0000015}
+    - name: Asha_RT_Middle4_JNT
+      parentName: Asha_RT_MiddleMeta_JNT_GRP
+      position: {x: 0.03921229, y: -0.0000003489174, z: 0.00000015054545}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000001, y: 1.000002, z: 1.0000008}
+    - name: Asha_RT_Middle3_JNT
+      parentName: Asha_RT_Middle4_JNT
+      position: {x: 0.014373643, y: 0.00000028543724, z: -0.00000006346171}
+      rotation: {x: -0, y: -2.2204445e-16, z: 0.000000007450578, w: 1}
+      scale: {x: 1.0000015, y: 1.0000008, z: 1.0000021}
+    - name: Asha_RT_Middle2_JNT
+      parentName: Asha_RT_Middle3_JNT
+      position: {x: 0.019711114, y: 0.00000021620885, z: -0.000000020528523}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000006, y: 1.0000002, z: 1.0000013}
+    - name: Asha_RT_Middle1_JNT
+      parentName: Asha_RT_Middle2_JNT
+      position: {x: 0.015460603, y: 0.0002534085, z: -0.0010310776}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 0.99999994, y: 1.0000012, z: 1.000001}
+    - name: Asha_RT_PinkyMeta_JNT
+      parentName: Asha_RT_Wrist_JNT_GRP
+      position: {x: 0.025620062, y: -0.002858889, z: 0.01681417}
+      rotation: {x: -0.000000029802312, y: -0, z: -0.000000007450578, w: 1}
+      scale: {x: 1.0000011, y: 1.0000011, z: 1.0000001}
+    - name: Asha_RT_Pinky4_JNT
+      parentName: Asha_RT_PinkyMeta_JNT
+      position: {x: 0.036492947, y: -0.0000005388578, z: 0.000000057767423}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000006, y: 1.000001, z: 1.0000013}
+    - name: Asha_RT_Pinky3_JNT
+      parentName: Asha_RT_Pinky4_JNT
+      position: {x: 0.01654136, y: -0.00097289775, z: 0.0000273384}
+      rotation: {x: 0.000000029802312, y: -0.000000029802312, z: 0.000000007450577, w: 1}
+      scale: {x: 0.9999999, y: 1.0000004, z: 1.0000011}
+    - name: Asha_RT_Pinky2_JNT
+      parentName: Asha_RT_Pinky3_JNT
+      position: {x: 0.0150692435, y: -0.0005392944, z: 0.00000000902777}
+      rotation: {x: -0.000000029802312, y: 0.000000029802312, z: -0.000000007450577, w: 1}
+      scale: {x: 1.0000008, y: 1.0000023, z: 1.0000008}
+    - name: Asha_RT_Pinky1_JNT
+      parentName: Asha_RT_Pinky2_JNT
+      position: {x: 0.013960806, y: -0.00000008450383, z: -0.000000016234436}
+      rotation: {x: -0, y: -0, z: -3.1763725e-22, w: 1}
+      scale: {x: 0.9999998, y: 1.0000004, z: 1.0000013}
+    - name: Asha_RT_RingMeta_JNT
+      parentName: Asha_RT_Wrist_JNT_GRP
+      position: {x: 0.027299037, y: -0.0023594734, z: 0.01095938}
+      rotation: {x: -0.000000029802312, y: -0, z: -0.000000007450578, w: 1}
+      scale: {x: 1.0000006, y: 1.0000005, z: 1.0000001}
+    - name: Asha_RT_Ring4_JNT
+      parentName: Asha_RT_RingMeta_JNT
+      position: {x: 0.038489543, y: -0.00000045771935, z: 0.000000042636305}
+      rotation: {x: -0.00000014899503, y: -0.002230591, z: 0.0014034339, w: 0.99999654}
+      scale: {x: 1.000001, y: 1.0000011, z: 0.99999976}
+    - name: Asha_RT_Ring3_JNT
+      parentName: Asha_RT_Ring4_JNT
+      position: {x: 0.01655154, y: -0.0007790661, z: -0.0012379214}
+      rotation: {x: 0.0024949454, y: 0.030727237, z: 0.01401858, w: 0.9994264}
+      scale: {x: 1.0000005, y: 1.000001, z: 1.0000019}
+    - name: Asha_RT_Ring2_JNT
+      parentName: Asha_RT_Ring3_JNT
+      position: {x: 0.017623687, y: -0.0019151394, z: 0.0010613434}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 0.99999994, y: 1.0000012, z: 1.0000007}
+    - name: Asha_RT_Ring1_JNT
+      parentName: Asha_RT_Ring2_JNT
+      position: {x: 0.013952981, y: 0.0001579715, z: 0.00064922025}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000008, y: 1.0000008, z: 1.0000008}
+    - name: Asha_RT_ThumbMeta_JNT_GRP
+      parentName: Asha_RT_Wrist_JNT_GRP
+      position: {x: 0.03469275, y: 0.00031445027, z: -0.019677613}
+      rotation: {x: 0.029483907, y: -0.046134263, z: -0.35793358, w: 0.9321405}
+      scale: {x: 1.0000001, y: 1.0000014, z: 1.0000011}
+    - name: Asha_RT_Thumb3_JNT
+      parentName: Asha_RT_ThumbMeta_JNT_GRP
+      position: {x: 0.009088957, y: -0.0001338434, z: 0.00076589227}
+      rotation: {x: -0.0002444348, y: -0.046208847, z: -0.0051748003, w: 0.99891835}
+      scale: {x: 1.0000019, y: 1.0000005, z: 0.9999986}
+    - name: Asha_RT_Thumb2_JNT
+      parentName: Asha_RT_Thumb3_JNT
+      position: {x: 0.029265076, y: 0.00012987785, z: -0.0025401956}
+      rotation: {x: -0.00000034805254, y: 0.0028452263, z: 0.00014182735, w: 0.999996}
+      scale: {x: 1.0000001, y: 1, z: 1.000001}
+    - name: Asha_RT_Thumb1_JNT
+      parentName: Asha_RT_Thumb2_JNT
+      position: {x: 0.016933735, y: 0.0000002938925, z: 0.00003138201}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 0.9999997, y: 1.0000012, z: 1.0000006}
+    - name: Asha_LF_Leg_JNT_GRP
+      parentName: Asha_Root_JNT_GRP
+      position: {x: -0.06975734, y: -0.0070781526, z: -0.004314378}
+      rotation: {x: 0.50310975, y: 0.48368353, z: 0.48066097, w: 0.53093857}
+      scale: {x: 1.0000008, y: 0.9999991, z: 0.9999984}
+    - name: Asha_LF_Knee_JNT
+      parentName: Asha_LF_Leg_JNT_GRP
+      position: {x: -0.26094633, y: -1.2878587e-16, z: -3.5527136e-17}
+      rotation: {x: -0.00028736886, y: -0.003624558, z: 0.1088085, w: 0.9940561}
+      scale: {x: 1.0000007, y: 0.9999998, z: 1}
+    - name: Asha_LF_Ankle_JNT
+      parentName: Asha_LF_Knee_JNT
+      position: {x: -0.32843134, y: -4.4408918e-17, z: 0}
+      rotation: {x: -0.55025184, y: 0.4850431, z: -0.5785481, w: 0.3567047}
+      scale: {x: 1.0000029, y: 0.9999988, z: 0.9999963}
+    - name: Asha_LF_Toes_JNT
+      parentName: Asha_LF_Ankle_JNT
+      position: {x: -0.08101792, y: -3.5527136e-17, z: 3.5527136e-17}
+      rotation: {x: -0.00000001117587, y: 6.984919e-10, z: -0.0000000037252899, w: 1}
+      scale: {x: 1, y: 0.9999993, z: 0.9999996}
+    - name: Asha_LF_ToeTip_JNT
+      parentName: Asha_LF_Toes_JNT
+      position: {x: -0.06207076, y: -8.881784e-18, z: 1.7763568e-17}
+      rotation: {x: -0, y: -0, z: 7.806254e-18, w: 1}
+      scale: {x: 1.0000002, y: 0.99999946, z: 0.9999994}
+    - name: Asha_RT_Leg_JNT_GRP
+      parentName: Asha_Root_JNT_GRP
+      position: {x: 0.0697573, y: -0.007078305, z: -0.0043143798}
+      rotation: {x: 0.5309396, y: -0.4806617, z: 0.4836827, w: -0.5031089}
+      scale: {x: 1.0000007, y: 0.99999934, z: 0.99999833}
+    - name: Asha_RT_Knee_JNT
+      parentName: Asha_RT_Leg_JNT_GRP
+      position: {x: 0.2609463, y: 0.000000031301635, z: 0.000000068911994}
+      rotation: {x: 0.0002873838, y: 0.0036245883, z: -0.108808815, w: -0.9940561}
+      scale: {x: 1.0000005, y: 0.99999964, z: 1.0000005}
+    - name: Asha_RT_Ankle_JNT
+      parentName: Asha_RT_Knee_JNT
+      position: {x: 0.3284312, y: -0.00000005606566, z: 0.00000038079892}
+      rotation: {x: 0.35670564, y: -0.5785474, z: -0.4850444, w: 0.55025077}
+      scale: {x: 1.0000021, y: 0.99999875, z: 0.999997}
+    - name: Asha_RT_Toes_JNT
+      parentName: Asha_RT_Ankle_JNT
+      position: {x: 0.081017904, y: 0.000000014687777, z: -0.00000052338885}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 0.99999934, y: 0.9999995, z: 0.99999946}
+    - name: Asha_RT_ToeTip_JNT
+      parentName: Asha_RT_Toes_JNT
+      position: {x: 0.0620707, y: -0.0000000861978, z: 3.7303492e-16}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000006, y: 0.9999996, z: 0.9999992}
+    - name: back
+      parentName: Asha_Test_v08(Clone)
+      position: {x: -0.25188482, y: 0.80147046, z: -10.000999}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
@@ -906,7 +1822,7 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 0aef5add44b22d14ba4b995a1080e2d3, type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: c4eb37ac139535f4b8a757ac9456ba69, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
