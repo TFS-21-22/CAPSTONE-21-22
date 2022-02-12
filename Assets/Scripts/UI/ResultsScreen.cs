@@ -42,7 +42,7 @@ public class ResultsScreen : MonoBehaviour
 
         if (restartButton)
         {
-            restartButton.onClick.AddListener(() => SceneManager.LoadScene("LevelDesignBlockout"));
+            restartButton.onClick.AddListener(restart);
 
         }
 
@@ -76,6 +76,14 @@ public class ResultsScreen : MonoBehaviour
 
         //COLLECTABLES
         collectableTxt.text = collectables.ToString();
+    }
+
+    void restart()
+    {
+        CPManager.instance.checkPoint = 0;
+        BeatMaster.instance.beatCount = 0;
+        GameManager.instance.health = 3;
+        SceneManager.LoadScene("LevelDesignBlockout");
     }
 
 }
