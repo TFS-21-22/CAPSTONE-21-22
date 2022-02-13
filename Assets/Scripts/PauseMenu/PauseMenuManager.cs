@@ -44,6 +44,7 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private GameObject compendiumMenu;
 
     //Resolutons
+    [SerializeField] private Dropdown resolutionsDropdown;
     [SerializeField] private Toggle resolutionOne;      //1920 x 1080
     [SerializeField] private Toggle resolutionTwo;      //1360 x 764
     [SerializeField] private Toggle resolutionThree;    //1280 x 720
@@ -135,34 +136,7 @@ public class PauseMenuManager : MonoBehaviour
     void Update()
     {
         
-        if(resolutionOne.isOn)
-        {
-            resolutionTwo.isOn = false;
-            resolutionThree.isOn = false;
-            resolutionFour.isOn = false;
-
-        }
-        else if (resolutionTwo.isOn)
-        {
-            resolutionOne.isOn = false;
-            resolutionThree.isOn = false;
-            resolutionFour.isOn = false;
-
-        }
-        else if (resolutionThree.isOn)
-        {
-            resolutionOne.isOn = false;
-            resolutionTwo.isOn = false;
-            resolutionFour.isOn = false;
-
-        }
-        else if (resolutionFour.isOn)
-        {
-            resolutionOne.isOn = false;
-            resolutionTwo.isOn = false;
-            resolutionThree.isOn = false;
-
-        }
+       
         
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -274,22 +248,18 @@ public class PauseMenuManager : MonoBehaviour
 
         fullscreenToggle.isOn = Screen.fullScreen;
 
-        if (resolutionOne.isOn)
+        if(resolutionsDropdown.value == 0)
         {
             Screen.SetResolution(1980, 1080, fullscreenToggle.isOn = Screen.fullScreen);
-
-        }
-        else if (resolutionTwo.isOn)
+        } else if(resolutionsDropdown.value == 1)
         {
             Screen.SetResolution(1360, 764, fullscreenToggle.isOn = Screen.fullScreen);
-
         }
-        else if (resolutionThree.isOn)
+        else if(resolutionsDropdown.value == 2)
         {
             Screen.SetResolution(1280, 720, fullscreenToggle.isOn = Screen.fullScreen);
-
         }
-        else if (resolutionFour.isOn)
+        else if(resolutionsDropdown.value == 3)
         {
             Screen.SetResolution(1152, 648, fullscreenToggle.isOn = Screen.fullScreen);
         }
