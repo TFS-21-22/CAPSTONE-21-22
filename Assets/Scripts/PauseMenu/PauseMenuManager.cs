@@ -183,6 +183,9 @@ public class PauseMenuManager : MonoBehaviour
             {
                 isPaused = false;
 
+                //Disable Movement
+                strafeScript.enabled = true;
+
                 //Enable Pause Menu UI
                 pauseMenu.SetActive(false);
 
@@ -195,8 +198,7 @@ public class PauseMenuManager : MonoBehaviour
                 if (rhythmCanvas.gameObject.activeSelf)
                     rhythmCanvas.gameObject.SetActive(true);
 
-                //Disable Movement
-                strafeScript.enabled = true;
+                
 
                 //Disable beatmaster
                 BeatMaster.instance.enabled = true;

@@ -37,11 +37,11 @@ public class HUD : MonoBehaviour
     {
         if (pm.isPaused)
         {
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
         }
         else
         {
-            Time.timeScale = 1;
+           // Time.timeScale = 1;
             //HEALTH
             livesText.text = "Lives: " + GameManager.instance.health;
 
