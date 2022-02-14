@@ -7029,6 +7029,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: asha
       objectReference: {fileID: 0}
+    - target: {fileID: 7660462728305132162, guid: 3b81b13caf86d234d830b9f19a523b76, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b81b13caf86d234d830b9f19a523b76, type: 3}
 --- !u!4 &2820667519029151362 stripped
