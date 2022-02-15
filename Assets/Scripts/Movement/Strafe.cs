@@ -57,6 +57,7 @@ public class Strafe : MonoBehaviour
 
     //Scripts
     public ScoreSystem scoresystem;
+    public GameObject newQTE;
 
     public ResultsScreen resultsScreen;
     public Animator anim;
@@ -86,7 +87,9 @@ public class Strafe : MonoBehaviour
     {
         if (BeatMaster.instance.beatCount == 10 && !activeQTE)
         {
-           //TigerEnable();
+            //TigerEnable();
+            newQTE.SetActive(true);
+            
         }
 
         if (BeatMaster.instance.beatCount == 352 && !activeQTE)
@@ -133,6 +136,7 @@ public class Strafe : MonoBehaviour
             h = 0;
         }
        
+        
         transform.Translate(h * Time.deltaTime, 0, 0);
 
        

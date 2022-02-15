@@ -79,7 +79,6 @@ public class BeatMaster : MonoBehaviour
     //broadcast beat
     public static event Action<int> Beat;
 
-    public static event Action<int> BossBattle;
 
 
     public void PlayThing() => source.Play();
