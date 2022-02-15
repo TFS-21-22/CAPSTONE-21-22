@@ -16,6 +16,8 @@ public class CPManager : MonoBehaviour
 
     public int checkPoint;
     public float scoreSaved;
+    public bool[] collectables;
+    public bool[] collectablesSaved;
 
     public HUD hud;
 
@@ -26,7 +28,6 @@ public class CPManager : MonoBehaviour
         if (instance)
         {
             Destroy(gameObject);
-
         }
         else
         {

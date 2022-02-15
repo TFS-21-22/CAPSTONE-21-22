@@ -31,7 +31,7 @@ public class BeatMaster : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void Start()
     {
         scoreSystem = FindObjectOfType<ScoreSystem>();
         source = GetComponent<AudioSource>();
@@ -41,27 +41,32 @@ public class BeatMaster : MonoBehaviour
 
         this.Invoke("PlayThing", 1);
 
-       if(CPManager.instance)
-        {
+       if (CPManager.instance)
+       {
             if (CPManager.instance.checkPoint == 0)
             {
                 scoreSystem.score = CPManager.instance.scoreSaved;
+                collectLoad();
                 beatCount = 0;
-                source.time = 0;
+                source.time = 0;               
             }
             if (CPManager.instance.checkPoint == 1)
             {
                 scoreSystem.score = CPManager.instance.scoreSaved;
+                collectLoad();
                 beatCount = 100;
                 source.time = 46f;
             }
             if (CPManager.instance.checkPoint == 2)
             {
                 scoreSystem.score = CPManager.instance.scoreSaved;
+                collectLoad();
                 beatCount = 278;
                 source.time = 129f;
             }
         }
+        
+        
         
 
         //Debug.Log("Source.Time: " + source.time);
@@ -100,16 +105,93 @@ public class BeatMaster : MonoBehaviour
         {
             CPManager.instance.checkPoint = 0;
             CPManager.instance.scoreSaved = scoreSystem.score;
+            collectSave();
         }
         if (beatCount >= 100 && CPManager.instance.checkPoint < 1)
         {
             CPManager.instance.checkPoint = 1;
             CPManager.instance.scoreSaved = scoreSystem.score;
+            collectSave();
         }
         if (beatCount >= 278 && CPManager.instance.checkPoint < 2)
         {
             CPManager.instance.checkPoint = 2;
             CPManager.instance.scoreSaved = scoreSystem.score;
+            collectSave();
         }
-    }    
+    }
+
+    public void collectSave()
+    {
+        print("SAVING");
+        ///TRUE
+        if (CPManager.instance.collectables[0] == true)
+        {
+            CPManager.instance.collectablesSaved[0] = true;
+        }
+        if (CPManager.instance.collectables[1] == true)
+        {
+            CPManager.instance.collectablesSaved[1] = true;
+        }
+        if (CPManager.instance.collectables[2] == true)
+        {
+            CPManager.instance.collectablesSaved[2] = true;
+        }
+        if (CPManager.instance.collectables[3] == true)
+        {
+            CPManager.instance.collectablesSaved[3] = true;
+        }
+        if (CPManager.instance.collectables[4] == true)
+        {
+            CPManager.instance.collectablesSaved[4] = true;
+        }
+    }
+
+    public void collectLoad()
+    {
+        print("LOADING");
+        ///TRUE
+        if (CPManager.instance.collectablesSaved[0] == true)
+        {
+            CPManager.instance.collectables[0] = true;
+        }
+        if (CPManager.instance.collectablesSaved[1] == true)
+        {
+            CPManager.instance.collectables[1] = true;
+        }
+        if (CPManager.instance.collectablesSaved[2] == true)
+        {
+            CPManager.instance.collectables[2] = true;
+        }
+        if (CPManager.instance.collectablesSaved[3] == true)
+        {
+            CPManager.instance.collectables[3] = true;
+        }
+        if (CPManager.instance.collectablesSaved[4] == true)
+        {
+            CPManager.instance.collectables[4] = true;
+        }
+
+        ///FALSE
+        if (CPManager.instance.collectablesSaved[0] == false)
+        {
+            CPManager.instance.collectables[0] = false;
+        }
+        if (CPManager.instance.collectablesSaved[1] == false)
+        {
+            CPManager.instance.collectables[1] = false;
+        }
+        if (CPManager.instance.collectablesSaved[2] == false)
+        {
+            CPManager.instance.collectables[2] = false;
+        }
+        if (CPManager.instance.collectablesSaved[3] == false)
+        {
+            CPManager.instance.collectables[3] = false;
+        }
+        if (CPManager.instance.collectablesSaved[4] == false)
+        {
+            CPManager.instance.collectables[4] = false;
+        }
+    }
 }

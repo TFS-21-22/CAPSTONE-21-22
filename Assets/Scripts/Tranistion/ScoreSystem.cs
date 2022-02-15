@@ -18,7 +18,6 @@ public class ScoreSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        score = 0;
         collectableHit = false;
         transitionEnding = false;
     }
