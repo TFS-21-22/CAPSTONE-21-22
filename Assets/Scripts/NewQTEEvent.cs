@@ -20,11 +20,18 @@ public class NewQTEEvent : MonoBehaviour
     private bool rightKey = false;
     private bool upKey = false;
     private bool downKey = false;
+
+    [SerializeField] private Strafe strafe;
     // Start is called before the first frame update
     private void Start()
     {
         //direction = new GameObject[4];
         BeatMaster.Beat += BeatCheckQTE;
+    }
+
+    private void Update()
+    {
+        
     }
 
     private void BeatCheckQTE(int beat)
@@ -37,6 +44,7 @@ public class NewQTEEvent : MonoBehaviour
 
     IEnumerator QTE_Enable()
     {
+        strafe.enabled = false;
         circle.gameObject.SetActive(true);
         BG.SetActive(true);
         if (!leftKey && !rightKey && !upKey && !downKey)
@@ -120,6 +128,7 @@ public class NewQTEEvent : MonoBehaviour
         if(sequenceCount >= 2)
         {
             sequenceCount = 0;
+            strafe.enabled = true;
             this.gameObject.SetActive(false);
         }
         else
