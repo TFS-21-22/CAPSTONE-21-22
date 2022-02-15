@@ -63,7 +63,7 @@ public class ResultsScreen : MonoBehaviour
 
                 resultsScreen.SetActive(true);
 
-                Time.timeScale = 0;
+                //Time.timeScale = 0;
             }
         }
         //SCORE

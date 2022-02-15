@@ -28,15 +28,18 @@ public class Strafe : MonoBehaviour
     //Vectors
     Vector3 camPos;
     Vector2 input;
+    public Vector3 jump;
 
     [Header("Floats")]
     public float boundx = 2.25f;
     public float speed = 3.0f;
     public float h;
+    public float jumpForce = 2.0f;
 
 
     public Transform follow;
     public GameObject enemy;
+    public GameObject fireFly;
     public Canvas rhythmCanvas;
 
     //bools
@@ -46,6 +49,7 @@ public class Strafe : MonoBehaviour
     public bool stopperL;
     public bool stopperR;
     public bool canHurt = true;
+    public bool isGrounded;
 
     public SmoothCameraScript camera;
 
@@ -56,6 +60,8 @@ public class Strafe : MonoBehaviour
 
     public ResultsScreen resultsScreen;
     public Animator anim;
+
+
 
    // private int lastHeartInstanceID;
 
@@ -68,6 +74,10 @@ public class Strafe : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         canHurt = true;
+
+        jump = new Vector3(0.0f, 2.0f, 0.0f);
+
+        fireFly.SetActive(false);
 
     }
 
@@ -88,6 +98,29 @@ public class Strafe : MonoBehaviour
 
         //Movement
         h = Input.GetAxisRaw("Horizontal");
+
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            anim.SetTrigger("Duck");  
+        }
+
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            anim.ResetTrigger("Duck");
+        }
+
+        if(Input.GetKeyDown(KeyCode.W))
+        {
+            rb.AddForce(jump * jumpForce, ForceMode.Impulse);
+            isGrounded = false;
+
+            fireFly.SetActive(true);
+        }
+
+        if(Input.GetKeyUp(KeyCode.W))
+        {
+            fireFly.SetActive(false);
+        }
         //h = Mathf.Clamp(h, -2, 2);
         anim.SetFloat("Direction", h);
         h *= speed;
@@ -245,4 +278,6 @@ public class Strafe : MonoBehaviour
             canHurt = true;
         }
     }
+
+                                                                                                                                                                                                                                                                     
 }
