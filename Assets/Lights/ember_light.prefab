@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2653490265842785850}
   - component: {fileID: 9211876513190132992}
-  - component: {fileID: 557928420814151894}
+  - component: {fileID: -2115117179145754212}
   m_Layer: 0
   m_Name: ember_light
   m_TagString: Untagged
@@ -44,7 +44,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.8703904, b: 0.3215686, a: 1}
+  m_Color: {r: 1, g: 0.6156863, b: 0.32156864, a: 1}
   m_Intensity: 1
   m_Range: 4
   m_SpotAngle: 30
@@ -95,7 +95,7 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &557928420814151894
+--- !u!114 &-2115117179145754212
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
