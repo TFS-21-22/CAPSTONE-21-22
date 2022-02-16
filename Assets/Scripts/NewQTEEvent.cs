@@ -44,7 +44,7 @@ public class NewQTEEvent : MonoBehaviour
 
     IEnumerator QTE_Enable()
     {
-        strafe.enabled = false;
+       // strafe.enabled = false;
         circle.gameObject.SetActive(true);
         BG.SetActive(true);
         if (!leftKey && !rightKey && !upKey && !downKey)
