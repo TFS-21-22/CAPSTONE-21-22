@@ -8,6 +8,7 @@ namespace VolumetricFogAndMist2 {
     public class VolumetricFogManagerEditor : Editor {
 
         SerializedProperty mainCamera, sun, moon, fogLayer, includeTransparent, includeSemiTransparent, alphaCutOff, flipDepthTexture;
+        SerializedProperty downscaling, blurPasses, blurDownscaling, blurSpread;
 
         private void OnEnable() {
             mainCamera = serializedObject.FindProperty("mainCamera");
@@ -18,6 +19,10 @@ namespace VolumetricFogAndMist2 {
             includeSemiTransparent = serializedObject.FindProperty("includeSemiTransparent");
             alphaCutOff = serializedObject.FindProperty("alphaCutOff");
             flipDepthTexture = serializedObject.FindProperty("flipDepthTexture");
+            downscaling = serializedObject.FindProperty("downscaling");
+            blurPasses = serializedObject.FindProperty("blurPasses");
+            blurDownscaling = serializedObject.FindProperty("blurDownscaling");
+            blurSpread = serializedObject.FindProperty("blurSpread");
         }
 
 
@@ -80,6 +85,32 @@ namespace VolumetricFogAndMist2 {
                 }
             } else if (DepthRenderPrePassFeature.installed) {
                 EditorGUILayout.HelpBox("No transparent objects included. Remove 'DepthRendererPrePass Feature' from the Forward Renderer of the Universal Rendering Pipeline asset to save performance.", MessageType.Warning);
+                if (pipe != null && GUILayout.Button("Show Pipeline Asset")) Selection.activeObject = pipe;
+            }
+
+            EditorGUILayout.EndVertical();
+            EditorGUILayout.Separator();
+            EditorGUILayout.BeginVertical();
+            EditorGUILayout.LabelField(new GUIContent("Advanced Composition", "Support for off-screen rendering and composition to screen target. Allows optimizations like downsampling."), EditorStyles.boldLabel);
+
+            EditorGUI.BeginChangeCheck();
+            EditorGUILayout.PropertyField(downscaling);
+            EditorGUILayout.PropertyField(blurPasses);
+            if (blurPasses.intValue > 0) {
+                EditorGUILayout.PropertyField(blurDownscaling);
+                EditorGUILayout.PropertyField(blurSpread);
+            }
+            if (EditorGUI.EndChangeCheck()) {
+                EditorApplication.delayCall += () => UnityEditorInternal.InternalEditorUtility.RepaintAllViews();
+            }
+            if (blurPasses.intValue > 0 || downscaling.floatValue > 1) {
+                if (!VolumetricFogRenderFeature.installed) {
+                    EditorGUILayout.HelpBox("These options require 'Volumetric Fog Render Feature' added to the Forward Renderer of the Universal Rendering Pipeline asset. Check the documentation for instructions.", MessageType.Warning);
+                    if (pipe != null && GUILayout.Button("Show Pipeline Asset")) Selection.activeObject = pipe;
+                }
+                EditorGUILayout.HelpBox("When downscaling or blur option is enabled, fog volumes ignore render queue value. Select the render pass event in the Volumetric Fog Render Feature.", MessageType.Info);
+            } else if (VolumetricFogRenderFeature.installed) {
+                EditorGUILayout.HelpBox("No downscaling/blur used. Remove 'Volumetric Fog Render Feature' from the Forward Renderer of the Universal Rendering Pipeline asset to save performance.", MessageType.Warning);
                 if (pipe != null && GUILayout.Button("Show Pipeline Asset")) Selection.activeObject = pipe;
             }
 

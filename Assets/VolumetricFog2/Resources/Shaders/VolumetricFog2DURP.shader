@@ -4,22 +4,36 @@ Shader "VolumetricFog2/VolumetricFog2DURP"
 	{
 		[HideInInspector] _MainTex("Noise Texture", 2D) = "white" {}
 		[HideInInspector] _DetailTex("Detail Texture", 3D) = "white" {}
-		[HideInInspector] _NoiseScale("Noise Scale", Range(0.001, 0.04)) = 0.025
+		[HideInInspector] _NoiseScale("Noise Scale", Float) = 0.025
+		[HideInInspector] _NoiseFinalMultiplier("Noise Scale", Float) = 1.0
+		[HideInInspector] _NoiseStrength("Noise Strength", Float) = 1.0
 		[HideInInspector] _Color("Color", Color) = (1,1,1)
 		[HideInInspector] _Density("Density", Float) = 1.0
 		[HideInInspector] _DeepObscurance("Deep Obscurance", Range(0, 2)) = 0.7
+		[HideInInspector] _LightColor("Light Color", Color) = (1,1,1)
 		[HideInInspector] _LightDiffusionPower("Sun Diffusion Power", Range(1, 64)) = 32
 		[HideInInspector] _LightDiffusionIntensity("Sun Diffusion Intensity", Range(0, 1)) = 0.4
 		[HideInInspector] _ShadowIntensity("Sun Shadow Intensity", Range(0, 1)) = 0.5
 		[HideInInspector] _WindDirection("Wind Direction", Vector) = (1, 0, 0)
 		[HideInInspector] _RayMarchSettings("Raymarch Settings", Vector) = (2, 0.01, 1.0, 0.1)
 		[HideInInspector] _SunDir("Sun Direction", Vector) = (1,0,0)
-		[HideInInspector] _FogOfWar("Fog Of War", 2D) = "white" {}
 		[HideInInspector] _BoundsCenter("Bounds Center", Vector) = (0,0,0)
 		[HideInInspector] _BoundsExtents("Bounds Size", Vector) = (0,0,0)
 		[HideInInspector] _BoundsBorder("Bounds Border", Vector) = (0,1,0)
+		[HideInInspector] _BoundsData("Bounds Data", Vector) = (0,0,1)
 		[HideInInspector] _DetailData("Detail Data", Vector) = (0.5, 4, -0.5, 0)
 		[HideInInspector] _DetailColor("Detail Color", Color) = (0.5,0.5,0.5,0)
+		[HideInInspector] _DetailOffset("Detail Offset", Float) = -0.5
+		[HideInInspector] _DistanceData("Distance Data", Vector) = (0, 5, 1, 1)
+		[HideInInspector] _DepthGradientTex("Depth Gradient Texture", 2D) = "white" {}
+		[HideInInspector] _SpecularThreshold("Specular Threshold", Float) = 0.5
+		[HideInInspector] _SpecularIntensity("Specular Intensity", Float) = 0
+		[HideInInspector] _SpecularColor("Specular Color", Color) = (0.5,0.5,0.5,0)
+		[HideInInspector] _FogOfWarCenterAdjusted("FoW Center Adjusted", Vector) = (0,0,0)
+		[HideInInspector] _FogOfWarSize("FoW Size", Vector) = (0,0,0)
+		[HideInInspector] _FogOfWarCenter("FoW Center", Vector) = (0,0,0)
+		[HideInInspector] _FogOfWar("FoW Texture", 2D) = "white" {}
+
 	}
 		SubShader
 		{
@@ -40,16 +54,19 @@ Shader "VolumetricFog2/VolumetricFog2DURP"
 				#pragma fragment frag
 				#pragma multi_compile _ _MAIN_LIGHT_SHADOWS
 				#pragma multi_compile _ _MAIN_LIGHT_SHADOWS_CASCADE
+                #pragma multi_compile _ _ADDITIONAL_LIGHTS
 				#pragma multi_compile _ _ADDITIONAL_LIGHT_SHADOWS
                 #pragma multi_compile _ VF2_DEPTH_PREPASS
-				#pragma multi_compile_local _ VF2_POINT_LIGHTS VF2_NATIVE_LIGHTS
-				#pragma multi_compile_local _ VF2_VOIDS
-				#pragma multi_compile_local _ VF2_FOW
-				#pragma multi_compile_local _ VF2_RECEIVE_SHADOWS
-				#pragma multi_compile_local _ VF2_DISTANCE
-				#pragma multi_compile_local V2F_SHAPE_BOX V2F_SHAPE_SPHERE
-				#pragma multi_compile_local _ V2F_DETAIL_NOISE
-				#pragma multi_compile_local _ V2F_SURFACE
+				#pragma multi_compile_local_fragment _ VF2_POINT_LIGHTS VF2_NATIVE_LIGHTS
+				#pragma multi_compile_local_fragment _ VF2_RECEIVE_SHADOWS
+				#pragma multi_compile_local_fragment VF2_SHAPE_BOX VF2_SHAPE_SPHERE
+				#pragma multi_compile_local_fragment _ VF2_DETAIL_NOISE
+				#pragma shader_feature_local_fragment VF2_DISTANCE
+				#pragma shader_feature_local_fragment VF2_VOIDS
+				#pragma shader_feature_local_fragment VF2_FOW
+				#pragma shader_feature_local_fragment VF2_SURFACE
+				#pragma shader_feature_local_fragment VF2_DEPTH_GRADIENT
+				#pragma shader_feature_local_fragment VF2_HEIGHT_GRADIENT
 
 				#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
 				#undef SAMPLE_TEXTURE2D
@@ -77,6 +94,8 @@ Shader "VolumetricFog2/VolumetricFog2DURP"
 					UNITY_VERTEX_OUTPUT_STEREO
 				};
 
+				int _ForcedInvisible;
+
 				v2f vert(appdata v)
 				{
 					v2f o;
@@ -95,6 +114,10 @@ Shader "VolumetricFog2/VolumetricFog2DURP"
 						o.pos.z = o.pos.w - 1.0e-6f;
 					#endif
 
+					if (_ForcedInvisible == 1) {
+						o.pos.xy = -10000;
+                    }
+
 					return o;
 				}
 
@@ -109,7 +132,7 @@ Shader "VolumetricFog2/VolumetricFog2DURP"
                    	float t1 = length(ray);
 					float3 rayDir = ray / t1;
 
-					#if V2F_SHAPE_SPHERE
+					#if VF2_SHAPE_SPHERE
 						float t0;
 						SphereIntersection(rayStart, rayDir, t0, t1);
 					#else

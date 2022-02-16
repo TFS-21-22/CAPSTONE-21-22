@@ -125,7 +125,7 @@ namespace VolumetricFogAndMist2 {
         }
 
         /// <summary>
-        /// Updates shadows on this volumetric light
+        /// Updates shadows on this volumetric fog
         /// </summary>
         public void ScheduleShadowCapture() {
             if (cam != null) {

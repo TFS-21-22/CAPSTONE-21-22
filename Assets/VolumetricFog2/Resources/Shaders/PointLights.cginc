@@ -56,6 +56,6 @@ half3 GetPointLights(float3 wpos) {
     return color;
 }
 
-#endif
+#endif // VF2_POINT_LIGHTS
 
-#endif
+#endif // VOLUMETRIC_FOG_2_POINT_LIGHTS

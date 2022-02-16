@@ -18,12 +18,13 @@ namespace VolumetricFogAndMist2 {
         public static int NoiseFinalMultiplier = Shader.PropertyToID("_NoiseFinalMultiplier");
         public static int NoiseStrength = Shader.PropertyToID("_NoiseStrength");
         public static int TurbulenceAmount = Shader.PropertyToID("_TurbulenceAmount");
-        public static int BoundsVerticalOffset = Shader.PropertyToID("_BoundsVerticalOffset");
         public static int FogOfWarCenterAdjusted = Shader.PropertyToID("_FogOfWarCenterAdjusted");
         public static int FogOfWarSize = Shader.PropertyToID("_FogOfWarSize");
         public static int FogOfWarCenter = Shader.PropertyToID("_FogOfWarCenter");
         public static int FogOfWarTexture = Shader.PropertyToID("_FogOfWar");
         public static int DistanceData = Shader.PropertyToID("_DistanceData");
+        public static int DepthGradientTexture = Shader.PropertyToID("_DepthGradientTex");
+        public static int HeightGradientTexture = Shader.PropertyToID("_HeightGradientTex");
         public static int DetailTexture = Shader.PropertyToID("_DetailTex");
         public static int RaymarchSettings = Shader.PropertyToID("_RayMarchSettings");
         public static int SunDir = Shader.PropertyToID("_SunDir");
@@ -34,6 +35,7 @@ namespace VolumetricFogAndMist2 {
         public static int BoundsBorder = Shader.PropertyToID("_BoundsBorder");
         public static int BoundsExtents = Shader.PropertyToID("_BoundsExtents");
         public static int BoundsCenter = Shader.PropertyToID("_BoundsCenter");
+        public static int BoundsData = Shader.PropertyToID("_BoundsData");
         public static int SurfaceCaptureMatrix = Shader.PropertyToID("_SurfaceCaptureMatrix");
         public static int SurfaceDepthTexture = Shader.PropertyToID("_SurfaceDepthTexture");
         public static int SurfaceData = Shader.PropertyToID("_SurfaceData");
@@ -54,17 +56,19 @@ namespace VolumetricFogAndMist2 {
 
         public const string SKW_CUSTOM_DEPTH_ALPHA_TEST = "DEPTH_PREPASS_ALPHA_TEST";
 
-        public const string SKW_SHAPE_BOX = "V2F_SHAPE_BOX";
-        public const string SKW_SHAPE_SPHERE = "V2F_SHAPE_SPHERE";
+        public const string SKW_SHAPE_BOX = "VF2_SHAPE_BOX";
+        public const string SKW_SHAPE_SPHERE = "VF2_SHAPE_SPHERE";
         public const string SKW_POINT_LIGHTS = "VF2_POINT_LIGHTS";
         public const string SKW_NATIVE_LIGHTS = "VF2_NATIVE_LIGHTS";
         public const string SKW_VOIDS = "VF2_VOIDS";
         public const string SKW_FOW = "VF2_FOW";
         public const string SKW_RECEIVE_SHADOWS = "VF2_RECEIVE_SHADOWS";
         public const string SKW_DISTANCE = "VF2_DISTANCE";
-        public const string SKW_DETAIL_NOISE = "V2F_DETAIL_NOISE";
-        public const string SKW_SURFACE = "V2F_SURFACE";
+        public const string SKW_DETAIL_NOISE = "VF2_DETAIL_NOISE";
+        public const string SKW_SURFACE = "VF2_SURFACE";
         public const string SKW_DEPTH_PREPASS = "VF2_DEPTH_PREPASS";
+        public const string SKW_DEPTH_GRADIENT = "VF2_DEPTH_GRADIENT";
+        public const string SKW_HEIGHT_GRADIENT = "VF2_HEIGHT_GRADIENT";
 
     }
 

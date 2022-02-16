@@ -1,3 +1,5 @@
+#ifndef VOLUMETRIC_FOG_2_RAYMARCH
+#define VOLUMETRIC_FOG_2_RAYMARCH 
 
 sampler2D _MainTex;
 sampler3D _DetailTex;
@@ -14,12 +16,16 @@ half4 _LightColor;
 half  _Density;
 
 float4 _BoundsBorder;
-float _BoundsVerticalOffset;
-
 #define BORDER_SIZE_SPHERE _BoundsBorder.x
 #define BORDER_START_SPHERE _BoundsBorder.y
 #define BORDER_SIZE_BOX _BoundsBorder.xz
 #define BORDER_START_BOX _BoundsBorder.yw
+
+float3 _BoundsData;
+#define BOUNDS_VERTICAL_OFFSET _BoundsData.x
+#define BOUNDS_BOTTOM _BoundsData.y
+#define BOUNDS_SIZE_Y _BoundsData.z
+
 
 half4 _DetailData; // x = strength, y = offset, z = scale, w = importance
 half4 _DetailColor;
@@ -78,7 +84,7 @@ half4 SampleDensity(float3 wpos) {
 
     SurfaceApply(boundsCenter, boundsExtents);
 
-#if V2F_DETAIL_NOISE
+#if VF2_DETAIL_NOISE
     half detail = tex3Dlod(_DetailTex, float4(wpos * DETAIL_SCALE - _WindDirection, 0)).a;
     half4 density = _DetailColor;
     if (USE_BASE_NOISE) {
@@ -109,9 +115,9 @@ void AddFog(float3 rayStart, float3 wpos, float rs, half4 baseColor, inout half4
         density.a -= ApplyFogVoids(wpos);
    #endif
 
-   #if V2F_SHAPE_SPHERE
+   #if VF2_SHAPE_SPHERE
         float3 delta = wpos - _BoundsCenter;
-        delta.y += _BoundsVerticalOffset;
+        delta.y += BOUNDS_VERTICAL_OFFSET;
         float distSqr = dot2(delta);
         float border = 1.0 - saturate( (distSqr - BORDER_START_SPHERE) / BORDER_SIZE_SPHERE );
         density.a *= border * border;
@@ -137,7 +143,7 @@ void AddFog(float3 rayStart, float3 wpos, float rs, half4 baseColor, inout half4
                 #else
                     Light light = GetAdditionalLight(i, wpos);
                 #endif
-                fgCol.rgb += light.color * light.distanceAttenuation * light.shadowAttenuation;
+                fgCol.rgb += light.color * (light.distanceAttenuation * light.shadowAttenuation);
             }
         #endif
         fgCol.rgb *= density.rgb * fgCol.aaa;
@@ -146,6 +152,12 @@ void AddFog(float3 rayStart, float3 wpos, float rs, half4 baseColor, inout half4
         #endif
 		#if VF2_DISTANCE
 			fgCol *= ApplyFogDistance(rayStart, wpos);
+		#endif
+		#if VF2_DEPTH_GRADIENT
+			fgCol *= ApplyDepthGradient(rayStart, wpos);
+		#endif
+		#if VF2_HEIGHT_GRADIENT
+			fgCol *= ApplyHeightGradient(wpos);
 		#endif
 
         fgCol *= min(1.0, _Density * rs);
@@ -168,7 +180,7 @@ half4 GetFogColor(float3 rayStart, float3 viewDir, float t0, float t1) {
     float3 endPos = rayStart + viewDir * t1;
     SurfaceComputeEndPoints(wpos, endPos);
 
-    wpos.y -= _BoundsVerticalOffset;
+    wpos.y -= BOUNDS_VERTICAL_OFFSET;
     viewDir *= rs;
 
     float energyStep = rs;
@@ -188,7 +200,10 @@ half4 GetFogColor(float3 rayStart, float3 viewDir, float t0, float t1) {
     }
     AddFog(rayStart, endPos, len * (rs - (t-1.0)), lightColor, sum);
 
-	sum += (jitter - 0.5) * DITHERING;
+    sum = max(0, sum - jitter * DITHERING);
     sum *= _LightColor.a;
     return sum;
 }
+
+
+#endif // VOLUMETRIC_FOG_2_RAYMARCH

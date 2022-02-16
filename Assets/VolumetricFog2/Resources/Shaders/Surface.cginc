@@ -1,7 +1,7 @@
-#ifndef VOLUMETRIC_FOG_2_SURFACE
+﻿#ifndef VOLUMETRIC_FOG_2_SURFACE
 #define VOLUMETRIC_FOG_2_SURFACE
 
-#if V2F_SURFACE
+#if VF2_SURFACE
 
     float4x4 _SurfaceCaptureMatrix;
     TEXTURE2D_FLOAT(_SurfaceDepthTexture);
@@ -37,6 +37,6 @@
     #define SurfaceComputeEndPoints(wposStart, wposEnd)
     #define SurfaceApply(boundsCenter, boundsExtents)
 
-#endif // V2F_SURFACE
+#endif // VF2_SURFACE
 
 #endif // VOLUMETRIC_FOG_2_SURFACE

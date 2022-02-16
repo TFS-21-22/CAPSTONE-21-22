@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -57,6 +58,11 @@ namespace VolumetricFogAndMist2 {
 
         [Header("Colors")]
         public Color albedo = new Color32(227, 227, 227, 255);
+        public bool enableDepthGradient;
+        public Gradient depthGradient;
+        public float depthGradientMaxDistance = 1000f;
+        public bool enableHeightGradient;
+        public Gradient heightGradient;
         public float brightness = 1f;
         [Range(0, 2)] public float deepObscurance = 1f;
         public Color specularColor = new Color(1, 1, 0.8f, 1);
@@ -74,6 +80,15 @@ namespace VolumetricFogAndMist2 {
         [Range(0, 1)] public float shadowIntensity = 0.5f;
 
         public event OnSettingsChanged onSettingsChanged;
+
+        [NonSerialized]
+        public Texture2D depthGradientTex;
+
+        [NonSerialized]
+        public Texture2D heightGradientTex;
+
+        static Color[] depthGradientColors;
+        static Color[] heightGradientColors;
 
         private void OnEnable() {
             if (noiseTexture == null) {
@@ -103,6 +118,66 @@ namespace VolumetricFogAndMist2 {
             raymarchMinStep = Mathf.Max(0.1f, raymarchMinStep);
             jittering = Mathf.Max(0, jittering);
             terrainFogHeight = Mathf.Max(0, terrainFogHeight);
+            if (depthGradient == null) {
+                depthGradient = new Gradient();
+                depthGradient.colorKeys = new GradientColorKey[] {
+                    new GradientColorKey(Color.white, 0),
+                    new GradientColorKey(Color.white, 1)
+                };
+            }
+            depthGradientMaxDistance = Mathf.Max(0, depthGradientMaxDistance);
+
+            if (enableDepthGradient) {
+                const int DEPTH_GRADIENT_TEX_SIZE = 32;
+                bool requiresUpdate = false;
+                if (depthGradientTex == null) {
+                    depthGradientTex = new Texture2D(DEPTH_GRADIENT_TEX_SIZE, 1, TextureFormat.RGBA32, false);
+                    requiresUpdate = true;
+                }
+                if (depthGradientColors == null || depthGradientColors.Length != DEPTH_GRADIENT_TEX_SIZE) {
+                    depthGradientColors = new Color[DEPTH_GRADIENT_TEX_SIZE];
+                    requiresUpdate = true;
+                }
+                for (int k = 0; k < DEPTH_GRADIENT_TEX_SIZE; k++) {
+                    float t = (float)k / DEPTH_GRADIENT_TEX_SIZE;
+                    Color color = depthGradient.Evaluate(t);
+                    if (color != depthGradientColors[k]) {
+                        depthGradientColors[k] = color;
+                        requiresUpdate = true;
+                    }
+                }
+                if (requiresUpdate) {
+                    depthGradientTex.SetPixels(depthGradientColors);
+                    depthGradientTex.Apply();
+                }
+            }
+
+
+            if (enableHeightGradient) {
+                const int HEIGHT_GRADIENT_TEX_SIZE = 32;
+                bool requiresUpdate = false;
+                if (heightGradientTex == null) {
+                    heightGradientTex = new Texture2D(HEIGHT_GRADIENT_TEX_SIZE, 1, TextureFormat.RGBA32, false);
+                    requiresUpdate = true;
+                }
+                if (heightGradientColors == null || heightGradientColors.Length != HEIGHT_GRADIENT_TEX_SIZE) {
+                    heightGradientColors = new Color[HEIGHT_GRADIENT_TEX_SIZE];
+                    requiresUpdate = true;
+                }
+                for (int k = 0; k < HEIGHT_GRADIENT_TEX_SIZE; k++) {
+                    float t = (float)k / HEIGHT_GRADIENT_TEX_SIZE;
+                    Color color = heightGradient.Evaluate(t);
+                    if (color != heightGradientColors[k]) {
+                        heightGradientColors[k] = color;
+                        requiresUpdate = true;
+                    }
+                }
+                if (requiresUpdate) {
+                    heightGradientTex.SetPixels(heightGradientColors);
+                    heightGradientTex.Apply();
+                }
+            }
+
         }
 
         public void Lerp(VolumetricFogProfile p1, VolumetricFogProfile p2, float t) {
@@ -152,3 +227,4 @@ namespace VolumetricFogAndMist2 {
 
     }
 }
+

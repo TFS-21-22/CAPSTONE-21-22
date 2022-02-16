@@ -1,3 +1,6 @@
+#ifndef VOLUMETRIC_FOG_2_PRIMITIVES
+#define VOLUMETRIC_FOG_2_PRIMITIVES
+
 float3 _BoundsCenter, _BoundsExtents;
 
 float BoxIntersection(float3 origin, float3 viewDir) {
@@ -23,3 +26,5 @@ void SphereIntersection(float3 origin, float3 viewDir, out float t0, out float t
         t0 = max(t0, 0);
     }
 }
+
+#endif // VOLUMETRIC_FOG_2_PRIMITIVES

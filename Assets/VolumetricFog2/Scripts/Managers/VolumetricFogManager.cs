@@ -33,6 +33,15 @@ namespace VolumetricFogAndMist2 {
         [Tooltip("Optionally determines the alpha cut off for semitransparent objects")]
         [Range(0, 1)]
         public float alphaCutOff;
+        [Range(1, 8)]
+        public float downscaling = 1;
+        [Range(0, 6)]
+        public int blurPasses;
+        [Range(1, 8)]
+        public float blurDownscaling = 1;
+        [Range(1f, 4)]
+        public float blurSpread = 1f;
+        public float brightness = 1f;
 
         const string SKW_FLIP_DEPTH_TEXTURE = "VF2_FLIP_DEPTH_TEXTURE";
 

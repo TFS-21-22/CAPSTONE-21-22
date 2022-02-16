@@ -19,7 +19,7 @@ namespace VolumetricFogAndMist2 {
             int currentCutoutLayerMask;
             readonly List<ShaderTagId> m_ShaderTagIdList = new List<ShaderTagId>();
 
-            RenderTargetHandle m_Depth;
+            RenderTargetHandle m_Depth = new RenderTargetHandle();
             Material depthOnlyMaterial, depthOnlyMaterialCutOff;
             Material[] depthOverrideMaterials;
 
@@ -68,14 +68,13 @@ namespace VolumetricFogAndMist2 {
                 }
                 RenderTextureDescriptor depthDesc = cameraTextureDescriptor;
                 depthDesc.colorFormat = RenderTextureFormat.Depth;
-                depthDesc.depthBufferBits = 32;
+                depthDesc.depthBufferBits = 24;
                 depthDesc.msaaSamples = 1;
 
                 cmd.GetTemporaryRT(m_Depth.id, depthDesc, FilterMode.Point);
                 cmd.SetGlobalTexture(ShaderParams.CustomDepthTexture, m_Depth.Identifier());
                 ConfigureTarget(m_Depth.Identifier());
                 ConfigureClear(ClearFlag.All, Color.black);
-
             }
 
             public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData) {
@@ -159,6 +158,9 @@ namespace VolumetricFogAndMist2 {
         // Here you can inject one or multiple render passes in the renderer.
         // This method is called when setting up the renderer once per-camera.
         public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData) {
+            Camera cam = renderingData.cameraData.camera;
+            if (cam.targetTexture != null && cam.targetTexture.format == RenderTextureFormat.Depth) return; // ignore occlusion cams!
+
             installed = true;
             renderer.EnqueuePass(m_ScriptablePass);
         }

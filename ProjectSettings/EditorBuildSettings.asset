@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelDesignBlockout.unity
     guid: 7215547b8336ab04ab4de5ae055edd4a
+  - enabled: 0
+    path: Assets/VolumetricFog2/Demo/DemoScene.unity
+    guid: 256be847f80444547933dbdce706e15a
   m_configObjects: {}

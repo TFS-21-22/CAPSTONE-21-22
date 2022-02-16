@@ -3,17 +3,19 @@
 
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
 
-// ***** Custom options *******
+// ***** Custom options ************
+
 //#define ORTHO_SUPPORT
 //#define USE_ALTERNATE_RECONSTRUCT_API
 
 // Specify max raymarch iterations
 #define MAX_ITERATIONS 500
 
-// Common URP code
-#define VR_ENABLED defined(UNITY_STEREO_INSTANCING_ENABLED) || defined(UNITY_STEREO_MULTIVIEW_ENABLED) || defined(SINGLE_PASS_STEREO)
 
-#if defined(USE_ALTERNATE_RECONSTRUCT_API) || VR_ENABLED 
+
+// ***** Common URP code ***********
+
+#if defined(USE_ALTERNATE_RECONSTRUCT_API)
    #define CLAMP_RAY_DEPTH(rayStart, scrPos, t1) ClampRayDepthAlt(rayStart, scrPos, t1)
 #else
    #define CLAMP_RAY_DEPTH(rayStart, scrPos, t1) ClampRayDepth(rayStart, scrPos, t1)

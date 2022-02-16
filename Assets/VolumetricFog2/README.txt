@@ -13,7 +13,7 @@ Make sure you have Universal RP package imported in the project before using Vol
 Demo Scenes
 -----------
 There's a demo scene which lets you quickly check if Volumetric Fog & Mist 2 is working correctly in your project.
-Note: make sure you have Universal RP 7.2.0 or later installed from Package Manager and also a URP pipeline asset assigned to Graphics Settings.
+Note: make sure you have Universal RP 7.5 or later installed from Package Manager and also a URP pipeline asset assigned to Graphics Settings.
 
 
 Documentation/API reference
@@ -27,7 +27,7 @@ Please read the documentation PDF and browse/play with the demo scenes and sampl
 
 * Support: contact@kronnect.com
 * Website-Forum: https://kronnect.com/support
-* Twitter: @KronnectGames
+* Twitter: @Kronnect
 
 
 Future updates
@@ -43,6 +43,20 @@ Version history
 ---------------
 
 Current version
+- Added downscaling option to Volumetric Fog Manager to boost performance
+- Change: height gradient option now goes from bottom to top of fog volume instead of mirroring around the center
+
+v7.0 26/Dec/2021
+- Added new blur options to Volumetric Fog Manager
+- [Fix] Fixed light diffusion intensity when there's no Sun in the scene
+
+v6.3 12/Dec/2021
+- Added "Depth Gradient Color" and "Height Gradient Color" options to add stylized distance-based gradient color
+- Added support for Unity 2021.2
+- Reduced shader variants
+- [Fix] Fixed distance falloff not applied when user saves scene until scene restart
+
+v6.2 28/Nov/2021
 - Added shader option "FAST_POINT_LIGHT_OCCLUSION" in PointLights.cginc
 - Improved reliability of fog of war delayed transitions
 
