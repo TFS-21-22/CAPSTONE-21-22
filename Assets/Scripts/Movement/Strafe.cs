@@ -182,7 +182,26 @@ public class Strafe : MonoBehaviour
             //rb.AddForce(transform.up * 8);
         }
 
-        if(other.gameObject.CompareTag("Log"))
+        if (other.gameObject.CompareTag("Collectable"))
+        {
+            if (other.gameObject.name == "Col_1")
+                CPManager.instance.collectables[0] = true;
+            if (other.gameObject.name == "Col_2")
+                CPManager.instance.collectables[1] = true;
+            if (other.gameObject.name == "Col_3")
+                CPManager.instance.collectables[2] = true;
+            if (other.gameObject.name == "Col_4")
+                CPManager.instance.collectables[3] = true;
+            if (other.gameObject.name == "Col_5")
+                CPManager.instance.collectables[4] = true;
+
+            source.PlayOneShot(transitionSFX);
+            Destroy(other.gameObject);
+            anim.SetTrigger("Low Collision");
+            //rb.AddForce(transform.up * 8);
+        }
+
+        if (other.gameObject.CompareTag("Log"))
         {
             source.PlayOneShot(logCollisionSFX);
             //GameManager.instance.health--;
