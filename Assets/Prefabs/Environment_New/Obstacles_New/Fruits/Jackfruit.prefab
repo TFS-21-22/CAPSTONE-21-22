@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4371469334388739156}
   - component: {fileID: 452503350584760948}
   - component: {fileID: 3049342274877897622}
+  - component: {fileID: 7171861586364205616}
   m_Layer: 0
   m_Name: Jackfruit
   m_TagString: Untagged
@@ -83,3 +84,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7171861586364205616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4801369365956759156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1315e459894b1b4a9440ce6dd93b65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  scoreMultiplyer: 1
+  material1: {fileID: 2100000, guid: e3b1fdebf8f4b084d8c36b54e6975ac1, type: 2}
+  material2: {fileID: 2100000, guid: e3b1fdebf8f4b084d8c36b54e6975ac1, type: 2}
+  dreamState: 0
+  player: {fileID: 0}
+  scoreSystem: {fileID: 0}

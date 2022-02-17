@@ -115,9 +115,14 @@ public class transition2 : MonoBehaviour
                 objectInView = false;
             }
 
-            if (!objectInView && !gameObject.CompareTag("Ground"))
+            if (!objectInView && !gameObject.CompareTag("DNDP"))
             {
                 transform.parent.gameObject.SetActive(false);
+            }
+
+            if (!objectInView && gameObject.CompareTag("Log"))
+            {
+                gameObject.SetActive(false);
             }
         }
       

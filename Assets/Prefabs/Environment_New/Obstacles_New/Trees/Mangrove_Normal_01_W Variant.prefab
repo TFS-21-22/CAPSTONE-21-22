@@ -53,7 +53,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 661022720830886418, guid: 371cefb498e6062408ab34270f41e8f2, type: 3}
       propertyPath: m_Name
-      value: Mangrove_Normal_01_W
+      value: Mangrove_Normal_01_W Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 880018133431437529, guid: 371cefb498e6062408ab34270f41e8f2, type: 3}
+      propertyPath: m_Name
+      value: Leaves_main
       objectReference: {fileID: 0}
     - target: {fileID: 2700172565933669370, guid: 371cefb498e6062408ab34270f41e8f2, type: 3}
       propertyPath: m_Materials.Array.data[0]

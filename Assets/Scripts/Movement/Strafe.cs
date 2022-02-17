@@ -112,7 +112,7 @@ public class Strafe : MonoBehaviour
             anim.ResetTrigger("Duck");
         }
 
-        if(Input.GetKeyDown(KeyCode.W))
+        if(Input.GetKeyDown(KeyCode.W) && fireFly)
         {
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
             isGrounded = false;
@@ -120,7 +120,7 @@ public class Strafe : MonoBehaviour
             fireFly.SetActive(true);
         }
 
-        if(Input.GetKeyUp(KeyCode.W))
+        if(Input.GetKeyUp(KeyCode.W) && fireFly)
         {
             fireFly.SetActive(false);
         }

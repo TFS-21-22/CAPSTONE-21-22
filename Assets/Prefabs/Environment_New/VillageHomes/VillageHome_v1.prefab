@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8384453717121635547}
   - component: {fileID: 2155911330812233585}
   - component: {fileID: 3553898539501626651}
+  - component: {fileID: 3335169364854699772}
   m_Layer: 0
   m_Name: VillageHome_v1
   m_TagString: Untagged
@@ -83,3 +84,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3335169364854699772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2212132929641579426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1315e459894b1b4a9440ce6dd93b65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  scoreMultiplyer: 1
+  material1: {fileID: 2100000, guid: ed334a7533d474d459a84863ac28d0ca, type: 2}
+  material2: {fileID: 2100000, guid: ed334a7533d474d459a84863ac28d0ca, type: 2}
+  dreamState: 0
+  player: {fileID: 0}
+  scoreSystem: {fileID: 0}

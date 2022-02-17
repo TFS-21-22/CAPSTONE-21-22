@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 9aeac66452c034142a374fc964cf796e, type: 2}
     - target: {fileID: 6945202218321948209, guid: 7f8782a4f78cee546a7f456a14f47070, type: 3}
       propertyPath: m_Name
-      value: Mangrove_Normal_02_W
+      value: Mangrove_Normal_02_W Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7721843989798057099, guid: 7f8782a4f78cee546a7f456a14f47070, type: 3}
       propertyPath: m_RootOrder
@@ -61,3 +61,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f8782a4f78cee546a7f456a14f47070, type: 3}
+--- !u!1 &56562918438680043 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2633664193889055109, guid: 7f8782a4f78cee546a7f456a14f47070, type: 3}
+  m_PrefabInstance: {fileID: 2613306102260106350}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8788878257387447800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56562918438680043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1315e459894b1b4a9440ce6dd93b65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  scoreMultiplyer: 1
+  material1: {fileID: 2100000, guid: 93d2e14e3a8f62140bb8ab43bac378e2, type: 2}
+  material2: {fileID: 2100000, guid: 56db6582965e24742b1720bd40fc87a3, type: 2}
+  dreamState: 0
+  player: {fileID: 0}
+  scoreSystem: {fileID: 0}
