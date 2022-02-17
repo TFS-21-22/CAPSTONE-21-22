@@ -15,6 +15,7 @@ public class NewQTEEvent : MonoBehaviour
 
     private float maxFillAmount = 1f;
     private int sequenceCount = 0;
+    private int sequencesHit = 0;
 
     private bool leftKey = false;
     private bool rightKey = false;
@@ -52,30 +53,31 @@ public class NewQTEEvent : MonoBehaviour
             RandomKey();
         }
 
-        //Debug.Log("LEFT:" + leftKey + " RIGHT:" + rightKey + " UP:" + upKey + " DOWN:" + downKey);
         while (circle.fillAmount > 0)
         {
             circle.fillAmount -= Time.deltaTime;
             if (Input.GetKeyDown(KeyCode.LeftArrow) && leftKey)
             {
-                DisplayResult(sequenceCount);
+                DisplayResult(sequencesHit);
+                sequencesHit++;
             }
 
             if (Input.GetKeyDown(KeyCode.RightArrow) && rightKey)
             {
-                DisplayResult(sequenceCount);
+                DisplayResult(sequencesHit);
+                sequencesHit++;
             }
 
             if (Input.GetKeyDown(KeyCode.UpArrow) && upKey)
             {
-                DisplayResult(sequenceCount);
-         
+                DisplayResult(sequencesHit);
+                sequencesHit++;
             }
 
             if (Input.GetKeyDown(KeyCode.DownArrow) && downKey)
             {
-                DisplayResult(sequenceCount);
-              
+                DisplayResult(sequencesHit);
+                sequencesHit++;
             }
             yield return null;
         }
@@ -127,6 +129,7 @@ public class NewQTEEvent : MonoBehaviour
         
         if(sequenceCount >= 2)
         {
+            sequencesHit = 0;
             sequenceCount = 0;
             strafe.enabled = true;
             this.gameObject.SetActive(false);

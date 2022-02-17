@@ -69,15 +69,10 @@ public class Strafe : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //var spawn = (GameObject)Instantiate(tiger, tigerSpawnPos.transform.position, Quaternion.identity) as GameObject;
-        //spawn.SetActive(false);
-        //tiger = spawn;
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         canHurt = true;
-
         jump = new Vector3(0.0f, 2.0f, 0.0f);
-
         fireFly.SetActive(false);
 
     }
@@ -85,11 +80,20 @@ public class Strafe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (BeatMaster.instance.beatCount == 10 && !activeQTE)
         {
-            //TigerEnable();
+
+        }
+
+        if (BeatMaster.instance.beatCount == 32 && !activeQTE)
+        {
             newQTE.SetActive(true);
-            
+        }
+
+        if (BeatMaster.instance.beatCount == 205 && !activeQTE)
+        {
+            newQTE.SetActive(true);
         }
 
         if (BeatMaster.instance.beatCount == 352 && !activeQTE)
