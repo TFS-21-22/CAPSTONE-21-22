@@ -198,6 +198,8 @@ public class Strafe : MonoBehaviour
                 CPManager.instance.collectables[3] = true;
             if (other.gameObject.name == "Col_5")
                 CPManager.instance.collectables[4] = true;
+            if (other.gameObject.name == "Col_6")
+                CPManager.instance.collectables[5] = true;
 
             source.PlayOneShot(transitionSFX);
             Destroy(other.gameObject);
