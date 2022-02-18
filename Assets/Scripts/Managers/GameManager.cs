@@ -39,6 +39,9 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        CPManager.instance.checkPoint = 0;
+        BeatMaster.instance.beatCount = 0;
+        GameManager.instance.health = 3;
         SceneManager.LoadScene("LevelDesignBlockout");
     }
 
