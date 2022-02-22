@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 153
+  controlID: 62
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 152
+  controlID: 61
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -304,7 +304,7 @@ MonoBehaviour:
     x: 200
     y: 73.6
     width: 1014
-    height: 493.40002
+    height: 493
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -352,22 +352,22 @@ MonoBehaviour:
       x: 0
       y: 0
       width: 1014
-      height: 493.40002
-    m_Scale: {x: 0.45685187, y: 0.45685187}
-    m_Translation: {x: 507, y: 246.70001}
+      height: 493
+    m_Scale: {x: 0.45648152, y: 0.4564815}
+    m_Translation: {x: 507, y: 246.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -1109.7689
+      x: -1110.6693
       y: -540
-      width: 2219.5378
+      width: 2221.3386
       height: 1080
     m_MinimalGUI: 1
-  m_defaultScale: 0.45685187
-  m_LastWindowPixelSize: {x: 1014, y: 493.40002}
+  m_defaultScale: 0.4564815
+  m_LastWindowPixelSize: {x: 1014, y: 493}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -406,8 +406,8 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: -100, y: -25.600006}
+      snapOffset: {x: -100, y: -25.600006}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 3
       id: Tool Settings
       index: 0
@@ -428,7 +428,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 24.8}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-scene-view-toolbar
@@ -622,7 +622,7 @@ MonoBehaviour:
       index: 13
       layout: 4
   m_WindowGUID: f8fc4317a7ef9cc41942e45f4dc148e4
-  m_Gizmos: 1
+  m_Gizmos: 0
   m_OverrideSceneCullingMask: 6917529027641081856
   m_SceneIsLit: 1
   m_SceneLighting: 1
@@ -631,9 +631,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -22.297054, y: 51.375046, z: -718.1188}
+    m_Target: {x: -143.53021, y: 62.043987, z: -732.3829}
     speed: 2
-    m_Value: {x: -22.297054, y: 51.375046, z: -718.1188}
+    m_Value: {x: -143.53021, y: 62.043987, z: -732.3829}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -680,13 +680,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.21783777, y: -0.6839499, z: 0.28892633, w: -0.6351921}
+    m_Target: {x: 0.109684296, y: 0.6307724, z: -0.09068474, w: 0.76283514}
     speed: 2
-    m_Value: {x: -0.2054864, y: -0.6999222, z: 0.28713393, w: -0.62083673}
+    m_Value: {x: 0.1121084, y: 0.62933874, z: -0.092406586, w: 0.7634302}
   m_Size:
-    m_Target: 37.85685
+    m_Target: 0.8660254
     speed: 2
-    m_Value: 39.64068
+    m_Value: 0.8660254
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -796,10 +796,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 1415}
-      m_SelectedIDs: 66aa0000
-      m_LastClickedID: 43622
-      m_ExpandedIDs: e4b2fdff22b5fdffa2e0fdffe40effff2ac7fffffaf6ffff86a6000034b50000
+      scrollPos: {x: 0, y: 151}
+      m_SelectedIDs: 92070200
+      m_LastClickedID: 0
+      m_ExpandedIDs: 0299fefffaf6ffff76b30000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -864,22 +864,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Materials/Dream State VFX/BlackHole
+    - Assets/Prefabs/Environment Packs
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 55
   m_LastFolders:
-  - Assets/Materials/Dream State VFX/BlackHole
+  - Assets/Prefabs/Environment Packs
   m_LastFoldersGridSize: 55
   m_LastProjectPath: C:\Users\16479\Dropbox\TFS\Capstone Nabi\Git Repository\CAPSTONE-21-22
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 232}
-    m_SelectedIDs: ec600300
-    m_LastClickedID: 221420
-    m_ExpandedIDs: 000000001ec5010020c5010022c5010024c5010026c5010028c501002ac501002cc501002ec50100e0c50100ea60030000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 1032}
+    m_SelectedIDs: 6cd70100
+    m_LastClickedID: 120684
+    m_ExpandedIDs: 00000000c4d60100c6d60100c8d60100cad60100ccd60100ced60100d0d60100d2d60100d4d6010000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -907,7 +907,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000001ec5010020c5010022c5010024c5010026c5010028c501002ac501002cc501002ec50100
+    m_ExpandedIDs: 00000000c4d60100c6d60100c8d60100cad60100ccd60100ced60100d0d60100d2d60100d4d60100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -935,21 +935,21 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: 00000000c4e90300743f00007e550000d655000036580000064b0300
+    m_ExpandedInstanceIDs: 00000000c4e90300743f00007e550000d655000036580000064b030094330000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Prefabs
-      m_OriginalName: Prefabs
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 116000
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 2}
     m_CreateAssetUtility:
