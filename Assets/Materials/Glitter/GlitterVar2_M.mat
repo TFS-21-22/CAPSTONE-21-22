@@ -48,7 +48,7 @@ Material:
     - _vertex_scroll_speed: 0.1
     m_Colors:
     - _Base_Colour_1: {r: 0, g: 0, b: 0, a: 0}
-    - _Base_Colour_2: {r: 0.5377358, g: 0.058339275, b: 0.094071046, a: 0}
+    - _Base_Colour_2: {r: 0.2653969, g: 0.990566, b: 0.7640053, a: 0}
     - _Fresnel_Colour: {r: 1, g: 0.7877358, b: 0.84683686, a: 0}
     - _Glitter_Colour: {r: 1, g: 1, b: 1, a: 0}
     - _Noise_Scale: {r: 20, g: 20, b: 0, a: 0}
