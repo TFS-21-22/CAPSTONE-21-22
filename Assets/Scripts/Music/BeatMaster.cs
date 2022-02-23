@@ -124,7 +124,16 @@ public class BeatMaster : MonoBehaviour
     public void collectSave()
     {
         print("SAVING");
-        ///TRUE
+
+        for (int i = 0; i < 5; i++)
+        {
+            if (CPManager.instance.collectables[i] == true)
+            {
+                CPManager.instance.collectablesSaved[i] = true;
+            }
+        }
+        /*
+            ///TRUE
         if (CPManager.instance.collectables[0] == true)
         {
             CPManager.instance.collectablesSaved[0] = true;
@@ -149,11 +158,29 @@ public class BeatMaster : MonoBehaviour
         {
             CPManager.instance.collectablesSaved[5] = true;
         }
+        */
     }
 
     public void collectLoad()
     {
         print("LOADING");
+
+        for (int i = 0; i < 5; i++)
+        {
+            if (CPManager.instance.collectablesSaved[i] == true)
+            {
+                CPManager.instance.collectables[i] = true;
+            }
+        }
+
+        for (int i = 0; i < 5; i++)
+        {
+            if (CPManager.instance.collectablesSaved[i] == false)
+            {
+                CPManager.instance.collectables[i] = false;
+            }
+        }
+        /*
         ///TRUE
         if (CPManager.instance.collectablesSaved[0] == true)
         {
@@ -179,7 +206,10 @@ public class BeatMaster : MonoBehaviour
         {
             CPManager.instance.collectables[5] = true;
         }
+        */
 
+
+        /*
         ///FALSE
         if (CPManager.instance.collectablesSaved[0] == false)
         {
@@ -205,5 +235,6 @@ public class BeatMaster : MonoBehaviour
         {
             CPManager.instance.collectables[5] = false;
         }
+        */
     }
 }

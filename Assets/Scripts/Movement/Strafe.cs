@@ -188,19 +188,13 @@ public class Strafe : MonoBehaviour
 
         if (other.gameObject.CompareTag("Collectable"))
         {
-            if (other.gameObject.name == "Col_1")
-                CPManager.instance.collectables[0] = true;
-            if (other.gameObject.name == "Col_2")
-                CPManager.instance.collectables[1] = true;
-            if (other.gameObject.name == "Col_3")
-                CPManager.instance.collectables[2] = true;
-            if (other.gameObject.name == "Col_4")
-                CPManager.instance.collectables[3] = true;
-            if (other.gameObject.name == "Col_5")
-                CPManager.instance.collectables[4] = true;
-            if (other.gameObject.name == "Col_6")
-                CPManager.instance.collectables[5] = true;
-
+            
+            for(int i = 0; i < 5; i++)
+            {
+                if (other.gameObject.name == "Col_" + (i + 1).ToString()) 
+                    CPManager.instance.collectables[i] = true;
+            }
+            
             source.PlayOneShot(transitionSFX);
             Destroy(other.gameObject);
             anim.SetTrigger("Low Collision");
