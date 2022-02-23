@@ -7,15 +7,24 @@ using UnityEngine.UI;
 public class NewQTEEvent : MonoBehaviour
 {
     [SerializeField] private Image circle;
-    [SerializeField] private GameObject BG;
-    [SerializeField] private GameObject[] direction; //1 - Left // 2 - Right //3 - Up // 4 - Down
+    [SerializeField] private GameObject[] BG;           //0 = red /1 = blue //2 = green //3 = purple  
+    [SerializeField] private GameObject[] direction;    //0 - Left // 1 - Right //2 - Up // 3 - Down
     [SerializeField] private GameObject okayResult;
     [SerializeField] private GameObject goodResult;
+    [SerializeField] private GameObject niceResult;
     [SerializeField] private GameObject perfectResult;
 
+    private int[] redPattern = new int[4] { 0, 0, 2, 1 };   //1
+    private int[] bluePattern = new int[4] { 2, 2, 3, 3 };  //2
+    private int[] greenPattern = new int[4] { 1, 1, 0, 2 }; //3
+    private int[] purplePattern = new int[4] { 0, 1, 2, 3 };//4
+
+
+    private int index = 0;
     private float maxFillAmount = 1f;
     private int sequenceCount = 0;
     private int sequencesHit = 0;
+    private int chosenPattern;
 
     private bool leftKey = false;
     private bool rightKey = false;
@@ -45,12 +54,36 @@ public class NewQTEEvent : MonoBehaviour
 
     IEnumerator QTE_Enable()
     {
-       // strafe.enabled = false;
+        if (sequenceCount == 0)
+        {
+            var randomPattern = Random.Range(0, 4);
+            chosenPattern = randomPattern;
+        }
+        
         circle.gameObject.SetActive(true);
-        BG.SetActive(true);
+        
+        BG[chosenPattern].SetActive(true);
+
+        
+
         if (!leftKey && !rightKey && !upKey && !downKey)
         {
-            RandomKey();
+            if(chosenPattern == 0)
+            {
+                RandomKey(redPattern[index]);
+            }
+            else if(chosenPattern == 1)
+            {
+                RandomKey(bluePattern[index]);
+            }
+            else if (chosenPattern == 2)
+            {
+                RandomKey(greenPattern[index]);
+            }
+            else if (chosenPattern == 3)
+            {
+                RandomKey(purplePattern[index]);
+            }
         }
 
         while (circle.fillAmount > 0)
@@ -85,29 +118,31 @@ public class NewQTEEvent : MonoBehaviour
         ResetQTE();
     }
 
-    private void RandomKey()
+    private void RandomKey(int _direction)
     {
-        var rand = Random.Range(0, 4);
-
-        if(rand == 0)
+        if (_direction == 0)
         {
-            direction[rand].gameObject.SetActive(true);
+            direction[_direction].gameObject.SetActive(true);
             leftKey = true;
+            index++;
         }
-        else if(rand == 1)
+        else if(_direction == 1)
         {
-            direction[rand].gameObject.SetActive(true);
+            direction[_direction].gameObject.SetActive(true);
             rightKey = true;
+            index++;
         }
-        else if(rand == 2)
+        else if(_direction == 2)
         {
-            direction[rand].gameObject.SetActive(true);
+            direction[_direction].gameObject.SetActive(true);
             upKey = true;
+            index++;
         }
         else
         {
-            direction[rand].gameObject.SetActive(true);
+            direction[_direction].gameObject.SetActive(true);
             downKey = true;
+            index++;
         }
     }
 
@@ -115,7 +150,7 @@ public class NewQTEEvent : MonoBehaviour
     {
         circle.fillAmount = maxFillAmount;
         circle.gameObject.SetActive(false);
-        BG.SetActive(false);
+        BG[chosenPattern].SetActive(false);
 
         foreach (GameObject _direction in direction)
         {
@@ -127,10 +162,11 @@ public class NewQTEEvent : MonoBehaviour
         upKey = false;
         downKey = false;
         
-        if(sequenceCount >= 2)
+        if(sequenceCount >= 3)
         {
             sequencesHit = 0;
             sequenceCount = 0;
+            index = 0;
             strafe.enabled = true;
             this.gameObject.SetActive(false);
         }
@@ -147,6 +183,11 @@ public class NewQTEEvent : MonoBehaviour
         if (goodResult.activeSelf)
         {
             goodResult.SetActive(false);
+        }
+
+        if (niceResult.activeSelf)
+        {
+            niceResult.SetActive(false);
         }
 
         if (perfectResult.activeSelf)
@@ -170,6 +211,10 @@ public class NewQTEEvent : MonoBehaviour
         else if(_sequenceCount == 2)
         {
             //Perfect
+            niceResult.SetActive(true);
+        }
+        else if(_sequenceCount == 3)
+        {
             perfectResult.SetActive(true);
         }
 
