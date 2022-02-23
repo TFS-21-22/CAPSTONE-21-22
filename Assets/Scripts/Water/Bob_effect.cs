@@ -7,6 +7,7 @@ public class Bob_effect : MonoBehaviour
     public float speed = 1f;
     public float offset = 0;
     public float input;
+    public float Amplitude = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,19 +20,19 @@ public class Bob_effect : MonoBehaviour
         input = Input.GetAxisRaw("Horizontal");
         if (input != 0)
         {
-            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, transform.eulerAngles.z);
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0);
             if(input < 0)
             {
-                transform.eulerAngles = new Vector3(-3, transform.eulerAngles.y, transform.eulerAngles.z);
+                transform.eulerAngles = new Vector3(transform.eulerAngles.z, transform.eulerAngles.y, Amplitude);
             }
             else {
-                transform.eulerAngles = new Vector3(3, transform.eulerAngles.y, transform.eulerAngles.z);
+                transform.eulerAngles = new Vector3(transform.eulerAngles.z, transform.eulerAngles.y, - Amplitude);
             }
         }
         else
         {
             offset += Time.deltaTime * speed;
-            transform.eulerAngles = new Vector3(3 * Mathf.Sin(transform.position.x + offset), transform.eulerAngles.y, transform.eulerAngles.z);
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, Amplitude * Mathf.Sin(transform.position.z + offset));
         }
     }
 }

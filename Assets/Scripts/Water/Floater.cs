@@ -20,6 +20,7 @@ public class Floater : MonoBehaviour
     bool maxOffset;
     public float direction = 1;
     public float heightoffset = 0f;
+    public float floatingspeed = 1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,13 +40,13 @@ public class Floater : MonoBehaviour
         }
         if (floatingaway == true)
         {
-            if (WaveManager.instance.direction == 1)
+            if (direction == 1)
             {
-                rb.AddForceAtPosition(Vector3.left * floatingawaySpeed * WaveManager.instance.speed, transform.position);
+                rb.AddForceAtPosition(Vector3.left * floatingawaySpeed * floatingspeed, transform.position);
             }
             else
             {
-                rb.AddForceAtPosition(Vector3.right * floatingawaySpeed * WaveManager.instance.speed, transform.position);
+                rb.AddForceAtPosition(Vector3.right * floatingawaySpeed * floatingspeed, transform.position);
             }
         }
     }
