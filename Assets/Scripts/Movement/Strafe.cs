@@ -19,7 +19,8 @@ public class Strafe : MonoBehaviour
     [SerializeField] private AudioClip wispSFX;
     [SerializeField] private AudioClip tigerSFX;
 
-    public AudioSource source;
+    [SerializeField] private AudioSource waterImpactAudioSource;
+    [SerializeField] private AudioSource lilyImpactAudioSource;
 
     //VFX
     [Header("VFX")]
@@ -62,6 +63,9 @@ public class Strafe : MonoBehaviour
     public ResultsScreen resultsScreen;
     public Animator anim;
 
+    //Temp
+    int currentQTENum = 0;
+
 
 
    // private int lastHeartInstanceID;
@@ -80,28 +84,169 @@ public class Strafe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         if (BeatMaster.instance.beatCount == 10 && !activeQTE)
         {
-
+            newQTE.SetActive(true);
+            print(currentQTENum);
+            currentQTENum++;
         }
 
         if (BeatMaster.instance.beatCount == 32 && !activeQTE)
         {
             newQTE.SetActive(true);
+            print(currentQTENum);
+            currentQTENum++;
         }
 
-        if (BeatMaster.instance.beatCount == 205 && !activeQTE)
+        if (BeatMaster.instance.beatCount == 56 && !activeQTE)
         {
             newQTE.SetActive(true);
+            print(currentQTENum);
+            currentQTENum++;
+        }
+
+        if (BeatMaster.instance.beatCount == 80 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+            print(currentQTENum);
+            currentQTENum++;
+        }
+
+        if (BeatMaster.instance.beatCount == 104 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+            print(currentQTENum);
+            currentQTENum++;
+        }
+
+        if (BeatMaster.instance.beatCount == 128 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+            print(currentQTENum);
+            currentQTENum++;
+        }
+
+        if (BeatMaster.instance.beatCount == 152 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+            print(currentQTENum);
+            currentQTENum++;
+        }
+
+        if (BeatMaster.instance.beatCount == 176 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+            print(currentQTENum);
+            currentQTENum++;
+        }
+
+        if (BeatMaster.instance.beatCount == 200 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+            print(currentQTENum);
+            currentQTENum++;
+        }
+
+        if (BeatMaster.instance.beatCount == 224 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+            print(currentQTENum);
+            currentQTENum++;
+        }
+
+        if (BeatMaster.instance.beatCount == 248 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+            print(currentQTENum);
+            currentQTENum++;
+        }
+
+        if (BeatMaster.instance.beatCount == 272 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+            print(currentQTENum);
+            currentQTENum++;
+        }
+
+        if (BeatMaster.instance.beatCount == 296 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+            print(currentQTENum);
+            currentQTENum++;
+        }
+
+        if (BeatMaster.instance.beatCount == 320 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+            print(currentQTENum);
+            currentQTENum++;
         }
 
         if (BeatMaster.instance.beatCount == 352 && !activeQTE)
         {
-            //TigerEnable();
+            TigerEnable();
         }
 
-      
+        if (BeatMaster.instance.beatCount == 370 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+            print(currentQTENum);
+            currentQTENum++;
+        }
+
+        if (BeatMaster.instance.beatCount == 320 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+            print(currentQTENum);
+            currentQTENum++;
+        }
+
+        if (BeatMaster.instance.beatCount == 344 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+            print(currentQTENum);
+            currentQTENum++;
+        }
+
+        if (BeatMaster.instance.beatCount == 368 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+            print(currentQTENum);
+            currentQTENum++;
+        }
+
+        if (BeatMaster.instance.beatCount == 392 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+            print(currentQTENum);
+            currentQTENum++;
+        }
+
+        if (BeatMaster.instance.beatCount == 416 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+            print(currentQTENum);
+            currentQTENum++;
+        }
+
+        if (BeatMaster.instance.beatCount == 440 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+            print(currentQTENum);
+            currentQTENum++;
+        }
+
+        if (BeatMaster.instance.beatCount == 464 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+            print(currentQTENum);
+            currentQTENum++;
+        }
+
+        
+        
+
+
 
         //Movement
         h = Input.GetAxisRaw("Horizontal");
@@ -146,7 +291,7 @@ public class Strafe : MonoBehaviour
        
         if(scoresystem && scoresystem.transitionEnding)
         {
-            source.PlayOneShot(transitionSFX);
+            waterImpactAudioSource.PlayOneShot(transitionSFX);
         }
     }
 
@@ -178,12 +323,17 @@ public class Strafe : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Obstacle") || other.gameObject.CompareTag("Lily"))
+        if (other.gameObject.CompareTag("Obstacle"))
         {
-            source.PlayOneShot(transitionSFX);
+            waterImpactAudioSource.Play();
             Destroy(other.gameObject);
             anim.SetTrigger("Low Collision");
             //rb.AddForce(transform.up * 8);
+        }
+
+        if(other.gameObject.CompareTag("Lily"))
+        {
+            lilyImpactAudioSource.Play();
         }
 
         if (other.gameObject.CompareTag("Collectable"))
@@ -195,7 +345,7 @@ public class Strafe : MonoBehaviour
                     CPManager.instance.collectables[i] = true;
             }
             
-            source.PlayOneShot(transitionSFX);
+            waterImpactAudioSource.PlayOneShot(transitionSFX);
             Destroy(other.gameObject);
             anim.SetTrigger("Low Collision");
             //rb.AddForce(transform.up * 8);
@@ -203,7 +353,7 @@ public class Strafe : MonoBehaviour
 
         if (other.gameObject.CompareTag("Log"))
         {
-            source.PlayOneShot(logCollisionSFX);
+            waterImpactAudioSource.PlayOneShot(logCollisionSFX);
             //GameManager.instance.health--;
             StartCoroutine(Collision(2.0f));
             //logCollisionSFX.Play();
@@ -213,7 +363,7 @@ public class Strafe : MonoBehaviour
 
         if (other.gameObject.CompareTag("Tiger"))
         {
-            source.PlayOneShot(tigerSFX);
+            waterImpactAudioSource.PlayOneShot(tigerSFX);
             //logCollisionSFX.Play();
             GameManager.instance.health--;
         }

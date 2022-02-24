@@ -31,6 +31,8 @@ public class NewQTEEvent : MonoBehaviour
     private bool upKey = false;
     private bool downKey = false;
 
+    private bool pressed = false;
+
     [SerializeField] private Strafe strafe;
     // Start is called before the first frame update
     private void Start()
@@ -41,7 +43,7 @@ public class NewQTEEvent : MonoBehaviour
 
     private void Update()
     {
-        
+        print(BeatMaster.instance.beatCount);
     }
 
     private void BeatCheckQTE(int beat)
@@ -89,26 +91,30 @@ public class NewQTEEvent : MonoBehaviour
         while (circle.fillAmount > 0)
         {
             circle.fillAmount -= Time.deltaTime;
-            if (Input.GetKeyDown(KeyCode.LeftArrow) && leftKey)
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && leftKey && !pressed)
             {
+                pressed = true;
                 DisplayResult(sequencesHit);
                 sequencesHit++;
             }
 
-            if (Input.GetKeyDown(KeyCode.RightArrow) && rightKey)
+            if (Input.GetKeyDown(KeyCode.RightArrow) && rightKey && !pressed)
             {
+                pressed = true;
                 DisplayResult(sequencesHit);
                 sequencesHit++;
             }
 
-            if (Input.GetKeyDown(KeyCode.UpArrow) && upKey)
+            if (Input.GetKeyDown(KeyCode.UpArrow) && upKey && !pressed)
             {
+                pressed = true;
                 DisplayResult(sequencesHit);
                 sequencesHit++;
             }
 
-            if (Input.GetKeyDown(KeyCode.DownArrow) && downKey)
+            if (Input.GetKeyDown(KeyCode.DownArrow) && downKey && !pressed)
             {
+                pressed = true;
                 DisplayResult(sequencesHit);
                 sequencesHit++;
             }
@@ -148,6 +154,7 @@ public class NewQTEEvent : MonoBehaviour
 
     private void ResetQTE()
     {
+        pressed = false;
         circle.fillAmount = maxFillAmount;
         circle.gameObject.SetActive(false);
         BG[chosenPattern].SetActive(false);
