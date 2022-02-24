@@ -27,6 +27,7 @@ public class Strafe : MonoBehaviour
     [SerializeField] private VisualEffect obstacleCollisionParticle;
 
     //Vectors
+    [Header("Vectors")]
     Vector3 camPos;
     Vector2 input;
     public Vector3 jump;
@@ -37,7 +38,7 @@ public class Strafe : MonoBehaviour
     public float h;
     public float jumpForce = 2.0f;
 
-
+    [Header("Variables")]
     public Transform follow;
     public GameObject enemy;
     public GameObject fireFly;
@@ -63,13 +64,6 @@ public class Strafe : MonoBehaviour
     public ResultsScreen resultsScreen;
     public Animator anim;
 
-    //Temp
-    int currentQTENum = 0;
-
-
-
-   // private int lastHeartInstanceID;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -77,221 +71,25 @@ public class Strafe : MonoBehaviour
         anim = GetComponent<Animator>();
         canHurt = true;
         jump = new Vector3(0.0f, 2.0f, 0.0f);
-        fireFly.SetActive(false);
+        //fireFly.SetActive(false);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (BeatMaster.instance.beatCount == 10 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-            print(currentQTENum);
-            currentQTENum++;
-        }
-
-        if (BeatMaster.instance.beatCount == 32 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-            print(currentQTENum);
-            currentQTENum++;
-        }
-
-        if (BeatMaster.instance.beatCount == 56 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-            print(currentQTENum);
-            currentQTENum++;
-        }
-
-        if (BeatMaster.instance.beatCount == 80 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-            print(currentQTENum);
-            currentQTENum++;
-        }
-
-        if (BeatMaster.instance.beatCount == 104 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-            print(currentQTENum);
-            currentQTENum++;
-        }
-
-        if (BeatMaster.instance.beatCount == 128 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-            print(currentQTENum);
-            currentQTENum++;
-        }
-
-        if (BeatMaster.instance.beatCount == 152 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-            print(currentQTENum);
-            currentQTENum++;
-        }
-
-        if (BeatMaster.instance.beatCount == 176 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-            print(currentQTENum);
-            currentQTENum++;
-        }
-
-        if (BeatMaster.instance.beatCount == 200 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-            print(currentQTENum);
-            currentQTENum++;
-        }
-
-        if (BeatMaster.instance.beatCount == 224 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-            print(currentQTENum);
-            currentQTENum++;
-        }
-
-        if (BeatMaster.instance.beatCount == 248 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-            print(currentQTENum);
-            currentQTENum++;
-        }
-
-        if (BeatMaster.instance.beatCount == 272 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-            print(currentQTENum);
-            currentQTENum++;
-        }
-
-        if (BeatMaster.instance.beatCount == 296 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-            print(currentQTENum);
-            currentQTENum++;
-        }
-
-        if (BeatMaster.instance.beatCount == 320 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-            print(currentQTENum);
-            currentQTENum++;
-        }
-
-        if (BeatMaster.instance.beatCount == 352 && !activeQTE)
-        {
-            TigerEnable();
-        }
-
-        if (BeatMaster.instance.beatCount == 370 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-            print(currentQTENum);
-            currentQTENum++;
-        }
-
-        if (BeatMaster.instance.beatCount == 320 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-            print(currentQTENum);
-            currentQTENum++;
-        }
-
-        if (BeatMaster.instance.beatCount == 344 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-            print(currentQTENum);
-            currentQTENum++;
-        }
-
-        if (BeatMaster.instance.beatCount == 368 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-            print(currentQTENum);
-            currentQTENum++;
-        }
-
-        if (BeatMaster.instance.beatCount == 392 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-            print(currentQTENum);
-            currentQTENum++;
-        }
-
-        if (BeatMaster.instance.beatCount == 416 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-            print(currentQTENum);
-            currentQTENum++;
-        }
-
-        if (BeatMaster.instance.beatCount == 440 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-            print(currentQTENum);
-            currentQTENum++;
-        }
-
-        if (BeatMaster.instance.beatCount == 464 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-            print(currentQTENum);
-            currentQTENum++;
-        }
-
-        
-        
-
-
+        //QTE
+        QuickTimeEvent();
 
         //Movement
-        h = Input.GetAxisRaw("Horizontal");
-
-        if(Input.GetKeyDown(KeyCode.S))
-        {
-            anim.SetTrigger("Duck");  
-        }
-
-        if (Input.GetKeyUp(KeyCode.S))
-        {
-            anim.ResetTrigger("Duck");
-        }
-
-        if(Input.GetKeyDown(KeyCode.W))
-        {
-            rb.AddForce(jump * jumpForce, ForceMode.Impulse);
-            isGrounded = false;
-
-            //fireFly.SetActive(true);
-        }
-
-        if(Input.GetKeyUp(KeyCode.W) && fireFly)
-        {
-            fireFly.SetActive(false);
-        }
-        //h = Mathf.Clamp(h, -2, 2);
-        anim.SetFloat("Direction", h);
-        h *= speed;
-        if (stopperL && h < 0)
-        {
-            h = 0;
-        }
-        if (stopperR && h > 0)
-        {
-            h = 0;
-        }
+        Movement();
+        Jump();
+        Duck();
        
-        
-        transform.Translate(h * Time.deltaTime, 0, 0);
-
-       
+        //Audio Source
         if(scoresystem && scoresystem.transitionEnding)
         {
-            waterImpactAudioSource.PlayOneShot(transitionSFX);
+            waterImpactAudioSource.Play();
         }
     }
 
@@ -307,7 +105,7 @@ public class Strafe : MonoBehaviour
 
     void TigerEnable()
     {
-        Instantiate<GameObject>(tiger, tigerSpawnPos.transform.position, Quaternion.identity);
+        tiger.gameObject.SetActive(true);
         camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;
         camera.StartCoroutine(camera.CameraSwitch(3));
         activeQTE = true;
@@ -325,7 +123,7 @@ public class Strafe : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Obstacle"))
         {
-            waterImpactAudioSource.Play();
+            //waterImpactAudioSource.Play();
             Destroy(other.gameObject);
             anim.SetTrigger("Low Collision");
             //rb.AddForce(transform.up * 8);
@@ -333,19 +131,18 @@ public class Strafe : MonoBehaviour
 
         if(other.gameObject.CompareTag("Lily"))
         {
-            lilyImpactAudioSource.Play();
+            //lilyImpactAudioSource.Play();
         }
 
         if (other.gameObject.CompareTag("Collectable"))
         {
-            
             for(int i = 0; i < 5; i++)
             {
                 if (other.gameObject.name == "Col_" + (i + 1).ToString()) 
                     CPManager.instance.collectables[i] = true;
             }
             
-            waterImpactAudioSource.PlayOneShot(transitionSFX);
+            //waterImpactAudioSource.PlayOneShot(transitionSFX);
             Destroy(other.gameObject);
             anim.SetTrigger("Low Collision");
             //rb.AddForce(transform.up * 8);
@@ -353,7 +150,7 @@ public class Strafe : MonoBehaviour
 
         if (other.gameObject.CompareTag("Log"))
         {
-            waterImpactAudioSource.PlayOneShot(logCollisionSFX);
+            //waterImpactAudioSource.PlayOneShot(logCollisionSFX);
             //GameManager.instance.health--;
             StartCoroutine(Collision(2.0f));
             //logCollisionSFX.Play();
@@ -363,7 +160,7 @@ public class Strafe : MonoBehaviour
 
         if (other.gameObject.CompareTag("Tiger"))
         {
-            waterImpactAudioSource.PlayOneShot(tigerSFX);
+            //waterImpactAudioSource.PlayOneShot(tigerSFX);
             //logCollisionSFX.Play();
             GameManager.instance.health--;
         }
@@ -450,6 +247,185 @@ public class Strafe : MonoBehaviour
             yield return new WaitForSeconds(waitTime);
             canHurt = true;
         }
+    }
+    /// <summary>
+    /// FIX LEAN ANIMATION IN MOVEMENT METHOD
+    /// </summary>
+    private void Movement()
+    {
+        var leftInput = Input.GetKey(KeyCode.A);
+        var rightInput = Input.GetKey(KeyCode.D);
+
+        Vector3 leftForce = -Vector3.right * Time.deltaTime * speed;
+        Vector3 rightForce = Vector3.right * Time.deltaTime * speed;
+
+        if (leftForce.x < 0 && stopperL)
+        {
+            leftForce = Vector3.zero; 
+        }
+        else
+        {
+            leftForce = -Vector3.right * Time.deltaTime * speed;
+        }
+
+        if(rightForce.x > 0 && stopperR)
+        {
+            rightForce = Vector3.zero;
+        }
+        else if(!stopperR)
+        {
+            rightForce = Vector3.right * Time.deltaTime * speed;
+        }
+
+        if (leftInput)
+        {
+            transform.Translate(leftForce);
+        }
+
+        if (rightInput)
+        {
+            transform.Translate(rightForce);
+        }
+
+        //Fix aniimation to work with new input
+        //anim.SetFloat("Direction", h);
+    }
+
+    private void Jump()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            rb.AddForce(jump * jumpForce, ForceMode.Impulse);
+            isGrounded = false;
+        }
+    }
+
+    private void Duck()
+    {
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            anim.SetTrigger("Duck");
+        }
+        else if (Input.GetKeyUp(KeyCode.S))
+        {
+            anim.ResetTrigger("Duck");
+        }
+    }
+
+    private void QuickTimeEvent()
+    {
+        if (BeatMaster.instance.beatCount == 18 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+        }
+
+        if (BeatMaster.instance.beatCount == 66 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+        }
+
+        if (BeatMaster.instance.beatCount == 82 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+        }
+
+        if (BeatMaster.instance.beatCount == 101 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+        }
+
+        if (BeatMaster.instance.beatCount == 120 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+        }
+
+        if (BeatMaster.instance.beatCount == 139 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+        }
+
+        if (BeatMaster.instance.beatCount == 158 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+        }
+
+        
+        if (BeatMaster.instance.beatCount == 205 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+        }
+        
+        /*
+        if (BeatMaster.instance.beatCount == 224 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+        }
+
+        if (BeatMaster.instance.beatCount == 248 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+        }
+        */
+        if (BeatMaster.instance.beatCount == 272 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+        }
+
+        if (BeatMaster.instance.beatCount == 296 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+        }
+
+        if (BeatMaster.instance.beatCount == 320 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+        }
+
+        if (BeatMaster.instance.beatCount == 352 && !activeQTE)
+        {
+            TigerEnable();
+        }
+
+        if (BeatMaster.instance.beatCount == 370 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+        }
+
+        if (BeatMaster.instance.beatCount == 320 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+        }
+
+        if (BeatMaster.instance.beatCount == 344 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+        }
+
+        if (BeatMaster.instance.beatCount == 368 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+        }
+
+        if (BeatMaster.instance.beatCount == 392 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+        }
+
+        if (BeatMaster.instance.beatCount == 416 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+        }
+
+        if (BeatMaster.instance.beatCount == 440 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+        }
+
+        if (BeatMaster.instance.beatCount == 464 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+        }
+        
     }
 
                                                                                                                                                                                                                                                                      
