@@ -66,9 +66,6 @@ public class BeatMaster : MonoBehaviour
             }
         }
         
-        
-        
-
         //Debug.Log("Source.Time: " + source.time);
         //Debug.Log("Source.Clip.Length: " + source.clip.length);
         //Debug.Log("BPM: " + BPM);
@@ -101,6 +98,12 @@ public class BeatMaster : MonoBehaviour
             beatCount++;
         }
 
+        //Save collectible's + score
+        SaveData();
+    }
+
+    public void SaveData()
+    {
         if (beatCount >= 0 && CPManager.instance.checkPoint < 0)
         {
             CPManager.instance.checkPoint = 0;
@@ -123,8 +126,6 @@ public class BeatMaster : MonoBehaviour
 
     public void collectSave()
     {
-        print("SAVING");
-
         for (int i = 0; i < 5; i++)
         {
             if (CPManager.instance.collectables[i] == true)
@@ -132,39 +133,10 @@ public class BeatMaster : MonoBehaviour
                 CPManager.instance.collectablesSaved[i] = true;
             }
         }
-        /*
-            ///TRUE
-        if (CPManager.instance.collectables[0] == true)
-        {
-            CPManager.instance.collectablesSaved[0] = true;
-        }
-        if (CPManager.instance.collectables[1] == true)
-        {
-            CPManager.instance.collectablesSaved[1] = true;
-        }
-        if (CPManager.instance.collectables[2] == true)
-        {
-            CPManager.instance.collectablesSaved[2] = true;
-        }
-        if (CPManager.instance.collectables[3] == true)
-        {
-            CPManager.instance.collectablesSaved[3] = true;
-        }
-        if (CPManager.instance.collectables[4] == true)
-        {
-            CPManager.instance.collectablesSaved[4] = true;
-        }
-        if (CPManager.instance.collectables[5] == true)
-        {
-            CPManager.instance.collectablesSaved[5] = true;
-        }
-        */
     }
 
     public void collectLoad()
     {
-        print("LOADING");
-
         for (int i = 0; i < 5; i++)
         {
             if (CPManager.instance.collectablesSaved[i] == true)
@@ -180,61 +152,7 @@ public class BeatMaster : MonoBehaviour
                 CPManager.instance.collectables[i] = false;
             }
         }
-        /*
-        ///TRUE
-        if (CPManager.instance.collectablesSaved[0] == true)
-        {
-            CPManager.instance.collectables[0] = true;
-        }
-        if (CPManager.instance.collectablesSaved[1] == true)
-        {
-            CPManager.instance.collectables[1] = true;
-        }
-        if (CPManager.instance.collectablesSaved[2] == true)
-        {
-            CPManager.instance.collectables[2] = true;
-        }
-        if (CPManager.instance.collectablesSaved[3] == true)
-        {
-            CPManager.instance.collectables[3] = true;
-        }
-        if (CPManager.instance.collectablesSaved[4] == true)
-        {
-            CPManager.instance.collectables[4] = true;
-        }
-        if (CPManager.instance.collectablesSaved[5] == true)
-        {
-            CPManager.instance.collectables[5] = true;
-        }
-        */
-
-
-        /*
-        ///FALSE
-        if (CPManager.instance.collectablesSaved[0] == false)
-        {
-            CPManager.instance.collectables[0] = false;
-        }
-        if (CPManager.instance.collectablesSaved[1] == false)
-        {
-            CPManager.instance.collectables[1] = false;
-        }
-        if (CPManager.instance.collectablesSaved[2] == false)
-        {
-            CPManager.instance.collectables[2] = false;
-        }
-        if (CPManager.instance.collectablesSaved[3] == false)
-        {
-            CPManager.instance.collectables[3] = false;
-        }
-        if (CPManager.instance.collectablesSaved[4] == false)
-        {
-            CPManager.instance.collectables[4] = false;
-        }
-        if (CPManager.instance.collectablesSaved[5] == false)
-        {
-            CPManager.instance.collectables[5] = false;
-        }
-        */
     }
+
+   
 }
