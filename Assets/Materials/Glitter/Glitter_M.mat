@@ -47,9 +47,9 @@ Material:
     - _noise_scale: 0
     - _vertex_scroll_speed: 0
     m_Colors:
-    - _Base_Colour_1: {r: 0.07924521, g: 1, b: 0.7993076, a: 0}
-    - _Base_Colour_2: {r: 0.6792453, g: 0, b: 0.13811842, a: 0}
-    - _Fresnel_Colour: {r: 0.07924521, g: 0.9667942, b: 1, a: 0}
+    - _Base_Colour_1: {r: 1, g: 0.36320752, b: 0.61381656, a: 0}
+    - _Base_Colour_2: {r: 0.9622642, g: 0.077162705, b: 0.15703848, a: 0}
+    - _Fresnel_Colour: {r: 1, g: 0.19339621, b: 0.55561006, a: 0}
     - _Glitter_Colour: {r: 1, g: 1, b: 1, a: 0}
     - _Noise_Scale: {r: 50, g: 50, b: 0, a: 0}
   m_BuildTextureStacks: []
