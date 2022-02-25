@@ -21,6 +21,10 @@ public class HUD : MonoBehaviour
     public TMP_Text livesText;
     public TMP_Text collText;
 
+    public Image life_1;
+    public Image life_2;
+    public Image life_3;
+
     public GameObject pauseMenu;
     public GameObject hud;
 
@@ -43,8 +47,32 @@ public class HUD : MonoBehaviour
         {
            // Time.timeScale = 1;
             //HEALTH
-            livesText.text = "Lives: " + GameManager.instance.health;
+            //livesText.text = "Lives: " + GameManager.instance.health;
 
+            if (GameManager.instance.health == 3)
+            {              
+                life_3.gameObject.SetActive(true);
+                life_2.gameObject.SetActive(true);
+                life_1.gameObject.SetActive(true);
+            }
+            if (GameManager.instance.health == 2)
+            {
+                life_3.gameObject.SetActive(false);
+                life_2.gameObject.SetActive(true);
+                life_1.gameObject.SetActive(true);
+            }
+            if (GameManager.instance.health == 1)
+            {
+                life_3.gameObject.SetActive(false);
+                life_2.gameObject.SetActive(false);
+                life_1.gameObject.SetActive(true);
+            }
+            if (GameManager.instance.health == 0)
+            {
+                life_3.gameObject.SetActive(false);
+                life_2.gameObject.SetActive(false);
+                life_1.gameObject.SetActive(false);
+            }
             //SCORE
             score = scoreSystem.score;
             scoreText.text = score.ToString();
