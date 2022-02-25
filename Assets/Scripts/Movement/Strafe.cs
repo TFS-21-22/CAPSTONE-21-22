@@ -125,6 +125,7 @@ public class Strafe : MonoBehaviour
         {
             //waterImpactAudioSource.Play();
             Destroy(other.gameObject);
+            anim.SetTrigger("High Collision");
             anim.SetTrigger("Low Collision");
             //rb.AddForce(transform.up * 8);
         }
@@ -145,7 +146,7 @@ public class Strafe : MonoBehaviour
             
             //waterImpactAudioSource.PlayOneShot(transitionSFX);
             Destroy(other.gameObject);
-            anim.SetTrigger("Low Collision");
+    
             //rb.AddForce(transform.up * 8);
         }
 
@@ -156,7 +157,7 @@ public class Strafe : MonoBehaviour
             StartCoroutine(Collision(2.0f));
             //logCollisionSFX.Play();
             anim.SetTrigger("High Collision");
-
+            anim.SetTrigger("Low Collision");
         }
 
         if (other.gameObject.CompareTag("Tiger"))
@@ -218,6 +219,8 @@ public class Strafe : MonoBehaviour
             camera.InduceStress(0);
             // Debug.Log("hit");
             Camera.main.transform.localPosition = camPos;
+            anim.ResetTrigger("High Collision");
+            anim.ResetTrigger("Low Collision");
         }
 
         if (other.gameObject.CompareTag("Heart") )
@@ -281,15 +284,23 @@ public class Strafe : MonoBehaviour
         if (leftInput)
         {
             transform.Translate(leftForce);
+            anim.SetFloat("Direction", -1);
+        }
+        if(!leftInput && !rightInput)
+        {
+            print("Direction");
+            anim.SetFloat("Direction", 0);
         }
 
         if (rightInput)
         {
             transform.Translate(rightForce);
+            anim.SetFloat("Direction", 1);
         }
+      
 
         //Fix aniimation to work with new input
-        //anim.SetFloat("Direction", h);
+
     }
 
     private void Jump()
@@ -306,10 +317,12 @@ public class Strafe : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S))
         {
             anim.SetTrigger("Duck");
+            anim.SetBool("Ducking", false);
         }
         else if (Input.GetKeyUp(KeyCode.S))
         {
             anim.ResetTrigger("Duck");
+            anim.SetBool("Ducking", true);
         }
     }
 
