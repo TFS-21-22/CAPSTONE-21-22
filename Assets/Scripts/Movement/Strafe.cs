@@ -131,6 +131,7 @@ public class Strafe : MonoBehaviour
 
         if(other.gameObject.CompareTag("Lily"))
         {
+            Destroy(other.gameObject);
             //lilyImpactAudioSource.Play();
         }
 
