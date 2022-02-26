@@ -106,22 +106,27 @@ public class HUD : MonoBehaviour
         if (collect == "Col_2")
         {
             collectIMG.sprite = collects[1];
+            collText.text = "Redware 2" + " view in compendium";
         }
         if (collect == "Col_3")
         {
             collectIMG.sprite = collects[2];
+            collText.text = "Greyware 1" + " view in compendium";
         }
         if (collect == "Col_4")
         {
             collectIMG.sprite = collects[3];
+            collText.text = "Greyware 2" + " view in compendium";
         }
         if (collect == "Col_5")
         {
             collectIMG.sprite = collects[4];
+            collText.text = "Ceremonial 1" + " view in compendium";
         }
         if (collect == "Col_6")
         {
             collectIMG.sprite = collects[5];
+            collText.text = "Ceremonial 2" + " view in compendium";
         }
     }
 }
