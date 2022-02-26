@@ -60,6 +60,7 @@ public class Strafe : MonoBehaviour
     //Scripts
     public ScoreSystem scoresystem;
     public GameObject newQTE;
+    public HUD hud;
 
     public ResultsScreen resultsScreen;
     public Animator anim;
@@ -142,6 +143,8 @@ public class Strafe : MonoBehaviour
             {
                 if (other.gameObject.name == "Col_" + (i + 1).ToString()) 
                     CPManager.instance.collectables[i] = true;
+
+                hud.CollectGet(other.name);
             }
             
             //waterImpactAudioSource.PlayOneShot(transitionSFX);

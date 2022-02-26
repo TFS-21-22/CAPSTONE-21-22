@@ -25,6 +25,11 @@ public class HUD : MonoBehaviour
     public Image life_2;
     public Image life_3;
 
+    public GameObject collObj;
+
+    public Image collectIMG;
+    public Sprite[] collects;
+
     public GameObject pauseMenu;
     public GameObject hud;
 
@@ -33,7 +38,7 @@ public class HUD : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        collObj.SetActive(false);
     }
 
     // Update is called once per frame
@@ -86,12 +91,37 @@ public class HUD : MonoBehaviour
                 minCount++;
                 time = 0;
             }
-
-
-
-            //COLLECTABLES
-            collText.text = collectables.ToString();
-
         } 
+    }
+
+    public void CollectGet(string collect)
+    {
+        collObj.SetActive(true);
+
+        if (collect == "Col_1")
+        {
+            collectIMG.sprite = collects[0];
+            collText.text = "Redware 1" + " view in compendium";
+        }
+        if (collect == "Col_2")
+        {
+            collectIMG.sprite = collects[1];
+        }
+        if (collect == "Col_3")
+        {
+            collectIMG.sprite = collects[2];
+        }
+        if (collect == "Col_4")
+        {
+            collectIMG.sprite = collects[3];
+        }
+        if (collect == "Col_5")
+        {
+            collectIMG.sprite = collects[4];
+        }
+        if (collect == "Col_6")
+        {
+            collectIMG.sprite = collects[5];
+        }
     }
 }

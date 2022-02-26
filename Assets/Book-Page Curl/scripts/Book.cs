@@ -18,7 +18,14 @@ public class Book : MonoBehaviour {
     RectTransform BookPanel;
     public Sprite background;
     public Sprite[] bookPages;
-    public Sprite[] unusedPages;
+
+    public Sprite unusedPage0;
+    public Sprite unusedPage1;
+    public Sprite unusedPage2;
+    public Sprite unusedPage3;
+    public Sprite unusedPage4;
+    public Sprite unusedPage5;
+    
     public bool interactable=true;
     public bool enableShadowEffect=true;
     //represent the index of the sprite shown in the right page
@@ -143,6 +150,33 @@ public class Book : MonoBehaviour {
         {
             UpdateBook();
         }
+
+        /*
+        if (CPManager.instance.collectablesSaved[0] == true)
+        {
+            bookPages[0] = unusedPage0;
+        }
+        if (CPManager.instance.collectablesSaved[1] == true)
+        {
+            bookPages[1] = unusedPage1;
+        }
+        if (CPManager.instance.collectablesSaved[2] == true)
+        {
+            bookPages[2] = unusedPage2;
+        }
+        if (CPManager.instance.collectablesSaved[3] == true)
+        {
+            bookPages[3] = unusedPage3;
+        }
+        if (CPManager.instance.collectablesSaved[4] == true)
+        {
+            bookPages[4] = unusedPage4;
+        }
+        if (CPManager.instance.collectablesSaved[5] == true)
+        {
+            bookPages[5] = unusedPage5;
+        }
+        */
     }
     public void UpdateBook()
     {
