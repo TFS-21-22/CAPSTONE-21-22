@@ -134,10 +134,7 @@ public class PauseMenuManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
-       
-        
+    {        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
@@ -197,20 +194,13 @@ public class PauseMenuManager : MonoBehaviour
                 //Disable Canvas
                 if (rhythmCanvas.gameObject.activeSelf)
                     rhythmCanvas.gameObject.SetActive(true);
-
                 
 
                 //Disable beatmaster
                 BeatMaster.instance.enabled = true;
 
             }
-        }
-       
-        
-        
-
-       
-        
+        }   
     }
 
     public void EnableGame()
@@ -318,7 +308,6 @@ public class PauseMenuManager : MonoBehaviour
         videoSettingsMenuParent.SetActive(true);
         volumeSettingsMenuParent.SetActive(false);
         controlsSettingsMenuParent.SetActive(false);
-
     }
 
     private void volumeSettings()

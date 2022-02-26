@@ -4332,13 +4332,13 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560343484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.0252, y: 2.0252, z: 2.0252}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 622135246}
   m_Father: {fileID: 1997036373}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5155,8 +5155,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2049839284}
-  - {fileID: 1560343485}
   - {fileID: 6992831333437758119}
+  - {fileID: 1560343485}
   m_Father: {fileID: 9028131731506092810}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12857,6 +12857,7 @@ MonoBehaviour:
   length: 2
   direction: 1
   heightoffset: 0
+  floatingspeed: 1
 --- !u!114 &543450653362300025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12872,6 +12873,7 @@ MonoBehaviour:
   speed: 1
   offset: 0
   input: 0
+  Amplitude: 3
 --- !u!114 &543450653362300026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12910,7 +12912,8 @@ MonoBehaviour:
   transitionSFX: {fileID: 0}
   wispSFX: {fileID: 0}
   tigerSFX: {fileID: 0}
-  source: {fileID: 0}
+  waterImpactAudioSource: {fileID: 0}
+  lilyImpactAudioSource: {fileID: 0}
   obstacleCollisionParticle: {fileID: 727475398}
   jump: {x: 0, y: 0, z: 0}
   boundx: 2.25
@@ -16550,7 +16553,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852034824410956527, guid: dc3b9a7487c3f574ba5b09515deebe5d, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3852034824410956527, guid: dc3b9a7487c3f574ba5b09515deebe5d, type: 3}
       propertyPath: m_AnchorMax.x
