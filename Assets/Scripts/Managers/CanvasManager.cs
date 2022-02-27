@@ -65,17 +65,7 @@ public class CanvasManager : MonoBehaviour
                 pauseMenu.SetActive(!pauseMenu.activeSelf);
             }
 
-            if (pauseMenu.activeSelf)
-            {
-                Time.timeScale = 0;
-              
-            }
-
-            else if (!pauseMenu.activeSelf)
-            {
-                Time.timeScale = 1;
-               
-            }
+            Time.timeScale = pauseMenu.activeSelf ? Time.timeScale = 0 : Time.timeScale = 1;
         }
     }
 

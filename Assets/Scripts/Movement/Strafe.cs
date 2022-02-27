@@ -349,23 +349,11 @@ public class Strafe : MonoBehaviour
             newQTE.SetActive(true);
         }
 
-        
         if (BeatMaster.instance.beatCount == 205 && !activeQTE)
         {
             newQTE.SetActive(true);
         }
         
-        /*
-        if (BeatMaster.instance.beatCount == 224 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
-        if (BeatMaster.instance.beatCount == 248 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-        */
         if (BeatMaster.instance.beatCount == 272 && !activeQTE)
         {
             newQTE.SetActive(true);

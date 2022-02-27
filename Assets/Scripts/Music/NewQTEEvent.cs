@@ -41,11 +41,6 @@ public class NewQTEEvent : MonoBehaviour
         BeatMaster.Beat += BeatCheckQTE;
     }
 
-    private void Update()
-    {
-        print(BeatMaster.instance.beatCount);
-    }
-
     private void BeatCheckQTE(int beat)
     {
         if ((beat + 3) % 4 == 0)
