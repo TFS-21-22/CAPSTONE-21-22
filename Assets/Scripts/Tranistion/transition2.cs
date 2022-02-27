@@ -61,9 +61,6 @@ public class transition2 : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
             score += 30;
         
-
-
-        
         if (Input.GetButtonDown("Fire2"))
             score -= 30;
 

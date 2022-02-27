@@ -21,13 +21,18 @@ public class Bob_effect : MonoBehaviour
         if (input != 0)
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0);
-            if(input < 0)
+            Vector3 addAmplitude = new Vector3(transform.eulerAngles.z, transform.eulerAngles.y, Amplitude);
+            Vector3 reduceAmplitude = new Vector3(transform.eulerAngles.z, transform.eulerAngles.y, -Amplitude);
+            transform.eulerAngles = input < 0 ? addAmplitude : reduceAmplitude; //Ternary operator //pretty much a if else statement in 1 line
+            /*
+            if (input < 0)
             {
                 transform.eulerAngles = new Vector3(transform.eulerAngles.z, transform.eulerAngles.y, Amplitude);
             }
             else {
                 transform.eulerAngles = new Vector3(transform.eulerAngles.z, transform.eulerAngles.y, - Amplitude);
             }
+            */
         }
         else
         {
