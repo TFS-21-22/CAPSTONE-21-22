@@ -383,7 +383,7 @@ public class Strafe : MonoBehaviour
 
         if (beatCount == 352 && !activeQTE)
         {
-            TigerEnable();
+          //  TigerEnable();
         }
 
         if (beatCount == 370 && !activeQTE)
@@ -393,7 +393,7 @@ public class Strafe : MonoBehaviour
 
         if (beatCount == 390 && !activeQTE)
         {
-            TigerEnable();
+          //  TigerEnable();
         }
 
         if (beatCount == 444 && !activeQTE)
