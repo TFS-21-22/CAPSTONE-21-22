@@ -6,14 +6,13 @@ using UnityEngine.UI;
 
 public class PauseMenuManager : MonoBehaviour
 {
+
     [SerializeField] private RhythmCanvas rhythmCanvas;
-    public static PauseMenuManager instance;
     [SerializeField] private Strafe strafeScript;
     [SerializeField] private AudioSource music;
     [SerializeField] private AudioSource waterSFX;
     [SerializeField] private Slider musicVolumeSlider;
     [SerializeField] private Slider waterVolumeSlider;
-
 
     //Buttons
     [SerializeField] private Button resumeButton;
@@ -55,18 +54,6 @@ public class PauseMenuManager : MonoBehaviour
 
     public bool isPaused = false;
 
-    void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(this);
-        }
-        else if (instance != null)
-        {
-            Destroy(this);
-        }
-    }
 
     void Start()
     {
@@ -155,7 +142,7 @@ public class PauseMenuManager : MonoBehaviour
         }
         //////////
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) && music.isPlaying)
         {
             if (!isPaused)
             {

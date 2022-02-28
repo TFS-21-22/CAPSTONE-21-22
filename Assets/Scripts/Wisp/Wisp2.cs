@@ -55,6 +55,7 @@ public class Wisp2 : MonoBehaviour
 
             if (dist <= 0.5)
             {
+
                 speed = 1F;
                 attacking = true;
                 WispButtonSequence();

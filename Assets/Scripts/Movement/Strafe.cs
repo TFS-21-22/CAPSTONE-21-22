@@ -79,6 +79,8 @@ public class Strafe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print(tiger.activeSelf);
+        //print(BeatMaster.instance.beatCount);
         //QTE
         QuickTimeEvent();
 
@@ -90,7 +92,7 @@ public class Strafe : MonoBehaviour
         //Audio Source
         if(scoresystem && scoresystem.transitionEnding)
         {
-            waterImpactAudioSource.Play();
+            //waterImpactAudioSource.Play();
         }
     }
 
@@ -106,7 +108,8 @@ public class Strafe : MonoBehaviour
 
     void TigerEnable()
     {
-        tiger.gameObject.SetActive(true);
+        print("TIGER CALLED");
+        tiger.SetActive(true);
         camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;
         camera.StartCoroutine(camera.CameraSwitch(3));
         activeQTE = true;
@@ -331,106 +334,77 @@ public class Strafe : MonoBehaviour
 
     private void QuickTimeEvent()
     {
-        if (BeatMaster.instance.beatCount == 18 && !activeQTE)
+        float beatCount = BeatMaster.instance.beatCount;
+        if (beatCount == 18 && !activeQTE)
         {
             newQTE.SetActive(true);
         }
 
-        if (BeatMaster.instance.beatCount == 66 && !activeQTE)
+        if (beatCount == 66 && !activeQTE)
         {
             newQTE.SetActive(true);
         }
 
-        if (BeatMaster.instance.beatCount == 82 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
-        if (BeatMaster.instance.beatCount == 101 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
-        if (BeatMaster.instance.beatCount == 120 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
-        if (BeatMaster.instance.beatCount == 139 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
-        if (BeatMaster.instance.beatCount == 158 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
-        if (BeatMaster.instance.beatCount == 205 && !activeQTE)
+        if (beatCount == 82 && !activeQTE)
         {
             newQTE.SetActive(true);
         }
         
-        if (BeatMaster.instance.beatCount == 272 && !activeQTE)
+        if (beatCount == 101 && !activeQTE)
         {
             newQTE.SetActive(true);
         }
 
-        if (BeatMaster.instance.beatCount == 296 && !activeQTE)
+        if (beatCount == 139 && !activeQTE)
         {
             newQTE.SetActive(true);
         }
 
-        if (BeatMaster.instance.beatCount == 320 && !activeQTE)
+
+        if (beatCount == 205 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+        }
+        
+        if (beatCount == 272 && !activeQTE)
         {
             newQTE.SetActive(true);
         }
 
-        if (BeatMaster.instance.beatCount == 352 && !activeQTE)
+        if (beatCount == 296 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+        }
+
+        if (beatCount == 320 && !activeQTE)
+        {
+            newQTE.SetActive(true);
+        }
+
+        if (beatCount == 352 && !activeQTE)
         {
             TigerEnable();
         }
 
-        if (BeatMaster.instance.beatCount == 370 && !activeQTE)
+        if (beatCount == 370 && !activeQTE)
         {
             newQTE.SetActive(true);
         }
 
-        if (BeatMaster.instance.beatCount == 320 && !activeQTE)
+        if (beatCount == 390 && !activeQTE)
+        {
+            TigerEnable();
+        }
+
+        if (beatCount == 444 && !activeQTE)
         {
             newQTE.SetActive(true);
         }
 
-        if (BeatMaster.instance.beatCount == 344 && !activeQTE)
+        if (beatCount == 468 && !activeQTE)
         {
             newQTE.SetActive(true);
         }
-
-        if (BeatMaster.instance.beatCount == 368 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
-        if (BeatMaster.instance.beatCount == 392 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
-        if (BeatMaster.instance.beatCount == 416 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
-        if (BeatMaster.instance.beatCount == 440 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
-        if (BeatMaster.instance.beatCount == 464 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-        
     }
 
                                                                                                                                                                                                                                                                      

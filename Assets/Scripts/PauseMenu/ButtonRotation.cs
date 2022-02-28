@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ButtonRotation : MonoBehaviour
 {
+    public PauseMenuManager pauseMenuScript;
     public float speed = 0f;
     RectTransform rectTransform;
 
@@ -14,7 +15,7 @@ public class ButtonRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!PauseMenuManager.instance.isPaused)
+        if(!pauseMenuScript.isPaused)
         rectTransform.Rotate(new Vector3(0, 0, 10));
     }
 }

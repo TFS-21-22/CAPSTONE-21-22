@@ -16,6 +16,7 @@ public enum EBeatScore
 public class RhythmCanvas : MonoBehaviour
 {
     public static RhythmCanvas instance;
+    public PauseMenuManager pauseMenuScript;
 
     public Image xButton;   //"X" button image
     public Image xCircle;   //"X" image outer circle
@@ -143,7 +144,7 @@ public class RhythmCanvas : MonoBehaviour
 
         if (pulsing)
         {
-            if (!PauseMenuManager.instance.isPaused)
+            if (!pauseMenuScript.isPaused)
             {
                 beatTime += Time.deltaTime;
             }
@@ -205,7 +206,7 @@ public class RhythmCanvas : MonoBehaviour
         while (scaleCount < 9)
         {
             //Outer Circle Scale
-            if (!PauseMenuManager.instance.isPaused)
+            if (!pauseMenuScript.isPaused)
                 xCircle.transform.localScale -= new Vector3(flux * Time.deltaTime, flux * Time.deltaTime, flux * Time.deltaTime);
             yield return null;
         }
@@ -275,9 +276,6 @@ public class RhythmCanvas : MonoBehaviour
         {
             yield return null;
         }
-
-        //LeanTween.cancel(id);
-        //LeanTween.cancel(id2);
     }
 
     IEnumerator ResetScoreTextResult(float _wait, GameObject _scoreText)

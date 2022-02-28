@@ -9,6 +9,7 @@ namespace PathCreation.Examples
     public class PathFollower : MonoBehaviour
     {
         public static PathFollower instance;
+        public PauseMenuManager pauseMenuScript;
         public PathCreator pathCreator;
         public EndOfPathInstruction endOfPathInstruction;
         public float speed = 5;
@@ -51,7 +52,7 @@ namespace PathCreation.Examples
             checkPoint = cpManager.checkPoint;
             //Debug.Log("Player speed: " + speed);
 
-            if (pathCreator != null && !PauseMenuManager.instance.isPaused)
+            if (pathCreator != null && !pauseMenuScript.isPaused)
             {
                 distanceTravelled += speed * Time.deltaTime;
                 transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);

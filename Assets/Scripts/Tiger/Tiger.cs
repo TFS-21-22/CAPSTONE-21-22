@@ -49,9 +49,6 @@ public class Tiger : MonoBehaviour
     void Start()
     {
         chosenLane = RandomLane();
-
-        gameObject.SetActive(false);
-
         strafeScript = FindObjectOfType<Strafe>();
 
         BossState = CurrentState.Idle;
@@ -63,8 +60,6 @@ public class Tiger : MonoBehaviour
             temp.SetActive(false);
             pool.Enqueue(temp);
         }
-
-
     }
 
     // Update is called once per frame

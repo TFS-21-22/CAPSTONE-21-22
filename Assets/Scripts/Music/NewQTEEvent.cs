@@ -14,10 +14,10 @@ public class NewQTEEvent : MonoBehaviour
     [SerializeField] private GameObject niceResult;
     [SerializeField] private GameObject perfectResult;
 
-    private int[] redPattern = new int[4] { 0, 0, 2, 1 };   //1
-    private int[] bluePattern = new int[4] { 2, 2, 3, 3 };  //2
-    private int[] greenPattern = new int[4] { 1, 1, 0, 2 }; //3
-    private int[] purplePattern = new int[4] { 0, 1, 2, 3 };//4
+    private int[] redPattern = new int[4] { 0, 0, 2, 1 };   //0
+    private int[] bluePattern = new int[4] { 2, 2, 3, 3 };  //1
+    private int[] greenPattern = new int[4] { 1, 1, 0, 2 }; //2
+    private int[] purplePattern = new int[4] { 0, 1, 2, 3 };//3
 
 
     private int index = 0;
@@ -45,6 +45,7 @@ public class NewQTEEvent : MonoBehaviour
     {
         if ((beat + 3) % 4 == 0)
         {
+            if(this.gameObject.activeSelf)
             StartCoroutine(QTE_Enable());
         }
     }
