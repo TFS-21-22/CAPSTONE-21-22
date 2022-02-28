@@ -184,6 +184,7 @@ public class PauseMenuManager : MonoBehaviour
                 strafeScript.enabled = true;
 
                 //Enable Pause Menu UI
+                settingsMenu.SetActive(false);
                 pauseMenu.SetActive(false);
 
                 //Disable Audio + BeatMaster
@@ -286,18 +287,19 @@ public class PauseMenuManager : MonoBehaviour
     {
         isPaused = false;
 
+        //Disable Movement
+        strafeScript.enabled = true;
+
         //Enable Pause Menu UI
         pauseMenu.SetActive(false);
 
         //Disable Audio + BeatMaster
         music.UnPause();
+        waterSFX.UnPause();
 
         //Disable Canvas
         if (!RhythmCanvas.instance.gameObject.activeSelf)
             RhythmCanvas.instance.enabled = true;
-
-        //Disable Movement
-        strafeScript.enabled = true;
 
         //Disable beatmaster
         BeatMaster.instance.enabled = true;

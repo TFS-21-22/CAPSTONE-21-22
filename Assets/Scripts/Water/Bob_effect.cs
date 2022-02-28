@@ -37,7 +37,7 @@ public class Bob_effect : MonoBehaviour
         else
         {
             offset += Time.deltaTime * speed;
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, Amplitude * Mathf.Sin(transform.position.z + offset));
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, Amplitude * Mathf.Sin(transform.position.z/2 + offset));
         }
     }
 }
