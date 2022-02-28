@@ -192,10 +192,6 @@ public class NewQTEEvent : MonoBehaviour
             niceResult.SetActive(false);
         }
 
-        if (perfectResult.activeSelf)
-        {
-            perfectResult.SetActive(false);
-        }
     }
 
     private void DisplayResult(int _sequenceCount)
