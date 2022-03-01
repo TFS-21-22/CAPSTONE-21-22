@@ -340,6 +340,7 @@ public class Strafe : MonoBehaviour
             newQTE.SetActive(true);
         }
 
+<<<<<<< HEAD
         if (beatCount == 66 && !activeQTE)
         {
             newQTE.SetActive(true);
@@ -391,19 +392,11 @@ public class Strafe : MonoBehaviour
             newQTE.SetActive(true);
         }
 
+=======
+>>>>>>> JM-NewQTE
         if (beatCount == 390 && !activeQTE)
         {
           //  TigerEnable();
-        }
-
-        if (beatCount == 444 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
-        if (beatCount == 468 && !activeQTE)
-        {
-            newQTE.SetActive(true);
         }
     }
 
