@@ -340,70 +340,9 @@ public class Strafe : MonoBehaviour
             newQTE.SetActive(true);
         }
 
-        if (beatCount == 66 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
-        if (beatCount == 82 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-        
-        if (beatCount == 101 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
-        if (beatCount == 139 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
-
-        if (beatCount == 205 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-        
-        if (beatCount == 272 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
-        if (beatCount == 296 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
-        if (beatCount == 320 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
-        if (beatCount == 352 && !activeQTE)
-        {
-            TigerEnable();
-        }
-
-        if (beatCount == 370 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
         if (beatCount == 390 && !activeQTE)
         {
             TigerEnable();
-        }
-
-        if (beatCount == 444 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
-        if (beatCount == 468 && !activeQTE)
-        {
-            newQTE.SetActive(true);
         }
     }
 
