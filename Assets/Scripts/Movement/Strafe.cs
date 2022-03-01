@@ -216,7 +216,7 @@ public class Strafe : MonoBehaviour
         float beatCount = BeatMaster.instance.beatCount;
         if(beatCount == 10)
         {
-            quickTimeEvent.SetActive(true);
+            //quickTimeEvent.SetActive(true);
         }
     }
 

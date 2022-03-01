@@ -6,10 +6,9 @@ using UnityEngine;
 public class QuickTimeEvent : MonoBehaviour
 {
     [SerializeField] private GameObject[] buttons = new GameObject[12];
-    private bool getButtonIndex;
     private float beatTempo;
     private int activeButtonCount;
-    private List<int> activeButtons = new List<int>();
+    private Queue<int> activeButtons = new Queue<int>();
     private KeyCode keyToPress;
 
 
@@ -55,19 +54,19 @@ public class QuickTimeEvent : MonoBehaviour
 
         if (activeButtonCount == 0)
         {
-            activeButtons.Add(buttonIndex);
+            activeButtons.Enqueue(buttonIndex);
             StartCoroutine(ButtonOne(buttons[buttonIndex], key));
         }
 
         if (activeButtonCount == 1)
         {
-            activeButtons.Add(buttonIndex);
+            activeButtons.Enqueue(buttonIndex);
             StartCoroutine(ButtonTwo(buttons[buttonIndex], key));
         }
 
         if (activeButtonCount == 2)
         {
-            activeButtons.Add(buttonIndex);
+            activeButtons.Enqueue(buttonIndex);
             StartCoroutine(ButtonThree(buttons[buttonIndex], key));
         }
     }
@@ -86,7 +85,7 @@ public class QuickTimeEvent : MonoBehaviour
         {
             yield return null;
         }
-
+        activeButtons.Dequeue();
         _currentButton.SetActive(false);
 
     }
@@ -104,6 +103,7 @@ public class QuickTimeEvent : MonoBehaviour
             yield return null;
         }
 
+        activeButtons.Dequeue();
         _currentButton.SetActive(false);
 
     }
@@ -119,6 +119,7 @@ public class QuickTimeEvent : MonoBehaviour
             yield return null;
         }
 
+        activeButtons.Dequeue();
         _currentButton.SetActive(false);
     }
 
