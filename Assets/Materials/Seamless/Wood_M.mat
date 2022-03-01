@@ -10,6 +10,7 @@ Material:
   m_Name: Wood_M
   m_Shader: {fileID: 4800000, guid: 7ffc1bc2bbb1ef64f84b552b2d2f0619, type: 3}
   m_ShaderKeywords: TCP2_REFLECTIONS_FRESNEL TCP2_RIM_LIGHTING_LIGHTMASK TCP2_SHADOW_LIGHT_COLOR
+    _NORMALMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -24,8 +25,8 @@ Material:
         m_Scale: {x: 5, y: 5}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: d39eee1475195094994a19effb29ea50, type: 3}
+        m_Scale: {x: 5, y: 5}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
@@ -166,7 +167,7 @@ Material:
     - _UseMatCap: 0
     - _UseMatCapMask: 0
     - _UseMobileMode: 0
-    - _UseNormalMap: 0
+    - _UseNormalMap: 1
     - _UseOcclusion: 0
     - _UseOutline: 0
     - _UseReflections: 0
