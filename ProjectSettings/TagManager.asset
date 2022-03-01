@@ -15,6 +15,9 @@ TagManager:
   - Heart
   - TigerProjectile
   - Collectable
+  - DNDP
+  - ForestAmbience
+  - FireAmbience
   layers:
   - Default
   - TransparentFX

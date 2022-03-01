@@ -14,13 +14,17 @@ public class Strafe : MonoBehaviour
 
     //Audio
     [Header("Audio")]
-    [SerializeField] private AudioClip logCollisionSFX;
-    [SerializeField] private AudioClip transitionSFX;
-    [SerializeField] private AudioClip wispSFX;
-    [SerializeField] private AudioClip tigerSFX;
-
-    [SerializeField] private AudioSource waterImpactAudioSource;
+    //Forest Ambience
+    [SerializeField] private AudioSource forestAmbienceSource;
+    //Fire Ambience
+    [SerializeField] private AudioSource fireAmbienceSource;
+    //Lily pad audio
     [SerializeField] private AudioSource lilyImpactAudioSource;
+    [SerializeField] private AudioClip lilyImpactAudioClip;
+    //Impact Audio (Obstacles)
+    [SerializeField] private AudioSource waterImpactAudioSource;
+
+
 
     //VFX
     [Header("VFX")]
@@ -59,7 +63,7 @@ public class Strafe : MonoBehaviour
 
     //Scripts
     public ScoreSystem scoresystem;
-    public GameObject newQTE;
+    public GameObject quickTimeEvent;
     public HUD hud;
 
     public ResultsScreen resultsScreen;
@@ -96,7 +100,7 @@ public class Strafe : MonoBehaviour
         }
     }
 
-    public void BossButtonSeuqence()
+    public void TigerButtonSequence()
     {
         rhythmCanvas.gameObject.SetActive(true);                                //Set Button Squence Active
         camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;  //Camera Movement
@@ -115,132 +119,7 @@ public class Strafe : MonoBehaviour
         activeQTE = true;
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.CompareTag("TigerProjectile"))
-        {
-            GameManager.instance.health--;
-        }
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Obstacle"))
-        {
-            //waterImpactAudioSource.Play();
-            Destroy(other.gameObject);
-            anim.SetTrigger("High Collision");
-            anim.SetTrigger("Low Collision");
-            //rb.AddForce(transform.up * 8);
-        }
-
-        if(other.gameObject.CompareTag("Lily"))
-        {
-            Destroy(other.gameObject);
-            //lilyImpactAudioSource.Play();
-        }
-
-        if (other.gameObject.CompareTag("Collectable"))
-        {
-            for(int i = 0; i < 5; i++)
-            {
-                if (other.gameObject.name == "Col_" + (i + 1).ToString()) 
-                    CPManager.instance.collectables[i] = true;
-
-                hud.CollectGet(other.name);
-            }
-            
-            //waterImpactAudioSource.PlayOneShot(transitionSFX);
-            Destroy(other.gameObject);
     
-            //rb.AddForce(transform.up * 8);
-        }
-
-        if (other.gameObject.CompareTag("Log"))
-        {
-            //waterImpactAudioSource.PlayOneShot(logCollisionSFX);
-            //GameManager.instance.health--;
-            StartCoroutine(Collision(2.0f));
-            //logCollisionSFX.Play();
-            anim.SetTrigger("High Collision");
-            anim.SetTrigger("Low Collision");
-        }
-
-        if (other.gameObject.CompareTag("Tiger"))
-        {
-            //waterImpactAudioSource.PlayOneShot(tigerSFX);
-            //logCollisionSFX.Play();
-            GameManager.instance.health--;
-        }
-
-        if(other.gameObject.CompareTag("End"))
-        {
-            if(resultsScreen)
-            {
-                resultsScreen.endHit = true;
-            }
-        }
-    }
-
-    void OnTriggerStay(Collider other)
-    {
-        //Debug.Log("AAAAA");
-        if (other.gameObject.name == "Wall_1")
-        {
-            stopperL = true;
-        }
-        if (other.gameObject.name == "Wall_2")
-        {
-            stopperR = true;
-        }
-
-        if (other.gameObject.CompareTag("Log"))
-        {
-            if (!camera.hit)
-                camPos = Camera.main.transform.localPosition;
-
-            obstacleCollisionParticle.Play();
-            camera.hit = true;
-            camera.InduceStress(1);           
-        }
-    }
-
-    
-    void OnTriggerExit(Collider other)
-    {
-        //Debug.Log("AAAAA");
-        if (other.gameObject.name == "Wall_1")
-        {
-            stopperL = false;
-        }
-        if (other.gameObject.name == "Wall_2")
-        {
-            stopperR = false;
-        }
-
-        if (other.gameObject.CompareTag("Log") || other.gameObject.CompareTag("Obstacle"))
-        {
-
-            camera.hit = false;
-            camera.InduceStress(0);
-            // Debug.Log("hit");
-            Camera.main.transform.localPosition = camPos;
-            anim.ResetTrigger("High Collision");
-            anim.ResetTrigger("Low Collision");
-        }
-
-        if (other.gameObject.CompareTag("Heart") )
-        {
-            if (GameManager.instance.health < 3)
-                 GameManager.instance.health++;
-
-            if (GameManager.instance.health >= 3)
-            {
-                GameManager.instance.health = 3;
-            }
-        }
-    }
-
     IEnumerator Collision(float waitTime)
     {
         if(canHurt)
@@ -335,77 +214,141 @@ public class Strafe : MonoBehaviour
     private void QuickTimeEvent()
     {
         float beatCount = BeatMaster.instance.beatCount;
-        if (beatCount == 18 && !activeQTE)
+        if(beatCount == 10)
         {
-            newQTE.SetActive(true);
-        }
-
-        if (beatCount == 66 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
-        if (beatCount == 82 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-        
-        if (beatCount == 101 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
-        if (beatCount == 139 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
-
-        if (beatCount == 205 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-        
-        if (beatCount == 272 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
-        if (beatCount == 296 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
-        if (beatCount == 320 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
-        if (beatCount == 352 && !activeQTE)
-        {
-          //  TigerEnable();
-        }
-
-        if (beatCount == 370 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
-        if (beatCount == 390 && !activeQTE)
-        {
-          //  TigerEnable();
-        }
-
-        if (beatCount == 444 && !activeQTE)
-        {
-            newQTE.SetActive(true);
-        }
-
-        if (beatCount == 468 && !activeQTE)
-        {
-            newQTE.SetActive(true);
+            quickTimeEvent.SetActive(true);
         }
     }
 
-                                                                                                                                                                                                                                                                     
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("TigerProjectile"))
+        {
+            GameManager.instance.health--;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        //AUDIO
+        if (other.gameObject.CompareTag("ForestAmbience"))
+        {
+            forestAmbienceSource.Play();
+        }
+
+        if (other.gameObject.CompareTag("ForestAmbience"))
+        {
+            fireAmbienceSource.Play();
+        }
+        if (other.gameObject.CompareTag("Obstacle"))
+        {
+            waterImpactAudioSource.Play();
+            other.gameObject.SetActive(false);
+            anim.SetTrigger("High Collision");
+            anim.SetTrigger("Low Collision");
+        }
+
+        if (other.gameObject.CompareTag("Lily"))
+        {
+            //lilyImpactAudioSource.PlayOneShot(lilyImpactAudioClip);
+            other.gameObject.SetActive(false);
+        }
+
+
+
+        if (other.gameObject.CompareTag("Collectable"))
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                if (other.gameObject.name == "Col_" + (i + 1).ToString())
+                    CPManager.instance.collectables[i] = true;
+
+                hud.CollectGet(other.name);
+            }
+            other.gameObject.SetActive(false);
+
+        }
+
+        if (other.gameObject.CompareTag("Log"))
+        {
+            StartCoroutine(Collision(2.0f));
+            //logCollisionSFX.Play();
+            anim.SetTrigger("High Collision");
+            anim.SetTrigger("Low Collision");
+        }
+
+        if (other.gameObject.CompareTag("Tiger"))
+        {
+            GameManager.instance.health--;
+        }
+
+        if (other.gameObject.CompareTag("End"))
+        {
+            if (resultsScreen)
+            {
+                resultsScreen.endHit = true;
+            }
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        //Debug.Log("AAAAA");
+        if (other.gameObject.name == "Wall_1")
+        {
+            stopperL = true;
+        }
+        if (other.gameObject.name == "Wall_2")
+        {
+            stopperR = true;
+        }
+
+        if (other.gameObject.CompareTag("Log"))
+        {
+            if (!camera.hit)
+                camPos = Camera.main.transform.localPosition;
+
+            obstacleCollisionParticle.Play();
+            camera.hit = true;
+            camera.InduceStress(1);
+        }
+    }
+
+
+    void OnTriggerExit(Collider other)
+    {
+        //Debug.Log("AAAAA");
+        if (other.gameObject.name == "Wall_1")
+        {
+            stopperL = false;
+        }
+        if (other.gameObject.name == "Wall_2")
+        {
+            stopperR = false;
+        }
+
+        if (other.gameObject.CompareTag("Log") || other.gameObject.CompareTag("Obstacle"))
+        {
+            camera.hit = false;
+            camera.InduceStress(0);
+            // Debug.Log("hit");
+            Camera.main.transform.localPosition = camPos;
+            anim.ResetTrigger("High Collision");
+            anim.ResetTrigger("Low Collision");
+        }
+
+        if (other.gameObject.CompareTag("Heart"))
+        {
+            if (GameManager.instance.health < 3)
+                GameManager.instance.health++;
+
+            if (GameManager.instance.health >= 3)
+            {
+                GameManager.instance.health = 3;
+            }
+        }
+    }
+
+
+
 }
