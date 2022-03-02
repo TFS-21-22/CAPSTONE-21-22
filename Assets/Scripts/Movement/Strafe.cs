@@ -83,9 +83,6 @@ public class Strafe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(tiger.activeSelf);
-        //print(BeatMaster.instance.beatCount);
-        //QTE
         QuickTimeEvent();
 
         //Movement
@@ -137,9 +134,7 @@ public class Strafe : MonoBehaviour
             canHurt = true;
         }
     }
-    /// <summary>
-    /// FIX LEAN ANIMATION IN MOVEMENT METHOD
-    /// </summary>
+
     private void Movement()
     {
         var leftInput = Input.GetKey(KeyCode.A);
@@ -182,10 +177,6 @@ public class Strafe : MonoBehaviour
             transform.Translate(rightForce);
             anim.SetFloat("Direction", 1);
         }
-      
-
-        //Fix aniimation to work with new input
-
     }
 
     private void Jump()
@@ -216,7 +207,12 @@ public class Strafe : MonoBehaviour
         float beatCount = BeatMaster.instance.beatCount;
         if(beatCount == 10)
         {
-            //quickTimeEvent.SetActive(true);
+            quickTimeEvent.SetActive(true);
+        }
+
+        if (beatCount == 30)
+        {
+            quickTimeEvent.SetActive(true);
         }
     }
 
