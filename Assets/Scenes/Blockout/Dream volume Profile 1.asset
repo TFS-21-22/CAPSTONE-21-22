@@ -61,7 +61,7 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.023
+    m_Value: 0.211
 --- !u!114 &-1681177457970060134
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -121,6 +121,7 @@ MonoBehaviour:
   - {fileID: -5495730720285124969}
   - {fileID: -1818378908497915388}
   - {fileID: 4312856132592028009}
+  - {fileID: 5325137064627799470}
 --- !u!114 &290851545849219160
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -136,10 +137,10 @@ MonoBehaviour:
   active: 1
   temperature:
     m_OverrideState: 1
-    m_Value: -28
+    m_Value: -34.2
   tint:
     m_OverrideState: 1
-    m_Value: -4
+    m_Value: -7.9
 --- !u!114 &527026891794144686
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -161,7 +162,7 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.169
+    m_Value: 0.145
   smoothness:
     m_OverrideState: 1
     m_Value: 0.726
@@ -183,13 +184,13 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 0, y: 0.20704508, z: 1, w: 0}
+    m_Value: {x: 0.06704825, y: 0.18365744, z: 1, w: -1}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.49917692, z: 0.701847, w: 0}
+    m_Value: {x: 0.71590555, y: 0.49485838, z: 1, w: 0}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.90555483, z: 0.684057, w: 0}
+    m_Value: {x: 1, y: 0.8565392, z: 0.8157183, w: 0}
   shadowsStart:
     m_OverrideState: 0
     m_Value: 0
@@ -200,5 +201,24 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0.55
   highlightsEnd:
+    m_OverrideState: 0
+    m_Value: 1
+--- !u!114 &5325137064627799470
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e021b4c809a781e468c2988c016ebbea, type: 3}
+  m_Name: ColorLookup
+  m_EditorClassIdentifier: 
+  active: 1
+  texture:
+    m_OverrideState: 0
+    m_Value: {fileID: 2800000, guid: ae543ccf66cb2e64b9ccaff364188959, type: 3}
+  contribution:
     m_OverrideState: 0
     m_Value: 1

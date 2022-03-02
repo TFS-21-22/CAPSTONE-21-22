@@ -13,45 +13,52 @@ MonoBehaviour:
   m_Name: Bloom
   m_EditorClassIdentifier: 
   active: 1
-  m_AdvancedMode: 0
   threshold:
     m_OverrideState: 1
     m_Value: 0.87
-    min: 0
   intensity:
     m_OverrideState: 1
     m_Value: 2.68
-    min: 0
   scatter:
     m_OverrideState: 1
     m_Value: 0.9
-    min: 0
-    max: 1
   clamp:
     m_OverrideState: 1
     m_Value: 65472.68
-    min: 0
   tint:
     m_OverrideState: 1
     m_Value: {r: 0.2216981, g: 0.30783063, b: 1, a: 1}
-    hdr: 0
-    showAlpha: 0
-    showEyeDropper: 1
   highQualityFiltering:
     m_OverrideState: 1
     m_Value: 1
   skipIterations:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 16
   dirtTexture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
   dirtIntensity:
     m_OverrideState: 0
     m_Value: 0
-    min: 0
+--- !u!114 &-3501289407372493913
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e021b4c809a781e468c2988c016ebbea, type: 3}
+  m_Name: ColorLookup
+  m_EditorClassIdentifier: 
+  active: 1
+  texture:
+    m_OverrideState: 0
+    m_Value: {fileID: 2800000, guid: ae543ccf66cb2e64b9ccaff364188959, type: 3}
+  contribution:
+    m_OverrideState: 1
+    m_Value: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,6 +76,7 @@ MonoBehaviour:
   - {fileID: 1571367439551832841}
   - {fileID: 1993607031985244471}
   - {fileID: 5857374358361817933}
+  - {fileID: -3501289407372493913}
 --- !u!114 &1571367439551832841
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -82,17 +90,12 @@ MonoBehaviour:
   m_Name: WhiteBalance
   m_EditorClassIdentifier: 
   active: 1
-  m_AdvancedMode: 0
   temperature:
     m_OverrideState: 1
     m_Value: -46
-    min: -100
-    max: 100
   tint:
     m_OverrideState: 1
     m_Value: -18
-    min: -100
-    max: 100
 --- !u!114 &1993607031985244471
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -106,26 +109,18 @@ MonoBehaviour:
   m_Name: Vignette
   m_EditorClassIdentifier: 
   active: 1
-  m_AdvancedMode: 0
   color:
     m_OverrideState: 1
     m_Value: {r: 0.23367071, g: 0, b: 1, a: 1}
-    hdr: 0
-    showAlpha: 0
-    showEyeDropper: 1
   center:
     m_OverrideState: 1
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
     m_Value: 0.38
-    min: 0
-    max: 1
   smoothness:
     m_OverrideState: 1
     m_Value: 0.36
-    min: 0.01
-    max: 1
   rounded:
     m_OverrideState: 1
     m_Value: 0
@@ -142,52 +137,36 @@ MonoBehaviour:
   m_Name: DepthOfField
   m_EditorClassIdentifier: 
   active: 1
-  m_AdvancedMode: 0
   mode:
     m_OverrideState: 1
     m_Value: 1
   gaussianStart:
     m_OverrideState: 1
     m_Value: 60
-    min: 0
   gaussianEnd:
     m_OverrideState: 1
     m_Value: 80
-    min: 0
   gaussianMaxRadius:
     m_OverrideState: 0
     m_Value: 1
-    min: 0.5
-    max: 1.5
   highQualitySampling:
     m_OverrideState: 0
     m_Value: 0
   focusDistance:
     m_OverrideState: 0
     m_Value: 10
-    min: 0.1
   aperture:
     m_OverrideState: 0
     m_Value: 5.6
-    min: 1
-    max: 32
   focalLength:
     m_OverrideState: 0
     m_Value: 50
-    min: 1
-    max: 300
   bladeCount:
     m_OverrideState: 0
     m_Value: 5
-    min: 3
-    max: 9
   bladeCurvature:
     m_OverrideState: 0
     m_Value: 1
-    min: 0
-    max: 1
   bladeRotation:
     m_OverrideState: 0
     m_Value: 0
-    min: -180
-    max: 180
