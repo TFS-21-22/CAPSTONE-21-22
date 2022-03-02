@@ -183,10 +183,21 @@ public class Strafe : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            rb.AddForce(jump * jumpForce, ForceMode.Impulse);
+            anim.SetBool("Jump", true);
             isGrounded = false;
         }
     }
+
+    private void ResetJump()
+    {
+        if(!isGrounded)
+        {
+            anim.SetBool("Jump", false);
+            isGrounded = true;
+        }
+    }
+
+  
 
     private void Duck()
     {
