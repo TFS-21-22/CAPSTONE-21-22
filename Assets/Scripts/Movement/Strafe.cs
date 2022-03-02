@@ -168,7 +168,7 @@ public class Strafe : MonoBehaviour
         }
         if(!leftInput && !rightInput)
         {
-            print("Direction");
+            //print("Direction");
             anim.SetFloat("Direction", 0);
         }
 
@@ -225,6 +225,16 @@ public class Strafe : MonoBehaviour
         {
             quickTimeEvent.SetActive(true);
         }
+
+        if (beatCount == 50)
+        {
+            quickTimeEvent.SetActive(true);
+        }
+
+        if (beatCount == 70)
+        {
+            quickTimeEvent.SetActive(true);
+        }
     }
 
     void OnCollisionEnter(Collision collision)
@@ -245,7 +255,7 @@ public class Strafe : MonoBehaviour
 
         if (other.gameObject.CompareTag("ForestAmbience"))
         {
-            fireAmbienceSource.Play();
+            //fireAmbienceSource.Play();
         }
         if (other.gameObject.CompareTag("Obstacle"))
         {
