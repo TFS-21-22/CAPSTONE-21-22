@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 821780646703403032}
   - component: {fileID: 2262261147318344970}
   - component: {fileID: 4371446993578112188}
-  - component: {fileID: 5692395769056581593}
   - component: {fileID: -7145099045574370968}
+  - component: {fileID: 8517506255031689321}
   m_Layer: 0
   m_Name: Coconut
   m_TagString: DNDP
@@ -85,25 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5692395769056581593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7891172846839348839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1315e459894b1b4a9440ce6dd93b65f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 0
-  scoreMultiplyer: 1
-  material1: {fileID: 2100000, guid: fcb9c3e5345ef26458e9119b38d96da8, type: 2}
-  material2: {fileID: 2100000, guid: 2b52ddfd3af35dc4fb2c1d7c439d5d75, type: 2}
-  dreamState: 0
-  player: {fileID: 0}
-  scoreSystem: {fileID: 0}
 --- !u!64 &-7145099045574370968
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -118,3 +99,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 973877516759717424, guid: 95c35cc23aa6fa94892ed9908aecced5, type: 3}
+--- !u!114 &8517506255031689321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7891172846839348839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 744a70b0c32fdb84da64b7677ba6db07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  scoreMultiplyer: 1
+  dreamState: 0
+  player: {fileID: 0}
+  scoreSystem: {fileID: 0}
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  endColor: {r: 0.9372549, g: 0.5882353, b: 1, a: 1}

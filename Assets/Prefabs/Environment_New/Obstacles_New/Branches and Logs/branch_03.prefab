@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 1660901769847063491}
   - component: {fileID: 2834601415597137002}
   - component: {fileID: 8611784780909259653}
+  - component: {fileID: 4469985012366705429}
   m_Layer: 0
   m_Name: branch_03
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,3 +113,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7818288, y: 0.35703522, z: 1.9223878}
   m_Center: {x: 0.00000032782555, y: 0.05755378, z: 0}
+--- !u!114 &4469985012366705429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660901769847063490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 744a70b0c32fdb84da64b7677ba6db07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  scoreMultiplyer: 1
+  dreamState: 0
+  player: {fileID: 0}
+  scoreSystem: {fileID: 0}
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  endColor: {r: 0.9372549, g: 0.5882353, b: 1, a: 1}

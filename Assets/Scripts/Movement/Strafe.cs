@@ -184,17 +184,18 @@ public class Strafe : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             anim.SetBool("Jump", true);
-            isGrounded = false;
+            anim.SetTrigger("Jump 0");
+            //isGrounded = false;
         }
     }
 
     private void ResetJump()
     {
-        if(!isGrounded)
-        {
+   
             anim.SetBool("Jump", false);
-            isGrounded = true;
-        }
+        anim.ResetTrigger("Jump 0");
+            //isGrounded = true;
+        
     }
 
   

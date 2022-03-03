@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7442183058953471345}
   - component: {fileID: 5829955461320084180}
   - component: {fileID: 8578476389702172190}
+  - component: {fileID: 4895895132896314834}
   m_Layer: 0
   m_Name: HugeTree
   m_TagString: Untagged
@@ -84,3 +85,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4895895132896314834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7785635940716404683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 744a70b0c32fdb84da64b7677ba6db07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  scoreMultiplyer: 1
+  dreamState: 0
+  player: {fileID: 0}
+  scoreSystem: {fileID: 0}
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  endColor: {r: 0.9372549, g: 0.5882353, b: 1, a: 1}
+  startVol: {fileID: 0}
+  endVol: {fileID: 0}

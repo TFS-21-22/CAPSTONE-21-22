@@ -1,16 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Transition : MonoBehaviour
 {
     public float score;
     public float scoreMultiplyer = 1;
-
-
-
-    public Material material1;
-    public Material material2;
 
     float lerpDuration = 5.0f;
     float lerpTime = 0f;
@@ -38,6 +34,8 @@ public class Transition : MonoBehaviour
 
         // At start, use the first material
         rend.material.color = startColor;
+
+
 
 
     }
@@ -93,6 +91,7 @@ public class Transition : MonoBehaviour
 
             ColorLerp(startColor, endColor);
 
+
         }
         else
         {
@@ -120,6 +119,9 @@ public class Transition : MonoBehaviour
             }
 
             ColorLerp(endColor, startColor);
+
+           
+            
         }
 
         if (scoreSystem)
@@ -140,7 +142,8 @@ public class Transition : MonoBehaviour
                 objectInView = false;
             }
 
-            if (!objectInView && !gameObject.CompareTag("DNDP"))
+            if (!objectInView && !gameObject.CompareTag("DNDP")  && !transform.parent
+                .gameObject.CompareTag("DNDP") && !gameObject.CompareTag("Obstacle"))
             {
                 transform.parent.gameObject.SetActive(false);
             }
@@ -178,7 +181,12 @@ public class Transition : MonoBehaviour
         {
             lerpTime += Time.deltaTime;
 
+
             GetComponent<Renderer>().material.color = Color.Lerp(_startColor, _endColor, lerpTime / lerpDuration);
+
+            
+
+            
         }
 
         if (lerpTime > lerpDuration)

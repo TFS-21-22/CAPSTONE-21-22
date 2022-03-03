@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 6696560433137849502}
   - component: {fileID: 7730744218767432476}
   - component: {fileID: 9154908698587232791}
-  - component: {fileID: 9158803922372681539}
+  - component: {fileID: 2913187137112183032}
   m_Layer: 0
   m_Name: Leaves_Dream
   m_TagString: Untagged
@@ -178,7 +178,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 93d2e14e3a8f62140bb8ab43bac378e2, type: 2}
+  - {fileID: 2100000, guid: 56db6582965e24742b1720bd40fc87a3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -200,7 +200,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &9158803922372681539
+--- !u!114 &2913187137112183032
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -209,13 +209,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 880018133431437529}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1315e459894b1b4a9440ce6dd93b65f, type: 3}
+  m_Script: {fileID: 11500000, guid: 744a70b0c32fdb84da64b7677ba6db07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
   scoreMultiplyer: 1
-  material1: {fileID: 2100000, guid: 93d2e14e3a8f62140bb8ab43bac378e2, type: 2}
-  material2: {fileID: 2100000, guid: 56db6582965e24742b1720bd40fc87a3, type: 2}
   dreamState: 0
   player: {fileID: 0}
   scoreSystem: {fileID: 0}
+  startColor: {r: 0.41960785, g: 0.90588236, b: 0.38039216, a: 1}
+  endColor: {r: 0.9372549, g: 0.5882353, b: 1, a: 1}
