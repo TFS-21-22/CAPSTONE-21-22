@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2155911330812233585}
   - component: {fileID: 3553898539501626651}
   - component: {fileID: 3335169364854699772}
+  - component: {fileID: -167749393146651516}
   m_Layer: 0
   m_Name: VillageHome_v1
   m_TagString: Untagged
@@ -96,10 +97,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1315e459894b1b4a9440ce6dd93b65f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
-  scoreMultiplyer: 1
-  material1: {fileID: 2100000, guid: ed334a7533d474d459a84863ac28d0ca, type: 2}
-  material2: {fileID: 2100000, guid: ed334a7533d474d459a84863ac28d0ca, type: 2}
-  dreamState: 0
-  player: {fileID: 0}
-  scoreSystem: {fileID: 0}
+--- !u!64 &-167749393146651516
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2212132929641579426}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3774503549401388988, guid: f9b7e141b4f95414fae2d08b0e45dd4f, type: 3}

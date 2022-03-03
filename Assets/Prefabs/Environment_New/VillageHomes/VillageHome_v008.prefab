@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 248545795229194713}
   - component: {fileID: 7766064183853810792}
   - component: {fileID: 8332199758891551514}
+  - component: {fileID: -6770450134266662777}
   m_Layer: 0
   m_Name: VillageHome_v008
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-6770450134266662777
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493034962646040364}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 994189397824526486, guid: f9b7e141b4f95414fae2d08b0e45dd4f, type: 3}

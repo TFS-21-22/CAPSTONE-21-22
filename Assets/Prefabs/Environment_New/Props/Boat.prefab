@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8446593262774707967}
   - component: {fileID: 2329857954232119813}
   - component: {fileID: 2889460909241258805}
+  - component: {fileID: 7925474200723714679}
   m_Layer: 0
   m_Name: Boat
   m_TagString: Untagged
@@ -96,10 +97,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1315e459894b1b4a9440ce6dd93b65f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
-  scoreMultiplyer: 1
-  material1: {fileID: 2100000, guid: ed334a7533d474d459a84863ac28d0ca, type: 2}
-  material2: {fileID: 2100000, guid: ed334a7533d474d459a84863ac28d0ca, type: 2}
-  dreamState: 0
-  player: {fileID: 0}
-  scoreSystem: {fileID: 0}
+--- !u!65 &7925474200723714679
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2917817674050086661}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.2675347, y: 0.8055473, z: 0.7355596}
+  m_Center: {x: -0.24549752, y: 0.3972495, z: 0.17992902}

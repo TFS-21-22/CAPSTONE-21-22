@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4371446993578112188}
   - component: {fileID: -7145099045574370968}
   - component: {fileID: 8517506255031689321}
+  - component: {fileID: -8526111503136589884}
   m_Layer: 0
   m_Name: Coconut
   m_TagString: DNDP
@@ -118,3 +119,16 @@ MonoBehaviour:
   scoreSystem: {fileID: 0}
   startColor: {r: 1, g: 1, b: 1, a: 1}
   endColor: {r: 0.9372549, g: 0.5882353, b: 1, a: 1}
+--- !u!65 &-8526111503136589884
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7891172846839348839}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.79147995, y: 0.78926677, z: 0.79592484}
+  m_Center: {x: -0.000000014901161, y: 0.2715033, z: 0}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6786709711846782943}
   - component: {fileID: 1766717518094928357}
   - component: {fileID: 2502203944505327658}
+  - component: {fileID: -4347151904630218989}
   m_Layer: 0
   m_Name: root_02
   m_TagString: Log
@@ -112,3 +113,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.9092993, y: 0.25384605, z: 0.55511206}
   m_Center: {x: -0.00000023841858, y: 0, z: 0}
+--- !u!114 &-4347151904630218989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6786709711846782940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 744a70b0c32fdb84da64b7677ba6db07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  scoreMultiplyer: 1
+  dreamState: 0
+  player: {fileID: 0}
+  scoreSystem: {fileID: 0}
+  startColor: {r: 1, g: 1, b: 1, a: 0}
+  endColor: {r: 0.58178586, g: 0.2776789, b: 0.9056604, a: 1}

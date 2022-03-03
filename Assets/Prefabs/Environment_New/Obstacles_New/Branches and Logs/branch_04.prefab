@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7421046332811014200}
   - component: {fileID: -5397153361057485753}
   - component: {fileID: 7138572247313902187}
+  - component: {fileID: -3811130994240240685}
   m_Layer: 0
   m_Name: branch_04
   m_TagString: Untagged
@@ -112,3 +113,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.85185957, y: 0.18600586, z: 1.8415405}
   m_Center: {x: 0.000000029802322, y: 0.027989428, z: 0}
+--- !u!114 &-3811130994240240685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7421046332811014203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 744a70b0c32fdb84da64b7677ba6db07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  scoreMultiplyer: 1
+  dreamState: 0
+  player: {fileID: 0}
+  scoreSystem: {fileID: 0}
+  startColor: {r: 1, g: 1, b: 1, a: 0}
+  endColor: {r: 0.58178586, g: 0.2776789, b: 0.9056604, a: 1}

@@ -131,4 +131,4 @@ MonoBehaviour:
   player: {fileID: 0}
   scoreSystem: {fileID: 0}
   startColor: {r: 1, g: 1, b: 1, a: 1}
-  endColor: {r: 0.9372549, g: 0.5882353, b: 1, a: 1}
+  endColor: {r: 0.58178586, g: 0.2776789, b: 0.9056604, a: 1}
