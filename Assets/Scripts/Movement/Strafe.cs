@@ -215,10 +215,10 @@ public class Strafe : MonoBehaviour
 
         if(beatCount == 10)
         {
-            quickTimeEvent.SetActive(transform);
+            quickTimeEvent.SetActive(true);
         }
 
-        if(beatCount == 118)
+        if(beatCount == 393)
         {
             TigerEnable();
         }    
