@@ -16,7 +16,7 @@ public class Tiger : MonoBehaviour
     bool canShoot = true;
     public bool chooseLane = true;
     bool chooseInt = false;
-    int chosenLane = 0;
+    int currentLane = 0;
 
     float lerpDuration = 4f;
     
@@ -44,17 +44,20 @@ public class Tiger : MonoBehaviour
 
     public CurrentState BossState;
 
+    void OnEnable()
+    {
+        shotsFired = 0;
+        canShoot = true;
+        BossState = CurrentState.Idle;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        chosenLane = RandomLane();
         strafeScript = FindObjectOfType<Strafe>();
 
-        BossState = CurrentState.Idle;
-
         //Instantiate projectiles on first frame
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 5; i++)
         {
             GameObject temp = Instantiate(projectile, projectileSpawnLocation.transform.position, Quaternion.identity);
             temp.SetActive(false);
@@ -67,11 +70,6 @@ public class Tiger : MonoBehaviour
     {
         //Debug.Log(chooseLane);
         transform.LookAt(player.transform);
-
-        if (shotsFired >= 5)
-        {
-            BossState = CurrentState.ButtonSquence;
-        }
 
         //Tiger State
         switch (BossState)
@@ -90,7 +88,11 @@ public class Tiger : MonoBehaviour
                 {
                     canShoot = false;
                     StartCoroutine(Shoot(1f));
-                    shotsFired++;
+                }
+
+                if (shotsFired >= 5)
+                {
+                    BossState = CurrentState.ButtonSquence;
                 }
                 break;
         }
@@ -114,15 +116,20 @@ public class Tiger : MonoBehaviour
     }
     IEnumerator Shoot(float wait)
     {
-        shotsFired++;
         GetProjectile();
         yield return new WaitForSeconds(wait);
+        shotsFired++;
         canShoot = true;
     }
     IEnumerator MoveTiger(float wait)
     {
+        if(!chooseLane)
+        {
+            chooseLane = false;
+            currentLane = RandomLane();
+        }
         
-        if (chosenLane == 1)
+        if (currentLane == 1)
         {
             int id = LeanTween.moveLocalX(this.gameObject, 2f, 4).id;
 
@@ -133,7 +140,7 @@ public class Tiger : MonoBehaviour
 
             BossState = CurrentState.Shoot;
         }
-        else if(chosenLane == 0)
+        else if(currentLane == 0)
         {
 
             int id = LeanTween.moveLocalX(this.gameObject, -2f, 4).id;

@@ -6,9 +6,9 @@ public class TigerProjectile : MonoBehaviour
 {
     void OnTriggerEnter(Collider collision)
     {
-        if(collision.gameObject.CompareTag("Return"))
+        if (collision.gameObject.CompareTag("Colliders"))
         {
-            Tiger.instance.pool.Enqueue(collision.gameObject);
+            Tiger.instance.ReturnProjectile(this.gameObject);
         }
     }
 }

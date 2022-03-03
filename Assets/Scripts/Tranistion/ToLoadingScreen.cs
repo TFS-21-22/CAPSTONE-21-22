@@ -10,11 +10,6 @@ public class ToLoadingScreen : MonoBehaviour
     public Slider slider;
     public Text progressText;
 
-    public void Start()
-    {
-
-    }
-
     public void LoadLevel(int sceneIndex)
     {
         StartCoroutine(LoadAsynchronously(sceneIndex));

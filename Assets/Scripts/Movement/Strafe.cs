@@ -83,18 +83,13 @@ public class Strafe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print(BeatMaster.instance.beatCount);
         QuickTimeEvent();
 
         //Movement
         Movement();
         Jump();
         Duck();
-       
-        //Audio Source
-        if(scoresystem && scoresystem.transitionEnding)
-        {
-            //waterImpactAudioSource.Play();
-        }
     }
 
     public void TigerButtonSequence()
@@ -109,7 +104,6 @@ public class Strafe : MonoBehaviour
 
     void TigerEnable()
     {
-        print("TIGER CALLED");
         tiger.SetActive(true);
         camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;
         camera.StartCoroutine(camera.CameraSwitch(3));
@@ -216,7 +210,21 @@ public class Strafe : MonoBehaviour
 
     private void QuickTimeEvent()
     {
+        
         float beatCount = BeatMaster.instance.beatCount;
+
+        if(beatCount == 10)
+        {
+            quickTimeEvent.SetActive(transform);
+        }
+
+        if(beatCount == 118)
+        {
+            TigerEnable();
+        }    
+
+
+        /*
         if(beatCount == 10)
         {
             quickTimeEvent.SetActive(true);
@@ -236,6 +244,7 @@ public class Strafe : MonoBehaviour
         {
             quickTimeEvent.SetActive(true);
         }
+        */
     }
 
     void OnCollisionEnter(Collision collision)

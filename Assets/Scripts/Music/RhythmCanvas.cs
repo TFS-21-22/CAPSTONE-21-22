@@ -52,8 +52,6 @@ public class RhythmCanvas : MonoBehaviour
     int buttonScoreTextarrayIndex;
 
     private double beatTime = 0.0f;  //Button press time
-    private int scaleCount = 0;
-    private int tempBeat = 0;
     private int rhythmTextLeanId;
 
     float smoothSpeed = 1f;
@@ -61,7 +59,7 @@ public class RhythmCanvas : MonoBehaviour
     [SerializeField] private Transform buttonCenter;
     [SerializeField] private Transform[] keyPositions = new Transform[3];
 
-    private bool buttonPressed = false;
+    private bool keyPressed = false;
 
     float timeDebug;
 
@@ -80,13 +78,18 @@ public class RhythmCanvas : MonoBehaviour
         }
     }
 
+    void OnEnable()
+    {
+        RandomBackgroundActive(buttonBG, true);//Random UI BG + Random Key Direction
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        keyPressed = false;
         scoreTextStartPos = perfect.transform.position;
         scaling = false;
         BeatMaster.Beat += BeatCheck;
-        BeatMaster.Beat += BeatX;
 
     }
 
@@ -97,49 +100,14 @@ public class RhythmCanvas : MonoBehaviour
 
         if (pulsing && Input.GetButtonDown("Jump"))
         {
-
-            buttonPressed = true;
+            print("SCAPE PRESSED");
+            keyPressed = true;
             xCircle.gameObject.SetActive(false);
             //sequencePressed = true;
-            if (beatTime < 1.284f && beatTime >= 0)
+            if(!keyPressed)
             {
-                RandomBackground(buttonBG, false);
-                StartCoroutine(ScoreTextResult(miss, 1f));                  //Display Score Result
-                StartCoroutine(DestroyEnemyQTE(1f, miss, currentEnemyQTE)); //Enemy Destroy
-
+                
             }
-
-            if (beatTime >= 1.284f && beatTime < 1.647f)
-            {
-                RandomBackground(buttonBG, false);
-                StartCoroutine(ScoreTextResult(okay, 1f));                  //Display Score Result
-                StartCoroutine(DestroyEnemyQTE(1f, okay, currentEnemyQTE)); //Enemy Destroy
-
-            }
-
-            if (beatTime >= 1.647f && beatTime < 1.985f)
-            {
-                RandomBackground(buttonBG, false);
-                StartCoroutine(ScoreTextResult(good, 1f));                  //Display Score Result
-                StartCoroutine(DestroyEnemyQTE(1f, good, currentEnemyQTE)); //Enemy Destroy
-            }
-
-            if (beatTime > 1.985f && beatTime < 2.126f)
-            {
-                RandomBackground(buttonBG, false);
-                StartCoroutine(ScoreTextResult(perfect, 1f));
-
-                //Enemy Destroy
-                StartCoroutine(DestroyEnemyQTE(1f, perfect, currentEnemyQTE));
-            }
-        }
-
-        if (beatTime > 2.126f && !buttonPressed)
-        {
-
-            RandomBackground(buttonBG, false);
-            StartCoroutine(ScoreTextResult(miss, 1f));                  //Display Score Result
-            StartCoroutine(DestroyEnemyQTE(1f, miss, currentEnemyQTE)); //Enemy Destroy
         }
 
         if (pulsing)
@@ -162,60 +130,75 @@ public class RhythmCanvas : MonoBehaviour
             //Starts scaling outer "X" circle
             StartCoroutine(ScaleCircle());
         }
-
-        if (scaling)
-        {
-            if (beat != tempBeat)
-            {
-                scaleCount++;
-            }
-            tempBeat = beat;
-        }
-        else
-        {
-            scaleCount = 0;
-            tempBeat = 0;
-        }
     }
 
-    public void RandomBackground(GameObject[] bg, bool setActive)
+    public void RandomBackgroundActive(GameObject[] bg, bool setActive)
     {
 
         if (setActive)
         {
-            buttonBGarrayIndex = Random.Range(0, buttonBG.Length);
-            bg[buttonBGarrayIndex].gameObject.SetActive(true);
+            int rand = Random.Range(0, buttonBG.Length);
+            bg[rand].SetActive(true);
         }
         else
         {
-            buttonBGarrayIndex = Random.Range(0, buttonBG.Length);
-            bg[buttonBGarrayIndex].gameObject.SetActive(false);
+            foreach (GameObject background in buttonBG)
+            {
+                if(background.activeSelf)
+                background.SetActive(false);
+            }
         }
 
     }
 
     IEnumerator ScaleCircle()
     {
-        ResetRhythmTween();
+        
         scaling = true;
         pulsing = true;
-        RandomBackground(buttonBG, true);//Random UI BG + Random Key Direction
-        LeanTween.scale(xCircle.gameObject, bigCircle, 0.15f);                                                              //Scales "X" outer circle
-
-
-        while (scaleCount < 9)
+        xCircle.gameObject.SetActive(true);
+        xCircle.transform.localScale = bigCircle;
+                                                          //Scales "X" outer circle
+        while (xCircle.transform.localScale.x > 0.5f)
         {
+            var spaceButtonInput = Input.GetButtonDown("Jump");
+            if (spaceButtonInput)
+            {
+                break;
+            }
             //Outer Circle Scale
             if (!pauseMenuScript.isPaused)
                 xCircle.transform.localScale -= new Vector3(flux * Time.deltaTime, flux * Time.deltaTime, flux * Time.deltaTime);
             yield return null;
         }
-    }
+        print("BREAK");
+        if (beatTime < 1.284f && beatTime >= 0)
+        {
+            RandomBackgroundActive(buttonBG, false);
+            StartCoroutine(ScoreTextResult(miss, 1f));                  //Display Score Result
+            StartCoroutine(DestroyEnemyQTE(1f, miss, currentEnemyQTE));
+        }
 
-    public void BeatX(int beat)
-    {
-        if (sequencePressed)
-            StartCoroutine(Pulsing());
+        if (beatTime >= 1.284f && beatTime < 1.647f)
+        {
+            RandomBackgroundActive(buttonBG, false);
+            StartCoroutine(ScoreTextResult(okay, 1f));                  //Display Score Result
+            StartCoroutine(DestroyEnemyQTE(1f, okay, currentEnemyQTE));
+        }
+
+        if (beatTime >= 1.647f && beatTime < 1.985f)
+        {
+            RandomBackgroundActive(buttonBG, false);
+            StartCoroutine(ScoreTextResult(good, 1f));                  //Display Score Result
+            StartCoroutine(DestroyEnemyQTE(1f, good, currentEnemyQTE));
+        }
+
+        if (beatTime > 1.985f && beatTime < 2.126f)
+        {
+            RandomBackgroundActive(buttonBG, false);
+            StartCoroutine(ScoreTextResult(perfect, 1f));
+            StartCoroutine(DestroyEnemyQTE(1f, perfect, currentEnemyQTE));
+        }
     }
 
     IEnumerator Pulsing()
@@ -224,21 +207,17 @@ public class RhythmCanvas : MonoBehaviour
         xCircle.transform.localScale = xScale;
     }
 
-    IEnumerator DestroyEnemyQTE(float wait, GameObject _scoreText, GameObject _currentEnemy)
+    IEnumerator DestroyEnemyQTE(float _wait, GameObject _scoreText, GameObject _currentEnemy)
     {
+        yield return new WaitForSeconds(_wait);
         //Enable Text
         ResetRhythmTween();
-        int id = LeanTween.scale(wisp.gameObject, new Vector3(5f, 5f, 5f), 1f).id;
-        while (LeanTween.isTweening(id))
-        {
-            yield return null;
-        }
         //Camera
         smoothCamera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
         smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(3));
         pulsing = false;
         scaling = false;
-        xCircle.gameObject.SetActive(true);
+        xCircle.gameObject.SetActive(false);
         _currentEnemy.SetActive(false);
         _currentEnemy = null;
         _scoreText.transform.localScale = new Vector3(1f, 1f, 1f);
@@ -246,6 +225,8 @@ public class RhythmCanvas : MonoBehaviour
         if (_scoreText.activeSelf)
             _scoreText.SetActive(false);
         LeanTween.cancelAll(true);
+        keyPressed = false;
+        xCircle.transform.localScale = bigCircle;
         this.gameObject.SetActive(false);
 
     }
@@ -263,18 +244,11 @@ public class RhythmCanvas : MonoBehaviour
 
         ResetRhythmTween();
         int id = LeanTween.scale(scoreText, new Vector3(2f, 2f, 2f), 1f).id;
-        int id2 = LeanTween.moveY(scoreText, 0.05f, 2f).id;
         
-
         while (LeanTween.isTweening(id))
         {
             yield return null;
 
-        }
-
-        while (LeanTween.isTweening(id2))
-        {
-            yield return null;
         }
     }
 

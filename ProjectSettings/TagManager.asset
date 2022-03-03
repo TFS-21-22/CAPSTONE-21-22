@@ -18,6 +18,8 @@ TagManager:
   - DNDP
   - ForestAmbience
   - FireAmbience
+  - FxTemporaire
+  - Colliders
   layers:
   - Default
   - TransparentFX
