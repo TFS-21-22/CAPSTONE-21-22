@@ -15,6 +15,7 @@ public class QuickTimeEvent : MonoBehaviour
     private double beatTimeOne, beatTimeTwo, beatTimeThree;
     private bool sequenceOneStart, sequenceTwoStart, sequenceThreeStart;
     private bool endQTE = false;
+    private bool inputPressed = false;
 
     [SerializeField] private GameObject perfectResult;
     [SerializeField] private GameObject missResult;
@@ -45,14 +46,15 @@ public class QuickTimeEvent : MonoBehaviour
     {
         if (sequenceOneStart)
         {
-            beatTimeOne += Time.time;
+            print(beatTimeOne);
+            beatTimeOne += Time.deltaTime;
         }
         else
             beatTimeOne = 0;
 
         if (sequenceTwoStart)
         {
-            beatTimeTwo += Time.time;
+            beatTimeTwo += Time.deltaTime;
         }
         else
             beatTimeTwo = 0;
@@ -60,7 +62,7 @@ public class QuickTimeEvent : MonoBehaviour
 
         if (sequenceThreeStart)
         {
-            beatTimeThree += Time.time;
+            beatTimeThree += Time.deltaTime;
         }
         else
             beatTimeThree = 0;
@@ -147,11 +149,12 @@ public class QuickTimeEvent : MonoBehaviour
             Debug.Log(keyToPressTwo.ToString() + " Pressed: " + input);
             if (input)
             {
+                inputPressed = true;
                 break;
             }
             yield return null;
         }
-        double time = beatTimeOne;
+
         activeButtons.Dequeue();
         sequenceOneStart = false;
         //Reset
@@ -159,15 +162,17 @@ public class QuickTimeEvent : MonoBehaviour
         rect.position = startPos.position;
         _currentButton.SetActive(false);
         //Check time
-        if (time > 100)
+        if (beatTimeOne >= 0.9805 && beatTimeOne < 1.2000)
         {
             StartCoroutine(DisplayResult(perfectResult));
         }
         else
         {
-            StartCoroutine(DisplayResult(missResult));
+            if (inputPressed)
+                StartCoroutine(DisplayResult(missResult));
         }
-        
+
+        inputPressed = false;
 
     }
 
@@ -185,11 +190,11 @@ public class QuickTimeEvent : MonoBehaviour
             if (input && !sequenceOneStart)
             {
                 sequenceTwoStart = false;
+                inputPressed = true;
                 break;
             }
             yield return null;
         }
-        double time = beatTimeOne;
         //Reset
         sequenceTwoStart = false;
         activeButtons.Dequeue();
@@ -197,16 +202,16 @@ public class QuickTimeEvent : MonoBehaviour
         rect.position = startPos.position;
         _currentButton.SetActive(false);
         //Check time
-        if (time > 100)
+        if (beatTimeTwo >= 0.9805 && beatTimeTwo < 1.2000)
         {
             StartCoroutine(DisplayResult(perfectResult));
         }
         else
         {
-            StartCoroutine(DisplayResult(missResult));
+            if (inputPressed)
+                StartCoroutine(DisplayResult(missResult));
         }
-        
-
+        inputPressed = false;
     }
 
     private IEnumerator ButtonThree(GameObject _currentButton, int _arrayIndex)
@@ -221,11 +226,12 @@ public class QuickTimeEvent : MonoBehaviour
             if (input && !sequenceTwoStart)
             {
                 sequenceThreeStart = false;
+                inputPressed = true;
                 break;
             }
             yield return null;
         }
-        double time = beatTimeOne;
+        double time = beatTimeThree;
         sequenceThreeStart = false;
         endQTE = true;
         //Reset
@@ -234,15 +240,16 @@ public class QuickTimeEvent : MonoBehaviour
         rect.position = startPos.position;
         _currentButton.SetActive(false);
         //Check time
-        if (time > 100)
+        if (beatTimeThree >= 0.9805 && beatTimeThree < 1.2000)
         {
             StartCoroutine(DisplayResult(perfectResult));
         }
         else
         {
-            StartCoroutine(DisplayResult(missResult));
+            if(inputPressed)
+                StartCoroutine(DisplayResult(missResult));
         }
-        
+        inputPressed = false;
 
     }
 
