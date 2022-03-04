@@ -3199,13 +3199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1315e459894b1b4a9440ce6dd93b65f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
-  scoreMultiplyer: 1
-  material1: {fileID: 2100000, guid: 66990c3207ffeeb469cb5e3736234196, type: 2}
-  material2: {fileID: 2100000, guid: 66990c3207ffeeb469cb5e3736234196, type: 2}
-  dreamState: 0
-  player: {fileID: 0}
-  scoreSystem: {fileID: 0}
 --- !u!1 &3013094909800351115
 GameObject:
   m_ObjectHideFlags: 0

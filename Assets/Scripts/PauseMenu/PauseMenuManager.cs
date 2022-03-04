@@ -202,8 +202,8 @@ public class PauseMenuManager : MonoBehaviour
         music.UnPause();
 
         //Disable Canvas
-        if (!RhythmCanvas.instance.gameObject.activeSelf)
-            RhythmCanvas.instance.enabled = true;
+        if (!rhythmCanvas.gameObject.activeSelf)
+            rhythmCanvas.enabled = true;
 
         //Disable Movement
         strafeScript.enabled = true;
@@ -285,8 +285,8 @@ public class PauseMenuManager : MonoBehaviour
         waterSFX.UnPause();
 
         //Disable Canvas
-        if (!RhythmCanvas.instance.gameObject.activeSelf)
-            RhythmCanvas.instance.enabled = true;
+        if (!rhythmCanvas.gameObject.activeSelf)
+            rhythmCanvas.enabled = true;
 
         //Disable beatmaster
         BeatMaster.instance.enabled = true;

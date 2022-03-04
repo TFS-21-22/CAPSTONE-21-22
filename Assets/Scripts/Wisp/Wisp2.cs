@@ -71,7 +71,7 @@ public class Wisp2 : MonoBehaviour
         camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;  //Camera Movement
         camera.StartCoroutine(camera.CameraSwitch(3));                        //Camera Switch      //CAUSES CAMERA JITTER, what is the point of this if we already have tiger sequence?
         wispSequence = true;                                                 //Set sqeuence true
-        RhythmCanvas.instance.currentEnemyQTE = this.gameObject;
+        rhythmCanvas.currentEnemyQTE = this.gameObject;
     }
 
     void OnTriggerEnter(Collider other)

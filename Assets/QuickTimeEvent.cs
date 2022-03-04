@@ -13,9 +13,9 @@ public class QuickTimeEvent : MonoBehaviour
     private KeyCode keyToPressOne, keyToPressTwo, keyToPressThree;
     Vector3 resultsScale = new Vector3(3, 3, 3);
     private double beatTimeOne, beatTimeTwo, beatTimeThree;
-    private bool sequenceOneStart, sequenceTwoStart, sequenceThreeStart;
+    private bool sequenceOneActive, sequenceTwoActive, sequenceThreeActive;
+    private bool inputPressedOne, inputPressedTwo, inputPressedThree;
     private bool endQTE = false;
-    private bool inputPressed = false;
 
     [SerializeField] private GameObject perfectResult;
     [SerializeField] private GameObject missResult;
@@ -30,42 +30,64 @@ public class QuickTimeEvent : MonoBehaviour
     void OnEnable()
     {
         BeatMaster.Beat += ButtonSequence;
+        activeButtonCount = 0;
+        beatTimeOne = 0;
+        beatTimeTwo = 0;
+        beatTimeThree = 0;
+        sequenceOneActive = false;
+        sequenceTwoActive = false;
+        sequenceThreeActive = false;
+        inputPressedOne = false;
+        inputPressedTwo = false;
+        inputPressedThree = false;
+        //print("Active Buttons: " + activeButtonCount);
+        //print("BeatTime 1: " + beatTimeOne);
+        //print("BeatTime 2: " + beatTimeOne);
+        //print("BeatTime 3: " + beatTimeOne);
+        //print("sequenceOne: " + sequenceOneStart);
+        //print("sequenceTwo: " + sequenceTwoStart);
+        //print("sequenceThree: " + sequenceThreeStart);
+
+
+
+
     }
     // Start is called before the first frame update
     void Start()
     {
         beatTempo = (BeatMaster.instance.BPM / 60);
-        activeButtonCount = 0;
-        beatTimeOne = 0;
-        beatTimeTwo = 0;
-        beatTimeThree = 0;
-        imgStartPos = startPos.position;
     }
 
     void Update()
     {
-        if (sequenceOneStart)
+        if (sequenceOneActive)
         {
-            print(beatTimeOne);
             beatTimeOne += Time.deltaTime;
         }
         else
+        {
             beatTimeOne = 0;
+        }
 
-        if (sequenceTwoStart)
+        if (sequenceTwoActive)
         {
             beatTimeTwo += Time.deltaTime;
         }
         else
+        {
             beatTimeTwo = 0;
 
+        }
 
-        if (sequenceThreeStart)
+        if (sequenceThreeActive)
         {
             beatTimeThree += Time.deltaTime;
         }
         else
+        {
             beatTimeThree = 0;
+
+        }
     }
 
     private void ButtonSequence(int _beat)
@@ -73,18 +95,22 @@ public class QuickTimeEvent : MonoBehaviour
         if ((_beat + 3) % 4 == 0)
         {
             if(activeButtonCount < 3)
+            {
                 GetButton();
+            }
         }
     }
 
     private void GetButton()
     {
+        print("GET BUTTON");
         //Get Random Index
         int buttonIndex = Random.Range(0, buttons.Length);
 
         //Check the list to see if this button is already active
         if (!activeButtons.Contains(buttonIndex))
         {
+            activeButtons.Enqueue(buttonIndex);
             activeButtonCount++;
         }
         else
@@ -92,61 +118,85 @@ public class QuickTimeEvent : MonoBehaviour
             GetButton();
         }
 
-
-        if (activeButtonCount == 1 && !activeButtons.Contains(buttonIndex) && !sequenceOneStart)
+        //Button one
+        if (activeButtonCount == 1)
         {
-            sequenceOneStart = true;
             //Key to press
             KeyCode key = GetKeyToPress(buttonIndex);
-            //Store key to press
-            keyToPressOne = key;
-            //Store array index
-            activeButtons.Enqueue(buttonIndex);
-            //Start button one seqence
-            StartCoroutine(ButtonOne(buttons[buttonIndex], buttonIndex));
+            StartCoroutine(ButtonOne(buttons[buttonIndex], buttonIndex, key));
+        }
+        //button two
+        if (activeButtonCount == 2)
+        {
+            //Key to press
+            KeyCode key = GetKeyToPress(buttonIndex);
+            StartCoroutine(ButtonTwo(buttons[buttonIndex], buttonIndex, key));
         }
 
-        if (activeButtonCount == 2 && !activeButtons.Contains(buttonIndex) && !sequenceTwoStart)
+        //Button three
+        if (activeButtonCount == 3)
         {
-            sequenceTwoStart = true;
             //Key to press
             KeyCode key = GetKeyToPress(buttonIndex);
-            //Store key to press
-            
-            keyToPressTwo = key;
-            //Store array index
-            activeButtons.Enqueue(buttonIndex);
-            //Start button one seqence
-            StartCoroutine(ButtonTwo(buttons[buttonIndex], buttonIndex));
-        }
-
-        if (activeButtonCount == 3 && !activeButtons.Contains(buttonIndex) && !sequenceThreeStart)
-        {
-            sequenceThreeStart = true;
-            //Key to press
-            KeyCode key = GetKeyToPress(buttonIndex);
-            //Store key to press
-            
-            keyToPressThree = key;
-            //Store array index
-            activeButtons.Enqueue(buttonIndex);
-            //Start button one seqence
-            StartCoroutine(ButtonThree(buttons[buttonIndex], buttonIndex));
+            StartCoroutine(ButtonThree(buttons[buttonIndex], buttonIndex, key));
         }
     }
 
-
-    private IEnumerator ButtonOne(GameObject _currentButton, int _arrayIndex)
+    private IEnumerator DisplayButton(GameObject _currentButton, int _arrayIndex, bool _sequence, KeyCode _keyToPress)
     {
-        //Enable button
-        _currentButton.SetActive(true);
-        //Move
+        bool inputPressed = false;
+        _sequence = true;                                                               //Sequence start
+        _currentButton.SetActive(true);                                                 //Enable button
+        RectTransform rect = _currentButton.gameObject.GetComponent<RectTransform>();   //Get rect for button
+        int id = rect.LeanMoveLocalX(-1450f, beatTempo).id;                             //Move button
+        while (LeanTween.isTweening(id))
+        {
+            bool input = Input.GetKeyDown(_keyToPress);
+            if (input)
+            {
+                if (sequenceOneActive)
+                {
+                    inputPressed = true;
+                }
+                if (sequenceTwoActive && !sequenceOneActive)
+                {
+                    inputPressed = true;
+                }
+                if (sequenceThreeActive && !sequenceTwoActive)
+                {
+                    inputPressed = true;
+                }
+                break;
+            }
+            yield return null;
+        }
+
+        if (inputPressed)
+        {
+            //DisplayHitOrMiss();//Check results
+        }
+        _sequence = false;                              //Disable sequence
+        LeanTween.cancel(id);                           //Cancel leantween
+        rect.transform.position = startPos.position;    //Reset button pos
+        activeButtons.Dequeue();                        //Remove button from queue
+        _currentButton.SetActive(false);                //Disable button
+    }
+
+
+    private IEnumerator ButtonOne(GameObject _currentButton, int _arrayIndex, KeyCode _keyToPress)
+    {
+        bool inputPressed = false;      //Input check
+        sequenceOneActive = true;       //Enable sequence
+        _currentButton.SetActive(true); //Enable button
+
+        //Rect
         RectTransform rect = _currentButton.gameObject.GetComponent<RectTransform>();
+
+        //LeanTween
         int id = rect.LeanMoveLocalX(-1450f, beatTempo).id;
         while (LeanTween.isTweening(id))
         {
-            bool input = Input.GetKeyDown(keyToPressOne);
-            Debug.Log(keyToPressTwo.ToString() + " Pressed: " + input);
+            bool input = Input.GetKeyDown(_keyToPress);
             if (input)
             {
                 inputPressed = true;
@@ -155,102 +205,94 @@ public class QuickTimeEvent : MonoBehaviour
             yield return null;
         }
 
-        activeButtons.Dequeue();
-        sequenceOneStart = false;
-        //Reset
-        LeanTween.cancel(id);
-        rect.position = startPos.position;
-        _currentButton.SetActive(false);
-        //Check time
-        if (beatTimeOne >= 0.9805 && beatTimeOne < 1.2000)
+        LeanTween.cancel(id);                           //Cancel leantween
+        rect.transform.position = startPos.position;    //Reset button rect pos
+        if (inputPressed)
         {
-            StartCoroutine(DisplayResult(perfectResult));
-        }
-        else
-        {
-            if (inputPressed)
-                StartCoroutine(DisplayResult(missResult));
+            DisplayResult();
         }
 
-        inputPressed = false;
-
+        if (activeButtons.Count > 0)
+            activeButtons.Dequeue();        //Remove active button
+        sequenceOneActive = false;          //Disable sequence
+        _currentButton.SetActive(false);    //Disable button
     }
 
-
-
-    private IEnumerator ButtonTwo(GameObject _currentButton, int _arrayIndex)
+    private IEnumerator ButtonTwo(GameObject _currentButton, int _arrayIndex, KeyCode _keyToPress)
     {
-        _currentButton.SetActive(true);
-        //Move
+        bool inputPressed = false;      //Input check
+        sequenceTwoActive = true;       //Enable sequence
+        _currentButton.SetActive(true); //Enable button
+
+        //Rect
         RectTransform rect = _currentButton.gameObject.GetComponent<RectTransform>();
+
+        //LeanTween
         int id = rect.LeanMoveLocalX(-1450f, beatTempo).id;
         while (LeanTween.isTweening(id))
         {
-            bool input = Input.GetKeyDown(keyToPressTwo);
-            if (input && !sequenceOneStart)
+            bool input = Input.GetKeyDown(_keyToPress);
+            if (input && !sequenceOneActive)
             {
-                sequenceTwoStart = false;
                 inputPressed = true;
                 break;
             }
             yield return null;
         }
-        //Reset
-        sequenceTwoStart = false;
-        activeButtons.Dequeue();
-        LeanTween.cancel(id);
-        rect.position = startPos.position;
-        _currentButton.SetActive(false);
-        //Check time
-        if (beatTimeTwo >= 0.9805 && beatTimeTwo < 1.2000)
+
+        LeanTween.cancel(id);                           //Cancel leantween
+        rect.transform.position = startPos.position;    //Reset button rect pos
+        if (inputPressed)
         {
-            StartCoroutine(DisplayResult(perfectResult));
+            DisplayResult();
         }
-        else
-        {
-            if (inputPressed)
-                StartCoroutine(DisplayResult(missResult));
-        }
-        inputPressed = false;
+
+        if (activeButtons.Count > 0)
+            activeButtons.Dequeue();        //Remove active button
+        sequenceTwoActive = false;          //Disable sequence
+        _currentButton.SetActive(false);    //Disable button
     }
 
-    private IEnumerator ButtonThree(GameObject _currentButton, int _arrayIndex)
+    private IEnumerator ButtonThree(GameObject _currentButton, int _arrayIndex, KeyCode _keyToPress)
     {
-        _currentButton.SetActive(true);
-        //Move
+        bool inputPressed = false;      //Input check
+        sequenceOneActive = true;       //Enable sequence
+        _currentButton.SetActive(true); //Enable button
+
+        //Rect
         RectTransform rect = _currentButton.gameObject.GetComponent<RectTransform>();
+
+        //LeanTween
         int id = rect.LeanMoveLocalX(-1450f, beatTempo).id;
         while (LeanTween.isTweening(id))
         {
-            bool input = Input.GetKeyDown(keyToPressThree);
-            if (input && !sequenceTwoStart)
+            bool input = Input.GetKeyDown(_keyToPress);
+            if (input && !sequenceTwoActive)
             {
-                sequenceThreeStart = false;
                 inputPressed = true;
                 break;
             }
             yield return null;
         }
-        double time = beatTimeThree;
-        sequenceThreeStart = false;
-        endQTE = true;
-        //Reset
-        activeButtons.Dequeue();
-        LeanTween.cancel(id);
-        rect.position = startPos.position;
-        _currentButton.SetActive(false);
-        //Check time
-        if (beatTimeThree >= 0.9805 && beatTimeThree < 1.2000)
-        {
-            StartCoroutine(DisplayResult(perfectResult));
-        }
-        else
-        {
-            if(inputPressed)
-                StartCoroutine(DisplayResult(missResult));
-        }
-        inputPressed = false;
 
+        LeanTween.cancel(id);                           //Cancel leantween
+        rect.transform.position = startPos.position;    //Reset button rect pos
+
+        if (inputPressed)
+            DisplayResult();
+        else
+            EndSequence();
+
+        if(activeButtons.Count > 0)
+            activeButtons.Dequeue();        //Remove active button
+        sequenceOneActive = false;          //Disable sequence
+        _currentButton.SetActive(false);    //Disable button
+    }
+
+    private void EndSequence()
+    {
+        if (activeButtonCount >= 3)
+            StartCoroutine(EndQuickTimeEvent(1.7f));
     }
 
     private IEnumerator DisplayResult(GameObject _result)
@@ -263,22 +305,36 @@ public class QuickTimeEvent : MonoBehaviour
         {
             yield return null;
         }
+        LeanTween.cancel(id);
         //Reset result position
         _result.transform.localScale = new Vector3(1, 1, 1);
         //Disable result
         _result.SetActive(false);
 
-        //QTE finished
-        if (endQTE)
+        
+    }
+
+    public void DisplayResult()
+    {
+        if (beatTimeOne >= 0.9805 && beatTimeOne < 1.2000)
         {
-            activeButtonCount = 0;
-            sequenceOneStart = false;
-            sequenceTwoStart = false;
-            sequenceThreeStart = false;
-            LeanTween.cancelAll();
-            endQTE = false;
-            this.gameObject.SetActive(false);
+            StartCoroutine(DisplayResult(perfectResult));
         }
+        else
+        {
+            StartCoroutine(DisplayResult(missResult));
+        }
+
+        if (activeButtonCount >= 3)
+        {
+            EndSequence();
+        }
+    }
+
+    private IEnumerator EndQuickTimeEvent(float _wait)
+    {
+        yield return new WaitForSecondsRealtime(_wait);
+        this.gameObject.SetActive(false);
     }
 
     public KeyCode GetKeyToPress(int _buttonIndex)

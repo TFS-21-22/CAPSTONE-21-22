@@ -15,7 +15,6 @@ public enum EBeatScore
 
 public class RhythmCanvas : MonoBehaviour
 {
-    public static RhythmCanvas instance;
     public PauseMenuManager pauseMenuScript;
 
     public Image xButton;   //"X" button image
@@ -65,22 +64,15 @@ public class RhythmCanvas : MonoBehaviour
 
     int bossButtonPresses = 0;
 
-    void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(this);
-        }
-        else if (instance != null)
-        {
-            Destroy(this);
-        }
-    }
-
     void OnEnable()
     {
+        BeatMaster.Beat += BeatCheck;
         RandomBackgroundActive(buttonBG, true);//Random UI BG + Random Key Direction
+    }
+
+    void OnDisable()
+    {
+        BeatMaster.Beat -= BeatCheck;
     }
 
     // Start is called before the first frame update
@@ -89,7 +81,7 @@ public class RhythmCanvas : MonoBehaviour
         keyPressed = false;
         scoreTextStartPos = perfect.transform.position;
         scaling = false;
-        BeatMaster.Beat += BeatCheck;
+        
 
     }
 

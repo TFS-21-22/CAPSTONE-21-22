@@ -6,6 +6,7 @@ using UnityEngine.VFX;
 
 public class Strafe : MonoBehaviour
 {
+    public RhythmCanvas rhythmScript;
     [Header("Image")]
     [SerializeField] private Image xCricle;
     [SerializeField] private Image xButton;
@@ -23,8 +24,6 @@ public class Strafe : MonoBehaviour
     [SerializeField] private AudioClip lilyImpactAudioClip;
     //Impact Audio (Obstacles)
     [SerializeField] private AudioSource waterImpactAudioSource;
-
-
 
     //VFX
     [Header("VFX")]
@@ -83,10 +82,7 @@ public class Strafe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(BeatMaster.instance.beatCount);
         QuickTimeEvent();
-
-        //Movement
         Movement();
         Jump();
         Duck();
@@ -99,7 +95,7 @@ public class Strafe : MonoBehaviour
         //camera.StartCoroutine(camera.CameraSwitch(3));                        //Camera Switch      //CAUSES CAMERA JITTER, what is the point of this if we already have tiger sequence?
         bossSequence = true;                                                   //Set sqeuence true
         //RhythmCanvas.instance.pulsing = true;
-        RhythmCanvas.instance.currentEnemyQTE = tiger.gameObject;
+        rhythmScript.currentEnemyQTE = tiger.gameObject;
     }
 
     void TigerEnable()
@@ -213,38 +209,38 @@ public class Strafe : MonoBehaviour
         
         float beatCount = BeatMaster.instance.beatCount;
 
-        if(beatCount == 10)
-        {
-            quickTimeEvent.SetActive(true);
-        }
+        //if(beatCount == 10)
+        //{
+        //    quickTimeEvent.SetActive(true);
+        //}
 
-        if(beatCount == 393)
-        {
-            TigerEnable();
-        }    
+        //if (beatCount == 35)
+        //{
+        //    quickTimeEvent.SetActive(true);
+        //}
+
+        //if (beatCount == 60)
+        //{
+        //    quickTimeEvent.SetActive(true);
+        //}
+
+        //if (beatCount == 85)
+        //{
+        //    quickTimeEvent.SetActive(true);
+        //}
+
+        //if (beatCount == 110)
+        //{
+        //    quickTimeEvent.SetActive(true);
+        //}
+
+        //if (beatCount == 393)
+        //{
+        //    TigerEnable();
+        //}    
 
 
-        /*
-        if(beatCount == 10)
-        {
-            quickTimeEvent.SetActive(true);
-        }
-
-        if (beatCount == 30)
-        {
-            quickTimeEvent.SetActive(true);
-        }
-
-        if (beatCount == 50)
-        {
-            quickTimeEvent.SetActive(true);
-        }
-
-        if (beatCount == 70)
-        {
-            quickTimeEvent.SetActive(true);
-        }
-        */
+       
     }
 
     void OnCollisionEnter(Collision collision)
