@@ -43,7 +43,7 @@ public class Transition : MonoBehaviour
     void Update()
     {
 
-        if (scoreMultiplyer >= 1.0f && !dreamState)
+        if (scoreMultiplyer >= 10.0f && !dreamState)
         {
             dreamState = true;
 

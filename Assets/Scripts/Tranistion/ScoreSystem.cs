@@ -68,9 +68,9 @@ public class ScoreSystem : MonoBehaviour
             time = 0.0f;
             StartCoroutine(ScoreAdder());
 
-            if(scoreMulitplyer > 30.0f)
+            if(scoreMulitplyer > 100.0f)
             {
-                scoreMulitplyer = 30.0f;
+                scoreMulitplyer = 100.0f;
             }
            
         }
