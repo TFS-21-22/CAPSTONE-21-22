@@ -11,12 +11,14 @@ public class CanvasManager : MonoBehaviour
     public Button backButton;
     public Button returnToMenuButton;
     public Button returnToGameButton;
-   
+
+    public Button compendiumButton;
+    public Button compendiumnBackButton;
+
     public GameObject mainMenu;
     public GameObject settingsMenu;
     public GameObject pauseMenu;
-
- 
+    public GameObject compendiumMenu;
 
     public Slider volumeSlider;
     // Start is called before the first frame update
@@ -52,6 +54,14 @@ public class CanvasManager : MonoBehaviour
             returnToGameButton.onClick.AddListener(() => ReturnToGame());
         }
 
+        if (compendiumButton)
+        {
+            compendiumButton.onClick.AddListener(EnableCompendium);
+        }
+        if (compendiumnBackButton)
+        {
+            compendiumnBackButton.onClick.AddListener(DisableCompendium);
+        }
 
     }
 
@@ -79,6 +89,17 @@ public class CanvasManager : MonoBehaviour
     {
         settingsMenu.SetActive(true);
         mainMenu.SetActive(false);
+    }
+
+    private void DisableCompendium()
+    {
+        compendiumMenu.SetActive(false);
+        mainMenu.SetActive(true);
+    }
+
+    private void EnableCompendium()
+    {
+        compendiumMenu.SetActive(true);
     }
 
     public void ReturnToGame()
