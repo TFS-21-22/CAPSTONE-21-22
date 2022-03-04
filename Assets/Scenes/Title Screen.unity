@@ -3455,6 +3455,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: JOP Compendium
       objectReference: {fileID: 0}
+    - target: {fileID: 3852034824395774655, guid: dc3b9a7487c3f574ba5b09515deebe5d, type: 3}
+      propertyPath: unusedPage0
+      value: 
+      objectReference: {fileID: 21300000, guid: c04f790dea797074ca6e4c0dba535bd8, type: 3}
+    - target: {fileID: 3852034824395774655, guid: dc3b9a7487c3f574ba5b09515deebe5d, type: 3}
+      propertyPath: unusedPage1
+      value: 
+      objectReference: {fileID: 21300000, guid: b85a8930eb040ad4984e6393bcdefcdb, type: 3}
+    - target: {fileID: 3852034824395774655, guid: dc3b9a7487c3f574ba5b09515deebe5d, type: 3}
+      propertyPath: unusedPage2
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ec5a42e068fd764da0e0d6422b8af50, type: 3}
+    - target: {fileID: 3852034824395774655, guid: dc3b9a7487c3f574ba5b09515deebe5d, type: 3}
+      propertyPath: unusedPage3
+      value: 
+      objectReference: {fileID: 21300000, guid: c277af471578af9468a93da5265cea2a, type: 3}
+    - target: {fileID: 3852034824395774655, guid: dc3b9a7487c3f574ba5b09515deebe5d, type: 3}
+      propertyPath: unusedPage4
+      value: 
+      objectReference: {fileID: 21300000, guid: b322104b295637846a0e3164532019c2, type: 3}
+    - target: {fileID: 3852034824395774655, guid: dc3b9a7487c3f574ba5b09515deebe5d, type: 3}
+      propertyPath: unusedPage5
+      value: 
+      objectReference: {fileID: 21300000, guid: 1055a0f7cc183204fb98dd49ac4fb7e6, type: 3}
+    - target: {fileID: 3852034824395774655, guid: dc3b9a7487c3f574ba5b09515deebe5d, type: 3}
+      propertyPath: bookPages.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852034824395774655, guid: dc3b9a7487c3f574ba5b09515deebe5d, type: 3}
+      propertyPath: bookPages.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 160c851ff87717f4fbac72e252eb5796, type: 3}
+    - target: {fileID: 3852034824395774655, guid: dc3b9a7487c3f574ba5b09515deebe5d, type: 3}
+      propertyPath: bookPages.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: bcdf3ff3a317f7f40862353f12ef4e59, type: 3}
+    - target: {fileID: 3852034824395774655, guid: dc3b9a7487c3f574ba5b09515deebe5d, type: 3}
+      propertyPath: bookPages.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: 160c851ff87717f4fbac72e252eb5796, type: 3}
     - target: {fileID: 3852034824410956527, guid: dc3b9a7487c3f574ba5b09515deebe5d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

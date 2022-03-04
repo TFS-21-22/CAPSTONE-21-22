@@ -150,32 +150,34 @@ public class Book : MonoBehaviour {
         {
             UpdateBook();
         }
-       
-        if (CPManager.instance.collectables[0] == true)
-        {
-            bookPages[1] = unusedPage0;
-        }
-        if (CPManager.instance.collectables[1] == true)
-        {
-            bookPages[3] = unusedPage1;
-        }
-        if (CPManager.instance.collectables[2] == true)
-        {
-            bookPages[5] = unusedPage2;
-        }
-        if (CPManager.instance.collectables[3] == true)
-        {
-            bookPages[7] = unusedPage3;
-        }
-        if (CPManager.instance.collectables[4] == true)
-        {
-            bookPages[9] = unusedPage4;
-        }
-        if (CPManager.instance.collectables[5] == true)
-        {
-            bookPages[11] = unusedPage5;
-        }
         
+        if (CPManager.instance)
+        {
+            if (CPManager.instance.collectables[0] == true || CPManager.instance.collectablesSaved[0] == true)
+            {
+                bookPages[1] = unusedPage0;
+            }
+            if (CPManager.instance.collectables[1] == true || CPManager.instance.collectablesSaved[1] == true)
+            {
+                bookPages[3] = unusedPage1;
+            }
+            if (CPManager.instance.collectables[2] == true || CPManager.instance.collectablesSaved[2] == true)
+            {
+                bookPages[5] = unusedPage2;
+            }
+            if (CPManager.instance.collectables[3] == true || CPManager.instance.collectablesSaved[3] == true)
+            {
+                bookPages[7] = unusedPage3;
+            }
+            if (CPManager.instance.collectables[4] == true || CPManager.instance.collectablesSaved[4] == true)
+            {
+                bookPages[9] = unusedPage4;
+            }
+            if (CPManager.instance.collectables[5] == true || CPManager.instance.collectablesSaved[5] == true)
+            {
+                bookPages[11] = unusedPage5;
+            }
+        }              
     }
     public void UpdateBook()
     {
