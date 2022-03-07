@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class QuickTimeEvent : MonoBehaviour
 {
+    public PauseMenuManager pauseMenuScript;
+    public Animator anim;
+
     [SerializeField] private GameObject[] buttons = new GameObject[12];
     [SerializeField] private RectTransform startPos;
     private float beatTempo;
@@ -16,9 +19,12 @@ public class QuickTimeEvent : MonoBehaviour
     private bool sequenceOneActive, sequenceTwoActive, sequenceThreeActive;
     private bool inputPressedOne, inputPressedTwo, inputPressedThree;
     private bool endQTE = false;
+    private int poseCount = 0;
 
     [SerializeField] private GameObject perfectResult;
     [SerializeField] private GameObject missResult;
+
+    
 
     Vector2 imgStartPos;
 
@@ -40,6 +46,7 @@ public class QuickTimeEvent : MonoBehaviour
         inputPressedOne = false;
         inputPressedTwo = false;
         inputPressedThree = false;
+        poseCount = 0;
         //print("Active Buttons: " + activeButtonCount);
         //print("BeatTime 1: " + beatTimeOne);
         //print("BeatTime 2: " + beatTimeOne);
@@ -60,34 +67,26 @@ public class QuickTimeEvent : MonoBehaviour
 
     void Update()
     {
+        //MARLON USE THE "POSECOUNT" VARIABLE TO DETERMINE WHAT POSE THEY ARE ON I ALREADY ADDED IT IN THE CODE JUST MAKE IT WORK WITH THE ANIMATOR
+        //EVERYTIME THE PLAYER PRESSES GET A PERFECT IT WILL INCREMENT IF THEY DONT THE POSE COUNT WILL STAY THE SAME // FYI GIVE ANIM A REFERENCE ITS NULL
+      
         if (sequenceOneActive)
-        {
             beatTimeOne += Time.deltaTime;
-        }
         else
-        {
             beatTimeOne = 0;
-        }
+
 
         if (sequenceTwoActive)
-        {
             beatTimeTwo += Time.deltaTime;
-        }
         else
-        {
             beatTimeTwo = 0;
 
-        }
-
         if (sequenceThreeActive)
-        {
             beatTimeThree += Time.deltaTime;
-        }
         else
-        {
             beatTimeThree = 0;
 
-        }
+        
     }
 
     private void ButtonSequence(int _beat)
@@ -142,6 +141,7 @@ public class QuickTimeEvent : MonoBehaviour
         }
     }
 
+    //Not being used for now
     private IEnumerator DisplayButton(GameObject _currentButton, int _arrayIndex, bool _sequence, KeyCode _keyToPress)
     {
         bool inputPressed = false;
@@ -209,6 +209,7 @@ public class QuickTimeEvent : MonoBehaviour
         rect.transform.position = startPos.position;    //Reset button rect pos
         if (inputPressed)
         {
+            poseCount++;
             DisplayResult();
         }
 
@@ -244,6 +245,7 @@ public class QuickTimeEvent : MonoBehaviour
         rect.transform.position = startPos.position;    //Reset button rect pos
         if (inputPressed)
         {
+            poseCount++;
             DisplayResult();
         }
 
@@ -279,11 +281,16 @@ public class QuickTimeEvent : MonoBehaviour
         rect.transform.position = startPos.position;    //Reset button rect pos
 
         if (inputPressed)
+        {
+            poseCount++;
             DisplayResult();
+        }
         else
+        {
             EndSequence();
+        }
 
-        if(activeButtons.Count > 0)
+        if (activeButtons.Count > 0)
             activeButtons.Dequeue();        //Remove active button
         sequenceOneActive = false;          //Disable sequence
         _currentButton.SetActive(false);    //Disable button

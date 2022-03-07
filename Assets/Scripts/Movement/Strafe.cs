@@ -209,38 +209,35 @@ public class Strafe : MonoBehaviour
         
         float beatCount = BeatMaster.instance.beatCount;
 
-        //if(beatCount == 10)
-        //{
-        //    quickTimeEvent.SetActive(true);
-        //}
+        if (beatCount == 10)
+        {
+            quickTimeEvent.SetActive(true);
+        }
 
-        //if (beatCount == 35)
-        //{
-        //    quickTimeEvent.SetActive(true);
-        //}
+        if (beatCount == 35)
+        {
+            quickTimeEvent.SetActive(true);
+        }
 
-        //if (beatCount == 60)
-        //{
-        //    quickTimeEvent.SetActive(true);
-        //}
+        if (beatCount == 60)
+        {
+            quickTimeEvent.SetActive(true);
+        }
 
-        //if (beatCount == 85)
-        //{
-        //    quickTimeEvent.SetActive(true);
-        //}
+        if (beatCount == 85)
+        {
+            quickTimeEvent.SetActive(true);
+        }
 
-        //if (beatCount == 110)
-        //{
-        //    quickTimeEvent.SetActive(true);
-        //}
+      
 
-        //if (beatCount == 393)
-        //{
-        //    TigerEnable();
-        //}    
+        if (beatCount == 393)
+        {
+            TigerEnable();
+        }
 
 
-       
+
     }
 
     void OnCollisionEnter(Collision collision)
