@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class PauseMenuManager : MonoBehaviour
 {
+    [SerializeField] private GameObject newQuickTimeEvent;
 
     [SerializeField] private RhythmCanvas rhythmCanvas;
     [SerializeField] private Strafe strafeScript;
@@ -34,6 +35,7 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private GameObject videoSettingsMenuParent;
     [SerializeField] private GameObject volumeSettingsMenuParent;
     [SerializeField] private GameObject controlsSettingsMenuParent;
+
 
 
     //Menu
@@ -144,50 +146,55 @@ public class PauseMenuManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape) && music.isPlaying)
         {
-            if (!isPaused)
+            if(!newQuickTimeEvent.activeSelf && !rhythmCanvas.gameObject.activeSelf)
             {
-                isPaused = true;
+                if (!isPaused)
+                {
+                    isPaused = true;
 
-                //Enable Pause Menu UI
-                pauseMenu.SetActive(true);
+                    //Enable Pause Menu UI
+                    pauseMenu.SetActive(true);
 
-                //Disable Audio + BeatMaster
-                music.Pause();
+                    //Disable Audio + BeatMaster
+                    music.Pause();
 
-                waterSFX.Pause();
+                    waterSFX.Pause();
 
-                //Disable Canvas
-                if (rhythmCanvas.gameObject.activeSelf)
-                    rhythmCanvas.gameObject.SetActive(false);
+                    //Disable Canvas
+                    if (rhythmCanvas.gameObject.activeSelf)
+                        rhythmCanvas.gameObject.SetActive(false);
 
-                //Disable Movement
-                strafeScript.enabled = false;
+                    //Disable Movement
+                    strafeScript.enabled = false;
+
+                }
+                else
+                {
+                    isPaused = false;
+
+                    //Disable Movement
+                    strafeScript.enabled = true;
+
+                    //Enable Pause Menu UI
+                    settingsMenu.SetActive(false);
+                    pauseMenu.SetActive(false);
+
+                    //Disable Audio + BeatMaster
+                    music.UnPause();
+                    waterSFX.UnPause();
+
+
+                    //Disable Canvas
+                    if (rhythmCanvas.gameObject.activeSelf)
+                        rhythmCanvas.gameObject.SetActive(true);
+
+
+                    //Disable beatmaster
+                    BeatMaster.instance.enabled = true;
+
+                }
             }
-            else
-            {
-                isPaused = false;
-
-                //Disable Movement
-                strafeScript.enabled = true;
-
-                //Enable Pause Menu UI
-                settingsMenu.SetActive(false);
-                pauseMenu.SetActive(false);
-
-                //Disable Audio + BeatMaster
-                music.UnPause();
-                waterSFX.UnPause();
-
-
-                //Disable Canvas
-                if (rhythmCanvas.gameObject.activeSelf)
-                    rhythmCanvas.gameObject.SetActive(true);
-                
-
-                //Disable beatmaster
-                BeatMaster.instance.enabled = true;
-
-            }
+            
         }   
     }
 

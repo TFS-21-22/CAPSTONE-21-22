@@ -46,6 +46,7 @@ public class Strafe : MonoBehaviour
     public GameObject enemy;
     public GameObject fireFly;
     public Canvas rhythmCanvas;
+    [SerializeField] Transform raftTransform;
 
     //bools
     [Header("Bool")]
@@ -86,9 +87,8 @@ public class Strafe : MonoBehaviour
         Movement();
         Jump();
         Duck();
-
-        //impactparticle.transform.position = hit.point;
-        //impactparticle.transform.rotation = quaternion.lookrotation(hit.normal);
+        
+        
     }
 
     public void TigerButtonSequence()
