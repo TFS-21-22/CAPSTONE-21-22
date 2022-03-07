@@ -122,7 +122,7 @@ public class PauseMenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {        
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             Application.Quit();
         }
@@ -142,7 +142,7 @@ public class PauseMenuManager : MonoBehaviour
         }
         //////////
 
-        if (Input.GetKeyDown(KeyCode.P) && music.isPlaying)
+        if (Input.GetKeyDown(KeyCode.Escape) && music.isPlaying)
         {
             if (!isPaused)
             {

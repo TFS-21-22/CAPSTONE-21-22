@@ -24,7 +24,9 @@ public class QuickTimeEvent : MonoBehaviour
     [SerializeField] private GameObject perfectResult;
     [SerializeField] private GameObject missResult;
 
-    
+    float Timecheck;
+
+
 
     Vector2 imgStartPos;
 
@@ -67,9 +69,14 @@ public class QuickTimeEvent : MonoBehaviour
 
     void Update()
     {
+        anim.SetInteger("POSECOUNT", poseCount);
+
+        Timecheck += Time.deltaTime;
+
+        print(Timecheck);
         //MARLON USE THE "POSECOUNT" VARIABLE TO DETERMINE WHAT POSE THEY ARE ON I ALREADY ADDED IT IN THE CODE JUST MAKE IT WORK WITH THE ANIMATOR
         //EVERYTIME THE PLAYER PRESSES GET A PERFECT IT WILL INCREMENT IF THEY DONT THE POSE COUNT WILL STAY THE SAME // FYI GIVE ANIM A REFERENCE ITS NULL
-      
+
         if (sequenceOneActive)
             beatTimeOne += Time.deltaTime;
         else
@@ -209,6 +216,7 @@ public class QuickTimeEvent : MonoBehaviour
         rect.transform.position = startPos.position;    //Reset button rect pos
         if (inputPressed)
         {
+            
             poseCount++;
             DisplayResult();
         }

@@ -86,6 +86,9 @@ public class Strafe : MonoBehaviour
         Movement();
         Jump();
         Duck();
+
+        //impactparticle.transform.position = hit.point;
+        //impactparticle.transform.rotation = quaternion.lookrotation(hit.normal);
     }
 
     public void TigerButtonSequence()
