@@ -229,10 +229,7 @@ public class Strafe : MonoBehaviour
             quickTimeEvent.SetActive(true);
         }
 
-        if (beatCount == 110)
-        {
-            quickTimeEvent.SetActive(true);
-        }
+      
 
         if (beatCount == 393)
         {
@@ -265,7 +262,6 @@ public class Strafe : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Obstacle"))
         {
-            StartCoroutine(Collision(2.0f));
             waterImpactAudioSource.Play();
             other.gameObject.SetActive(false);
             anim.SetTrigger("High Collision");
@@ -351,7 +347,7 @@ public class Strafe : MonoBehaviour
             stopperR = false;
         }
 
-        if (other.gameObject.CompareTag("Log"))
+        if (other.gameObject.CompareTag("Log") || other.gameObject.CompareTag("Obstacle"))
         {
             camera.hit = false;
             camera.InduceStress(0);
@@ -359,17 +355,6 @@ public class Strafe : MonoBehaviour
             Camera.main.transform.localPosition = camPos;
             anim.ResetTrigger("High Collision");
             anim.ResetTrigger("Low Collision");
-        }
-
-        if(other.gameObject.CompareTag("Obstacle"))
-        {
-            camera.hit = false;
-            camera.InduceStress(0);
-            // Debug.Log("hit");
-            Camera.main.transform.localPosition = camPos;
-            anim.ResetTrigger("High Collision");
-            anim.ResetTrigger("Low Collision");
-
         }
 
         if (other.gameObject.CompareTag("Heart"))

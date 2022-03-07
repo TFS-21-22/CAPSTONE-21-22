@@ -191,6 +191,13 @@ public class RhythmCanvas : MonoBehaviour
             StartCoroutine(ScoreTextResult(perfect, 1f));
             StartCoroutine(DestroyEnemyQTE(1f, perfect, currentEnemyQTE));
         }
+
+        if (beatTime > 2.126f)
+        {
+            RandomBackgroundActive(buttonBG, false);
+            StartCoroutine(ScoreTextResult(miss, 1f));
+            StartCoroutine(DestroyEnemyQTE(1f, miss, currentEnemyQTE));
+        }
     }
 
     IEnumerator Pulsing()
