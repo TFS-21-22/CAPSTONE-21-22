@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -8526111503136589884}
   m_Layer: 0
   m_Name: Coconut
-  m_TagString: DNDP
+  m_TagString: Log
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
