@@ -43,6 +43,7 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject startMenu;
     [SerializeField] private GameObject compendiumMenu;
+    [SerializeField] private GameObject HUD;
 
     //Resolutons
     [SerializeField] private Dropdown resolutionsDropdown;
@@ -154,6 +155,7 @@ public class PauseMenuManager : MonoBehaviour
 
                     //Enable Pause Menu UI
                     pauseMenu.SetActive(true);
+                    HUD.SetActive(false);
 
                     //Disable Audio + BeatMaster
                     music.Pause();
@@ -178,6 +180,7 @@ public class PauseMenuManager : MonoBehaviour
                     //Enable Pause Menu UI
                     settingsMenu.SetActive(false);
                     pauseMenu.SetActive(false);
+                    HUD.SetActive(true);
 
                     //Disable Audio + BeatMaster
                     music.UnPause();
@@ -204,6 +207,7 @@ public class PauseMenuManager : MonoBehaviour
 
         //Enable Pause Menu UI
         pauseMenu.SetActive(false);
+        HUD.SetActive(true);
 
         //Disable Audio + BeatMaster
         music.UnPause();
@@ -267,6 +271,7 @@ public class PauseMenuManager : MonoBehaviour
     private void EnableCompendium()
     {
         compendiumMenu.SetActive(true);
+        HUD.GetComponent<HUD>().collObj.SetActive(false);
     }
 
     private void EnableSettingsMenu()
@@ -286,6 +291,7 @@ public class PauseMenuManager : MonoBehaviour
 
         //Enable Pause Menu UI
         pauseMenu.SetActive(false);
+        HUD.SetActive(true);
 
         //Disable Audio + BeatMaster
         music.UnPause();

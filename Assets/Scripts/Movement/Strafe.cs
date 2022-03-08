@@ -112,20 +112,17 @@ public class Strafe : MonoBehaviour
     
     IEnumerator Collision(float waitTime)
     {
-        if(canHurt)
+        Collider collider = GetComponent<Collider>();
+        collider.enabled = false;
+        GameManager.instance.health--;
+
+        if (GameManager.instance.health <= 0)
         {
-            GameManager.instance.health--;
-            canHurt = false;
-           if(GameManager.instance.health <= 0)
-            {
-                anim.SetTrigger("Death");
-            }
+            anim.SetTrigger("Death");
         }
-        else
-        {
-            yield return new WaitForSeconds(waitTime);
-            canHurt = true;
-        }
+        yield return new WaitForSeconds(waitTime);
+
+        print(GameManager.instance.health);
     }
 
     private void Movement()

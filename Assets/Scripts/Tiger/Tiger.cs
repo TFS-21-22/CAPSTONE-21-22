@@ -10,6 +10,8 @@ public class Tiger : MonoBehaviour
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform projectileSpawnLocation;
 
+    [SerializeField] private GameObject roarParticle;
+
     public Queue<GameObject> pool = new Queue<GameObject>();
 
     int shotsFired = 0;
@@ -17,22 +19,8 @@ public class Tiger : MonoBehaviour
     public bool chooseLane = true;
     bool chooseInt = false;
     int currentLane = 0;
-
     float lerpDuration = 4f;
     
-
-    void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(this);
-        }
-        else if (instance != null)
-        {
-            Destroy(this);
-        }
-    }
 
     public enum CurrentState
     {
@@ -49,6 +37,7 @@ public class Tiger : MonoBehaviour
         shotsFired = 0;
         canShoot = true;
         BossState = CurrentState.Idle;
+        chooseLane = false;
     }
 
     // Start is called before the first frame update
@@ -117,9 +106,11 @@ public class Tiger : MonoBehaviour
     IEnumerator Shoot(float wait)
     {
         GetProjectile();
+        roarParticle.SetActive(true);
         yield return new WaitForSeconds(wait);
         shotsFired++;
         canShoot = true;
+        roarParticle.SetActive(false);
     }
     IEnumerator MoveTiger(float wait)
     {
