@@ -112,16 +112,7 @@ AnimationClip:
     path: 
   m_ScaleCurves: []
   m_FloatCurves: []
-  m_PPtrCurves:
-  - curve:
-    - time: 0
-      value: {fileID: 0}
-    - time: 1.05
-      value: {fileID: 0}
-    attribute: animCom
-    path: 
-    classID: 114
-    script: {fileID: 11500000, guid: 9bdb6b1fc70ee4f46af3af61a34be953, type: 3}
+  m_PPtrCurves: []
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -143,16 +134,7 @@ AnimationClip:
       typeID: 4
       customType: 4
       isPPtrCurve: 0
-    - serializedVersion: 2
-      path: 0
-      attribute: 2089260531
-      script: {fileID: 11500000, guid: 9bdb6b1fc70ee4f46af3af61a34be953, type: 3}
-      typeID: 114
-      customType: 0
-      isPPtrCurve: 1
-    pptrCurveMapping:
-    - {fileID: 0}
-    - {fileID: 0}
+    pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
