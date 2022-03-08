@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2329857954232119813}
   - component: {fileID: 2889460909241258805}
   - component: {fileID: 7925474200723714679}
+  - component: {fileID: 8302386172472261810}
   m_Layer: 0
   m_Name: Boat
   m_TagString: Untagged
@@ -110,3 +111,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.2675347, y: 0.8055473, z: 0.7355596}
   m_Center: {x: -0.24549752, y: 0.3972495, z: 0.17992902}
+--- !u!111 &8302386172472261810
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2917817674050086661}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 0f621464254ecbf4d8f9ebfaf72566eb, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 0f621464254ecbf4d8f9ebfaf72566eb, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
