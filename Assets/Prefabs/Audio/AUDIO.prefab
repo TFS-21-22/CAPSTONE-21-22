@@ -51,6 +51,8 @@ MonoBehaviour:
   currentBeat: -1
   timeSignature: 4
   beatFeel: 0.1
+  beatCount: 0
+  scoreSystem: {fileID: 0}
 --- !u!82 &8127738443922233133
 AudioSource:
   m_ObjectHideFlags: 0
@@ -60,8 +62,8 @@ AudioSource:
   m_GameObject: {fileID: 8127738443922233138}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 0d0f73b690fc8384e9306244f08ee222, type: 2}
+  m_audioClip: {fileID: 8300000, guid: db77033c74d1b7146b9b9d0875d8d944, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
