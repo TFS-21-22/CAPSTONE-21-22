@@ -216,10 +216,12 @@ public class QuickTimeEvent : MonoBehaviour
         rect.transform.position = startPos.position;    //Reset button rect pos
         if (inputPressed)
         {
-            
             poseCount++;
+            
             DisplayResult();
         }
+      
+   
 
         if (activeButtons.Count > 0)
             activeButtons.Dequeue();        //Remove active button
@@ -308,6 +310,7 @@ public class QuickTimeEvent : MonoBehaviour
     {
         if (activeButtonCount >= 3)
             StartCoroutine(EndQuickTimeEvent(1.7f));
+        //poseCount = 0;
     }
 
     private IEnumerator DisplayResult(GameObject _result)
@@ -334,15 +337,20 @@ public class QuickTimeEvent : MonoBehaviour
         if (beatTimeOne >= 0.9805 && beatTimeOne < 1.2000)
         {
             StartCoroutine(DisplayResult(perfectResult));
+           // poseCount++;
         }
         else
         {
             StartCoroutine(DisplayResult(missResult));
+           // poseCount = 0;
         }
 
         if (activeButtonCount >= 3)
         {
             EndSequence();
+       
+                
+            
         }
     }
 
@@ -374,6 +382,14 @@ public class QuickTimeEvent : MonoBehaviour
         else
         {
             return downArrow;
+        }
+    }
+
+    void PoseCountReset()
+    {
+        if(poseCount > 0)
+        {
+            poseCount = 0;
         }
     }
 }
