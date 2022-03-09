@@ -67,7 +67,6 @@ public class Wisp2 : MonoBehaviour
     public void WispButtonSequence()
     {
         rhythmCanvas.gameObject.SetActive(true);                                //Set Button Squence Active
-        rhythmCanvas.wisp = gameObject;
         camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;  //Camera Movement
         camera.StartCoroutine(camera.CameraSwitch(3));                        //Camera Switch      //CAUSES CAMERA JITTER, what is the point of this if we already have tiger sequence?
         wispSequence = true;                                                 //Set sqeuence true

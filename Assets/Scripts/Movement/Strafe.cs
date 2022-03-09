@@ -87,6 +87,7 @@ public class Strafe : MonoBehaviour
         Movement();
         Jump();
         Duck();
+        PlayerRotation();
     }
 
     public void TigerButtonSequence()
@@ -204,8 +205,11 @@ public class Strafe : MonoBehaviour
     {
         
         float beatCount = BeatMaster.instance.beatCount;
-        print(beatCount);
-
+        //print(beatCount);
+        if (beatCount == 11)
+        {
+            quickTimeEvent.SetActive(true);
+        }
         if (beatCount == 118)
         {
             quickTimeEvent.SetActive(true);
@@ -228,6 +232,13 @@ public class Strafe : MonoBehaviour
 
 
 
+    }
+
+    public void PlayerRotation()
+    {
+        
+
+       
     }
 
     void OnCollisionEnter(Collision collision)

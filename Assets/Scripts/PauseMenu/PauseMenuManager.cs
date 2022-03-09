@@ -12,6 +12,8 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private Strafe strafeScript;
     [SerializeField] private AudioSource music;
     [SerializeField] private AudioSource waterSFX;
+    [SerializeField] private AudioSource fireAmabience;
+    [SerializeField] private AudioSource forestAmbience;
     [SerializeField] private Slider musicVolumeSlider;
     [SerializeField] private Slider waterVolumeSlider;
 
@@ -159,8 +161,9 @@ public class PauseMenuManager : MonoBehaviour
 
                     //Disable Audio + BeatMaster
                     music.Pause();
-
                     waterSFX.Pause();
+                    fireAmabience.Pause();
+                    forestAmbience.Pause();
 
                     //Disable Canvas
                     if (rhythmCanvas.gameObject.activeSelf)
@@ -185,6 +188,8 @@ public class PauseMenuManager : MonoBehaviour
                     //Disable Audio + BeatMaster
                     music.UnPause();
                     waterSFX.UnPause();
+                    fireAmabience.UnPause();
+                    forestAmbience.UnPause();
 
 
                     //Disable Canvas

@@ -5663,7 +5663,6 @@ GameObject:
   - component: {fileID: 2180381476990358218}
   - component: {fileID: 2180381476990358216}
   - component: {fileID: 2180381476990358215}
-  - component: {fileID: 2180381476990358212}
   - component: {fileID: 2180381476990358213}
   m_Layer: 0
   m_Name: Player_Final
@@ -5851,24 +5850,7 @@ MonoBehaviour:
   offset: 0
   input: 0
   Amplitude: 3
---- !u!114 &2180381476990358212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4717308977694728311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05f1f73457a7c2247a7ce57fa6ffcbeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amplitude: 1
-  speed: 1
-  offset: 0
-  length: 2
-  direction: 1
-  heightoffset: 0
+  rayTransform: {fileID: 0}
 --- !u!114 &2180381476990358213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5902,6 +5884,7 @@ MonoBehaviour:
   fireFly: {fileID: 0}
   rhythmCanvas: {fileID: 0}
   raftTransform: {fileID: 0}
+  waterPhysicsScript: {fileID: 0}
   activeQTE: 0
   bossSequence: 0
   stopperL: 0

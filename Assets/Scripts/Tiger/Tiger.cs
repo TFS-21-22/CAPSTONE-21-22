@@ -34,9 +34,9 @@ public class Tiger : MonoBehaviour
 
     void OnEnable()
     {
+        BossState = CurrentState.Idle;
         shotsFired = 0;
         canShoot = true;
-        BossState = CurrentState.Idle;
         chooseLane = false;
     }
 

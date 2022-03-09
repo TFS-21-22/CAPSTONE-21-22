@@ -32,8 +32,6 @@ public class RhythmCanvas : MonoBehaviour
     public Vector3 scoreTextStartPos;
 
     [SerializeField] private GameObject[] buttonBG = new GameObject[4];     //Button Backgrounds
-    public GameObject wisp;
-
     //Score Text
     [SerializeField] private GameObject perfect;
     [SerializeField] private GameObject good;
@@ -43,26 +41,14 @@ public class RhythmCanvas : MonoBehaviour
 
     public bool scaling;                   //Button scailing
     public bool pulsing = false;           //Used to check determine beat check
-    private float timeBetweenBeats = 3.8f;
-    private float flux = 1.85f;
-
+    private float flux = 1.84f;
     private bool sequencePressed = false;
-    int buttonBGarrayIndex;
-    int buttonScoreTextarrayIndex;
-
     private double beatTime = 0.0f;  //Button press time
     private int rhythmTextLeanId;
-
-    float smoothSpeed = 1f;
+    private bool keyPressed = false;
 
     [SerializeField] private Transform buttonCenter;
     [SerializeField] private Transform[] keyPositions = new Transform[3];
-
-    private bool keyPressed = false;
-
-    float timeDebug;
-
-    int bossButtonPresses = 0;
 
     void OnEnable()
     {
@@ -163,7 +149,7 @@ public class RhythmCanvas : MonoBehaviour
                 xCircle.transform.localScale -= new Vector3(flux * Time.deltaTime, flux * Time.deltaTime, flux * Time.deltaTime);
             yield return null;
         }
-        print("BREAK");
+        
         if (beatTime < 1.284f && beatTime >= 0)
         {
             RandomBackgroundActive(buttonBG, false);

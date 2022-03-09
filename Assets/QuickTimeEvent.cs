@@ -22,6 +22,7 @@ public class QuickTimeEvent : MonoBehaviour
     private int poseCount = 0;
 
     [SerializeField] private GameObject perfectResult;
+    [SerializeField] private GameObject okayResult;
     [SerializeField] private GameObject missResult;
 
     float Timecheck;
@@ -70,28 +71,19 @@ public class QuickTimeEvent : MonoBehaviour
     void Update()
     {
         anim.SetInteger("POSECOUNT", poseCount);
-
-        Timecheck += Time.deltaTime;
-
-        //print(Timecheck);
-        //MARLON USE THE "POSECOUNT" VARIABLE TO DETERMINE WHAT POSE THEY ARE ON I ALREADY ADDED IT IN THE CODE JUST MAKE IT WORK WITH THE ANIMATOR
-        //EVERYTIME THE PLAYER PRESSES GET A PERFECT IT WILL INCREMENT IF THEY DONT THE POSE COUNT WILL STAY THE SAME // FYI GIVE ANIM A REFERENCE ITS NULL
-
+        print(beatTimeOne);
         if (sequenceOneActive)
             beatTimeOne += Time.deltaTime;
-        else
-            beatTimeOne = 0;
+        
 
 
         if (sequenceTwoActive)
             beatTimeTwo += Time.deltaTime;
-        else
-            beatTimeTwo = 0;
+       
 
         if (sequenceThreeActive)
             beatTimeThree += Time.deltaTime;
-        else
-            beatTimeThree = 0;
+       
 
         
     }
@@ -148,48 +140,6 @@ public class QuickTimeEvent : MonoBehaviour
         }
     }
 
-    //Not being used for now
-    private IEnumerator DisplayButton(GameObject _currentButton, int _arrayIndex, bool _sequence, KeyCode _keyToPress)
-    {
-        bool inputPressed = false;
-        _sequence = true;                                                               //Sequence start
-        _currentButton.SetActive(true);                                                 //Enable button
-        RectTransform rect = _currentButton.gameObject.GetComponent<RectTransform>();   //Get rect for button
-        int id = rect.LeanMoveLocalX(-1450f, beatTempo).id;                             //Move button
-        while (LeanTween.isTweening(id))
-        {
-            bool input = Input.GetKeyDown(_keyToPress);
-            if (input)
-            {
-                if (sequenceOneActive)
-                {
-                    inputPressed = true;
-                }
-                if (sequenceTwoActive && !sequenceOneActive)
-                {
-                    inputPressed = true;
-                }
-                if (sequenceThreeActive && !sequenceTwoActive)
-                {
-                    inputPressed = true;
-                }
-                break;
-            }
-            yield return null;
-        }
-
-        if (inputPressed)
-        {
-            //DisplayHitOrMiss();//Check results
-        }
-        _sequence = false;                              //Disable sequence
-        LeanTween.cancel(id);                           //Cancel leantween
-        rect.transform.position = startPos.position;    //Reset button pos
-        activeButtons.Dequeue();                        //Remove button from queue
-        _currentButton.SetActive(false);                //Disable button
-    }
-
-
     private IEnumerator ButtonOne(GameObject _currentButton, int _arrayIndex, KeyCode _keyToPress)
     {
         bool inputPressed = false;      //Input check
@@ -216,8 +166,6 @@ public class QuickTimeEvent : MonoBehaviour
         rect.transform.position = startPos.position;    //Reset button rect pos
         if (inputPressed)
         {
-            poseCount++;
-            
             DisplayResult();
         }
       
@@ -268,7 +216,7 @@ public class QuickTimeEvent : MonoBehaviour
     private IEnumerator ButtonThree(GameObject _currentButton, int _arrayIndex, KeyCode _keyToPress)
     {
         bool inputPressed = false;      //Input check
-        sequenceOneActive = true;       //Enable sequence
+        sequenceThreeActive = true;       //Enable sequence
         _currentButton.SetActive(true); //Enable button
 
         //Rect
@@ -302,7 +250,7 @@ public class QuickTimeEvent : MonoBehaviour
 
         if (activeButtons.Count > 0)
             activeButtons.Dequeue();        //Remove active button
-        sequenceOneActive = false;          //Disable sequence
+        sequenceThreeActive = false;          //Disable sequence
         _currentButton.SetActive(false);    //Disable button
     }
 
@@ -334,16 +282,75 @@ public class QuickTimeEvent : MonoBehaviour
 
     public void DisplayResult()
     {
-        if (beatTimeOne >= 0.9805 && beatTimeOne < 1.2000)
+        double perfectMinValue = 1.18010120779276;
+        double perfectMaxValue = 1.30871340599842;
+
+        double minValue = 1.009010120779276;
+        double maxValue = 1.50371340599842;
+        if (sequenceOneActive)
         {
-            StartCoroutine(DisplayResult(perfectResult));
-           // poseCount++;
+            
+
+            if (beatTimeOne >= minValue && beatTimeOne <= maxValue)
+            {
+                if(beatTimeOne >= perfectMinValue && beatTimeOne <= perfectMaxValue)
+                {
+                    StartCoroutine(DisplayResult(perfectResult));
+                }
+                else
+                {
+                    StartCoroutine(DisplayResult(okayResult));
+                } 
+            }
+            else
+            {
+                StartCoroutine(DisplayResult(missResult));
+
+            }
         }
-        else
+
+        if (sequenceTwoActive)
         {
-            StartCoroutine(DisplayResult(missResult));
-           // poseCount = 0;
+            if (beatTimeTwo >= minValue && beatTimeTwo <= maxValue)
+            {
+                if (beatTimeTwo >= perfectMinValue && beatTimeTwo <= perfectMaxValue)
+                {
+                    StartCoroutine(DisplayResult(perfectResult));
+                }
+                else
+                {
+                    StartCoroutine(DisplayResult(okayResult));
+                }
+            }
+            else
+            {
+                StartCoroutine(DisplayResult(missResult));
+
+            }
         }
+
+        if (sequenceThreeActive)
+        {
+            if (beatTimeThree >= minValue && beatTimeThree < maxValue)
+            {
+                if (beatTimeThree >= perfectMinValue && beatTimeThree <= perfectMaxValue)
+                {
+                    StartCoroutine(DisplayResult(perfectResult));
+                }
+                else
+                {
+                    StartCoroutine(DisplayResult(okayResult));
+                }
+            }
+            else
+            {
+                StartCoroutine(DisplayResult(missResult));
+
+            }
+        }
+
+
+
 
         if (activeButtonCount >= 3)
         {
