@@ -114,7 +114,7 @@ MonoBehaviour:
     m_Value: -11
   saturation:
     m_OverrideState: 1
-    m_Value: -8
+    m_Value: -29
 --- !u!114 &496682064335472113
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -130,10 +130,10 @@ MonoBehaviour:
   active: 1
   temperature:
     m_OverrideState: 1
-    m_Value: 28
+    m_Value: 79
   tint:
     m_OverrideState: 1
-    m_Value: 11
+    m_Value: 37
 --- !u!114 &1444096521094275306
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -174,13 +174,13 @@ MonoBehaviour:
   active: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 0.96
+    m_Value: 0.54
   intensity:
     m_OverrideState: 1
-    m_Value: 5.23
+    m_Value: 0.69
   scatter:
     m_OverrideState: 1
-    m_Value: 0.847
+    m_Value: 0.897
   clamp:
     m_OverrideState: 0
     m_Value: 65472

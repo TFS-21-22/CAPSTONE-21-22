@@ -20,9 +20,9 @@ MonoBehaviour:
   sortingLayerID: 0
   sortingOrder: 0
   noiseTexture: {fileID: 2800000, guid: 9c79340e1a1054275ba04070a27de306, type: 3}
-  noiseStrength: 2.06
-  noiseScale: 15
-  noiseFinalMultiplier: 1
+  noiseStrength: 2.21
+  noiseScale: 9.8
+  noiseFinalMultiplier: 0.64
   useDetailNoise: 0
   detailTexture: {fileID: 11700000, guid: 950add8d241c6479bbab1f10e1035d60, type: 2}
   detailScale: 0.35
@@ -42,7 +42,7 @@ MonoBehaviour:
   terrainFogHeight: 25
   terrainFogMinAltitude: 0
   terrainFogMaxAltitude: 150
-  albedo: {r: 0.99726784, g: 0.71132076, b: 1, a: 0.83137256}
+  albedo: {r: 0.99726784, g: 0.71132076, b: 1, a: 0.7647059}
   enableDepthGradient: 0
   depthGradient:
     serializedVersion: 2
@@ -104,13 +104,13 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  brightness: 1
+  brightness: 1.28
   deepObscurance: 0.399
   specularColor: {r: 0.53733534, g: 0.9543948, b: 0.990566, a: 1}
   specularThreshold: 0.589
   specularIntensity: 0.428
   turbulence: 0.73
-  windDirection: {x: 0.02, y: 0, z: 0}
+  windDirection: {x: 0.01, y: 0, z: 0}
   lightDiffusionPower: 32
   lightDiffusionIntensity: 0.4
   receiveShadows: 0
