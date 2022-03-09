@@ -87,8 +87,6 @@ public class Strafe : MonoBehaviour
         Movement();
         Jump();
         Duck();
-        
-        
     }
 
     public void TigerButtonSequence()
@@ -112,8 +110,8 @@ public class Strafe : MonoBehaviour
     
     IEnumerator Collision(float waitTime)
     {
-        Collider collider = GetComponent<Collider>();
-        collider.enabled = false;
+        //Collider collider = GetComponent<Collider>();
+        //collider.enabled = false;
         GameManager.instance.health--;
 
         if (GameManager.instance.health <= 0)
@@ -121,8 +119,6 @@ public class Strafe : MonoBehaviour
             anim.SetTrigger("Death");
         }
         yield return new WaitForSeconds(waitTime);
-
-        print(GameManager.instance.health);
     }
 
     private void Movement()
@@ -208,28 +204,22 @@ public class Strafe : MonoBehaviour
     {
         
         float beatCount = BeatMaster.instance.beatCount;
+        print(beatCount);
 
-        if (beatCount == 10)
+        if (beatCount == 118)
         {
             quickTimeEvent.SetActive(true);
         }
 
-        if (beatCount == 35)
+        if (beatCount == 280)
         {
             quickTimeEvent.SetActive(true);
         }
 
-        if (beatCount == 60)
+        if (beatCount == 340)
         {
             quickTimeEvent.SetActive(true);
         }
-
-        if (beatCount == 85)
-        {
-            quickTimeEvent.SetActive(true);
-        }
-
-      
 
         if (beatCount == 393)
         {
