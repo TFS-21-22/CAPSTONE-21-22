@@ -113,7 +113,7 @@ public class Strafe : MonoBehaviour
     {
         //Collider collider = GetComponent<Collider>();
         //collider.enabled = false;
-        GameManager.instance.health--;
+        //GameManager.instance.health--;
 
         if (GameManager.instance.health <= 0)
         {
