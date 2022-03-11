@@ -21,6 +21,10 @@ public class QuickTimeEvent : MonoBehaviour
     private bool endQTE = false;
     private int poseCount = 0;
 
+    private float scoreMultiplier = 0;
+
+    public ScoreSystem scoreSystem;
+
     [SerializeField] private GameObject perfectResult;
     [SerializeField] private GameObject okayResult;
     [SerializeField] private GameObject missResult;
@@ -71,7 +75,7 @@ public class QuickTimeEvent : MonoBehaviour
     void Update()
     {
         anim.SetInteger("POSECOUNT", poseCount);
-        print(beatTimeOne);
+       // print(beatTimeOne);
         if (sequenceOneActive)
             beatTimeOne += Time.deltaTime;
         
@@ -203,7 +207,7 @@ public class QuickTimeEvent : MonoBehaviour
         rect.transform.position = startPos.position;    //Reset button rect pos
         if (inputPressed)
         {
-            poseCount++;
+           // poseCount++;
             DisplayResult();
         }
 
@@ -240,7 +244,7 @@ public class QuickTimeEvent : MonoBehaviour
 
         if (inputPressed)
         {
-            poseCount++;
+            //poseCount++;
             DisplayResult();
         }
         else
@@ -258,7 +262,8 @@ public class QuickTimeEvent : MonoBehaviour
     {
         if (activeButtonCount >= 3)
             StartCoroutine(EndQuickTimeEvent(1.7f));
-        //poseCount = 0;
+        StartCoroutine(PoseCountReset());
+
     }
 
     private IEnumerator DisplayResult(GameObject _result)
@@ -296,17 +301,35 @@ public class QuickTimeEvent : MonoBehaviour
                 if(beatTimeOne >= perfectMinValue && beatTimeOne <= perfectMaxValue)
                 {
                     StartCoroutine(DisplayResult(perfectResult));
+                   
+                    poseCount++;
+
+                    scoreMultiplier = 3;
+
+                    scoreSystem.score += 100 * scoreMultiplier;
                 }
                 else
                 {
                     StartCoroutine(DisplayResult(okayResult));
+                   
+                    poseCount++;
+
+                    scoreMultiplier = 2;
+
+                    scoreSystem.score += 100 * scoreMultiplier;
                 } 
             }
             else
             {
                 StartCoroutine(DisplayResult(missResult));
+                poseCount--;
 
+                scoreMultiplier = 0;
+
+                scoreSystem.score += 100 * scoreMultiplier;
             }
+
+            
         }
 
         if (sequenceTwoActive)
@@ -316,17 +339,35 @@ public class QuickTimeEvent : MonoBehaviour
                 if (beatTimeTwo >= perfectMinValue && beatTimeTwo <= perfectMaxValue)
                 {
                     StartCoroutine(DisplayResult(perfectResult));
+                    
+                    poseCount++;
+
+                    scoreMultiplier = 3;
+
+                    scoreSystem.score += 100 * scoreMultiplier;
                 }
                 else
                 {
                     StartCoroutine(DisplayResult(okayResult));
+                    
+                    poseCount++;
+
+                    scoreMultiplier = 2;
+
+                    scoreSystem.score += 100 * scoreMultiplier;
                 }
             }
             else
             {
                 StartCoroutine(DisplayResult(missResult));
+                
+                poseCount--;
 
+                scoreMultiplier = 0;
+
+                scoreSystem.score += 100 * scoreMultiplier;
             }
+
         }
 
         if (sequenceThreeActive)
@@ -336,17 +377,35 @@ public class QuickTimeEvent : MonoBehaviour
                 if (beatTimeThree >= perfectMinValue && beatTimeThree <= perfectMaxValue)
                 {
                     StartCoroutine(DisplayResult(perfectResult));
+                    
+                    poseCount++;
+
+                    scoreMultiplier = 3;
+
+                    scoreSystem.score += 100 * scoreMultiplier;
                 }
                 else
                 {
                     StartCoroutine(DisplayResult(okayResult));
+                   
+                    poseCount++;
+
+                    scoreMultiplier = 2;
+
+                    scoreSystem.score += 100 * scoreMultiplier;
                 }
             }
             else
             {
                 StartCoroutine(DisplayResult(missResult));
 
+                poseCount--;
+
+                scoreMultiplier = 0;
+
+                scoreSystem.score += 100 * scoreMultiplier;
             }
+            
         }
 
 
@@ -354,9 +413,7 @@ public class QuickTimeEvent : MonoBehaviour
 
         if (activeButtonCount >= 3)
         {
-            EndSequence();
-       
-                
+            EndSequence();            
             
         }
     }
@@ -392,11 +449,17 @@ public class QuickTimeEvent : MonoBehaviour
         }
     }
 
-    void PoseCountReset()
+    IEnumerator PoseCountReset()
     {
-        if(poseCount > 0)
+        yield return new WaitForSeconds(1.0f);
+
+        if (poseCount > 0)
         {
             poseCount = 0;
         }
+       
     }
+
+
+
 }
