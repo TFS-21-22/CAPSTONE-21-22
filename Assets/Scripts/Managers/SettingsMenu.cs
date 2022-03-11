@@ -17,19 +17,21 @@ public class SettingsMenu : MonoBehaviour
 
     [SerializeField] private Button settingsBackButton;
     [SerializeField] private Button videoSettingsButton;
-    [SerializeField] private Button HowtoPlayButton;
+    [SerializeField] private Button AudioButton;
     [SerializeField] private Button controlsButton;
 
     [SerializeField] private Toggle vsyncToggle;
     [SerializeField] private Toggle fullscreenToggle;
     [SerializeField] private Button apply;
 
+    [SerializeField] private Slider musicVolumeSlider;
+    [SerializeField] private Slider waterVolumeSlider;
 
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject compendiumMenu;
 
     [SerializeField] private GameObject videoSettingsMenuParent;
-    [SerializeField] private GameObject HowtoPlayParent;
+    [SerializeField] private GameObject AudioParent;
     [SerializeField] private GameObject controlsSettingsMenuParent;
 
     //Resolutons
@@ -42,6 +44,10 @@ public class SettingsMenu : MonoBehaviour
 
     void Start()
     {
+        waterVolumeSlider.value = GameManager.instance.SFXVolume;
+        musicVolumeSlider.value = GameManager.instance.musicVolume;
+        fullscreenToggle.isOn = GameManager.instance.screenMode;
+
         if (startButton)
         {
             startButton.onClick.AddListener(() => GameManager.instance.StartGame());
@@ -80,19 +86,15 @@ public class SettingsMenu : MonoBehaviour
         {
             controlsButton.onClick.AddListener(controlsMenu);
         }
-        if (HowtoPlayButton)
+        if (AudioButton)
         {
-            HowtoPlayButton.onClick.AddListener(HowtoPlayParentSettings);
+            AudioButton.onClick.AddListener(Audiosetting);
         }
         if (videoSettingsButton)
         {
             videoSettingsButton.onClick.AddListener(videoSettingsMenu);
         }
 
-        if (controlsButton)
-        {
-            controlsButton.onClick.AddListener(controlsMenu);
-        }
     }
     void Update()
     {
@@ -103,7 +105,9 @@ public class SettingsMenu : MonoBehaviour
 
     private void ApplySettings()
     {
-
+        GameManager.instance.musicVolume = musicVolumeSlider.value;
+        GameManager.instance.SFXVolume = waterVolumeSlider.value;
+        GameManager.instance.screenMode = fullscreenToggle.isOn;
         if (vsyncToggle.isOn)
         {
             QualitySettings.vSyncCount = 1;
@@ -113,24 +117,24 @@ public class SettingsMenu : MonoBehaviour
             QualitySettings.vSyncCount = 0;
         }
 
-        fullscreenToggle.isOn = Screen.fullScreen;
 
         if (resolutionsDropdown.value == 0)
         {
-            Screen.SetResolution(1980, 1080, fullscreenToggle.isOn = Screen.fullScreen);
+            Screen.SetResolution(1980, 1080, fullscreenToggle.isOn);
         }
         else if (resolutionsDropdown.value == 1)
         {
-            Screen.SetResolution(1360, 764, fullscreenToggle.isOn = Screen.fullScreen);
+            Screen.SetResolution(1360, 764, fullscreenToggle.isOn);
         }
         else if (resolutionsDropdown.value == 2)
         {
-            Screen.SetResolution(1280, 720, fullscreenToggle.isOn = Screen.fullScreen);
+            Screen.SetResolution(1280, 720, fullscreenToggle.isOn);
         }
         else if (resolutionsDropdown.value == 3)
         {
-            Screen.SetResolution(1152, 648, fullscreenToggle.isOn = Screen.fullScreen);
+            Screen.SetResolution(1152, 648, fullscreenToggle.isOn);
         }
+        
     }
 
     private void DisableCompendium()
@@ -144,7 +148,7 @@ public class SettingsMenu : MonoBehaviour
         MainMenu.SetActive(true);
         settingsMenu.SetActive(false);
         videoSettingsMenuParent.SetActive(false);
-        HowtoPlayParent.SetActive(false);
+        AudioParent.SetActive(false);
         controlsSettingsMenuParent.SetActive(false);
     }
 
@@ -160,28 +164,28 @@ public class SettingsMenu : MonoBehaviour
         MainMenu.SetActive(false);
         settingsMenu.SetActive(true);
         videoSettingsMenuParent.SetActive(false);
-        HowtoPlayParent.SetActive(false);
+        AudioParent.SetActive(false);
         controlsSettingsMenuParent.SetActive(false);
     }
 
     private void videoSettingsMenu()
     {
         videoSettingsMenuParent.SetActive(true);
-        HowtoPlayParent.SetActive(false);
+        AudioParent.SetActive(false);
         controlsSettingsMenuParent.SetActive(false);
     }
 
-    private void HowtoPlayParentSettings()
-    {
-        HowtoPlayParent.SetActive(true);
-        videoSettingsMenuParent.SetActive(false);
-        controlsSettingsMenuParent.SetActive(false);
-    }
     private void controlsMenu()
     {
         controlsSettingsMenuParent.SetActive(true);
         videoSettingsMenuParent.SetActive(false);
-        HowtoPlayParent.SetActive(false);
+        AudioParent.SetActive(false);
+    }
+    private void Audiosetting()
+    {
+        AudioParent.SetActive(true);
+        videoSettingsMenuParent.SetActive(false);
+        controlsSettingsMenuParent.SetActive(false);
 
     }
 }

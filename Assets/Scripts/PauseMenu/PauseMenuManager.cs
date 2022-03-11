@@ -48,7 +48,7 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private GameObject HUD;
 
     //Resolutons
-    [SerializeField] private Dropdown resolutionsDropdown;
+    [SerializeField] private TMPro.TMP_Dropdown resolutionsDropdown;
     [SerializeField] private Toggle resolutionOne;      //1920 x 1080
     [SerializeField] private Toggle resolutionTwo;      //1360 x 764
     [SerializeField] private Toggle resolutionThree;    //1280 x 720
@@ -65,10 +65,11 @@ public class PauseMenuManager : MonoBehaviour
         QualitySettings.vSyncCount = 0;
 
         //Set Volume to 0.5f
-        waterSFX.volume = defaultVolume;
-        waterVolumeSlider.value = defaultVolume;
-        musicVolumeSlider.value = defaultVolume;
-        music.volume = defaultVolume;
+        waterSFX.volume = GameManager.instance.SFXVolume;
+        waterVolumeSlider.value = GameManager.instance.SFXVolume;
+        musicVolumeSlider.value = GameManager.instance.musicVolume;
+        music.volume = GameManager.instance.musicVolume;
+        fullscreenToggle.isOn = GameManager.instance.screenMode;
 
         if (resumeButton)
         {
@@ -242,22 +243,20 @@ public class PauseMenuManager : MonoBehaviour
             QualitySettings.vSyncCount = 0;
         }
 
-        fullscreenToggle.isOn = Screen.fullScreen;
-
         if(resolutionsDropdown.value == 0)
         {
-            Screen.SetResolution(1980, 1080, fullscreenToggle.isOn = Screen.fullScreen);
+            Screen.SetResolution(1980, 1080, fullscreenToggle.isOn);
         } else if(resolutionsDropdown.value == 1)
         {
-            Screen.SetResolution(1360, 764, fullscreenToggle.isOn = Screen.fullScreen);
+            Screen.SetResolution(1360, 764, fullscreenToggle.isOn);
         }
         else if(resolutionsDropdown.value == 2)
         {
-            Screen.SetResolution(1280, 720, fullscreenToggle.isOn = Screen.fullScreen);
+            Screen.SetResolution(1280, 720, fullscreenToggle.isOn);
         }
         else if(resolutionsDropdown.value == 3)
         {
-            Screen.SetResolution(1152, 648, fullscreenToggle.isOn = Screen.fullScreen);
+            Screen.SetResolution(1152, 648, fullscreenToggle.isOn);
         }
     }
 
