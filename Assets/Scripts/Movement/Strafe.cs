@@ -370,6 +370,4 @@ public class Strafe : MonoBehaviour
         }
     }
 
-
-
 }
