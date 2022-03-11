@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2849043112741549067}
   - component: {fileID: 2849043113863565506}
   - component: {fileID: 2849043113863565507}
+  - component: {fileID: 7351228887021555488}
   m_Layer: 0
   m_Name: LilyPetal
   m_TagString: Lily
@@ -136,3 +137,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7351228887021555488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5009729931310477066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bdb6b1fc70ee4f46af3af61a34be953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animCom: {fileID: 2849043113863565506}
+  eventID: TwosJoP
