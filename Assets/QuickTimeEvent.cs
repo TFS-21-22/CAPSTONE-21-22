@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
+using SonicBloom.Koreo;
 
 public class QuickTimeEvent : MonoBehaviour
 {
@@ -25,13 +26,18 @@ public class QuickTimeEvent : MonoBehaviour
 
     public ScoreSystem scoreSystem;
 
+    [EventID]
+    public string eventID;
+
     [SerializeField] private GameObject perfectResult;
     [SerializeField] private GameObject okayResult;
     [SerializeField] private GameObject missResult;
 
     float Timecheck;
 
-
+    KeyCode seqeuence1KeyCode;
+    KeyCode seqeuence2KeyCode;
+    KeyCode seqeuence3KeyCode;
 
     Vector2 imgStartPos;
 
@@ -39,6 +45,8 @@ public class QuickTimeEvent : MonoBehaviour
     {
         BeatMaster.Beat -= ButtonSequence;
     }
+
+
 
     void OnEnable()
     {
@@ -74,7 +82,7 @@ public class QuickTimeEvent : MonoBehaviour
 
     void Update()
     {
-        anim.SetInteger("POSECOUNT", poseCount);
+       anim.SetInteger("POSECOUNT", poseCount);
        // print(beatTimeOne);
         if (sequenceOneActive)
             beatTimeOne += Time.deltaTime;
@@ -146,6 +154,7 @@ public class QuickTimeEvent : MonoBehaviour
 
     private IEnumerator ButtonOne(GameObject _currentButton, int _arrayIndex, KeyCode _keyToPress)
     {
+        seqeuence1KeyCode = _keyToPress;
         bool inputPressed = false;      //Input check
         sequenceOneActive = true;       //Enable sequence
         _currentButton.SetActive(true); //Enable button
@@ -160,6 +169,7 @@ public class QuickTimeEvent : MonoBehaviour
             bool input = Input.GetKeyDown(_keyToPress);
             if (input)
             {
+                PoseCountCheck(_keyToPress);
                 inputPressed = true;
                 break;
             }
@@ -183,6 +193,7 @@ public class QuickTimeEvent : MonoBehaviour
 
     private IEnumerator ButtonTwo(GameObject _currentButton, int _arrayIndex, KeyCode _keyToPress)
     {
+        seqeuence2KeyCode = _keyToPress;
         bool inputPressed = false;      //Input check
         sequenceTwoActive = true;       //Enable sequence
         _currentButton.SetActive(true); //Enable button
@@ -197,6 +208,7 @@ public class QuickTimeEvent : MonoBehaviour
             bool input = Input.GetKeyDown(_keyToPress);
             if (input && !sequenceOneActive)
             {
+                PoseCountCheck(_keyToPress);
                 inputPressed = true;
                 break;
             }
@@ -219,6 +231,7 @@ public class QuickTimeEvent : MonoBehaviour
 
     private IEnumerator ButtonThree(GameObject _currentButton, int _arrayIndex, KeyCode _keyToPress)
     {
+        seqeuence3KeyCode = _keyToPress;
         bool inputPressed = false;      //Input check
         sequenceThreeActive = true;       //Enable sequence
         _currentButton.SetActive(true); //Enable button
@@ -233,6 +246,7 @@ public class QuickTimeEvent : MonoBehaviour
             bool input = Input.GetKeyDown(_keyToPress);
             if (input && !sequenceTwoActive)
             {
+                PoseCountCheck(_keyToPress);
                 inputPressed = true;
                 break;
             }
@@ -262,7 +276,7 @@ public class QuickTimeEvent : MonoBehaviour
     {
         if (activeButtonCount >= 3)
             StartCoroutine(EndQuickTimeEvent(1.7f));
-        StartCoroutine(PoseCountReset());
+        //StartCoroutine(PoseCountReset());
 
     }
 
@@ -302,7 +316,7 @@ public class QuickTimeEvent : MonoBehaviour
                 {
                     StartCoroutine(DisplayResult(perfectResult));
                    
-                    poseCount++;
+                   // poseCount++;
 
                     scoreMultiplier = 3;
 
@@ -312,7 +326,7 @@ public class QuickTimeEvent : MonoBehaviour
                 {
                     StartCoroutine(DisplayResult(okayResult));
                    
-                    poseCount++;
+                   // poseCount++;
 
                     scoreMultiplier = 2;
 
@@ -322,7 +336,7 @@ public class QuickTimeEvent : MonoBehaviour
             else
             {
                 StartCoroutine(DisplayResult(missResult));
-                poseCount--;
+              //  poseCount--;
 
                 scoreMultiplier = 0;
 
@@ -340,7 +354,7 @@ public class QuickTimeEvent : MonoBehaviour
                 {
                     StartCoroutine(DisplayResult(perfectResult));
                     
-                    poseCount++;
+                    //poseCount++;
 
                     scoreMultiplier = 3;
 
@@ -350,7 +364,7 @@ public class QuickTimeEvent : MonoBehaviour
                 {
                     StartCoroutine(DisplayResult(okayResult));
                     
-                    poseCount++;
+                   // poseCount++;
 
                     scoreMultiplier = 2;
 
@@ -361,7 +375,7 @@ public class QuickTimeEvent : MonoBehaviour
             {
                 StartCoroutine(DisplayResult(missResult));
                 
-                poseCount--;
+               // poseCount--;
 
                 scoreMultiplier = 0;
 
@@ -378,7 +392,7 @@ public class QuickTimeEvent : MonoBehaviour
                 {
                     StartCoroutine(DisplayResult(perfectResult));
                     
-                    poseCount++;
+                    //poseCount++;
 
                     scoreMultiplier = 3;
 
@@ -388,7 +402,7 @@ public class QuickTimeEvent : MonoBehaviour
                 {
                     StartCoroutine(DisplayResult(okayResult));
                    
-                    poseCount++;
+                   // poseCount++;
 
                     scoreMultiplier = 2;
 
@@ -399,7 +413,7 @@ public class QuickTimeEvent : MonoBehaviour
             {
                 StartCoroutine(DisplayResult(missResult));
 
-                poseCount--;
+               // poseCount--;
 
                 scoreMultiplier = 0;
 
@@ -457,8 +471,39 @@ public class QuickTimeEvent : MonoBehaviour
         {
             poseCount = 0;
         }
-       
+
     }
+
+    void PoseCountCheck(KeyCode currentKey)
+    {
+        KeyCode leftArrow = KeyCode.LeftArrow;
+        KeyCode rightArrow = KeyCode.RightArrow;
+        KeyCode upArrow = KeyCode.UpArrow;
+        KeyCode downArrow = KeyCode.DownArrow;
+
+        if (currentKey == rightArrow)
+        {
+            poseCount = 1;
+        }
+
+        if (currentKey == leftArrow)
+        {
+            poseCount = 2;
+        }
+
+        if (currentKey == upArrow)
+        {
+            poseCount = 3;
+        }
+
+        if(currentKey == downArrow)
+        {
+            poseCount = 4;
+        }
+
+    }
+
+    
 
 
 
