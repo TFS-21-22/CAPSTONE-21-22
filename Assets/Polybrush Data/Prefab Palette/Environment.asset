@@ -221,22 +221,6 @@ MonoBehaviour:
       m_YScaleBool: 0
       m_ZScaleBool: 0
     name: Mangrove_Normal_03_W Variant
-  - gameObject: {fileID: 8111636331635984587, guid: 782fb6ff8917e764cb3c1971e6778d39, type: 3}
-    settings:
-      m_Strength: 100
-      m_RotationRangeMin: {x: 0, y: 0, z: 0}
-      m_RotationRangeMax: {x: 0, y: 360, z: 0}
-      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
-      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
-      m_UniformScale: {x: 0.58823526, y: 1.0784312}
-      m_UniformBool: 1
-      m_XRotationBool: 0
-      m_YRotationBool: 1
-      m_ZRotationBool: 0
-      m_XScaleBool: 0
-      m_YScaleBool: 0
-      m_ZScaleBool: 0
-    name: TPalm(Reimport)
   - gameObject: {fileID: 7563170949755372817, guid: c1839721e6819704caf6426191cff8d3, type: 3}
     settings:
       m_Strength: 50
