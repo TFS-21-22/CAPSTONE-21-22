@@ -32,6 +32,7 @@ public class QuickTimeEvent : MonoBehaviour
     [SerializeField] private GameObject perfectResult;
     [SerializeField] private GameObject okayResult;
     [SerializeField] private GameObject missResult;
+    [SerializeField] private WispSpawner wispSpawner;
 
     float Timecheck;
 
@@ -157,7 +158,8 @@ public class QuickTimeEvent : MonoBehaviour
         seqeuence1KeyCode = _keyToPress;
         bool inputPressed = false;      //Input check
         sequenceOneActive = true;       //Enable sequence
-        _currentButton.SetActive(true); //Enable button
+        _currentButton.SetActive(true); //Enable button      
+        wispSpawner.Spawn(_keyToPress); //Spawn Wisp
 
         //Rect
         RectTransform rect = _currentButton.gameObject.GetComponent<RectTransform>();
@@ -166,6 +168,7 @@ public class QuickTimeEvent : MonoBehaviour
         int id = rect.LeanMoveLocalX(-1450f, beatTempo).id;
         while (LeanTween.isTweening(id))
         {
+
             bool input = Input.GetKeyDown(_keyToPress);
             if (input)
             {
@@ -197,6 +200,7 @@ public class QuickTimeEvent : MonoBehaviour
         bool inputPressed = false;      //Input check
         sequenceTwoActive = true;       //Enable sequence
         _currentButton.SetActive(true); //Enable button
+        wispSpawner.Spawn(_keyToPress); //Spawn Wisp
 
         //Rect
         RectTransform rect = _currentButton.gameObject.GetComponent<RectTransform>();
@@ -235,6 +239,7 @@ public class QuickTimeEvent : MonoBehaviour
         bool inputPressed = false;      //Input check
         sequenceThreeActive = true;       //Enable sequence
         _currentButton.SetActive(true); //Enable button
+        wispSpawner.Spawn(_keyToPress); //Spawn Wisp
 
         //Rect
         RectTransform rect = _currentButton.gameObject.GetComponent<RectTransform>();
