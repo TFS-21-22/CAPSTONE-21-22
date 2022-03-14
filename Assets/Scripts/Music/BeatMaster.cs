@@ -33,13 +33,14 @@ public class BeatMaster : MonoBehaviour
 
     public void Start()
     {
+        source.Play();
         scoreSystem = FindObjectOfType<ScoreSystem>();
         source = GetComponent<AudioSource>();
         source.playOnAwake = false;
         //broadcast BPS of track...
         BPS?.Invoke(BPM / 60f);
 
-        this.Invoke("PlayThing", 1);
+        //this.Invoke("PlayThing", 1);
 
        if (CPManager.instance)
        {

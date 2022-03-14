@@ -4,6 +4,7 @@ using UnityEngine.Events;
 using UnityEngine;
 using SonicBloom.Koreo;
 
+
 public class QuickTimeEvent : MonoBehaviour
 {
     public PauseMenuManager pauseMenuScript;
@@ -11,7 +12,7 @@ public class QuickTimeEvent : MonoBehaviour
 
     [SerializeField] private GameObject[] buttons = new GameObject[12];
     [SerializeField] private RectTransform startPos;
-    private float beatTempo;
+    public float timeToFinish = 7f;
     private int activeButtonCount;
     private Queue<int> activeButtons = new Queue<int>();
     private KeyCode keyToPressOne, keyToPressTwo, keyToPressThree;
@@ -44,16 +45,16 @@ public class QuickTimeEvent : MonoBehaviour
 
     public bool correctButtonSwitch;
 
-    void OnDisable()
+    [EventID]
+    public string GetButtonID;
+
+    public void Awake()
     {
-        BeatMaster.Beat -= ButtonSequence;
+        Koreographer.Instance.RegisterForEvents(GetButtonID, delegate { ButtonSequence(); });
     }
-
-
 
     void OnEnable()
     {
-        BeatMaster.Beat += ButtonSequence;
         activeButtonCount = 0;
         beatTimeOne = 0;
         beatTimeTwo = 0;
@@ -65,22 +66,11 @@ public class QuickTimeEvent : MonoBehaviour
         inputPressedTwo = false;
         inputPressedThree = false;
         poseCount = 0;
-        //print("Active Buttons: " + activeButtonCount);
-        //print("BeatTime 1: " + beatTimeOne);
-        //print("BeatTime 2: " + beatTimeOne);
-        //print("BeatTime 3: " + beatTimeOne);
-        //print("sequenceOne: " + sequenceOneStart);
-        //print("sequenceTwo: " + sequenceTwoStart);
-        //print("sequenceThree: " + sequenceThreeStart);
-
-
-
-
     }
     // Start is called before the first frame update
     void Start()
     {
-        beatTempo = (BeatMaster.instance.BPM / 60);
+        timeToFinish = (BeatMaster.instance.BPM / 60);
     }
 
     void Update()
@@ -103,14 +93,11 @@ public class QuickTimeEvent : MonoBehaviour
         
     }
 
-    private void ButtonSequence(int _beat)
+    private void ButtonSequence()
     {
-        if ((_beat + 3) % 4 == 0)
+        if (activeButtonCount < 3)
         {
-            if(activeButtonCount < 3)
-            {
-                GetButton();
-            }
+            GetButton();
         }
     }
 
@@ -167,13 +154,14 @@ public class QuickTimeEvent : MonoBehaviour
         RectTransform rect = _currentButton.gameObject.GetComponent<RectTransform>();
 
         //LeanTween
-        int id = rect.LeanMoveLocalX(-1450f, beatTempo).id;
+        int id = rect.LeanMoveLocalX(-1450f, 3.6924f / 2).id;
         while (LeanTween.isTweening(id))
         {
 
             bool input = Input.GetKeyDown(_keyToPress);
             if (input)
             {
+                print(beatTimeOne);
                 PoseCountCheck(_keyToPress);
                 inputPressed = true;
                 break;
@@ -208,12 +196,13 @@ public class QuickTimeEvent : MonoBehaviour
         RectTransform rect = _currentButton.gameObject.GetComponent<RectTransform>();
 
         //LeanTween
-        int id = rect.LeanMoveLocalX(-1450f, beatTempo).id;
+        int id = rect.LeanMoveLocalX(-1450f, 3.6924f / 2).id;
         while (LeanTween.isTweening(id))
         {
             bool input = Input.GetKeyDown(_keyToPress);
             if (input && !sequenceOneActive)
             {
+                print(beatTimeTwo);
                 PoseCountCheck(_keyToPress);
                 inputPressed = true;
                 break;
@@ -247,12 +236,13 @@ public class QuickTimeEvent : MonoBehaviour
         RectTransform rect = _currentButton.gameObject.GetComponent<RectTransform>();
 
         //LeanTween
-        int id = rect.LeanMoveLocalX(-1450f, beatTempo).id;
+        int id = rect.LeanMoveLocalX(-1450f, 3.6924f / 2).id;
         while (LeanTween.isTweening(id))
         {
             bool input = Input.GetKeyDown(_keyToPress);
             if (input && !sequenceTwoActive)
             {
+                print(beatTimeThree);
                 PoseCountCheck(_keyToPress);
                 inputPressed = true;
                 break;
@@ -309,10 +299,10 @@ public class QuickTimeEvent : MonoBehaviour
 
     public void DisplayResult()
     {
-        double perfectMinValue = 1.18010120779276;
-        double perfectMaxValue = 1.30871340599842;
+        double perfectMinValue = 1.25010120779276;
+        double perfectMaxValue = 0.85871340599842;
 
-        double minValue = 1.009010120779276;
+        double minValue = 0.609010120779276;
         double maxValue = 1.50371340599842;
         if (sequenceOneActive)
         {
