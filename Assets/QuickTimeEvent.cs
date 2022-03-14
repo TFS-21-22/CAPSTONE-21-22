@@ -12,7 +12,7 @@ public class QuickTimeEvent : MonoBehaviour
 
     [SerializeField] private GameObject[] buttons = new GameObject[12];
     [SerializeField] private RectTransform startPos;
-    public float timeToFinish = 5f;
+    public float timeToFinish = 7f;
     private int activeButtonCount;
     private Queue<int> activeButtons = new Queue<int>();
     private KeyCode keyToPressOne, keyToPressTwo, keyToPressThree;
@@ -154,13 +154,14 @@ public class QuickTimeEvent : MonoBehaviour
         RectTransform rect = _currentButton.gameObject.GetComponent<RectTransform>();
 
         //LeanTween
-        int id = rect.LeanMoveLocalX(-1450f, timeToFinish).id;
+        int id = rect.LeanMoveLocalX(-1450f, 3.6924f / 2).id;
         while (LeanTween.isTweening(id))
         {
 
             bool input = Input.GetKeyDown(_keyToPress);
             if (input)
             {
+                print(beatTimeOne);
                 PoseCountCheck(_keyToPress);
                 inputPressed = true;
                 break;
@@ -195,12 +196,13 @@ public class QuickTimeEvent : MonoBehaviour
         RectTransform rect = _currentButton.gameObject.GetComponent<RectTransform>();
 
         //LeanTween
-        int id = rect.LeanMoveLocalX(-1450f, timeToFinish).id;
+        int id = rect.LeanMoveLocalX(-1450f, 3.6924f / 2).id;
         while (LeanTween.isTweening(id))
         {
             bool input = Input.GetKeyDown(_keyToPress);
             if (input && !sequenceOneActive)
             {
+                print(beatTimeTwo);
                 PoseCountCheck(_keyToPress);
                 inputPressed = true;
                 break;
@@ -234,12 +236,13 @@ public class QuickTimeEvent : MonoBehaviour
         RectTransform rect = _currentButton.gameObject.GetComponent<RectTransform>();
 
         //LeanTween
-        int id = rect.LeanMoveLocalX(-1450f, timeToFinish).id;
+        int id = rect.LeanMoveLocalX(-1450f, 3.6924f / 2).id;
         while (LeanTween.isTweening(id))
         {
             bool input = Input.GetKeyDown(_keyToPress);
             if (input && !sequenceTwoActive)
             {
+                print(beatTimeThree);
                 PoseCountCheck(_keyToPress);
                 inputPressed = true;
                 break;
@@ -296,10 +299,10 @@ public class QuickTimeEvent : MonoBehaviour
 
     public void DisplayResult()
     {
-        double perfectMinValue = 1.18010120779276;
-        double perfectMaxValue = 1.30871340599842;
+        double perfectMinValue = 1.25010120779276;
+        double perfectMaxValue = 0.85871340599842;
 
-        double minValue = 1.009010120779276;
+        double minValue = 0.609010120779276;
         double maxValue = 1.50371340599842;
         if (sequenceOneActive)
         {
