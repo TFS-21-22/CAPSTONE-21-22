@@ -12,7 +12,7 @@ public class QuickTimeEvent : MonoBehaviour
 
     [SerializeField] private GameObject[] buttons = new GameObject[12];
     [SerializeField] private RectTransform startPos;
-    private float timeToFinish = 3.6924f;
+    public float timeToFinish = 3.8f;
     private int activeButtonCount;
     private Queue<int> activeButtons = new Queue<int>();
     private KeyCode keyToPressOne, keyToPressTwo, keyToPressThree;
@@ -52,9 +52,6 @@ public class QuickTimeEvent : MonoBehaviour
     {
         Koreographer.Instance.RegisterForEvents(GetButtonID, delegate { ButtonSequence(); });
     }
-    void OnDisable()
-    {
-    }
 
     void OnEnable()
     {
@@ -69,22 +66,10 @@ public class QuickTimeEvent : MonoBehaviour
         inputPressedTwo = false;
         inputPressedThree = false;
         poseCount = 0;
-        //print("Active Buttons: " + activeButtonCount);
-        //print("BeatTime 1: " + beatTimeOne);
-        //print("BeatTime 2: " + beatTimeOne);
-        //print("BeatTime 3: " + beatTimeOne);
-        //print("sequenceOne: " + sequenceOneStart);
-        //print("sequenceTwo: " + sequenceTwoStart);
-        //print("sequenceThree: " + sequenceThreeStart);
-
-
-
-
     }
     // Start is called before the first frame update
     void Start()
     {
-        
         timeToFinish = (BeatMaster.instance.BPM / 60);
     }
 
