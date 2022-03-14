@@ -4,6 +4,7 @@ using UnityEngine.Events;
 using UnityEngine;
 using SonicBloom.Koreo;
 
+
 public class QuickTimeEvent : MonoBehaviour
 {
     public PauseMenuManager pauseMenuScript;
@@ -11,7 +12,7 @@ public class QuickTimeEvent : MonoBehaviour
 
     [SerializeField] private GameObject[] buttons = new GameObject[12];
     [SerializeField] private RectTransform startPos;
-    private float beatTempo;
+    private float timeToFinish = 3.6924f;
     private int activeButtonCount;
     private Queue<int> activeButtons = new Queue<int>();
     private KeyCode keyToPressOne, keyToPressTwo, keyToPressThree;
@@ -44,16 +45,19 @@ public class QuickTimeEvent : MonoBehaviour
 
     public bool correctButtonSwitch;
 
+    [EventID]
+    public string GetButtonID;
+
+    public void Awake()
+    {
+        Koreographer.Instance.RegisterForEvents(GetButtonID, delegate { ButtonSequence(); });
+    }
     void OnDisable()
     {
-        BeatMaster.Beat -= ButtonSequence;
     }
-
-
 
     void OnEnable()
     {
-        BeatMaster.Beat += ButtonSequence;
         activeButtonCount = 0;
         beatTimeOne = 0;
         beatTimeTwo = 0;
@@ -80,7 +84,8 @@ public class QuickTimeEvent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        beatTempo = (BeatMaster.instance.BPM / 60);
+        
+        timeToFinish = (BeatMaster.instance.BPM / 60);
     }
 
     void Update()
@@ -103,14 +108,11 @@ public class QuickTimeEvent : MonoBehaviour
         
     }
 
-    private void ButtonSequence(int _beat)
+    private void ButtonSequence()
     {
-        if ((_beat + 3) % 4 == 0)
+        if (activeButtonCount < 3)
         {
-            if(activeButtonCount < 3)
-            {
-                GetButton();
-            }
+            GetButton();
         }
     }
 
@@ -167,7 +169,7 @@ public class QuickTimeEvent : MonoBehaviour
         RectTransform rect = _currentButton.gameObject.GetComponent<RectTransform>();
 
         //LeanTween
-        int id = rect.LeanMoveLocalX(-1450f, beatTempo).id;
+        int id = rect.LeanMoveLocalX(-1450f, timeToFinish).id;
         while (LeanTween.isTweening(id))
         {
 
@@ -208,7 +210,7 @@ public class QuickTimeEvent : MonoBehaviour
         RectTransform rect = _currentButton.gameObject.GetComponent<RectTransform>();
 
         //LeanTween
-        int id = rect.LeanMoveLocalX(-1450f, beatTempo).id;
+        int id = rect.LeanMoveLocalX(-1450f, timeToFinish).id;
         while (LeanTween.isTweening(id))
         {
             bool input = Input.GetKeyDown(_keyToPress);
@@ -247,7 +249,7 @@ public class QuickTimeEvent : MonoBehaviour
         RectTransform rect = _currentButton.gameObject.GetComponent<RectTransform>();
 
         //LeanTween
-        int id = rect.LeanMoveLocalX(-1450f, beatTempo).id;
+        int id = rect.LeanMoveLocalX(-1450f, timeToFinish).id;
         while (LeanTween.isTweening(id))
         {
             bool input = Input.GetKeyDown(_keyToPress);

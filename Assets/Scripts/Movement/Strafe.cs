@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.VFX;
+using SonicBloom.Koreo;
 
 public class Strafe : MonoBehaviour
 {
@@ -117,6 +118,7 @@ public class Strafe : MonoBehaviour
 
         if (GameManager.instance.health <= 0)
         {
+            BeatMaster.instance.source.Stop();
             anim.SetTrigger("Death");
         }
         yield return new WaitForSeconds(waitTime);
