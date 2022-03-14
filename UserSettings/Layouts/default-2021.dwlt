@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 20
+  controlID: 76
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 21
+  controlID: 77
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -281,10 +281,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 14855}
-      m_SelectedIDs: 24d8fcff
-      m_LastClickedID: -206812
-      m_ExpandedIDs: 24d8fcff5a44fdffd43affff16caffff18cafffffaf6ffffce870000e6870000fa8700007a9900003e9c000032a7000088b0000048b40000a0b40000b2bc00004ec30000b2d80000
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: b6420100
+      m_LastClickedID: 0
+      m_ExpandedIDs: 5e85ffff6085fffffaf6ffff3e9500009a970000809d0000c69f0000cea500005ca70000aaa80000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -566,9 +566,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -185.61485, y: 30.481924, z: -337.05853}
+    m_Target: {x: -34.279556, y: 47.47627, z: -58.456978}
     speed: 2
-    m_Value: {x: -185.61485, y: 30.481924, z: -337.05853}
+    m_Value: {x: -34.279556, y: 47.47627, z: -58.456978}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -615,13 +615,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.13335055, y: -0.06646005, z: 0.027047973, w: -0.9887076}
+    m_Target: {x: 0.010948599, y: -0.97649544, z: 0.2136251, w: -0.034365706}
     speed: 2
-    m_Value: {x: -0.14472833, y: -0.024655538, z: 0.02168029, w: -0.9889266}
+    m_Value: {x: 0.011217017, y: -0.97599024, z: 0.21502142, w: -0.032909878}
   m_Size:
     m_Target: 0.8660254
     speed: 2
-    m_Value: 0.8660284
+    m_Value: 0.8660254
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -742,22 +742,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Environment_Assets/VillageHomes
+    - Assets/Prefabs/Environment_Assets/Obstacles_New/Trees
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 86
   m_LastFolders:
-  - Assets/Prefabs/Environment_Assets/VillageHomes
+  - Assets/Prefabs/Environment_Assets/Obstacles_New/Trees
   m_LastFoldersGridSize: 86
   m_LastProjectPath: C:\Users\16479\Dropbox\TFS\Capstone Nabi\Git Repository\CAPSTONE-21-22
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 1295}
-    m_SelectedIDs: 426b0100
-    m_LastClickedID: 92994
-    m_ExpandedIDs: 00000000ae310000266a0100286a01002a6a01002c6a01002e6a0100306a0100326a0100346a0100366a0100386a01003a6a01003c6a01003e6a0100406a0100426a0100446a0100466a0100486a01004a6a01004c6a01004e6a0100506a0100326b010000ca9a3bffffff7f
+    m_SelectedIDs: 807e0100
+    m_LastClickedID: 97920
+    m_ExpandedIDs: 00000000ae310000ac7d0100ae7d0100b07d0100b27d0100b47d0100b67d0100b87d0100ba7d0100bc7d0100be7d0100c07d0100c27d0100c47d0100c67d0100c87d0100ca7d0100cc7d0100ce7d0100d07d0100d27d0100d47d0100d67d010000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -785,7 +785,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 299}
     m_SelectedIDs: 7aba0000
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ae310000266a0100286a01002a6a01002c6a01002e6a0100306a0100326a0100346a0100366a0100386a01003a6a01003c6a01003e6a0100406a0100426a0100446a0100466a0100486a01004a6a01004c6a01004e6a0100506a0100
+    m_ExpandedIDs: 00000000ae310000ac7d0100ae7d0100b07d0100b27d0100b47d0100b67d0100b87d0100ba7d0100bc7d0100be7d0100c07d0100c27d0100c47d0100c67d0100c87d0100ca7d0100cc7d0100ce7d0100d07d0100d27d0100d47d0100d67d0100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

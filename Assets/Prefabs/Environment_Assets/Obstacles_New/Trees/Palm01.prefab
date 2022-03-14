@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9142494947830004781}
   - component: {fileID: 7988109087999410287}
   - component: {fileID: 395595491627377334}
+  - component: {fileID: 921685708243649073}
   m_Layer: 0
   m_Name: Palm01
   m_TagString: Untagged
@@ -84,3 +85,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &921685708243649073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8401661797354738349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 744a70b0c32fdb84da64b7677ba6db07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  scoreMultiplyer: 1
+  dreamState: 0
+  player: {fileID: 0}
+  scoreSystem: {fileID: 0}
+  startColor: {r: 1, g: 1, b: 1, a: 0}
+  endColor: {r: 0.8018868, g: 0, b: 0.57689756, a: 0}
