@@ -273,7 +273,7 @@ public class QuickTimeEvent : MonoBehaviour
     {
         if (activeButtonCount >= 3)
             StartCoroutine(EndQuickTimeEvent(1.7f));
-        //StartCoroutine(PoseCountReset());
+        StartCoroutine(PoseCountReset());
 
     }
 

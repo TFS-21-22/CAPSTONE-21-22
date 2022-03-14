@@ -70,6 +70,8 @@ public class Strafe : MonoBehaviour
     public ResultsScreen resultsScreen;
     public Animator anim;
 
+    public Bob_effect bob;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -220,6 +222,16 @@ public class Strafe : MonoBehaviour
         if (beatCount == 280)
         {
             quickTimeEvent.SetActive(true);
+        }
+
+        if(beatCount == 300)
+        {
+            bob.enabled = false;
+        }
+
+        if (beatCount == 322)
+        {
+            bob.enabled = true;
         }
 
         if (beatCount == 340)
