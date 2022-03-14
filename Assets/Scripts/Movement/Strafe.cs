@@ -118,7 +118,7 @@ public class Strafe : MonoBehaviour
 
         if (GameManager.instance.health <= 0)
         {
-            BeatMaster.instance.source.Stop();
+            //BeatMaster.instance.source.Stop();
             anim.SetTrigger("Death");
         }
         yield return new WaitForSeconds(waitTime);
