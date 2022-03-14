@@ -163,7 +163,7 @@ public class SettingsMenu : MonoBehaviour
         Title.SetActive(false);
         MainMenu.SetActive(false);
         settingsMenu.SetActive(true);
-        videoSettingsMenuParent.SetActive(false);
+        videoSettingsMenuParent.SetActive(true);
         AudioParent.SetActive(false);
         controlsSettingsMenuParent.SetActive(false);
     }
