@@ -7,6 +7,9 @@ public class WispMovement : MonoBehaviour
     public Rigidbody rb;
     public float force;
     public GameObject player;
+    public QuickTimeEvent QTE;
+
+    public float timer;
 
     // Start is called before the first frame update
     void Start()
@@ -20,5 +23,15 @@ public class WispMovement : MonoBehaviour
     {
         transform.LookAt(player.transform);
         rb.AddForce(transform.forward * force, ForceMode.Impulse);
+        timer += Time.deltaTime;
+        if (timer >= 1.1 && timer <= 2 && QTE.correctButtonSwitch == true)
+        {
+            Destroy(gameObject);
+        }
+        else if (timer >= 2.2)
+        {
+            GameManager.instance.health--;
+            Destroy(gameObject);            
+        }
     }
 }

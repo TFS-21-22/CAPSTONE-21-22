@@ -42,6 +42,8 @@ public class QuickTimeEvent : MonoBehaviour
 
     Vector2 imgStartPos;
 
+    public bool correctButtonSwitch;
+
     void OnDisable()
     {
         BeatMaster.Beat -= ButtonSequence;
@@ -301,7 +303,8 @@ public class QuickTimeEvent : MonoBehaviour
         //Disable result
         _result.SetActive(false);
 
-        
+        //DESTROY WISP HERE
+        correctButtonSwitch = false;
     }
 
     public void DisplayResult()
@@ -326,6 +329,9 @@ public class QuickTimeEvent : MonoBehaviour
                     scoreMultiplier = 3;
 
                     scoreSystem.score += 100 * scoreMultiplier;
+
+                    //DESTROY WISP HERE
+                    correctButtonSwitch = true;
                 }
                 else
                 {
@@ -336,7 +342,10 @@ public class QuickTimeEvent : MonoBehaviour
                     scoreMultiplier = 2;
 
                     scoreSystem.score += 100 * scoreMultiplier;
-                } 
+
+                    //DESTROY WISP HERE
+                    correctButtonSwitch = true;
+                }
             }
             else
             {
@@ -364,6 +373,9 @@ public class QuickTimeEvent : MonoBehaviour
                     scoreMultiplier = 3;
 
                     scoreSystem.score += 100 * scoreMultiplier;
+
+                    //DESTROY WISP HERE
+                    correctButtonSwitch = true;
                 }
                 else
                 {
@@ -374,6 +386,9 @@ public class QuickTimeEvent : MonoBehaviour
                     scoreMultiplier = 2;
 
                     scoreSystem.score += 100 * scoreMultiplier;
+
+                    //DESTROY WISP HERE
+                    correctButtonSwitch = true;
                 }
             }
             else
@@ -402,6 +417,9 @@ public class QuickTimeEvent : MonoBehaviour
                     scoreMultiplier = 3;
 
                     scoreSystem.score += 100 * scoreMultiplier;
+
+                    //DESTROY WISP HERE
+                    correctButtonSwitch = true;
                 }
                 else
                 {
@@ -412,6 +430,9 @@ public class QuickTimeEvent : MonoBehaviour
                     scoreMultiplier = 2;
 
                     scoreSystem.score += 100 * scoreMultiplier;
+
+                    //DESTROY WISP HERE
+                    correctButtonSwitch = true;
                 }
             }
             else

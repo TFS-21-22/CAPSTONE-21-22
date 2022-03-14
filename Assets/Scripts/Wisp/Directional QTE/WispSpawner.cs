@@ -9,6 +9,7 @@ public class WispSpawner : MonoBehaviour
 
     public Rigidbody wispPrefab;
     public GameObject player;
+    public QuickTimeEvent QTE;
 
     // Start is called before the first frame update
     void Start()
@@ -47,25 +48,25 @@ public class WispSpawner : MonoBehaviour
         {
             temp = Instantiate(wispPrefab, spawns[0].position, spawns[0].rotation);
             temp.GetComponent<WispMovement>().player = player;
-            Destroy(temp.gameObject, 4.0f);
+            temp.GetComponent<WispMovement>().QTE = QTE;          
         }
         else if (dir == KeyCode.UpArrow)
         {
             temp = Instantiate(wispPrefab, spawns[1].position, spawns[1].rotation);
             temp.GetComponent<WispMovement>().player = player;
-            Destroy(temp.gameObject, 4.0f);
+            temp.GetComponent<WispMovement>().QTE = QTE;
         }
         else if (dir == KeyCode.DownArrow)
         {
             temp = Instantiate(wispPrefab, spawns[1].position, spawns[1].rotation);
             temp.GetComponent<WispMovement>().player = player;
-            Destroy(temp.gameObject, 4.0f);
+            temp.GetComponent<WispMovement>().QTE = QTE;
         }
         else if (dir == KeyCode.RightArrow)
         {
             temp = Instantiate(wispPrefab, spawns[2].position, spawns[2].rotation);
             temp.GetComponent<WispMovement>().player = player;
-            Destroy(temp.gameObject, 4.0f);
+            temp.GetComponent<WispMovement>().QTE = QTE;
         }
 
 

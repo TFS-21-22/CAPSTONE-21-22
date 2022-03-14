@@ -146,6 +146,10 @@ public class PauseMenuManager : MonoBehaviour
         {
             Time.timeScale = 1;
         }
+        if (Input.GetKeyDown(KeyCode.KeypadMultiply))
+        {
+            //Time.timeScale = 0.2f;
+        }
         //////////
 
         if (Input.GetKeyDown(KeyCode.Escape) && music.isPlaying)
