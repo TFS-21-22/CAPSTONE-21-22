@@ -12,7 +12,7 @@ public class QuickTimeEvent : MonoBehaviour
 
     [SerializeField] private GameObject[] buttons = new GameObject[12];
     [SerializeField] private RectTransform startPos;
-    public float timeToFinish = 3.8f;
+    public float timeToFinish = 5f;
     private int activeButtonCount;
     private Queue<int> activeButtons = new Queue<int>();
     private KeyCode keyToPressOne, keyToPressTwo, keyToPressThree;
