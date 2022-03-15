@@ -17,12 +17,11 @@ MonoBehaviour:
   mSampleRate: 44100
   mIgnoreLatencyOffset: 0
   mTempoSections:
-  - sectionName: New Section
+  - sectionName: SequenceQTE
     startSample: 0
     samplesPerBeat: 20353.846153846156
     beatsPerMeasure: 4
     bStartNewMeasure: 1
   mTracks:
-  - {fileID: 11400000, guid: 5c42c0b283cca5443ac762198e2be9e6, type: 2}
-  - {fileID: 11400000, guid: 9a8c96a72851214458064ea13eff7761, type: 2}
-  - {fileID: 11400000, guid: 0ade67568cef29d419b7397ece6a9413, type: 2}
+  - {fileID: 11400000, guid: 67cabe1452f94264f99cc06ff2b1ee8a, type: 2}
+  - {fileID: 11400000, guid: 4cc2141cb4d685849b4393d265a18cbe, type: 2}

@@ -67,7 +67,7 @@ public class Tiger : MonoBehaviour
                 StartCoroutine(SwitchState(1f));
                 break;
             case CurrentState.ButtonSquence:
-                strafeScript.TigerButtonSequence();
+                strafeScript.TigerStartSequence();
                 break;
             case CurrentState.Move:
                 StartCoroutine(MoveTiger(1f));

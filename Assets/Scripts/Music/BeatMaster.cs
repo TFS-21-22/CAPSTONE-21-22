@@ -74,18 +74,11 @@ public class BeatMaster : MonoBehaviour
     }
 
     public static event Action<float> BPS;
-    //broadcast beat
-    public static event Action<int> Beat;
-
-
-
-    public void PlayThing() => source.Play();
 
     // Update is called once per frame
     void Update()
     {
         //Debug.Log(beatCount);
-        scoreSystem = FindObjectOfType<ScoreSystem>();
         //the source audio starts immediately on a beat, which means we can use the beats per minute to get the beats per second and increment the beats
         //based on the source time.
         temp = (int)Mathf.Ceil(((source.time - beatFeel) * (BPM / 60f)) % timeSignature);
@@ -95,7 +88,6 @@ public class BeatMaster : MonoBehaviour
         if(currentBeat != temp)
         {
             currentBeat = temp;
-            Beat?.Invoke(currentBeat);
             beatCount++;
         }
 
