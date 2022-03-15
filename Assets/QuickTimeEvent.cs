@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
-using SonicBloom.Koreo;
 
 
 public class QuickTimeEvent : MonoBehaviour
@@ -27,9 +26,6 @@ public class QuickTimeEvent : MonoBehaviour
 
     public ScoreSystem scoreSystem;
 
-    [EventID]
-    public string eventID;
-
     [SerializeField] private GameObject perfectResult;
     [SerializeField] private GameObject okayResult;
     [SerializeField] private GameObject missResult;
@@ -45,13 +41,7 @@ public class QuickTimeEvent : MonoBehaviour
 
     public bool correctButtonSwitch;
 
-    [EventID]
-    public string GetButtonID;
-
-    public void Awake()
-    {
-        Koreographer.Instance.RegisterForEvents(GetButtonID, delegate { ButtonSequence(); });
-    }
+   
 
     void OnEnable()
     {
@@ -66,6 +56,8 @@ public class QuickTimeEvent : MonoBehaviour
         inputPressedTwo = false;
         inputPressedThree = false;
         poseCount = 0;
+
+        
     }
     // Start is called before the first frame update
     void Start()
@@ -75,7 +67,13 @@ public class QuickTimeEvent : MonoBehaviour
 
     void Update()
     {
-       anim.SetInteger("POSECOUNT", poseCount);
+        if (activeButtonCount < 3)
+        {
+            GetButton();
+        }
+
+        //print(beatTimeOne);
+        //anim.SetInteger("POSECOUNT", poseCount);
        // print(beatTimeOne);
         if (sequenceOneActive)
             beatTimeOne += Time.deltaTime;
@@ -91,14 +89,6 @@ public class QuickTimeEvent : MonoBehaviour
        
 
         
-    }
-
-    private void ButtonSequence()
-    {
-        if (activeButtonCount < 3)
-        {
-            GetButton();
-        }
     }
 
     private void GetButton()
@@ -299,11 +289,11 @@ public class QuickTimeEvent : MonoBehaviour
 
     public void DisplayResult()
     {
-        double perfectMinValue = 1.25010120779276;
-        double perfectMaxValue = 0.85871340599842;
+        double perfectMinValue = 1.01917020976543;
+        double perfectMaxValue = 1.11998789012432;
 
-        double minValue = 0.609010120779276;
-        double maxValue = 1.50371340599842;
+        double minValue = 0.825594299286604;
+        double maxValue = 1.21341879799962;
         if (sequenceOneActive)
         {
             

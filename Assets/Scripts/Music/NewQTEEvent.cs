@@ -35,11 +35,6 @@ public class NewQTEEvent : MonoBehaviour
 
     [SerializeField] private Strafe strafe;
     // Start is called before the first frame update
-    private void Start()
-    {
-        //direction = new GameObject[4];
-        BeatMaster.Beat += BeatCheckQTE;
-    }
 
     private void BeatCheckQTE(int beat)
     {

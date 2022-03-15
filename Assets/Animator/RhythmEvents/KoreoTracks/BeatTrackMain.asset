@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: -1223223985, guid: aa81bbec85a3f423193272a7c6154986, type: 3}
   m_Name: BeatTrackMain
   m_EditorClassIdentifier: 
-  mEventID: BeatTrackMain
+  mEventID: CircleQTE
   mEventList:
   - mStartSample: 40707
     mEndSample: 40707

@@ -58,7 +58,7 @@ public class Wisp2 : MonoBehaviour
 
                 speed = 1F;
                 attacking = true;
-                WispButtonSequence();
+                //WispButtonSequence();
                 //Destroy(gameObject);
             }
         }
@@ -68,8 +68,8 @@ public class Wisp2 : MonoBehaviour
     {
         rhythmCanvas.gameObject.SetActive(true);                                //Set Button Squence Active
         camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;  //Camera Movement
-        camera.StartCoroutine(camera.CameraSwitch(3));                        //Camera Switch      //CAUSES CAMERA JITTER, what is the point of this if we already have tiger sequence?
-        wispSequence = true;                                                 //Set sqeuence true
+        camera.StartCoroutine(camera.CameraSwitch(3));                          //Camera Switch      //CAUSES CAMERA JITTER, what is the point of this if we already have tiger sequence?
+        wispSequence = true;                                                   //Set sqeuence true
         rhythmCanvas.currentEnemyQTE = this.gameObject;
     }
 

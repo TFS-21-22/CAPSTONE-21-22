@@ -8,6 +8,9 @@ using SonicBloom.Koreo;
 public class Strafe : MonoBehaviour
 {
     public RhythmCanvas rhythmScript;
+    public QuickTimeEvent quickTimeEventScript;
+    public Wisp2 wispScript;
+
     [Header("Image")]
     [SerializeField] private Image xCricle;
     [SerializeField] private Image xButton;
@@ -51,8 +54,6 @@ public class Strafe : MonoBehaviour
 
     //bools
     [Header("Bool")]
-    public bool activeQTE = false;
-    public bool bossSequence = false;
     public bool stopperL;
     public bool stopperR;
     public bool canHurt = true;
@@ -69,8 +70,22 @@ public class Strafe : MonoBehaviour
 
     public ResultsScreen resultsScreen;
     public Animator anim;
+    //Koreograph Event ID's
+    [EventID]
+    public string ButtonSequenceID;
+    [EventID]
+    public string WispSeqeuenceID;
+    [EventID]
+    public string TigerSequenceID;
 
-    public Bob_effect bob;
+    public void Awake()
+    {
+        //Track Event ID Listener
+        //Koreographer.Instance.RegisterForEvents(TigerSequenceID, delegate { TigerSequenceListener(); });
+        Koreographer.Instance.RegisterForEvents(WispSeqeuenceID, delegate { WispSequenceListener(); });
+        Koreographer.Instance.RegisterForEvents(ButtonSequenceID, delegate { ButtonSequenceListener(); });
+
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -79,27 +94,44 @@ public class Strafe : MonoBehaviour
         anim = GetComponent<Animator>();
         canHurt = true;
         jump = new Vector3(0.0f, 2.0f, 0.0f);
-        //fireFly.SetActive(false);
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        QuickTimeEvent();
         Movement();
         Jump();
         Duck();
-        PlayerRotation();
     }
 
-    public void TigerButtonSequence()
+    private void TigerSequenceListener()
+    {
+        //Listener - start boss fight
+        TigerEnable();
+    }
+
+    private void WispSequenceListener()
+    {
+        //Listener - Start wisp sequence
+        WispEnable();
+    }
+
+    private void ButtonSequenceListener()
+    {
+        //Listener - Start wisp sequence
+        quickTimeEventScript.enabled = true;
+    }
+
+    public void WispEnable()
     {
         rhythmCanvas.gameObject.SetActive(true);                                //Set Button Squence Active
         camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;  //Camera Movement
-        //camera.StartCoroutine(camera.CameraSwitch(3));                        //Camera Switch      //CAUSES CAMERA JITTER, what is the point of this if we already have tiger sequence?
-        bossSequence = true;                                                   //Set sqeuence true
-        //RhythmCanvas.instance.pulsing = true;
+    }
+
+    public void TigerStartSequence()
+    {
+        rhythmCanvas.gameObject.SetActive(true);                                //Set Button Squence Active
+        camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;  //Camera Movement
         rhythmScript.currentEnemyQTE = tiger.gameObject;
     }
 
@@ -108,22 +140,6 @@ public class Strafe : MonoBehaviour
         tiger.SetActive(true);
         camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;
         camera.StartCoroutine(camera.CameraSwitch(3));
-        activeQTE = true;
-    }
-
-    
-    IEnumerator Collision(float waitTime)
-    {
-        //Collider collider = GetComponent<Collider>();
-        //collider.enabled = false;
-        //GameManager.instance.health--;
-
-        if (GameManager.instance.health <= 0)
-        {
-            //BeatMaster.instance.source.Stop();
-            anim.SetTrigger("Death");
-        }
-        yield return new WaitForSeconds(waitTime);
     }
 
     private void Movement()
@@ -189,7 +205,17 @@ public class Strafe : MonoBehaviour
         
     }
 
-  
+    IEnumerator Collision(float waitTime)
+    {
+        if (GameManager.instance.health <= 0)
+        {
+            //BeatMaster.instance.source.Stop();
+            anim.SetTrigger("Death");
+        }
+        yield return new WaitForSeconds(waitTime);
+    }
+
+
 
     private void Duck()
     {
@@ -205,55 +231,8 @@ public class Strafe : MonoBehaviour
         }
     }
 
-    private void QuickTimeEvent()
-    {
-        
-        float beatCount = BeatMaster.instance.beatCount;
-        //print(beatCount);
-        if (beatCount == 11)
-        {
-            quickTimeEvent.SetActive(true);
-        }
-        if (beatCount == 118)
-        {
-            quickTimeEvent.SetActive(true);
-        }
 
-        if (beatCount == 280)
-        {
-            quickTimeEvent.SetActive(true);
-        }
-
-        if(beatCount == 300)
-        {
-            bob.enabled = false;
-        }
-
-        if (beatCount == 322)
-        {
-            bob.enabled = true;
-        }
-
-        if (beatCount == 340)
-        {
-            quickTimeEvent.SetActive(true);
-        }
-
-        if (beatCount == 393)
-        {
-            TigerEnable();
-        }
-
-
-
-    }
-
-    public void PlayerRotation()
-    {
-        
-
-       
-    }
+    
 
     void OnCollisionEnter(Collision collision)
     {

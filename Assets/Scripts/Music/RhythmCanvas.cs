@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using SonicBloom.Koreo;
 
 public enum EBeatScore
 {
@@ -41,7 +42,7 @@ public class RhythmCanvas : MonoBehaviour
 
     public bool scaling;                   //Button scailing
     public bool pulsing = false;           //Used to check determine beat check
-    private float flux = 1.84f;
+    public float flux = 3.6924f;
     private bool sequencePressed = false;
     private double beatTime = 0.0f;  //Button press time
     private int rhythmTextLeanId;
@@ -50,17 +51,23 @@ public class RhythmCanvas : MonoBehaviour
     [SerializeField] private Transform buttonCenter;
     [SerializeField] private Transform[] keyPositions = new Transform[3];
 
+    [EventID]
+    public string eventID;
+
     void OnEnable()
     {
-        BeatMaster.Beat += BeatCheck;
         RandomBackgroundActive(buttonBG, true);//Random UI BG + Random Key Direction
+                                               //Starts scaling outer "X" circle
+        if (!scaling)
+        {
+            StartCoroutine(ScaleCircle());
+        }
     }
 
-    void OnDisable()
+    void Awake()
     {
-        BeatMaster.Beat -= BeatCheck;
-    }
 
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -74,6 +81,7 @@ public class RhythmCanvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         //Debug.Log(beatTime);
 
         if (pulsing && Input.GetButtonDown("Jump"))
@@ -98,16 +106,6 @@ public class RhythmCanvas : MonoBehaviour
         else
             beatTime = 0;
 
-    }
-
-    public void BeatCheck(int beat)
-    {
-        //Checks for beat 0
-        if ((beat + 3) % 4 == 0 && !pulsing && !scaling)
-        {
-            //Starts scaling outer "X" circle
-            StartCoroutine(ScaleCircle());
-        }
     }
 
     public void RandomBackgroundActive(GameObject[] bg, bool setActive)
@@ -203,12 +201,20 @@ public class RhythmCanvas : MonoBehaviour
         pulsing = false;
         scaling = false;
         xCircle.gameObject.SetActive(false);
-        _currentEnemy.SetActive(false);
-        _currentEnemy = null;
-        _scoreText.transform.localScale = new Vector3(1f, 1f, 1f);
-        _scoreText.transform.position = scoreTextStartPos;
-        if (_scoreText.activeSelf)
+
+        if(_currentEnemy)
+        {
+            _currentEnemy.SetActive(false);
+            _currentEnemy = null;
+        }
+
+        if (_scoreText)
+        {
+            _scoreText.transform.localScale = new Vector3(1f, 1f, 1f);
+            _scoreText.transform.position = scoreTextStartPos;
             _scoreText.SetActive(false);
+        }
+       
         LeanTween.cancelAll(true);
         keyPressed = false;
         xCircle.transform.localScale = bigCircle;
