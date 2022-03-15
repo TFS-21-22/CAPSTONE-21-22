@@ -10,18 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1223223985, guid: aa81bbec85a3f423193272a7c6154986, type: 3}
-  m_Name: NewKoreographyTrack
+  m_Name: TigerTrack
   m_EditorClassIdentifier: 
-  mEventID: CircleQT
+  mEventID: TigerTrack
   mEventList:
-  - mStartSample: 1546892
-    mEndSample: 1546892
-  - mStartSample: 1872553
-    mEndSample: 1872553
-  - mStartSample: 3826523
-    mEndSample: 3826523
-  - mStartSample: 8711446
-    mEndSample: 8711446
+  - mStartSample: 8385784
+    mEndSample: 8385784
   _SerializedPayloadTypes: []
   _AssetPayloads: []
   _AssetPayloadIdxs: 

@@ -27,7 +27,7 @@ public class Tiger : MonoBehaviour
         Idle,
         Move,
         Shoot,
-        ButtonSquence,
+        WaitForButtonSequence,
     }
 
     public CurrentState BossState;
@@ -66,8 +66,8 @@ public class Tiger : MonoBehaviour
             case CurrentState.Idle:
                 StartCoroutine(SwitchState(1f));
                 break;
-            case CurrentState.ButtonSquence:
-                strafeScript.TigerStartSequence();
+            case CurrentState.WaitForButtonSequence:
+
                 break;
             case CurrentState.Move:
                 StartCoroutine(MoveTiger(1f));
@@ -81,7 +81,7 @@ public class Tiger : MonoBehaviour
 
                 if (shotsFired >= 5)
                 {
-                    BossState = CurrentState.ButtonSquence;
+                    BossState = CurrentState.WaitForButtonSequence;
                 }
                 break;
         }

@@ -56,6 +56,12 @@ public class RhythmCanvas : MonoBehaviour
 
     void OnEnable()
     {
+        pulsing = false;
+        scaling = false;
+        keyPressed = false;
+        scoreTextStartPos = perfect.transform.position;
+        scaling = false;
+        beatTime = 0f;
         RandomBackgroundActive(buttonBG, true);//Random UI BG + Random Key Direction
                                                //Starts scaling outer "X" circle
         if (!scaling)
@@ -71,17 +77,12 @@ public class RhythmCanvas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        keyPressed = false;
-        scoreTextStartPos = perfect.transform.position;
-        scaling = false;
-        
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
         //Debug.Log(beatTime);
 
         if (pulsing && Input.GetButtonDown("Jump"))
@@ -89,11 +90,6 @@ public class RhythmCanvas : MonoBehaviour
             print("SCAPE PRESSED");
             keyPressed = true;
             xCircle.gameObject.SetActive(false);
-            //sequencePressed = true;
-            if(!keyPressed)
-            {
-                
-            }
         }
 
         if (pulsing)
@@ -148,35 +144,36 @@ public class RhythmCanvas : MonoBehaviour
             yield return null;
         }
         
-        if (beatTime < 1.284f && beatTime >= 0)
+        if ( beatTime >= 0 && beatTime < 1.111 )
         {
             RandomBackgroundActive(buttonBG, false);
             StartCoroutine(ScoreTextResult(miss, 1f));                  //Display Score Result
             StartCoroutine(DestroyEnemyQTE(1f, miss, currentEnemyQTE));
         }
 
-        if (beatTime >= 1.284f && beatTime < 1.647f)
+        if (beatTime >= 1.111 && beatTime < 1.474)
         {
             RandomBackgroundActive(buttonBG, false);
             StartCoroutine(ScoreTextResult(okay, 1f));                  //Display Score Result
             StartCoroutine(DestroyEnemyQTE(1f, okay, currentEnemyQTE));
         }
 
-        if (beatTime >= 1.647f && beatTime < 1.985f)
+        if (beatTime >= 1.474 && beatTime <= 1.792)
         {
             RandomBackgroundActive(buttonBG, false);
             StartCoroutine(ScoreTextResult(good, 1f));                  //Display Score Result
             StartCoroutine(DestroyEnemyQTE(1f, good, currentEnemyQTE));
         }
+        //.173
 
-        if (beatTime > 1.985f && beatTime < 2.126f)
+        if (beatTime > 1.792 && beatTime < 2f)
         {
             RandomBackgroundActive(buttonBG, false);
             StartCoroutine(ScoreTextResult(perfect, 1f));
             StartCoroutine(DestroyEnemyQTE(1f, perfect, currentEnemyQTE));
         }
 
-        if (beatTime > 2.126f)
+        if (beatTime >= 2f)
         {
             RandomBackgroundActive(buttonBG, false);
             StartCoroutine(ScoreTextResult(miss, 1f));
@@ -198,8 +195,6 @@ public class RhythmCanvas : MonoBehaviour
         //Camera
         smoothCamera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
         smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(3));
-        pulsing = false;
-        scaling = false;
         xCircle.gameObject.SetActive(false);
 
         if(_currentEnemy)
@@ -217,7 +212,14 @@ public class RhythmCanvas : MonoBehaviour
        
         LeanTween.cancelAll(true);
         keyPressed = false;
+        pulsing = false;
+        scaling = false;
         xCircle.transform.localScale = bigCircle;
+        beatTime = 0f;
+        if(tiger.activeSelf)
+        {
+            tiger.SetActive(false);
+        }
         this.gameObject.SetActive(false);
 
     }

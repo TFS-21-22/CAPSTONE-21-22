@@ -76,18 +76,21 @@ public class Strafe : MonoBehaviour
     [EventID]
     public string WispSeqeuenceID;
     [EventID]
-    public string TigerSequenceID;
-    [EventID]
     public string GetButtonID;
+    [EventID]
+    public string EnableTiger;
 
 
     public void Awake()
     {
-        //Track Event ID Listener
-        //Koreographer.Instance.RegisterForEvents(TigerSequenceID, delegate { TigerSequenceListener(); });
-        Koreographer.Instance.RegisterForEvents(WispSeqeuenceID, delegate { WispSequenceListener(); });
-        Koreographer.Instance.RegisterForEvents(ButtonSequenceID, delegate { ButtonSequenceListener(); });
-        Koreographer.Instance.RegisterForEvents(GetButtonID, delegate { GetSequenceButton(); });
+        //New QTE
+        Koreographer.Instance.RegisterForEvents(ButtonSequenceID, delegate { ButtonSequenceListener(); });  //Enable QTE
+        Koreographer.Instance.RegisterForEvents(GetButtonID, delegate { GetSequenceButton(); });            //Add button to QTE
+
+        //Old QTE
+        Koreographer.Instance.RegisterForEvents(WispSeqeuenceID, delegate { WispSequenceListener(); });     //Call sequence
+        Koreographer.Instance.RegisterForEvents(EnableTiger, delegate { TigerSequenceListener(); });        //Enable Tiger
+
     }
 
     // Start is called before the first frame update

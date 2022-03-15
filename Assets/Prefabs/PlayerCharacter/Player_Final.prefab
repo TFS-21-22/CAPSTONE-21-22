@@ -5808,7 +5808,6 @@ GameObject:
   - component: {fileID: 2180381476990358219}
   - component: {fileID: 2180381476990358218}
   - component: {fileID: 2180381476990358216}
-  - component: {fileID: 2180381476990358215}
   - component: {fileID: 2180381476990358213}
   - component: {fileID: 6049481308520189063}
   - component: {fileID: 6049481308520189064}
@@ -5984,23 +5983,6 @@ MonoBehaviour:
   direction: 1
   heightoffset: 0
   floatingspeed: 1
---- !u!114 &2180381476990358215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4717308977694728311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 749d4fac1e622de45b83a8d648a5d888, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  offset: 0
-  input: 0
-  Amplitude: 3
-  rayTransform: {fileID: 1731695822}
 --- !u!114 &2180381476990358213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6049,6 +6031,7 @@ MonoBehaviour:
   ButtonSequenceID: SequenceQTE
   WispSeqeuenceID: CircleQT
   TigerSequenceID: 
+  GetButtonID: SequenceGetButton
 --- !u!111 &6049481308520189063
 Animation:
   m_ObjectHideFlags: 0

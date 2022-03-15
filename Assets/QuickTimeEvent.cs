@@ -68,15 +68,8 @@ public class QuickTimeEvent : MonoBehaviour
 
     void Update()
     {
-        
-
-        //print(beatTimeOne);
-        //anim.SetInteger("POSECOUNT", poseCount);
-       // print(beatTimeOne);
         if (sequenceOneActive)
             beatTimeOne += Time.deltaTime;
-        
-
 
         if (sequenceTwoActive)
             beatTimeTwo += Time.deltaTime;
@@ -91,7 +84,6 @@ public class QuickTimeEvent : MonoBehaviour
 
     public void GetButton()
     {
-        print("GET BUTTON");
         //Get Random Index
         int buttonIndex = Random.Range(0, buttons.Length);
 
@@ -142,7 +134,7 @@ public class QuickTimeEvent : MonoBehaviour
         RectTransform rect = _currentButton.gameObject.GetComponent<RectTransform>();
 
         //LeanTween
-        int id = rect.LeanMoveLocalX(-1450f, 3.7f).id;
+        int id = rect.LeanMoveLocalX(-1450f, 1.85f).id;
         while (LeanTween.isTweening(id))
         {
 
@@ -184,7 +176,7 @@ public class QuickTimeEvent : MonoBehaviour
         RectTransform rect = _currentButton.gameObject.GetComponent<RectTransform>();
 
         //LeanTween
-        int id = rect.LeanMoveLocalX(-1450f, 3.7f).id;
+        int id = rect.LeanMoveLocalX(-1450f, 1.85f).id;
         while (LeanTween.isTweening(id))
         {
             bool input = Input.GetKeyDown(_keyToPress);
@@ -224,7 +216,7 @@ public class QuickTimeEvent : MonoBehaviour
         RectTransform rect = _currentButton.gameObject.GetComponent<RectTransform>();
 
         //LeanTween
-        int id = rect.LeanMoveLocalX(-1450f, 3.7f).id;
+        int id = rect.LeanMoveLocalX(-1450f, 1.85f).id;
         while (LeanTween.isTweening(id))
         {
             bool input = Input.GetKeyDown(_keyToPress);
@@ -477,7 +469,6 @@ public class QuickTimeEvent : MonoBehaviour
         }
 
     }
-
     void PoseCountCheck(KeyCode currentKey)
     {
         KeyCode leftArrow = KeyCode.LeftArrow;
@@ -504,11 +495,5 @@ public class QuickTimeEvent : MonoBehaviour
         {
             poseCount = 4;
         }
-
     }
-
-    
-
-
-
 }

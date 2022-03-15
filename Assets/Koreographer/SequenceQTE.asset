@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mEventID: SequenceQTE
   mEventList:
-  - mStartSample: 4396430
-    mEndSample: 4396430
-  - mStartSample: 5292000
-    mEndSample: 5292000
+  - mStartSample: 5454830
+    mEndSample: 5454830
+  - mStartSample: 6594646
+    mEndSample: 6594646
+  - mStartSample: 8060123
+    mEndSample: 8060123
   _SerializedPayloadTypes: []
   _AssetPayloads: []
   _AssetPayloadIdxs: 
