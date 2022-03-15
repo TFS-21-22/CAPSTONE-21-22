@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1223223985, guid: aa81bbec85a3f423193272a7c6154986, type: 3}
-  m_Name: SequenceQTE
+  m_Name: SequenceGetButton
   m_EditorClassIdentifier: 
-  mEventID: SequenceQTE
+  mEventID: SequenceGetButton
   mEventList:
-  - mStartSample: 4396430
-    mEndSample: 4396430
-  - mStartSample: 5292000
-    mEndSample: 5292000
+  - mStartSample: 4477846
+    mEndSample: 4477846
+  - mStartSample: 4559261
+    mEndSample: 4559261
+  - mStartSample: 4640676
+    mEndSample: 4640676
   _SerializedPayloadTypes: []
   _AssetPayloads: []
   _AssetPayloadIdxs: 

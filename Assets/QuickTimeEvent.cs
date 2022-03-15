@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
+using SonicBloom.Koreo;
 
 
 public class QuickTimeEvent : MonoBehaviour
@@ -12,7 +13,7 @@ public class QuickTimeEvent : MonoBehaviour
     [SerializeField] private GameObject[] buttons = new GameObject[12];
     [SerializeField] private RectTransform startPos;
     public float timeToFinish = 7f;
-    private int activeButtonCount;
+    public int activeButtonCount;
     private Queue<int> activeButtons = new Queue<int>();
     private KeyCode keyToPressOne, keyToPressTwo, keyToPressThree;
     Vector3 resultsScale = new Vector3(3, 3, 3);
@@ -67,10 +68,7 @@ public class QuickTimeEvent : MonoBehaviour
 
     void Update()
     {
-        if (activeButtonCount < 3)
-        {
-            GetButton();
-        }
+        
 
         //print(beatTimeOne);
         //anim.SetInteger("POSECOUNT", poseCount);
@@ -91,7 +89,7 @@ public class QuickTimeEvent : MonoBehaviour
         
     }
 
-    private void GetButton()
+    public void GetButton()
     {
         print("GET BUTTON");
         //Get Random Index
@@ -144,7 +142,7 @@ public class QuickTimeEvent : MonoBehaviour
         RectTransform rect = _currentButton.gameObject.GetComponent<RectTransform>();
 
         //LeanTween
-        int id = rect.LeanMoveLocalX(-1450f, 3.6924f / 2).id;
+        int id = rect.LeanMoveLocalX(-1450f, 3.7f).id;
         while (LeanTween.isTweening(id))
         {
 
@@ -186,7 +184,7 @@ public class QuickTimeEvent : MonoBehaviour
         RectTransform rect = _currentButton.gameObject.GetComponent<RectTransform>();
 
         //LeanTween
-        int id = rect.LeanMoveLocalX(-1450f, 3.6924f / 2).id;
+        int id = rect.LeanMoveLocalX(-1450f, 3.7f).id;
         while (LeanTween.isTweening(id))
         {
             bool input = Input.GetKeyDown(_keyToPress);
@@ -226,7 +224,7 @@ public class QuickTimeEvent : MonoBehaviour
         RectTransform rect = _currentButton.gameObject.GetComponent<RectTransform>();
 
         //LeanTween
-        int id = rect.LeanMoveLocalX(-1450f, 3.6924f / 2).id;
+        int id = rect.LeanMoveLocalX(-1450f, 3.7f).id;
         while (LeanTween.isTweening(id))
         {
             bool input = Input.GetKeyDown(_keyToPress);

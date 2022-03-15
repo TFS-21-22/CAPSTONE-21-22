@@ -77,6 +77,9 @@ public class Strafe : MonoBehaviour
     public string WispSeqeuenceID;
     [EventID]
     public string TigerSequenceID;
+    [EventID]
+    public string GetButtonID;
+
 
     public void Awake()
     {
@@ -84,7 +87,7 @@ public class Strafe : MonoBehaviour
         //Koreographer.Instance.RegisterForEvents(TigerSequenceID, delegate { TigerSequenceListener(); });
         Koreographer.Instance.RegisterForEvents(WispSeqeuenceID, delegate { WispSequenceListener(); });
         Koreographer.Instance.RegisterForEvents(ButtonSequenceID, delegate { ButtonSequenceListener(); });
-
+        Koreographer.Instance.RegisterForEvents(GetButtonID, delegate { GetSequenceButton(); });
     }
 
     // Start is called before the first frame update
@@ -119,7 +122,15 @@ public class Strafe : MonoBehaviour
     private void ButtonSequenceListener()
     {
         //Listener - Start wisp sequence
-        quickTimeEventScript.enabled = true;
+        quickTimeEvent.SetActive(true);
+    }
+
+    private void GetSequenceButton()
+    {
+        if (quickTimeEventScript.activeButtonCount < 3)
+        {
+            quickTimeEventScript.GetButton();
+        }
     }
 
     public void WispEnable()
@@ -144,26 +155,26 @@ public class Strafe : MonoBehaviour
 
     private void Movement()
     {
-        var leftInput = Input.GetKey(KeyCode.A);
-        var rightInput = Input.GetKey(KeyCode.D);
+        bool leftInput = Input.GetKey(KeyCode.A);
+        bool rightInput = Input.GetKey(KeyCode.D);
 
         Vector3 leftForce = -Vector3.right * Time.deltaTime * speed;
         Vector3 rightForce = Vector3.right * Time.deltaTime * speed;
 
         if (leftForce.x < 0 && stopperL)
         {
-            leftForce = Vector3.zero; 
+            leftForce = Vector3.zero;
         }
         else
         {
             leftForce = -Vector3.right * Time.deltaTime * speed;
         }
 
-        if(rightForce.x > 0 && stopperR)
+        if (rightForce.x > 0 && stopperR)
         {
             rightForce = Vector3.zero;
         }
-        else if(!stopperR)
+        else if (!stopperR)
         {
             rightForce = Vector3.right * Time.deltaTime * speed;
         }
@@ -173,7 +184,7 @@ public class Strafe : MonoBehaviour
             transform.Translate(leftForce);
             anim.SetFloat("Direction", -1);
         }
-        if(!leftInput && !rightInput)
+        if (!leftInput && !rightInput)
         {
             //print("Direction");
             anim.SetFloat("Direction", 0);
@@ -198,11 +209,11 @@ public class Strafe : MonoBehaviour
 
     private void ResetJump()
     {
-   
-            anim.SetBool("Jump", false);
+
+        anim.SetBool("Jump", false);
         anim.ResetTrigger("Jump 0");
-            //isGrounded = true;
-        
+        //isGrounded = true;
+
     }
 
     IEnumerator Collision(float waitTime)
@@ -232,7 +243,7 @@ public class Strafe : MonoBehaviour
     }
 
 
-    
+
 
     void OnCollisionEnter(Collision collision)
     {
