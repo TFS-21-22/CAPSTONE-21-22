@@ -232,7 +232,7 @@ public class Strafe : MonoBehaviour
             // canHurt = false;
             if (GameManager.instance.health <= 1)
             {
-                //BeatMaster.instance.source.Stop();
+                canHurt = false;
                 anim.SetTrigger("Death");
             }
         }
@@ -283,8 +283,8 @@ public class Strafe : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Obstacle") && canHurt)
         {
-            other.gameObject.SetActive(false);
-            canHurt = false;
+           
+           canHurt = false;
             StartCoroutine(Collision(2f));
         }
 
@@ -311,7 +311,7 @@ public class Strafe : MonoBehaviour
 
         if (other.gameObject.CompareTag("Log") && canHurt)
         {
-            other.gameObject.SetActive(false);
+           // other.gameObject.SetActive(false);
             canHurt = false;
             StartCoroutine(Collision(2f));
 
@@ -343,7 +343,7 @@ public class Strafe : MonoBehaviour
             stopperR = true;
         }
 
-        if (other.gameObject.CompareTag("Log"))
+        if (other.gameObject.CompareTag("Obstacle"))
         {
             if (!camera.hit)
                 camPos = Camera.main.transform.localPosition;
@@ -375,6 +375,7 @@ public class Strafe : MonoBehaviour
             Camera.main.transform.localPosition = camPos;
             anim.ResetTrigger("High Collision");
             anim.ResetTrigger("Low Collision");
+            other.gameObject.SetActive(false);
         }
 
         if(other.gameObject.CompareTag("Obstacle"))
@@ -385,6 +386,7 @@ public class Strafe : MonoBehaviour
             Camera.main.transform.localPosition = camPos;
             anim.ResetTrigger("High Collision");
             anim.ResetTrigger("Low Collision");
+            other.gameObject.SetActive(false);
         }
 
         if (other.gameObject.CompareTag("Heart"))

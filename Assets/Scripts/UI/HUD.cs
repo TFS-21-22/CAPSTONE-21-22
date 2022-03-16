@@ -50,12 +50,7 @@ public class HUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        health = GameManager.instance.health;
-        maxHealth = GameManager.instance.maxHealth;
-
-        score = scoreSystem.score;
-        maxScore = scoreSystem.maxScore;
-
+        
         if (pm.isPaused)
         {
             //Time.timeScale = 0;
@@ -90,9 +85,15 @@ public class HUD : MonoBehaviour
             //    life_2.gameObject.SetActive(false);
             //    life_1.gameObject.SetActive(false);
             //}
+
+
             //SCORE
-           // score = scoreSystem.score;
-           // scoreText.text = score.ToString();
+            score = scoreSystem.score;
+            scoreText.text = score.ToString();
+
+            //HEALTH
+            health = GameManager.instance.health;
+            maxHealth = GameManager.instance.maxHealth;
 
             //TIMER     
             time += Time.deltaTime;
