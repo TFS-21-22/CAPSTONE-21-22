@@ -30,7 +30,7 @@ public class WispMovement : MonoBehaviour
         }
         else if (timer >= 2.2)
         {
-            GameManager.instance.health--;
+            //GameManager.instance.health--;
             Destroy(gameObject);            
         }
     }

@@ -63,7 +63,7 @@ public class ResultsScreen : MonoBehaviour
 
                 resultsScreen.SetActive(true);
 
-                //Time.timeScale = 0;
+                Time.timeScale = 0;
             }
         }
         //SCORE
@@ -83,6 +83,8 @@ public class ResultsScreen : MonoBehaviour
         CPManager.instance.checkPoint = 0;
         BeatMaster.instance.beatCount = 0;
         GameManager.instance.health = 3;
+        CPManager.instance.scoreSaved = 0;
+        scoreSystem.score = 0;
         SceneManager.LoadScene("LevelDesignBlockout");
     }
 
