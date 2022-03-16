@@ -279,7 +279,7 @@ public class QuickTimeEvent : MonoBehaviour
 
     public void DisplayResult()
     {
-        double perfectMinValue = 1.01917020976543;
+        double perfectMinValue = 0.99917020976543;
         double perfectMaxValue = 1.11998789012432;
 
         double minValue = 0.825594299286604;
