@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
         set { _instance = value; }
     }
 
-    public int health;
+    public float health = 100;
+    public float maxHealth = 100;
     public bool screenMode = true;
     public float musicVolume;
     public float SFXVolume;
@@ -40,6 +41,8 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this);
         }
+
+        health = 100;
     }
 
 
@@ -54,7 +57,7 @@ public class GameManager : MonoBehaviour
             BeatMaster.instance.beatCount = 0;
         }
         
-        health = 3;
+        health = 100;
         SceneManager.LoadScene("LevelDesignBlockout");
     }
 

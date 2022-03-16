@@ -6,8 +6,11 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    public float score;
     public float collectables;
+    public float score;
+    public float maxScore;
+    public float health;
+    public float maxHealth;
     
     public float time;
 
@@ -18,22 +21,25 @@ public class HUD : MonoBehaviour
 
     public TMP_Text scoreText;
     public TMP_Text timeText;
-    public TMP_Text livesText;
-    public TMP_Text collText;
+   // public TMP_Text livesText;
+   // public TMP_Text collText;
 
-    public Image life_1;
-    public Image life_2;
-    public Image life_3;
 
     public GameObject collObj;
 
-    public Image collectIMG;
+    //public Image collectIMG;
     public Sprite[] collects;
 
     public GameObject pauseMenu;
     public GameObject hud;
 
+    public Image visualHealth;
+    public Image visualScore;
+
     [SerializeField] PauseMenuManager pm;
+
+    [SerializeField] GameManager gm;
+
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +50,12 @@ public class HUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        health = GameManager.instance.health;
+        maxHealth = GameManager.instance.maxHealth;
+
+        score = scoreSystem.score;
+        maxScore = scoreSystem.maxScore;
+
         if (pm.isPaused)
         {
             //Time.timeScale = 0;
@@ -54,33 +66,33 @@ public class HUD : MonoBehaviour
             //HEALTH
             //livesText.text = "Lives: " + GameManager.instance.health;
 
-            if (GameManager.instance.health == 3)
-            {              
-                life_3.gameObject.SetActive(true);
-                life_2.gameObject.SetActive(true);
-                life_1.gameObject.SetActive(true);
-            }
-            if (GameManager.instance.health == 2)
-            {
-                life_3.gameObject.SetActive(false);
-                life_2.gameObject.SetActive(true);
-                life_1.gameObject.SetActive(true);
-            }
-            if (GameManager.instance.health == 1)
-            {
-                life_3.gameObject.SetActive(false);
-                life_2.gameObject.SetActive(false);
-                life_1.gameObject.SetActive(true);
-            }
-            if (GameManager.instance.health == 0)
-            {
-                life_3.gameObject.SetActive(false);
-                life_2.gameObject.SetActive(false);
-                life_1.gameObject.SetActive(false);
-            }
+            //if (GameManager.instance.health == 3)
+            //{              
+            //    life_3.gameObject.SetActive(true);
+            //    life_2.gameObject.SetActive(true);
+            //    life_1.gameObject.SetActive(true);
+            //}
+            //if (GameManager.instance.health == 2)
+            //{
+            //    life_3.gameObject.SetActive(false);
+            //    life_2.gameObject.SetActive(true);
+            //    life_1.gameObject.SetActive(true);
+            //}
+            //if (GameManager.instance.health == 1)
+            //{
+            //    life_3.gameObject.SetActive(false);
+            //    life_2.gameObject.SetActive(false);
+            //    life_1.gameObject.SetActive(true);
+            //}
+            //if (GameManager.instance.health == 0)
+            //{
+            //    life_3.gameObject.SetActive(false);
+            //    life_2.gameObject.SetActive(false);
+            //    life_1.gameObject.SetActive(false);
+            //}
             //SCORE
-            score = scoreSystem.score;
-            scoreText.text = score.ToString();
+           // score = scoreSystem.score;
+           // scoreText.text = score.ToString();
 
             //TIMER     
             time += Time.deltaTime;
@@ -91,7 +103,12 @@ public class HUD : MonoBehaviour
                 minCount++;
                 time = 0;
             }
-        } 
+        }
+
+
+
+        visualHealth.fillAmount = health / maxHealth;
+        visualScore.fillAmount = score / maxScore;
     }
 
     public void CollectGet(string collect)

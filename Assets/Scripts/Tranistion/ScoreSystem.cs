@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ScoreSystem : MonoBehaviour
 {
     public float score;
+    public float maxScore;
     public float scoreMulitplyer = 1;
 
     private bool collectableHit;
@@ -68,9 +69,9 @@ public class ScoreSystem : MonoBehaviour
             time = 0.0f;
             StartCoroutine(ScoreAdder());
 
-            if(scoreMulitplyer > 100.0f)
+            if(scoreMulitplyer > 100)
             {
-                scoreMulitplyer = 100.0f;
+                scoreMulitplyer = 100;
             }
            
         }
