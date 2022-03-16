@@ -44,26 +44,30 @@ public class CPManager : MonoBehaviour
     {
         hud = FindObjectOfType<HUD>();
 
-    
+        if (GameManager.instance.health <= 0)
+        {
+            GameManager.instance.health = 3;
+            SceneManager.LoadScene("LevelDesignBlockout");           
+        }
         if (Input.GetKeyDown("1"))
         {
             checkPoint = 0;
             BeatMaster.instance.beatCount = 0;
-            GameManager.instance.health = 100;
+            GameManager.instance.health = 3;
             SceneManager.LoadScene("LevelDesignBlockout");
         }
         if (Input.GetKeyDown("2"))
         {
             checkPoint = 1;
             BeatMaster.instance.beatCount = 100;
-            GameManager.instance.health = 100;
+            GameManager.instance.health = 3;
             SceneManager.LoadScene("LevelDesignBlockout");
         }
         if (Input.GetKeyDown("3"))
         {
             checkPoint = 2;
             BeatMaster.instance.beatCount = 278;
-            GameManager.instance.health = 100;
+            GameManager.instance.health = 3;
             SceneManager.LoadScene("LevelDesignBlockout");
         }
 

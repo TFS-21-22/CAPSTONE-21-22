@@ -40,8 +40,6 @@ public class RhythmCanvas : MonoBehaviour
     [SerializeField] private GameObject miss;
     [SerializeField] private GameObject tiger;
 
-    [SerializeField] private GameObject SpacebarUI;
-
     public bool scaling;                   //Button scailing
     public bool pulsing = false;           //Used to check determine beat check
     public float flux = 3.6924f;
@@ -127,7 +125,7 @@ public class RhythmCanvas : MonoBehaviour
 
     IEnumerator ScaleCircle()
     {
-        SpacebarUI.SetActive(true);
+        
         scaling = true;
         pulsing = true;
         xCircle.gameObject.SetActive(true);
@@ -191,7 +189,6 @@ public class RhythmCanvas : MonoBehaviour
 
     IEnumerator DestroyEnemyQTE(float _wait, GameObject _scoreText, GameObject _currentEnemy)
     {
-        SpacebarUI.SetActive(false);
         yield return new WaitForSeconds(_wait);
         //Enable Text
         ResetRhythmTween();

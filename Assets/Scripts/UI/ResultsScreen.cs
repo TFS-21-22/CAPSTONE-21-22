@@ -82,11 +82,10 @@ public class ResultsScreen : MonoBehaviour
     {
         CPManager.instance.checkPoint = 0;
         BeatMaster.instance.beatCount = 0;
-        GameManager.instance.health = 100;
+        GameManager.instance.health = 3;
         CPManager.instance.scoreSaved = 0;
         scoreSystem.score = 0;
         SceneManager.LoadScene("LevelDesignBlockout");
-        Time.timeScale = 1;
     }
 
 }

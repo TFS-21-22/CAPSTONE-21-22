@@ -106,11 +106,11 @@ public class Tiger : MonoBehaviour
     IEnumerator Shoot(float wait)
     {
         GetProjectile();
-        //roarParticle.SetActive(true);
+        roarParticle.SetActive(true);
         yield return new WaitForSeconds(wait);
         shotsFired++;
         canShoot = true;
-        //roarParticle.SetActive(false);
+        roarParticle.SetActive(false);
     }
     IEnumerator MoveTiger(float wait)
     {

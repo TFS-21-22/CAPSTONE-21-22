@@ -33,7 +33,6 @@ public class Transition : MonoBehaviour
         rend = GetComponent<Renderer>();
 
         // At start, use the first material
-        if(rend)
         rend.material.color = startColor;
 
 
@@ -196,7 +195,6 @@ public class Transition : MonoBehaviour
             changedState = true;
         }
     }
-
 
 
 }
