@@ -22,10 +22,9 @@ public class SettingsMenu : MonoBehaviour
 
     [SerializeField] private Toggle vsyncToggle;
     [SerializeField] private Toggle fullscreenToggle;
-    [SerializeField] private Button apply;
+    [SerializeField] private Button applyButton;
 
     [SerializeField] private Slider musicVolumeSlider;
-    [SerializeField] private Slider waterVolumeSlider;
 
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject compendiumMenu;
@@ -41,21 +40,18 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private Toggle resolutionThree;    //1280 x 720
     [SerializeField] private Toggle resolutionFour;     //1152 x 648
 
-
-    void Start()
+    void Awake()
     {
-        waterVolumeSlider.value = GameManager.instance.SFXVolume;
-        musicVolumeSlider.value = GameManager.instance.musicVolume;
-        fullscreenToggle.isOn = GameManager.instance.screenMode;
+        Time.timeScale = 1;
 
         if (startButton)
         {
-            startButton.onClick.AddListener(() => GameManager.instance.StartGame());
+            startButton.onClick.AddListener(delegate { GameManager.instance.StartGame(); });
         }
 
         if (exitButton)
         {
-            exitButton.onClick.AddListener(() => GameManager.instance.QuitGame());
+            exitButton.onClick.AddListener(delegate { GameManager.instance.QuitGame(); });
         }
         if (settingsButton)
         {
@@ -77,9 +73,9 @@ public class SettingsMenu : MonoBehaviour
             compendiumnBackButton.onClick.AddListener(DisableCompendium);
         }
 
-        if (apply)
+        if (applyButton)
         {
-            apply.onClick.AddListener(ApplySettings);
+            applyButton.onClick.AddListener(ApplySettings);
         }
 
         if (controlsButton)
@@ -96,17 +92,14 @@ public class SettingsMenu : MonoBehaviour
         }
 
     }
-    void Update()
+    void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-        }
+        
     }
 
     private void ApplySettings()
     {
         GameManager.instance.musicVolume = musicVolumeSlider.value;
-        GameManager.instance.SFXVolume = waterVolumeSlider.value;
         GameManager.instance.screenMode = fullscreenToggle.isOn;
         if (vsyncToggle.isOn)
         {

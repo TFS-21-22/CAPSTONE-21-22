@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
+using Random = UnityEngine.Random;
 public class Tiger : MonoBehaviour
 {
     public static Tiger instance;
@@ -18,33 +19,27 @@ public class Tiger : MonoBehaviour
     bool canShoot = true;
     public bool chooseLane = true;
     bool chooseInt = false;
-    int currentLane = 0;
+    int previousLane = 0;
     float lerpDuration = 4f;
-    
+    float timeCheck;
+
 
     public enum CurrentState
     {
-        Idle,
         Move,
         Shoot,
         WaitForButtonSequence,
     }
 
-    public CurrentState BossState;
+    public CurrentState TigerState;
 
     void OnEnable()
     {
-        BossState = CurrentState.Idle;
-        shotsFired = 0;
-        canShoot = true;
-        chooseLane = false;
+        TigerState = CurrentState.Move;
     }
-
     // Start is called before the first frame update
     void Start()
     {
-        strafeScript = FindObjectOfType<Strafe>();
-
         //Instantiate projectiles on first frame
         for (int i = 0; i < 5; i++)
         {
@@ -57,31 +52,30 @@ public class Tiger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timeCheck += Time.deltaTime;
+        print(timeCheck);
         //Debug.Log(chooseLane);
         transform.LookAt(player.transform);
 
         //Tiger State
-        switch (BossState)
+        switch (TigerState)
         {
-            case CurrentState.Idle:
-                StartCoroutine(SwitchState(1f));
-                break;
             case CurrentState.WaitForButtonSequence:
-
+                print("FINAL TIME: " + timeCheck);
                 break;
             case CurrentState.Move:
-                StartCoroutine(MoveTiger(1f));
+                StartCoroutine(MoveTiger());
                 break;
             case CurrentState.Shoot:
-                if (shotsFired < 5 && canShoot)
+                if (canShoot)
                 {
                     canShoot = false;
-                    StartCoroutine(Shoot(1f));
+                    GetProjectile();
                 }
 
-                if (shotsFired >= 5)
+                if(shotsFired >= 5)
                 {
-                    BossState = CurrentState.WaitForButtonSequence;
+                    TigerState = CurrentState.WaitForButtonSequence;
                 }
                 break;
         }
@@ -112,55 +106,59 @@ public class Tiger : MonoBehaviour
         canShoot = true;
         roarParticle.SetActive(false);
     }
-    IEnumerator MoveTiger(float wait)
+
+    private int RandomLane(int minValue, int maxValue)
     {
-        if(!chooseLane)
+        return Random.Range(minValue, maxValue);
+    }
+    IEnumerator MoveTiger()
+    {
+
+        float moveTime = 2f;
+        float moveDistance;
+        int chosenDirection;
+        var validChoice = new int[]{ 0, 2 };
+
+        if(previousLane == 0)
         {
-            chooseLane = false;
-            currentLane = RandomLane();
+            chosenDirection = RandomLane(1, 2);
+
+            if (chosenDirection == 1)
+                moveDistance = 2f;
+            else
+                moveDistance = 4f;
         }
-        
-        if (currentLane == 1)
+        else if(previousLane == 1)
         {
-            int id = LeanTween.moveLocalX(this.gameObject, 2f, 4).id;
-
-            while (LeanTween.isTweening(id))
-            {
-                yield return null;
-            }
-
-            BossState = CurrentState.Shoot;
-        }
-        else if(currentLane == 0)
-        {
-
-            int id = LeanTween.moveLocalX(this.gameObject, -2f, 4).id;
-
-            while (LeanTween.isTweening(id))
-            {
-                yield return null;
-            }
-
-            BossState = CurrentState.Shoot;
-
+            chosenDirection = RandomLane(0, 2);
+            
+            if (chosenDirection == 0)
+                moveDistance = -2f;
+            else
+                moveDistance = 2f;
         }
         else
         {
-            BossState = CurrentState.Shoot;
+            chosenDirection = validChoice[Random.Range(0, validChoice.Length)];
+
+            if (chosenDirection == 1)
+                moveDistance = -2f;
+            else
+                moveDistance = -4f;
         }
-    }
 
-    int RandomLane()
-    {
-        return Random.Range(0, 4);
-    }
 
-    IEnumerator SwitchState(float _wait)
-    {
-        yield return new WaitForSeconds(_wait);
-        BossState = CurrentState.Move;
+        int id = LeanTween.moveLocalX(this.gameObject, moveDistance, moveTime).id;
+        while(LeanTween.isTweening(id))
+        {
+            yield return null;
+        }
+        previousLane = chosenDirection;
+        LeanTween.cancel(id);
+        canShoot = true;
+        TigerState = CurrentState.Shoot; 
     }
-
+    
 }
 
    

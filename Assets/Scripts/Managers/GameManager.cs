@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
-    static GameManager _instance = null;
+    static GameManager _instance;
     public static GameManager instance
     {
         get { return _instance; }

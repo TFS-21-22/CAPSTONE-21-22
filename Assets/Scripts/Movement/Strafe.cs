@@ -294,6 +294,7 @@ public class Strafe : MonoBehaviour
             }
         }
 
+        //Optimize 
         if (other.gameObject.CompareTag("Lily"))
         {
             lilyImpactAudioSource.PlayOneShot(lilyImpactAudioClip);

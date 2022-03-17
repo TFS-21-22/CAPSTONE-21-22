@@ -4419,7 +4419,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -790, y: -469.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &729340770
@@ -8534,7 +8534,6 @@ GameObject:
   - component: {fileID: 1405672984}
   - component: {fileID: 1405672983}
   - component: {fileID: 1405672982}
-  - component: {fileID: 1405672986}
   - component: {fileID: 1405672987}
   m_Layer: 5
   m_Name: Canvas
@@ -8632,31 +8631,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1405672986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1405672981}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93fda01c3b376844c8a4640a0f57dab8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startButton: {fileID: 342028634}
-  quitButton: {fileID: 612969967}
-  settingsButton: {fileID: 1235343624}
-  backButton: {fileID: 522418464}
-  returnToMenuButton: {fileID: 0}
-  returnToGameButton: {fileID: 0}
-  compendiumButton: {fileID: 1275361005}
-  compendiumnBackButton: {fileID: 458917628}
-  mainMenu: {fileID: 1046623939}
-  settingsMenu: {fileID: 1812177061}
-  pauseMenu: {fileID: 0}
-  compendiumMenu: {fileID: 735484518}
-  volumeSlider: {fileID: 145398367}
 --- !u!114 &1405672987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8682,9 +8656,8 @@ MonoBehaviour:
   controlsButton: {fileID: 1272693163}
   vsyncToggle: {fileID: 1375039818}
   fullscreenToggle: {fileID: 1127207824}
-  apply: {fileID: 1891925547}
+  applyButton: {fileID: 0}
   musicVolumeSlider: {fileID: 42225433}
-  waterVolumeSlider: {fileID: 1019494620}
   settingsMenu: {fileID: 870253022}
   compendiumMenu: {fileID: 735484518}
   videoSettingsMenuParent: {fileID: 1706681501}
