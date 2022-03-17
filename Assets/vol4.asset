@@ -30,7 +30,7 @@ MonoBehaviour:
   detailOffset: -0.5
   density: 1
   shape: 0
-  border: 0.05
+  border: 0.265
   verticalOffset: 0
   distance: 0
   distanceFallOff: 0
