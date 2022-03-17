@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
         set { _instance = value; }
     }
 
-    public int health;
+    public float health = 100f;
+    public float maxHealth = 100f;
     public bool screenMode = true;
     public float musicVolume;
     public float SFXVolume;
@@ -40,6 +41,8 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this);
         }
+
+        health = 100f;
     }
 
 

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.VFX;
 using SonicBloom.Koreo;
+using UnityEngine.SceneManagement;
 
 public class Strafe : MonoBehaviour
 {
@@ -19,22 +20,31 @@ public class Strafe : MonoBehaviour
 
     //Audio
     [Header("Audio")]
-    //Forest Ambience
-    [SerializeField] private AudioSource forestAmbienceSource;
-    //Fire Ambience
-    [SerializeField] private AudioSource fireAmbienceSource;
     //Lily pad audio
     [SerializeField] private AudioSource lilyImpactAudioSource;
     [SerializeField] private AudioClip lilyImpactAudioClip;
+    [SerializeField] private AudioSource lilyImpactAudioSource2;
+    [SerializeField] private AudioClip lilyImpactAudioClip2;
+    [SerializeField] private AudioSource lilyImpactAudioSource3;
+    [SerializeField] private AudioClip lilyImpactAudioClip3;
+    [SerializeField] private AudioSource lilyImpactAudioSource4;
+    [SerializeField] private AudioClip lilyImpactAudioClip4;
+
+    //Collectable Audio
+    [SerializeField] private AudioSource collectableImpactAudioSource;
+    [SerializeField] private AudioClip collectableImpactAudioClip;
+
     //Impact Audio (Obstacles)
     [SerializeField] private AudioSource waterImpactAudioSource;
 
     //VFX
     [Header("VFX")]
-    [SerializeField] private VisualEffect obstacleCollisionParticle;
+    [SerializeField] private ParticleSystem lilyCollisionParticle;
+    [SerializeField] private ParticleSystem obstacleCollisionParticle;
+    [SerializeField] private ParticleSystem collectableCollisonParticle;
 
-    //Vectors
-    [Header("Vectors")]
+  //Vectors
+  [Header("Vectors")]
     Vector3 camPos;
     Vector2 input;
     public Vector3 jump;
@@ -108,6 +118,13 @@ public class Strafe : MonoBehaviour
         Movement();
         Jump();
         Duck();
+
+        if (GameManager.instance.health <= 1f)
+        {
+            GameManager.instance.health = 0f;
+            //BeatMaster.instance.source.Stop();
+            anim.SetTrigger("Death");
+        }
     }
 
     private void TigerSequenceListener()
@@ -221,12 +238,20 @@ public class Strafe : MonoBehaviour
 
     IEnumerator Collision(float waitTime)
     {
-        if (GameManager.instance.health <= 0)
+
+        if (!canHurt)
         {
-            //BeatMaster.instance.source.Stop();
-            anim.SetTrigger("Death");
+            GameManager.instance.health -= 33f;
+
+            waterImpactAudioSource.Play();
+            anim.SetTrigger("High Collision");
+            anim.SetTrigger("Low Collision");
+
+            yield return new WaitForSeconds(waitTime);
+            canHurt = true;
         }
-        yield return new WaitForSeconds(waitTime);
+
+
     }
 
 
@@ -258,27 +283,42 @@ public class Strafe : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        //AUDIO
-        if (other.gameObject.CompareTag("ForestAmbience"))
-        {
-            forestAmbienceSource.Play();
-        }
-
-        if (other.gameObject.CompareTag("ForestAmbience"))
-        {
-            //fireAmbienceSource.Play();
-        }
+ 
         if (other.gameObject.CompareTag("Obstacle"))
         {
-            waterImpactAudioSource.Play();
-            other.gameObject.SetActive(false);
-            anim.SetTrigger("High Collision");
-            anim.SetTrigger("Low Collision");
+            if(canHurt)
+            {
+                canHurt = false;
+
+                StartCoroutine(Collision(1f));
+            }
         }
 
         if (other.gameObject.CompareTag("Lily"))
         {
             lilyImpactAudioSource.PlayOneShot(lilyImpactAudioClip);
+            lilyCollisionParticle.Play();
+            other.gameObject.SetActive(false);
+        }
+
+        if (other.gameObject.CompareTag("Lily2"))
+        {
+            lilyImpactAudioSource.PlayOneShot(lilyImpactAudioClip2);
+            lilyCollisionParticle.Play();
+            other.gameObject.SetActive(false);
+        }
+
+        if (other.gameObject.CompareTag("Lily3"))
+        {
+            lilyImpactAudioSource.PlayOneShot(lilyImpactAudioClip3);
+            lilyCollisionParticle.Play();
+            other.gameObject.SetActive(false);
+        }
+
+        if (other.gameObject.CompareTag("Lily4"))
+        {
+            lilyImpactAudioSource.PlayOneShot(lilyImpactAudioClip4);
+            lilyCollisionParticle.Play();
             other.gameObject.SetActive(false);
         }
 
@@ -293,16 +333,21 @@ public class Strafe : MonoBehaviour
 
                 hud.CollectGet(other.name);
             }
+
+            collectableImpactAudioSource.PlayOneShot(lilyImpactAudioClip4);
+            other.gameObject.GetComponent<ParticleSystem>().Stop();
             other.gameObject.SetActive(false);
 
         }
 
         if (other.gameObject.CompareTag("Log"))
         {
-            StartCoroutine(Collision(2.0f));
-            //logCollisionSFX.Play();
-            anim.SetTrigger("High Collision");
-            anim.SetTrigger("Low Collision");
+            if (canHurt)
+            {
+                canHurt = false;
+
+                StartCoroutine(Collision(1f));
+            }
         }
 
         if (other.gameObject.CompareTag("Tiger"))
@@ -340,6 +385,18 @@ public class Strafe : MonoBehaviour
             camera.hit = true;
             camera.InduceStress(1);
         }
+
+
+        if (other.gameObject.CompareTag("Obstacle"))
+        {
+            if (!camera.hit)
+                camPos = Camera.main.transform.localPosition;
+
+            obstacleCollisionParticle.Play();
+            camera.hit = true;
+            camera.InduceStress(1);
+        }
+
     }
 
 
@@ -355,8 +412,20 @@ public class Strafe : MonoBehaviour
             stopperR = false;
         }
 
-        if (other.gameObject.CompareTag("Log") || other.gameObject.CompareTag("Obstacle"))
+        if (other.gameObject.CompareTag("Obstacle"))
         {
+            other.gameObject.SetActive(false);
+            camera.hit = false;
+            camera.InduceStress(0);
+            // Debug.Log("hit");
+            Camera.main.transform.localPosition = camPos;
+            anim.ResetTrigger("High Collision");
+            anim.ResetTrigger("Low Collision");
+        }
+
+        if (other.gameObject.CompareTag("Log"))
+        {
+            other.gameObject.SetActive(false);
             camera.hit = false;
             camera.InduceStress(0);
             // Debug.Log("hit");
@@ -367,14 +436,18 @@ public class Strafe : MonoBehaviour
 
         if (other.gameObject.CompareTag("Heart"))
         {
-            if (GameManager.instance.health < 3)
+            if (GameManager.instance.health < 100)
                 GameManager.instance.health++;
 
-            if (GameManager.instance.health >= 3)
+            if (GameManager.instance.health >= 100)
             {
-                GameManager.instance.health = 3;
+                GameManager.instance.health = 100;
             }
         }
     }
 
+    public void Death()
+    {
+        SceneManager.LoadScene("LevelDesignBlockout");
+    }
 }

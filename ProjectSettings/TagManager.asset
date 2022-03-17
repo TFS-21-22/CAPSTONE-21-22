@@ -20,6 +20,9 @@ TagManager:
   - FireAmbience
   - FxTemporaire
   - Colliders
+  - Lily2
+  - Lily3
+  - Lily4
   layers:
   - Default
   - TransparentFX

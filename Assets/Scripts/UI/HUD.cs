@@ -6,10 +6,13 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    public float score;
+    private float score;
+    private float maxScore;
     public float collectables;
     
     public float time;
+    public float health;
+    public float maxHealth;
 
     private int minCount;
     //private int secCount;
@@ -21,9 +24,9 @@ public class HUD : MonoBehaviour
     public TMP_Text livesText;
     public TMP_Text collText;
 
-    public Image life_1;
-    public Image life_2;
-    public Image life_3;
+    public Image healthBar;
+    public Image scoreBar;
+    //public Image life_3;
 
     public GameObject collObj;
 
@@ -50,37 +53,50 @@ public class HUD : MonoBehaviour
         }
         else
         {
-           // Time.timeScale = 1;
+            // Time.timeScale = 1;
             //HEALTH
             //livesText.text = "Lives: " + GameManager.instance.health;
 
-            if (GameManager.instance.health == 3)
-            {              
-                life_3.gameObject.SetActive(true);
-                life_2.gameObject.SetActive(true);
-                life_1.gameObject.SetActive(true);
-            }
-            if (GameManager.instance.health == 2)
-            {
-                life_3.gameObject.SetActive(false);
-                life_2.gameObject.SetActive(true);
-                life_1.gameObject.SetActive(true);
-            }
-            if (GameManager.instance.health == 1)
-            {
-                life_3.gameObject.SetActive(false);
-                life_2.gameObject.SetActive(false);
-                life_1.gameObject.SetActive(true);
-            }
-            if (GameManager.instance.health == 0)
-            {
-                life_3.gameObject.SetActive(false);
-                life_2.gameObject.SetActive(false);
-                life_1.gameObject.SetActive(false);
-            }
+            //if (GameManager.instance)
+            //{
+
+
+
+            //    if (GameManager.instance.health == 3)
+            //    {
+            //        life_3.gameObject.SetActive(true);
+            //        life_2.gameObject.SetActive(true);
+            //        life_1.gameObject.SetActive(true);
+            //    }
+            //    if (GameManager.instance.health == 2)
+            //    {
+            //        life_3.gameObject.SetActive(false);
+            //        life_2.gameObject.SetActive(true);
+            //        life_1.gameObject.SetActive(true);
+            //    }
+            //    if (GameManager.instance.health == 1)
+            //    {
+            //        life_3.gameObject.SetActive(false);
+            //        life_2.gameObject.SetActive(false);
+            //        life_1.gameObject.SetActive(true);
+            //    }
+            //    if (GameManager.instance.health == 0)
+            //    {
+            //        life_3.gameObject.SetActive(false);
+            //        life_2.gameObject.SetActive(false);
+            //        life_1.gameObject.SetActive(false);
+            //    }
+            //}
             //SCORE
             score = scoreSystem.score;
             scoreText.text = score.ToString();
+            scoreBar.fillAmount = score / maxScore;
+
+            //HEALTH
+            health = GameManager.instance.health;
+            maxHealth = GameManager.instance.maxHealth;
+
+            healthBar.fillAmount = health / maxHealth;
 
             //TIMER     
             time += Time.deltaTime;
