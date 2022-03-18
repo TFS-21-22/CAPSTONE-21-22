@@ -120,6 +120,19 @@ public class PauseMenuManager : MonoBehaviour
         {
             volumeSettingsButton.onClick.AddListener(volumeSettings);
         }
+
+        if (GameManager.instance.resolution == 4)
+        {
+            startMenu.transform.localScale = new Vector3(2, 2, 1);
+            settingsMenu.transform.localScale = new Vector3(2, 2, 1);
+            compendiumMenu.transform.localScale = new Vector3(2, 2, 1);
+        }
+        else
+        {
+            startMenu.transform.localScale = new Vector3(1, 1, 1);
+            settingsMenu.transform.localScale = new Vector3(1, 1, 1);
+            compendiumMenu.transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 
 
@@ -238,6 +251,11 @@ public class PauseMenuManager : MonoBehaviour
         music.volume = musicVolumeSlider.value;
         waterSFX.volume = waterVolumeSlider.value;
 
+        GameManager.instance.SFXVolume = waterVolumeSlider.value;
+        GameManager.instance.musicVolume = musicVolumeSlider.value;
+        GameManager.instance.screenMode = fullscreenToggle.isOn;
+        GameManager.instance.resolution = resolutionsDropdown.value;
+
         if (vsyncToggle.isOn)
         {
             QualitySettings.vSyncCount = 1;
@@ -249,18 +267,36 @@ public class PauseMenuManager : MonoBehaviour
 
         if(resolutionsDropdown.value == 0)
         {
+            pauseMenu.transform.localScale = new Vector3(1, 1, 1);
+            compendiumMenu.transform.localScale = new Vector3(1, 1, 1);
             Screen.SetResolution(1980, 1080, fullscreenToggle.isOn);
         } else if(resolutionsDropdown.value == 1)
         {
+            startMenu.transform.localScale = new Vector3(1, 1, 1);
+            settingsMenu.transform.localScale = new Vector3(1, 1, 1);
+            compendiumMenu.transform.localScale = new Vector3(1, 1, 1);
             Screen.SetResolution(1360, 764, fullscreenToggle.isOn);
         }
         else if(resolutionsDropdown.value == 2)
         {
+            startMenu.transform.localScale = new Vector3(1, 1, 1);
+            settingsMenu.transform.localScale = new Vector3(1, 1, 1);
+            compendiumMenu.transform.localScale = new Vector3(1, 1, 1);
             Screen.SetResolution(1280, 720, fullscreenToggle.isOn);
         }
         else if(resolutionsDropdown.value == 3)
         {
+            startMenu.transform.localScale = new Vector3(1, 1, 1);
+            settingsMenu.transform.localScale = new Vector3(1, 1, 1);
+            compendiumMenu.transform.localScale = new Vector3(1, 1, 1);
             Screen.SetResolution(1152, 648, fullscreenToggle.isOn);
+        }
+        else if (resolutionsDropdown.value == 4)
+        {
+            startMenu.transform.localScale = new Vector3(2, 2, 1);
+            settingsMenu.transform.localScale = new Vector3(2, 2, 1);
+            compendiumMenu.transform.localScale = new Vector3(2, 2, 1);
+            Screen.SetResolution(3840, 2160, fullscreenToggle.isOn);
         }
     }
 

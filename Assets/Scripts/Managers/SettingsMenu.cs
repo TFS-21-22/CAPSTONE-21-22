@@ -7,7 +7,8 @@ public class SettingsMenu : MonoBehaviour
 {
     [SerializeField] private GameObject Title;
     [SerializeField] private GameObject MainMenu;
-    
+    [SerializeField] private GameObject MainBG;
+
     //Buttons
     [SerializeField] private Button startButton;
     [SerializeField] private Button compendiumButton;
@@ -25,6 +26,7 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private Button applyButton;
 
     [SerializeField] private Slider musicVolumeSlider;
+    [SerializeField] private Slider waterVolumeSlider;
 
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject compendiumMenu;
@@ -90,6 +92,25 @@ public class SettingsMenu : MonoBehaviour
         {
             videoSettingsButton.onClick.AddListener(videoSettingsMenu);
         }
+        if (GameManager.instance)
+        {
+            waterVolumeSlider.value = GameManager.instance.SFXVolume;
+            musicVolumeSlider.value = GameManager.instance.musicVolume;
+            fullscreenToggle.isOn = GameManager.instance.screenMode;
+
+            if (GameManager.instance.resolution == 4)
+            {
+                MainBG.transform.localScale = new Vector3(2, 2, 1);
+                settingsMenu.transform.localScale = new Vector3(2, 2, 1);
+                compendiumMenu.transform.localScale = new Vector3(2, 2, 1);
+            }
+            else
+            {
+                MainBG.transform.localScale = new Vector3(1, 1, 1);
+                settingsMenu.transform.localScale = new Vector3(1, 1, 1);
+                compendiumMenu.transform.localScale = new Vector3(1, 1, 1);
+            }
+        }
 
     }
     void Start()
@@ -99,8 +120,10 @@ public class SettingsMenu : MonoBehaviour
 
     private void ApplySettings()
     {
+        GameManager.instance.SFXVolume = waterVolumeSlider.value;
         GameManager.instance.musicVolume = musicVolumeSlider.value;
         GameManager.instance.screenMode = fullscreenToggle.isOn;
+        GameManager.instance.resolution = resolutionsDropdown.value;
         if (vsyncToggle.isOn)
         {
             QualitySettings.vSyncCount = 1;
@@ -113,21 +136,40 @@ public class SettingsMenu : MonoBehaviour
 
         if (resolutionsDropdown.value == 0)
         {
+            MainBG.transform.localScale = new Vector3(1, 1, 1);
+            settingsMenu.transform.localScale = new Vector3(1, 1, 1);
+            compendiumMenu.transform.localScale = new Vector3(1, 1, 1);
             Screen.SetResolution(1980, 1080, fullscreenToggle.isOn);
         }
         else if (resolutionsDropdown.value == 1)
         {
+            MainBG.transform.localScale = new Vector3(1, 1, 1);
+            settingsMenu.transform.localScale = new Vector3(1, 1, 1);
+            compendiumMenu.transform.localScale = new Vector3(1, 1, 1);
             Screen.SetResolution(1360, 764, fullscreenToggle.isOn);
         }
         else if (resolutionsDropdown.value == 2)
         {
+            MainBG.transform.localScale = new Vector3(1, 1, 1);
+            settingsMenu.transform.localScale = new Vector3(1, 1, 1);
+            compendiumMenu.transform.localScale = new Vector3(1, 1, 1);
             Screen.SetResolution(1280, 720, fullscreenToggle.isOn);
         }
         else if (resolutionsDropdown.value == 3)
         {
+            MainBG.transform.localScale = new Vector3(1, 1, 1);
+            settingsMenu.transform.localScale = new Vector3(1, 1, 1);
+            compendiumMenu.transform.localScale = new Vector3(1, 1, 1);
             Screen.SetResolution(1152, 648, fullscreenToggle.isOn);
         }
-        
+        else if (resolutionsDropdown.value == 4)
+        {
+            MainBG.transform.localScale = new Vector3(2, 2, 1);
+            settingsMenu.transform.localScale = new Vector3(2, 2, 1);
+            compendiumMenu.transform.localScale = new Vector3(2, 2, 1);
+            Screen.SetResolution(3840, 2160, fullscreenToggle.isOn);
+        }
+
     }
 
     private void DisableCompendium()
@@ -155,6 +197,9 @@ public class SettingsMenu : MonoBehaviour
     {
         Title.SetActive(false);
         MainMenu.SetActive(false);
+        waterVolumeSlider.value = 0.5f;
+        musicVolumeSlider.value = 0.5f;
+        fullscreenToggle.isOn = true;
         settingsMenu.SetActive(true);
         videoSettingsMenuParent.SetActive(true);
         AudioParent.SetActive(false);

@@ -8645,6 +8645,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: {fileID: 638574321}
   MainMenu: {fileID: 1046623939}
+  MainBG: {fileID: 1359984425}
   startButton: {fileID: 342028634}
   compendiumButton: {fileID: 1275361005}
   compendiumnBackButton: {fileID: 458917628}
@@ -8656,8 +8657,9 @@ MonoBehaviour:
   controlsButton: {fileID: 1272693163}
   vsyncToggle: {fileID: 1375039818}
   fullscreenToggle: {fileID: 1127207824}
-  applyButton: {fileID: 0}
+  applyButton: {fileID: 1891925547}
   musicVolumeSlider: {fileID: 42225433}
+  waterVolumeSlider: {fileID: 1019494620}
   settingsMenu: {fileID: 870253022}
   compendiumMenu: {fileID: 735484518}
   videoSettingsMenuParent: {fileID: 1706681501}
@@ -12117,6 +12119,8 @@ MonoBehaviour:
     - m_Text: 1280 x 720
       m_Image: {fileID: 0}
     - m_Text: 1152 x 648
+      m_Image: {fileID: 0}
+    - m_Text: 3840 x 2160
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
