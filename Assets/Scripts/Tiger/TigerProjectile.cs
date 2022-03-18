@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class TigerProjectile : MonoBehaviour
 {
-    Tiger tigerScript;
-
     GameObject collisionParticle;
     // Movement speed in units per second.
     public float speed;
@@ -18,8 +16,7 @@ public class TigerProjectile : MonoBehaviour
 
     void Start()
     {
-        tigerScript = FindObjectOfType<Tiger>();
-        collisionParticle = GameObject.FindGameObjectWithTag("TigerProjectile");
+        collisionParticle = GetComponentInChildren<GameObject>();
         //Ignore colliders
         GameObject[] playerWalls = GameObject.FindGameObjectsWithTag("Colliders");
 
@@ -27,6 +24,8 @@ public class TigerProjectile : MonoBehaviour
         {
             Physics.IgnoreCollision(playerWalls[i].GetComponent<Collider>(), GetComponent<Collider>());
         }
+
+        Destroy(this, 3f);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -34,13 +33,8 @@ public class TigerProjectile : MonoBehaviour
         if(collision.collider.CompareTag("Ground"))
         {
             collisionParticle.gameObject.SetActive(true);
-            this.gameObject.SetActive(false);
-            tigerScript.gameObject.SetActive(false);
+            Destroy(this);
+
         }
-    }
-
-    private void GetLane(int lane)
-    {
-
     }
 }

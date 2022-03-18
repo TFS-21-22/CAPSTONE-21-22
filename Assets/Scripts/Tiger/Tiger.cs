@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 using Random = UnityEngine.Random;
 public class Tiger : MonoBehaviour
 {
 
     Strafe strafeScript;
+
+    public Image healthImage;
     //Player
     [SerializeField] private Transform player;
     //Projectile
@@ -18,28 +21,33 @@ public class Tiger : MonoBehaviour
     [SerializeField] private ParticleSystem bulletImpactParticle;
 
     int shotsFired = 0;
-    bool canShoot = true;
-    public bool chooseLane = true;
-    bool chooseInt = false;
-    public int previousLane = 0;
-    float lerpDuration = 4f;
-    float timeCheck;
+    public int currentLane = 0;
+    public float currentHealth = 100f;
 
-   
     void OnEnable()
     {
         StartCoroutine(MoveTiger());
+        healthImage.gameObject.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnDisable()
     {
-        transform.LookAt(player);
+        healthImage.gameObject.SetActive(false);
     }
 
     private void GetProjectile()
     {
-        Instantiate(projectile, projectileSpawnLocation.transform.position, projectileHitLocations[previousLane].transform.rotation);
+        Instantiate(projectile, projectileSpawnLocation.transform.position, projectileSpawnLocation.transform.rotation);
+    }
+
+    void Update()
+    {
+        healthImage.fillAmount = currentHealth / 100;
+
+        if(currentHealth <= 0)
+        {
+            Destroy(this);
+        }
     }
 
     private int RandomLane(int minValue, int maxValue)
@@ -54,7 +62,7 @@ public class Tiger : MonoBehaviour
         int chosenDirection;
         var validChoice = new int[] { 0, 2 };
 
-        if (previousLane == 0)
+        if (currentLane == 0)
         {
             chosenDirection = RandomLane(1, 2);
 
@@ -63,7 +71,7 @@ public class Tiger : MonoBehaviour
             else
                 moveDistance = 4f;
         }
-        else if (previousLane == 1)
+        else if (currentLane == 1)
         {
             chosenDirection = RandomLane(0, 2);
 
@@ -88,10 +96,9 @@ public class Tiger : MonoBehaviour
         {
             yield return null;
         }
-        previousLane = chosenDirection;
+        currentLane = chosenDirection;
         LeanTween.cancel(id);
         GetProjectile();
-        canShoot = true;
     }
 
 

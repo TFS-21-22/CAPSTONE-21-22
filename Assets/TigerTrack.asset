@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mEventID: TigerTrack
   mEventList:
-  - mStartSample: 8630030
-    mEndSample: 8630030
+  - mStartSample: 8385784
+    mEndSample: 8385784
   _SerializedPayloadTypes: []
   _AssetPayloads: []
   _AssetPayloadIdxs: 

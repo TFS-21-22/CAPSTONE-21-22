@@ -218,6 +218,8 @@ public class RhythmCanvas : MonoBehaviour
         beatTime = 0f;
         if(tiger.activeSelf)
         {
+            float tigerHealth = tiger.GetComponent<Tiger>().currentHealth;
+            tigerHealth -= 25f;
             tiger.SetActive(false);
         }
         this.gameObject.SetActive(false);
