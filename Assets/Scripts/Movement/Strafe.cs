@@ -130,7 +130,7 @@ public class Strafe : MonoBehaviour
     private void TigerSequenceListener()
     {
         //Listener - start boss fight
-        TigerEnable();
+        //TigerEnable();
     }
 
     private void WispSequenceListener()

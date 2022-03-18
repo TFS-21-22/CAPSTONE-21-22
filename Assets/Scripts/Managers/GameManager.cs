@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
             BeatMaster.instance.beatCount = 0;
         }
         
-        health = 3;
+        health = 100f;
         SceneManager.LoadScene("LevelDesignBlockout");
     }
 

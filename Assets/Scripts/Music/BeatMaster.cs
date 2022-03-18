@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using SonicBloom.Koreo;
 
 public class BeatMaster : MonoBehaviour
 {
@@ -15,11 +16,18 @@ public class BeatMaster : MonoBehaviour
     public static int temp;
     public static float beatRealTime;
     public int beatCount = 0;
+    private float savedSourceTimeOne, savedSourceTimeTwo, savedSourceTimeThree;
 
     public ScoreSystem scoreSystem;
+    [EventID]
+    public string CheckpointTrackID;
+
 
     private void Awake()
     {
+        savedSourceTimeOne = 0f;
+        Koreographer.Instance.RegisterForEvents(CheckpointTrackID, delegate { SaveData(); });        //Enable Tiger
+
         if (instance == null)
         {
             instance = this;
@@ -49,21 +57,21 @@ public class BeatMaster : MonoBehaviour
                 scoreSystem.score = CPManager.instance.scoreSaved;
                 collectLoad();
                 beatCount = 0;
-                source.time = 0;               
+                source.time = savedSourceTimeOne;               
             }
             if (CPManager.instance.checkPoint == 1)
             {
                 scoreSystem.score = CPManager.instance.scoreSaved;
                 collectLoad();
                 beatCount = 100;
-                source.time = 46f;
+                source.time = savedSourceTimeTwo;
             }
             if (CPManager.instance.checkPoint == 2)
             {
                 scoreSystem.score = CPManager.instance.scoreSaved;
                 collectLoad();
                 beatCount = 278;
-                source.time = 129f;
+                source.time = savedSourceTimeThree;
             }
         }
         
@@ -92,27 +100,33 @@ public class BeatMaster : MonoBehaviour
         }
 
         //Save collectible's + score
-        SaveData();
     }
 
     public void SaveData()
     {
-        if (beatCount >= 0 && CPManager.instance.checkPoint < 0)
+        print("CHECKPOINT 1");
+        CPManager.instance.checkPoint++;
+        if (CPManager.instance.checkPoint <= 0)
         {
             CPManager.instance.checkPoint = 0;
             CPManager.instance.scoreSaved = scoreSystem.score;
+            savedSourceTimeOne = source.time;
             collectSave();
         }
-        if (beatCount >= 100 && CPManager.instance.checkPoint < 1)
+        if (CPManager.instance.checkPoint == 1)
         {
             CPManager.instance.checkPoint = 1;
             CPManager.instance.scoreSaved = scoreSystem.score;
+            savedSourceTimeTwo = source.time;
+
             collectSave();
         }
-        if (beatCount >= 278 && CPManager.instance.checkPoint < 2)
+
+        if (CPManager.instance.checkPoint == 2)
         {
             CPManager.instance.checkPoint = 2;
             CPManager.instance.scoreSaved = scoreSystem.score;
+            savedSourceTimeThree = source.time;
             collectSave();
         }
     }

@@ -13,12 +13,4 @@ public class TigerProjectile : MonoBehaviour
             Physics.IgnoreCollision(playerWalls[i].GetComponent<Collider>(), GetComponent<Collider>());
         }
     }
-
-    void OnTriggerEnter(Collider collision)
-    {
-        if (collision.gameObject.CompareTag("Colliders"))
-        {
-            Tiger.instance.ReturnProjectile(this.gameObject);
-        }
-    }
 }
