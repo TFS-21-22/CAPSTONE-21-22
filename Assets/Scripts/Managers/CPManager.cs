@@ -44,7 +44,11 @@ public class CPManager : MonoBehaviour
     {
         hud = FindObjectOfType<HUD>();
 
-
+        if (GameManager.instance.health <= 0)
+        {
+            GameManager.instance.health = 100;
+            SceneManager.LoadScene("LevelDesignBlockout");
+        }
         if (Input.GetKeyDown("1"))
         {
             checkPoint = 0;
@@ -74,3 +78,4 @@ public class CPManager : MonoBehaviour
         }
     }
 }
+
