@@ -6,105 +6,40 @@ using Random = UnityEngine.Random;
 public class Tiger : MonoBehaviour
 {
 
-    public static Tiger instance;
     Strafe strafeScript;
     //Player
     [SerializeField] private Transform player;
     //Projectile
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform projectileSpawnLocation;
-    [SerializeField] private Transform[] projectileHitLocations = new Transform[3];
+    public Transform[] projectileHitLocations = new Transform[3];
     //Particles
     [SerializeField] private ParticleSystem roarParticle;
     [SerializeField] private ParticleSystem bulletImpactParticle;
-
 
     int shotsFired = 0;
     bool canShoot = true;
     public bool chooseLane = true;
     bool chooseInt = false;
-    int previousLane = 0;
+    public int previousLane = 0;
     float lerpDuration = 4f;
     float timeCheck;
 
-
-    public enum CurrentState
-    {
-        Move,
-        Shoot,
-        WaitForButtonSequence,
-    }
-
-    public CurrentState TigerState;
-
+   
     void OnEnable()
     {
-        TigerState = CurrentState.Move;
+        StartCoroutine(MoveTiger());
     }
 
     // Update is called once per frame
     void Update()
     {
-        //timeCheck += Time.deltaTime;
-        //print(timeCheck);
-        //Debug.Log(chooseLane);
-        transform.LookAt(player.transform);
-
-        //Tiger State
-        switch (TigerState)
-        {
-            case CurrentState.WaitForButtonSequence:
-                //print("FINAL TIME: " + timeCheck);
-                break;
-            case CurrentState.Move:
-                StartCoroutine(MoveTiger());
-                break;
-            case CurrentState.Shoot:
-                if (shotsFired >= 5)
-                {
-                    TigerState = CurrentState.WaitForButtonSequence;
-                }
-
-                if (canShoot)
-                {
-                    canShoot = false;
-                    StartCoroutine(Shoot());
-                    //Shoot
-                }
-
-                
-                break;
-        }
+        transform.LookAt(player);
     }
 
-    private IEnumerator Shoot()
+    private void GetProjectile()
     {
-        float speed = 5f;
-        GameObject bullet = projectile;
-
-        //Enable
-        bullet.SetActive(true);
-
-        //Reset Bullet Position
-        bullet.transform.position = projectileSpawnLocation.transform.position;
-
-        //Shoot particle enable
-        //roarParticle.Play();
-
-        float step = speed * Time.deltaTime; // calculate distance to move
-        projectile.transform.position = Vector3.MoveTowards(bullet.transform.position, projectileHitLocations[previousLane].transform.position, step);
-
-        // Check if the position of the projectile and ground are approximately equal.
-        float distance = Vector3.Distance(transform.position, bullet.transform.position);
-        while (distance > 0.0001f)
-        {
-            // Move the position
-            bullet.transform.position *= -1.0f;
-            yield return null;
-        }
-        //bulletImpactParticle.Play();
-        shotsFired++;
-        canShoot = true;
+        Instantiate(projectile, projectileSpawnLocation.transform.position, projectileHitLocations[previousLane].transform.rotation);
     }
 
     private int RandomLane(int minValue, int maxValue)
@@ -155,8 +90,8 @@ public class Tiger : MonoBehaviour
         }
         previousLane = chosenDirection;
         LeanTween.cancel(id);
+        GetProjectile();
         canShoot = true;
-        TigerState = CurrentState.Shoot;
     }
 
 

@@ -20,19 +20,8 @@ public class Strafe : MonoBehaviour
 
     //Audio
     [Header("Audio")]
-    //Lily pad audio
-    [SerializeField] private AudioSource lilyImpactAudioSource;
-    [SerializeField] private AudioClip lilyImpactAudioClip;
-    [SerializeField] private AudioSource lilyImpactAudioSource2;
-    [SerializeField] private AudioClip lilyImpactAudioClip2;
-    [SerializeField] private AudioSource lilyImpactAudioSource3;
-    [SerializeField] private AudioClip lilyImpactAudioClip3;
-    [SerializeField] private AudioSource lilyImpactAudioSource4;
-    [SerializeField] private AudioClip lilyImpactAudioClip4;
-
     //Collectable Audio
-    [SerializeField] private AudioSource collectableImpactAudioSource;
-    [SerializeField] private AudioClip collectableImpactAudioClip;
+    [SerializeField] private AudioSource[] audioSource = new AudioSource[4];
 
     //Impact Audio (Obstacles)
     [SerializeField] private AudioSource waterImpactAudioSource;
@@ -42,9 +31,10 @@ public class Strafe : MonoBehaviour
     [SerializeField] private ParticleSystem lilyCollisionParticle;
     [SerializeField] private ParticleSystem obstacleCollisionParticle;
     [SerializeField] private ParticleSystem collectableCollisonParticle;
+    private int currentAudioIndex = 0;
 
-  //Vectors
-  [Header("Vectors")]
+    //Vectors
+    [Header("Vectors")]
     Vector3 camPos;
     Vector2 input;
     public Vector3 jump;
@@ -54,7 +44,6 @@ public class Strafe : MonoBehaviour
     public float speed = 3.0f;
     public float h;
     public float jumpForce = 2.0f;
-
     [Header("Variables")]
     public Transform follow;
     public GameObject enemy;
@@ -130,7 +119,8 @@ public class Strafe : MonoBehaviour
     private void TigerSequenceListener()
     {
         //Listener - start boss fight
-        //TigerEnable();
+        print("TIGER ENABLE");
+        TigerEnable();
     }
 
     private void WispSequenceListener()
@@ -297,29 +287,29 @@ public class Strafe : MonoBehaviour
         //Optimize 
         if (other.gameObject.CompareTag("Lily"))
         {
-            lilyImpactAudioSource.PlayOneShot(lilyImpactAudioClip);
-            lilyCollisionParticle.Play();
+            audioSource[0].Play();
+            //lilyCollisionParticle.Play();
             other.gameObject.SetActive(false);
         }
 
         if (other.gameObject.CompareTag("Lily2"))
         {
-            lilyImpactAudioSource.PlayOneShot(lilyImpactAudioClip2);
-            lilyCollisionParticle.Play();
+            audioSource[1].Play();
+            //lilyCollisionParticle.Play();
             other.gameObject.SetActive(false);
         }
 
         if (other.gameObject.CompareTag("Lily3"))
         {
-            lilyImpactAudioSource.PlayOneShot(lilyImpactAudioClip3);
-            lilyCollisionParticle.Play();
+            audioSource[2].Play();
+            //lilyCollisionParticle.Play();
             other.gameObject.SetActive(false);
         }
 
         if (other.gameObject.CompareTag("Lily4"))
         {
-            lilyImpactAudioSource.PlayOneShot(lilyImpactAudioClip4);
-            lilyCollisionParticle.Play();
+            audioSource[3].Play();
+            //lilyCollisionParticle.Play();
             other.gameObject.SetActive(false);
         }
 
@@ -327,7 +317,7 @@ public class Strafe : MonoBehaviour
 
         if (other.gameObject.CompareTag("Collectable"))
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 3; i++)
             {
                 if (other.gameObject.name == "Col_" + (i + 1).ToString())
                     CPManager.instance.collectables[i] = true;
@@ -335,7 +325,7 @@ public class Strafe : MonoBehaviour
                 hud.CollectGet(other.name);
             }
 
-            collectableImpactAudioSource.PlayOneShot(lilyImpactAudioClip4);
+            //collectableImpactAudioSource.PlayOneShot(lilyImpactAudioClip4);
             other.gameObject.GetComponent<ParticleSystem>().Stop();
             other.gameObject.SetActive(false);
 
@@ -382,7 +372,7 @@ public class Strafe : MonoBehaviour
             if (!camera.hit)
                 camPos = Camera.main.transform.localPosition;
 
-            obstacleCollisionParticle.Play();
+            //obstacleCollisionParticle.Play();
             camera.hit = true;
             camera.InduceStress(1);
         }
@@ -393,7 +383,7 @@ public class Strafe : MonoBehaviour
             if (!camera.hit)
                 camPos = Camera.main.transform.localPosition;
 
-            obstacleCollisionParticle.Play();
+            //obstacleCollisionParticle.Play();
             camera.hit = true;
             camera.InduceStress(1);
         }
