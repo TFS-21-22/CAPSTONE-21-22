@@ -90,6 +90,9 @@ public class Strafe : MonoBehaviour
     [EventID]
     public string EnableTiger;
 
+    //Arrays
+    public AudioSource[] audioSources;
+
 
     public void Awake()
     {
@@ -110,6 +113,8 @@ public class Strafe : MonoBehaviour
         anim = GetComponent<Animator>();
         canHurt = true;
         jump = new Vector3(0.0f, 2.0f, 0.0f);
+
+        anim.ResetTrigger("Death");
     }
 
     // Update is called once per frame
@@ -244,13 +249,15 @@ public class Strafe : MonoBehaviour
             GameManager.instance.health -= 33f;
 
             waterImpactAudioSource.Play();
-            anim.SetTrigger("High Collision");
-            anim.SetTrigger("Low Collision");
+
 
             yield return new WaitForSeconds(waitTime);
             canHurt = true;
-        }
 
+            anim.SetBool("HCollision", false);
+            anim.SetBool("LCollision", false);
+
+        }
 
     }
 
@@ -291,42 +298,28 @@ public class Strafe : MonoBehaviour
                 canHurt = false;
 
                 StartCoroutine(Collision(1f));
+
+                anim.SetBool("HCollision", true);
+                anim.SetBool("LCollision", true);
+
             }
         }
 
         //Optimize 
         if (other.gameObject.CompareTag("Lily"))
         {
-            lilyImpactAudioSource.PlayOneShot(lilyImpactAudioClip);
-            lilyCollisionParticle.Play();
             other.gameObject.SetActive(false);
-        }
+            int random = Random.Range(0, audioSources.Length);
 
-        if (other.gameObject.CompareTag("Lily2"))
-        {
-            lilyImpactAudioSource.PlayOneShot(lilyImpactAudioClip2);
-            lilyCollisionParticle.Play();
-            other.gameObject.SetActive(false);
+            audioSources[random].PlayOneShot(lilyImpactAudioClip);
+           // lilyCollisionParticle.Play();
+            
         }
-
-        if (other.gameObject.CompareTag("Lily3"))
-        {
-            lilyImpactAudioSource.PlayOneShot(lilyImpactAudioClip3);
-            lilyCollisionParticle.Play();
-            other.gameObject.SetActive(false);
-        }
-
-        if (other.gameObject.CompareTag("Lily4"))
-        {
-            lilyImpactAudioSource.PlayOneShot(lilyImpactAudioClip4);
-            lilyCollisionParticle.Play();
-            other.gameObject.SetActive(false);
-        }
-
 
 
         if (other.gameObject.CompareTag("Collectable"))
         {
+            other.gameObject.SetActive(false);
             for (int i = 0; i < 5; i++)
             {
                 if (other.gameObject.name == "Col_" + (i + 1).ToString())
@@ -337,7 +330,7 @@ public class Strafe : MonoBehaviour
 
             collectableImpactAudioSource.PlayOneShot(lilyImpactAudioClip4);
             other.gameObject.GetComponent<ParticleSystem>().Stop();
-            other.gameObject.SetActive(false);
+            
 
         }
 
@@ -348,6 +341,10 @@ public class Strafe : MonoBehaviour
                 canHurt = false;
 
                 StartCoroutine(Collision(1f));
+
+                anim.SetBool("HCollision", true);
+                anim.SetBool("LCollision", true);
+
             }
         }
 
@@ -420,7 +417,10 @@ public class Strafe : MonoBehaviour
             camera.InduceStress(0);
             // Debug.Log("hit");
             Camera.main.transform.localPosition = camPos;
-            anim.ResetTrigger("High Collision");
+
+
+            anim.ResetTrigger("Hight Collision");
+
             anim.ResetTrigger("Low Collision");
         }
 
@@ -431,7 +431,10 @@ public class Strafe : MonoBehaviour
             camera.InduceStress(0);
             // Debug.Log("hit");
             Camera.main.transform.localPosition = camPos;
-            anim.ResetTrigger("High Collision");
+
+
+            anim.ResetTrigger("Hight Collision");
+
             anim.ResetTrigger("Low Collision");
         }
 
@@ -450,5 +453,6 @@ public class Strafe : MonoBehaviour
     public void Death()
     {
         SceneManager.LoadScene("LevelDesignBlockout");
+        GameManager.instance.health = 100f;
     }
 }

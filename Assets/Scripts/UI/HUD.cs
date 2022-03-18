@@ -42,6 +42,8 @@ public class HUD : MonoBehaviour
     void Start()
     {
         collObj.SetActive(false);
+
+        health = 100f;
     }
 
     // Update is called once per frame

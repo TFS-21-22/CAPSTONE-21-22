@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1721728517277641341}
   m_Layer: 0
   m_Name: Petal Group
-  m_TagString: Untagged
+  m_TagString: Lily
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

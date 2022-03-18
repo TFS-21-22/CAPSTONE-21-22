@@ -77,9 +77,9 @@ public class QuickTimeEvent : MonoBehaviour
 
         if (sequenceThreeActive)
             beatTimeThree += Time.deltaTime;
-       
 
-        
+        anim.SetInteger("POSECOUNT", poseCount);
+
     }
 
     public void GetButton()
@@ -194,7 +194,7 @@ public class QuickTimeEvent : MonoBehaviour
         rect.transform.position = startPos.position;    //Reset button rect pos
         if (inputPressed)
         {
-           // poseCount++;
+            poseCount++;
             DisplayResult();
         }
 
