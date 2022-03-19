@@ -113,7 +113,7 @@ public class Strafe : MonoBehaviour
         {
             GameManager.instance.health = 0f;
             //BeatMaster.instance.source.Stop();
-            anim.SetTrigger("Death");
+            anim.SetBool("Death", true);
         }
     }
 
@@ -230,8 +230,8 @@ public class Strafe : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            anim.SetBool("Jump", true);
-            anim.SetTrigger("Jump 0");
+
+            anim.SetTrigger("Jump");
             //isGrounded = false;
         }
     }
@@ -253,8 +253,8 @@ public class Strafe : MonoBehaviour
             GameManager.instance.health -= 33f;
 
             waterImpactAudioSource.Play();
-            anim.SetTrigger("High Collision");
-            anim.SetTrigger("Low Collision");
+            anim.SetBool("HCollision", true);
+            anim.SetBool("LCollision", true);
 
             yield return new WaitForSeconds(waitTime);
             canHurt = true;
@@ -353,15 +353,15 @@ public class Strafe : MonoBehaviour
 
         }
 
-        if (other.gameObject.CompareTag("Log"))
-        {
-            if (canHurt)
-            {
-                canHurt = false;
+        //if (other.gameObject.CompareTag("Log"))
+        //{
+        //    if (canHurt)
+        //    {
+        //        canHurt = false;
 
-                StartCoroutine(Collision(1f));
-            }
-        }
+        //        StartCoroutine(Collision(1f));
+        //    }
+        //}
 
         if (other.gameObject.CompareTag("Tiger"))
         {
@@ -389,15 +389,15 @@ public class Strafe : MonoBehaviour
             stopperR = true;
         }
 
-        if (other.gameObject.CompareTag("Log"))
-        {
-            if (!camera.hit)
-                camPos = Camera.main.transform.localPosition;
+        //if (other.gameObject.CompareTag("Log"))
+        //{
+        //    if (!camera.hit)
+        //        camPos = Camera.main.transform.localPosition;
 
-            //obstacleCollisionParticle.Play();
-            camera.hit = true;
-            camera.InduceStress(1);
-        }
+        //    //obstacleCollisionParticle.Play();
+        //    camera.hit = true;
+        //    camera.InduceStress(1);
+        //}
 
 
         if (other.gameObject.CompareTag("Obstacle"))
@@ -432,20 +432,20 @@ public class Strafe : MonoBehaviour
             camera.InduceStress(0);
             // Debug.Log("hit");
             Camera.main.transform.localPosition = camPos;
-            anim.ResetTrigger("High Collision");
-            anim.ResetTrigger("Low Collision");
+            anim.SetBool("HCollision", false);
+            anim.SetBool("LCollision", false);
         }
 
-        if (other.gameObject.CompareTag("Log"))
-        {
-            other.gameObject.SetActive(false);
-            camera.hit = false;
-            camera.InduceStress(0);
-            // Debug.Log("hit");
-            Camera.main.transform.localPosition = camPos;
-            anim.ResetTrigger("High Collision");
-            anim.ResetTrigger("Low Collision");
-        }
+        //if (other.gameObject.CompareTag("Log"))
+        //{
+        //    other.gameObject.SetActive(false);
+        //    camera.hit = false;
+        //    camera.InduceStress(0);
+        //    // Debug.Log("hit");
+        //    Camera.main.transform.localPosition = camPos;
+        //    anim.SetBool("HCollision", false);
+        //    anim.SetBool("LCollision", false);
+        //}
 
         if (other.gameObject.CompareTag("Heart"))
         {
@@ -462,5 +462,6 @@ public class Strafe : MonoBehaviour
     public void Death()
     {
         SceneManager.LoadScene("LevelDesignBlockout");
+        GameManager.instance.health = 100f;
     }
 }

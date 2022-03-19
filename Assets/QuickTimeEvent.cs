@@ -77,8 +77,8 @@ public class QuickTimeEvent : MonoBehaviour
 
         if (sequenceThreeActive)
             beatTimeThree += Time.deltaTime;
-       
 
+        anim.SetInteger("POSECOUNT", poseCount);
         
     }
 
