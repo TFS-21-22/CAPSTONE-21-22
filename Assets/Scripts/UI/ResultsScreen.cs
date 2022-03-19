@@ -85,9 +85,8 @@ public class ResultsScreen : MonoBehaviour
         GameManager.instance.health = 100;
         CPManager.instance.scoreSaved = 0;
         scoreSystem.score = 0;
-        SceneManager.LoadScene("LevelDesignBlockout");
         Time.timeScale = 1;
-       
+        SceneManager.LoadScene("LevelDesignBlockout");       
     }
 
 }

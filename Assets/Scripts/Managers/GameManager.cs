@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public bool screenMode = true;
     public float musicVolume;
     public float SFXVolume;
+    public bool koreoReader;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +47,13 @@ public class GameManager : MonoBehaviour
         health = 100f;
     }
 
+    public void Update()
+    {
+        if (koreoReader == false)
+        {
+            StartCoroutine(KoreoSwitch());
+        }
+    }
 
     public void StartGame()
     {
@@ -56,9 +65,16 @@ public class GameManager : MonoBehaviour
         {
             BeatMaster.instance.beatCount = 0;
         }
-        
+        Time.timeScale = 1;
         health = 100f;
         SceneManager.LoadScene("LevelDesignBlockout");
+    }
+
+    IEnumerator KoreoSwitch()
+    {
+        koreoReader = false;
+        yield return new WaitForSeconds(1);
+        koreoReader = true;
     }
 
     public void QuitGame()

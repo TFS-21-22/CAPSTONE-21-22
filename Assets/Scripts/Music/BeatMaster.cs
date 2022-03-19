@@ -50,31 +50,31 @@ public class BeatMaster : MonoBehaviour
 
         //this.Invoke("PlayThing", 1);
 
-       if (CPManager.instance)
-       {
+        if (CPManager.instance)
+        {
             if (CPManager.instance.checkPoint == 0)
             {
                 scoreSystem.score = CPManager.instance.scoreSaved;
                 collectLoad();
                 beatCount = 0;
-                source.time = savedSourceTimeOne;               
+                source.time = 0;
             }
             if (CPManager.instance.checkPoint == 1)
             {
                 scoreSystem.score = CPManager.instance.scoreSaved;
                 collectLoad();
                 beatCount = 100;
-                source.time = savedSourceTimeTwo;
+                source.time = 46f;
             }
             if (CPManager.instance.checkPoint == 2)
             {
                 scoreSystem.score = CPManager.instance.scoreSaved;
                 collectLoad();
                 beatCount = 278;
-                source.time = savedSourceTimeThree;
+                source.time = 129f;
             }
         }
-        
+
         //Debug.Log("Source.Time: " + source.time);
         //Debug.Log("Source.Clip.Length: " + source.clip.length);
         //Debug.Log("BPM: " + BPM);
@@ -100,33 +100,27 @@ public class BeatMaster : MonoBehaviour
         }
 
         //Save collectible's + score
+        SaveData();
     }
 
     public void SaveData()
     {
-        print("CHECKPOINT 1");
-        CPManager.instance.checkPoint++;
-        if (CPManager.instance.checkPoint <= 0)
+        if (beatCount >= 0 && CPManager.instance.checkPoint < 0)
         {
             CPManager.instance.checkPoint = 0;
             CPManager.instance.scoreSaved = scoreSystem.score;
-            savedSourceTimeOne = source.time;
             collectSave();
         }
-        if (CPManager.instance.checkPoint == 1)
+        if (beatCount >= 100 && CPManager.instance.checkPoint < 1)
         {
             CPManager.instance.checkPoint = 1;
             CPManager.instance.scoreSaved = scoreSystem.score;
-            savedSourceTimeTwo = source.time;
-
             collectSave();
         }
-
-        if (CPManager.instance.checkPoint == 2)
+        if (beatCount >= 278 && CPManager.instance.checkPoint < 2)
         {
             CPManager.instance.checkPoint = 2;
             CPManager.instance.scoreSaved = scoreSystem.score;
-            savedSourceTimeThree = source.time;
             collectSave();
         }
     }

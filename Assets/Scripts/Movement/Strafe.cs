@@ -95,6 +95,7 @@ public class Strafe : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         canHurt = true;
@@ -118,42 +119,60 @@ public class Strafe : MonoBehaviour
 
     private void TigerSequenceListener()
     {
-        //Listener - start boss fight
-        print("TIGER ENABLE");
-        TigerEnable();
+        if (GameManager.instance.koreoReader == true)
+        {
+            //Listener - start boss fight
+            print("TIGER ENABLE");
+            TigerEnable();
+        }           
     }
 
     private void WispSequenceListener()
     {
-        //Listener - Start wisp sequence
-        WispEnable();
+        if (GameManager.instance.koreoReader == true)
+        {
+            //Listener - Start wisp sequence
+            WispEnable();
+        }       
     }
 
     private void ButtonSequenceListener()
     {
-        //Listener - Start wisp sequence
-        quickTimeEvent.SetActive(true);
+        if (GameManager.instance.koreoReader == true)
+        {
+            //Listener - Start wisp sequence
+            quickTimeEvent.SetActive(true);
+        }
     }
 
     private void GetSequenceButton()
     {
-        if (quickTimeEventScript.activeButtonCount < 3)
+        if (GameManager.instance.koreoReader == true)
         {
-            quickTimeEventScript.GetButton();
-        }
+            if (quickTimeEventScript.activeButtonCount < 3)
+            {
+                quickTimeEventScript.GetButton();
+            }
+        }           
     }
 
     public void WispEnable()
     {
-        rhythmCanvas.gameObject.SetActive(true);                                //Set Button Squence Active
-        camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;  //Camera Movement
+        if(GameManager.instance.koreoReader == true)
+        {
+            rhythmCanvas.gameObject.SetActive(true);                                //Set Button Squence Active
+            camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;  //Camera Movement
+        }       
     }
 
     public void TigerStartSequence()
     {
-        rhythmCanvas.gameObject.SetActive(true);                                //Set Button Squence Active
-        camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;  //Camera Movement
-        rhythmScript.currentEnemyQTE = tiger.gameObject;
+        if (GameManager.instance.koreoReader == true)
+        {
+            rhythmCanvas.gameObject.SetActive(true);                                //Set Button Squence Active
+            camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;  //Camera Movement
+            rhythmScript.currentEnemyQTE = tiger.gameObject;
+        }       
     }
 
     void TigerEnable()
@@ -326,7 +345,10 @@ public class Strafe : MonoBehaviour
             }
 
             //collectableImpactAudioSource.PlayOneShot(lilyImpactAudioClip4);
-            other.gameObject.GetComponent<ParticleSystem>().Stop();
+            if (other.gameObject.GetComponent<ParticleSystem>())
+            {
+                other.gameObject.GetComponent<ParticleSystem>().Stop();
+            }           
             other.gameObject.SetActive(false);
 
         }
