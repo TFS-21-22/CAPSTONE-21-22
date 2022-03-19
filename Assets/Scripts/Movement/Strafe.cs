@@ -57,6 +57,7 @@ public class Strafe : MonoBehaviour
     public bool stopperR;
     public bool canHurt = true;
     public bool isGrounded;
+    public bool tigerAlive = true;
 
     public SmoothCameraScript camera;
 
@@ -129,7 +130,7 @@ public class Strafe : MonoBehaviour
 
     private void WispSequenceListener()
     {
-        if (GameManager.instance.koreoReader == true)
+        if (GameManager.instance.koreoReader == true && tigerAlive)
         {
             //Listener - Start wisp sequence
             WispEnable();
@@ -178,6 +179,7 @@ public class Strafe : MonoBehaviour
     void TigerEnable()
     {
         tiger.SetActive(true);
+        rhythmScript.currentEnemyQTE = tiger.gameObject;
         camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;
         camera.StartCoroutine(camera.CameraSwitch(3));
     }

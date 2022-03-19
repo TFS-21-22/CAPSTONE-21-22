@@ -14,6 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mEventID: SequenceGetButton
   mEventList:
+  - mStartSample: 4192892
+    mEndSample: 4192892
+  - mStartSample: 4518553
+    mEndSample: 4518553
+  - mStartSample: 4681384
+    mEndSample: 4681384
   - mStartSample: 5495538
     mEndSample: 5495538
   - mStartSample: 5576953
@@ -26,12 +32,12 @@ MonoBehaviour:
     mEndSample: 6716769
   - mStartSample: 6798184
     mEndSample: 6798184
-  - mStartSample: 8100830
-    mEndSample: 8100830
-  - mStartSample: 8182246
-    mEndSample: 8182246
-  - mStartSample: 8263661
-    mEndSample: 8263661
+  - mStartSample: 7286676
+    mEndSample: 7286676
+  - mStartSample: 7449507
+    mEndSample: 7449507
+  - mStartSample: 7612338
+    mEndSample: 7612338
   _SerializedPayloadTypes: []
   _AssetPayloads: []
   _AssetPayloadIdxs: 

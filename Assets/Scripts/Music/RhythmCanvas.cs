@@ -16,6 +16,7 @@ public enum EBeatScore
 
 public class RhythmCanvas : MonoBehaviour
 {
+    public Tiger tigerScript;
     public PauseMenuManager pauseMenuScript;
 
     public Image xButton;   //"X" button image
@@ -149,6 +150,7 @@ public class RhythmCanvas : MonoBehaviour
             RandomBackgroundActive(buttonBG, false);
             StartCoroutine(ScoreTextResult(miss, 1f));                  //Display Score Result
             StartCoroutine(DestroyEnemyQTE(1f, miss, currentEnemyQTE));
+            TigerDamaged(currentEnemyQTE, false);
         }
 
         if (beatTime >= 1.111 && beatTime < 1.474)
@@ -156,6 +158,8 @@ public class RhythmCanvas : MonoBehaviour
             RandomBackgroundActive(buttonBG, false);
             StartCoroutine(ScoreTextResult(okay, 1f));                  //Display Score Result
             StartCoroutine(DestroyEnemyQTE(1f, okay, currentEnemyQTE));
+            TigerDamaged(currentEnemyQTE, false);
+
         }
 
         if (beatTime >= 1.474 && beatTime <= 1.792)
@@ -163,6 +167,7 @@ public class RhythmCanvas : MonoBehaviour
             RandomBackgroundActive(buttonBG, false);
             StartCoroutine(ScoreTextResult(good, 1f));                  //Display Score Result
             StartCoroutine(DestroyEnemyQTE(1f, good, currentEnemyQTE));
+            TigerDamaged(currentEnemyQTE, true);
         }
         //.173
 
@@ -171,6 +176,7 @@ public class RhythmCanvas : MonoBehaviour
             RandomBackgroundActive(buttonBG, false);
             StartCoroutine(ScoreTextResult(perfect, 1f));
             StartCoroutine(DestroyEnemyQTE(1f, perfect, currentEnemyQTE));
+            TigerDamaged(currentEnemyQTE, true);
         }
 
         if (beatTime >= 2f)
@@ -178,6 +184,7 @@ public class RhythmCanvas : MonoBehaviour
             RandomBackgroundActive(buttonBG, false);
             StartCoroutine(ScoreTextResult(miss, 1f));
             StartCoroutine(DestroyEnemyQTE(1f, miss, currentEnemyQTE));
+            TigerDamaged(currentEnemyQTE, false);
         }
     }
 
@@ -195,10 +202,13 @@ public class RhythmCanvas : MonoBehaviour
         //Camera
         smoothCamera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
         smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(3));
-        xCircle.gameObject.SetActive(false);
+        xCircle.gameObject.SetActive(false); 
 
-        if(_currentEnemy)
+        
+
+        if (_currentEnemy)
         {
+            if(!_currentEnemy.CompareTag("Tiger"))
             _currentEnemy.SetActive(false);
             _currentEnemy = null;
         }
@@ -216,12 +226,7 @@ public class RhythmCanvas : MonoBehaviour
         scaling = false;
         xCircle.transform.localScale = bigCircle;
         beatTime = 0f;
-        if(tiger.activeSelf)
-        {
-            float tigerHealth = tiger.GetComponent<Tiger>().currentHealth;
-            tigerHealth -= 25f;
-            tiger.SetActive(false);
-        }
+        
         this.gameObject.SetActive(false);
 
     }
@@ -250,5 +255,28 @@ public class RhythmCanvas : MonoBehaviour
     IEnumerator ResetScoreTextResult(float _wait, GameObject _scoreText)
     {
         yield return new WaitForSecondsRealtime(_wait);
+    }
+
+    public void TigerDamaged(GameObject _currentEnemy, bool _damageTiger)
+    {
+
+        if (_currentEnemy.gameObject.CompareTag("Tiger"))
+        {
+            StartCoroutine(tigerScript.MoveTiger());
+
+            if (_damageTiger)
+            {
+                float damageAmount = 20f;
+                tigerScript.currentHealth -= damageAmount;
+            }
+            else
+            {
+                //Remove health
+                float damageAmount = 34f;
+                GameManager.instance.health -= damageAmount;
+            }
+        }
+        
+        
     }
 }

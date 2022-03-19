@@ -6,10 +6,9 @@ using System;
 using Random = UnityEngine.Random;
 public class Tiger : MonoBehaviour
 {
-
     Strafe strafeScript;
 
-    public Image healthImage;
+    public Slider healthSlider;
     //Player
     [SerializeField] private Transform player;
     //Projectile
@@ -24,15 +23,15 @@ public class Tiger : MonoBehaviour
     public int currentLane = 0;
     public float currentHealth = 100f;
 
-    void OnEnable()
+    private void OnEnable()
     {
         StartCoroutine(MoveTiger());
-        healthImage.gameObject.SetActive(true);
+        healthSlider.gameObject.SetActive(true);
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
-        healthImage.gameObject.SetActive(false);
+        healthSlider.gameObject.SetActive(false);
     }
 
     private void GetProjectile()
@@ -40,21 +39,26 @@ public class Tiger : MonoBehaviour
         Instantiate(projectile, projectileSpawnLocation.transform.position, projectileSpawnLocation.transform.rotation);
     }
 
-    void Update()
+   private void Update()
     {
-        healthImage.fillAmount = currentHealth / 100;
-
-        if(currentHealth <= 0)
+        print("Health = " + currentHealth);
+        if(healthSlider)
         {
+            healthSlider.value = currentHealth;
+        }
+
+        if (currentHealth <= 0)
+        {
+            strafeScript.tigerAlive = false;
             Destroy(this);
         }
     }
 
-    private int RandomLane(int minValue, int maxValue)
+    private int RandomLane(int minOffsetValue, int maxOffsetValue)
     {
-        return Random.Range(minValue, maxValue);
+        return Random.Range(minOffsetValue, maxOffsetValue);
     }
-    private IEnumerator MoveTiger()
+    public IEnumerator MoveTiger()
     {
 
         float moveTime = 2f;

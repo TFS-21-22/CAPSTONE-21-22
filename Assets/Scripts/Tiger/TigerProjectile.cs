@@ -16,7 +16,7 @@ public class TigerProjectile : MonoBehaviour
 
     void Start()
     {
-        collisionParticle = GetComponentInChildren<GameObject>();
+        //collisionParticle = GetComponentInChildren<GameObject>();
         //Ignore colliders
         GameObject[] playerWalls = GameObject.FindGameObjectsWithTag("Colliders");
 
