@@ -49,6 +49,12 @@ namespace PathCreation.Examples
 
         void Update()
         {
+            if (GameManager.instance.health <= 1f)
+            {
+                GameManager.instance.health = 0f;
+                speed -= Time.deltaTime;
+            }
+
             checkPoint = cpManager.checkPoint;
             //Debug.Log("Player speed: " + speed);
 
