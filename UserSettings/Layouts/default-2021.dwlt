@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 0
     width: 203
     height: 993
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 147
+  controlID: 136
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 145
+  controlID: 134
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 146
+  controlID: 135
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -603,9 +603,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -26.69243, y: 47.408417, z: -96.55063}
+    m_Target: {x: -11.82302, y: 15.805977, z: -40.464424}
     speed: 2
-    m_Value: {x: -26.69243, y: 47.408417, z: -96.55063}
+    m_Value: {x: -11.82302, y: 15.805977, z: -40.464424}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -652,9 +652,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.25831804, y: 0.58461785, z: -0.18490653, w: -0.74762654}
+    m_Target: {x: -0.023720322, y: 0.9852028, z: 0.16134927, w: 0.06651728}
     speed: 2
-    m_Value: {x: -0.278366, y: 0.55790365, z: -0.1878672, w: -0.7589215}
+    m_Value: {x: -0.022188991, y: 0.9861867, z: 0.15248649, w: 0.06075661}
   m_Size:
     m_Target: 2.165026
     speed: 2
@@ -860,10 +860,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 6653fdff1e52fdff064dfdff6049fdff
-      m_LastClickedID: -175258
-      m_ExpandedIDs: 5237feff4a62feff2231ffff7c3dffff7e3dffffb056ffffcebbfffffaf6ffffdc7e0000f87e00004a800000ec860000f4890000089900003a9b000006a200001aab0000ceac000078ad0000ceb500006abc0000eec30000ced1000020f10000
+      scrollPos: {x: 0, y: 4287}
+      m_SelectedIDs: 42840100
+      m_LastClickedID: 0
+      m_ExpandedIDs: baf3feff14f8fefffaf6fffff07e0000288700008aa2000024ae00006ef10000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -928,22 +928,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Meshes/Environment
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 77
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Meshes/Environment
   m_LastFoldersGridSize: 77
   m_LastProjectPath: C:\Users\16479\Dropbox\TFS\Capstone Nabi\Git Repository\CAPSTONE-21-22
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 1495}
-    m_SelectedIDs: 06820100
-    m_LastClickedID: 98822
-    m_ExpandedIDs: 000000002e320000ea810100ec810100ee810100f0810100f2810100f4810100f6810100f8810100fa810100fc810100fe81010000820100028201000482010006820100088201000a8201000c8201000e820100108201001282010014820100f2820100468401004884010000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 727}
+    m_SelectedIDs: 0a830100
+    m_LastClickedID: 99082
+    m_ExpandedIDs: 000000002e320000388201003a8201003c8201003e82010040820100428201004482010046820100488201004a8201004c8201004e82010050820100528201005482010056820100588201005a8201005c8201005e820100608201006282010000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -971,7 +971,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002e320000ea810100ec810100ee810100f0810100f2810100f4810100f6810100f8810100fa810100fc810100fe81010000820100028201000482010006820100088201000a8201000c8201000e820100108201001282010014820100
+    m_ExpandedIDs: 000000002e320000388201003a8201003c8201003e82010040820100428201004482010046820100488201004a8201004c8201004e82010050820100528201005482010056820100588201005a8201005c8201005e8201006082010062820100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
