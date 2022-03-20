@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5336607736449864314}
   - component: {fileID: 1182041550849844230}
   - component: {fileID: -2939132344586187336}
+  - component: {fileID: 3335349411140899018}
   m_Layer: 0
   m_Name: mangTree_002
   m_TagString: Untagged
@@ -105,3 +106,17 @@ MonoBehaviour:
   scoreSystem: {fileID: 0}
   startColor: {r: 1, g: 1, b: 1, a: 0}
   endColor: {r: 0.8018868, g: 0, b: 0.57689756, a: 0}
+--- !u!64 &3335349411140899018
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22718274782183764}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8932297081241006009, guid: 95c35cc23aa6fa94892ed9908aecced5, type: 3}

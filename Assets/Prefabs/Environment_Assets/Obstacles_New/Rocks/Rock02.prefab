@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7615121834693448365}
   m_Layer: 0
   m_Name: Rock02
-  m_TagString: Obstacle
+  m_TagString: Log
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,5 +115,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.76958203, y: 0.6287569, z: 1.1742833}
-  m_Center: {x: 0.011588678, y: 0.14414561, z: -0.01319927}
+  m_Size: {x: 0.48877144, y: 0.2217617, z: 0.7499523}
+  m_Center: {x: 0.00054836273, y: 0.16771603, z: 0.009213448}

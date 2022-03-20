@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -3811130994240240685}
   m_Layer: 0
   m_Name: branch_04
-  m_TagString: Obstacle
+  m_TagString: Log
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,7 +97,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7207414735412380844, guid: 95c35cc23aa6fa94892ed9908aecced5, type: 3}
 --- !u!65 &7138572247313902187
@@ -109,7 +109,7 @@ BoxCollider:
   m_GameObject: {fileID: 7421046332811014203}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.85185957, y: 0.18600586, z: 1.8415405}
   m_Center: {x: 0.000000029802322, y: 0.027989428, z: 0}

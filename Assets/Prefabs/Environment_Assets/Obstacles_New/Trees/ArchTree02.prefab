@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9160028762964870555}
   - component: {fileID: -3524519424240386613}
   - component: {fileID: -300473981181889148}
+  - component: {fileID: 6655098984568285886}
   m_Layer: 0
   m_Name: ArchTree02
   m_TagString: Untagged
@@ -119,3 +120,17 @@ MonoBehaviour:
   scoreSystem: {fileID: 0}
   startColor: {r: 1, g: 1, b: 1, a: 0}
   endColor: {r: 0.8018868, g: 0, b: 0.57689756, a: 0}
+--- !u!64 &6655098984568285886
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4739382077411402220}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7816980090545033746, guid: 95c35cc23aa6fa94892ed9908aecced5, type: 3}
