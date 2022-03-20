@@ -463,6 +463,7 @@ public class Strafe : MonoBehaviour
 
     public void Death()
     {
+        GameManager.instance.koreoReader = false;
         SceneManager.LoadScene("LevelDesignBlockout");
         GameManager.instance.health = 100f;
     }

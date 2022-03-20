@@ -96887,7 +96887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  force: 0.3
+  force: 0.25
   player: {fileID: 0}
   QTE: {fileID: 0}
   timer: 0
