@@ -19,14 +19,23 @@ public class ToLoadingScreen : MonoBehaviour
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
 
-        loadingScreen.SetActive(true);
+        if (loadingScreen)
+        {
+            loadingScreen.SetActive(true);
+        }       
 
         while (!operation.isDone)
         {
             float progress = Mathf.Clamp01(operation.progress / 0.9f);
 
-            slider.value = progress;
-            progressText.text = progress * 100f + "%";
+            if (slider)
+            {
+                slider.value = progress;
+            }
+            if (progressText)
+            {
+                progressText.text = progress * 100f + "%";
+            }
 
             yield return null;
         }

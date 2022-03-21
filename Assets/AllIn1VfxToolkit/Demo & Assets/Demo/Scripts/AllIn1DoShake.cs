@@ -19,7 +19,10 @@ namespace AllIn1VfxToolkit.Demo.Scripts
 
         public void DoShake()
         {
-            AllIn1Shaker.i.DoCameraShake(shakeAmount);
+            if (AllIn1Shaker.i)
+            {
+                AllIn1Shaker.i.DoCameraShake(shakeAmount);
+            }            
         }
     }
 }

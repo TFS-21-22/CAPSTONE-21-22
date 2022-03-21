@@ -62,18 +62,27 @@ public class PauseMenuManager : MonoBehaviour
 
     void Start()
     {
+        print("Starting");
         QualitySettings.vSyncCount = 0;
 
         //Set Volume to 0.5f
-       // waterSFX.volume = GameManager.instance.SFXVolume;
-        waterVolumeSlider.value = GameManager.instance.SFXVolume;
+        if (waterSFX)
+        {
+            waterSFX.volume = GameManager.instance.SFXVolume;
+        }
+        
+        if (waterVolumeSlider)
+        {
+            waterVolumeSlider.value = GameManager.instance.SFXVolume;
+        }
+        
         musicVolumeSlider.value = GameManager.instance.musicVolume;
         music.volume = GameManager.instance.musicVolume;
         fullscreenToggle.isOn = GameManager.instance.screenMode;
 
         if (resumeButton)
         {
-            resumeButton.onClick.AddListener(ResumeGame);
+            resumeButton.onClick.AddListener(delegate { ResumeGame(); print("Resume"); });
         }
 
         if(settingsButton)
@@ -162,7 +171,11 @@ public class PauseMenuManager : MonoBehaviour
 
                     //Disable Audio + BeatMaster
                     music.Pause();
-                    waterSFX.Pause();
+                    if (waterSFX)
+                    {
+                        waterSFX.Pause();
+                    }
+                    
                     fireAmabience.Pause();
                     forestAmbience.Pause();
 
@@ -188,7 +201,11 @@ public class PauseMenuManager : MonoBehaviour
 
                     //Disable Audio + BeatMaster
                     music.UnPause();
-                    waterSFX.UnPause();
+                    if (waterSFX)
+                    {
+                        waterSFX.UnPause();
+                    }
+                    
                     fireAmabience.UnPause();
                     forestAmbience.UnPause();
 
@@ -232,7 +249,11 @@ public class PauseMenuManager : MonoBehaviour
     private void ApplyGraphics()
     {
         music.volume = musicVolumeSlider.value;
-        waterSFX.volume = waterVolumeSlider.value;
+        if (waterSFX)
+        {
+            waterSFX.volume = waterVolumeSlider.value;
+        }
+        
 
         if (vsyncToggle.isOn)
         {
@@ -286,8 +307,9 @@ public class PauseMenuManager : MonoBehaviour
         controlsSettingsMenuParent.SetActive(false);
     }
 
-    private void ResumeGame()
+    public void ResumeGame()
     {
+        print("Resume");
         isPaused = false;
 
         //Disable Movement
@@ -299,7 +321,11 @@ public class PauseMenuManager : MonoBehaviour
 
         //Disable Audio + BeatMaster
         music.UnPause();
-        waterSFX.UnPause();
+
+        if(waterSFX)
+        {
+            waterSFX.UnPause();
+        }
 
         //Disable Canvas
         if (!rhythmCanvas.gameObject.activeSelf)
