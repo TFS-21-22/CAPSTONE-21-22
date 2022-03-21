@@ -18,6 +18,8 @@ public class RhythmCanvas : MonoBehaviour
 {
     public Tiger tigerScript;
     public PauseMenuManager pauseMenuScript;
+    public Strafe strafeScript;
+    public Animator tigerAnimator;
 
     public Image xButton;   //"X" button image
     public Image xCircle;   //"X" image outer circle
@@ -71,16 +73,6 @@ public class RhythmCanvas : MonoBehaviour
         }
     }
 
-    void Awake()
-    {
-
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -126,12 +118,12 @@ public class RhythmCanvas : MonoBehaviour
 
     IEnumerator ScaleCircle()
     {
-        
+        tigerScript.attacking = true;
         scaling = true;
         pulsing = true;
         xCircle.gameObject.SetActive(true);
         xCircle.transform.localScale = bigCircle;
-                                                          //Scales "X" outer circle
+
         while (xCircle.transform.localScale.x > 0.5f)
         {
             var spaceButtonInput = Input.GetButtonDown("Jump");
@@ -164,6 +156,7 @@ public class RhythmCanvas : MonoBehaviour
 
         if (beatTime >= 1.474 && beatTime <= 1.792)
         {
+            tigerAnimator.SetTrigger("Hit");
             RandomBackgroundActive(buttonBG, false);
             StartCoroutine(ScoreTextResult(good, 1f));                  //Display Score Result
             StartCoroutine(DestroyEnemyQTE(1f, good, currentEnemyQTE));
@@ -173,6 +166,7 @@ public class RhythmCanvas : MonoBehaviour
 
         if (beatTime > 1.792 && beatTime < 2f)
         {
+            tigerAnimator.SetTrigger("Hit");
             RandomBackgroundActive(buttonBG, false);
             StartCoroutine(ScoreTextResult(perfect, 1f));
             StartCoroutine(DestroyEnemyQTE(1f, perfect, currentEnemyQTE));
@@ -186,6 +180,8 @@ public class RhythmCanvas : MonoBehaviour
             StartCoroutine(DestroyEnemyQTE(1f, miss, currentEnemyQTE));
             TigerDamaged(currentEnemyQTE, false);
         }
+
+        
     }
 
     IEnumerator Pulsing()
@@ -209,8 +205,10 @@ public class RhythmCanvas : MonoBehaviour
         if (_currentEnemy)
         {
             if(!_currentEnemy.CompareTag("Tiger"))
-            _currentEnemy.SetActive(false);
-            _currentEnemy = null;
+            {
+                _currentEnemy.SetActive(false);
+                _currentEnemy = null;
+            }
         }
 
         if (_scoreText)
@@ -276,7 +274,13 @@ public class RhythmCanvas : MonoBehaviour
                 GameManager.instance.health -= damageAmount;
             }
         }
-        
-        
+
+        if(tigerScript.currentHealth <= 0)
+        {
+            strafeScript.tigerAlive = false;
+            tiger.SetActive(false);
+        }
+
+        tigerScript.attacking = false;
     }
 }

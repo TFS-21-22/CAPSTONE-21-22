@@ -124,6 +124,7 @@ public class Strafe : MonoBehaviour
         {
             //Listener - start boss fight
             print("TIGER ENABLE");
+            tiger.GetComponent<Tiger>().attacking = true;
             TigerEnable();
         }           
     }
