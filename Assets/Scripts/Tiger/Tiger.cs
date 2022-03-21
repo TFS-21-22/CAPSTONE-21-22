@@ -6,7 +6,7 @@ using System;
 using Random = UnityEngine.Random;
 public class Tiger : MonoBehaviour
 {
-    Strafe strafeScript;
+    public Strafe strafeScript;
 
     public Slider healthSlider;
     //Player
@@ -41,13 +41,13 @@ public class Tiger : MonoBehaviour
 
    private void Update()
     {
-        print("Health = " + currentHealth);
+       // print("Health = " + currentHealth);
         if(healthSlider)
         {
             healthSlider.value = currentHealth;
         }
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && strafeScript)
         {
             strafeScript.tigerAlive = false;
             Destroy(this);

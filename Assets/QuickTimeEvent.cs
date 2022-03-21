@@ -182,7 +182,7 @@ public class QuickTimeEvent : MonoBehaviour
             bool input = Input.GetKeyDown(_keyToPress);
             if (input && !sequenceOneActive)
             {
-                print(beatTimeTwo);
+                //print(beatTimeTwo);
                 PoseCountCheck(_keyToPress);
                 inputPressed = true;
                 break;
@@ -479,21 +479,25 @@ public class QuickTimeEvent : MonoBehaviour
         if (currentKey == rightArrow)
         {
             poseCount = 1;
+            StartCoroutine(PoseCountReset());
         }
 
         if (currentKey == leftArrow)
         {
             poseCount = 2;
+            StartCoroutine(PoseCountReset());
         }
 
         if (currentKey == upArrow)
         {
             poseCount = 3;
+            StartCoroutine(PoseCountReset());
         }
 
         if(currentKey == downArrow)
         {
             poseCount = 4;
+            StartCoroutine(PoseCountReset());
         }
     }
 }

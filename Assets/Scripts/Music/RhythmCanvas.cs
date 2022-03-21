@@ -88,7 +88,7 @@ public class RhythmCanvas : MonoBehaviour
 
         if (pulsing && Input.GetButtonDown("Jump"))
         {
-            print("SCAPE PRESSED");
+           // print("SCAPE PRESSED");
             keyPressed = true;
             xCircle.gameObject.SetActive(false);
         }

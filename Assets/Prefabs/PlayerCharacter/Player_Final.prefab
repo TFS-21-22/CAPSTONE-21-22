@@ -6010,9 +6010,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   waterImpactAudioSource: {fileID: 0}
-  lilyCollisionParticle: {fileID: 0}
-  obstacleCollisionParticle: {fileID: 1858012043263300216}
-  collectableCollisonParticle: {fileID: 0}
+  lilyCollisionParticle: {fileID: 198927480420149238, guid: b395d5d6eb4b4b846acc021ee036b744, type: 3}
+  obstacleCollisionParticle: {fileID: 0}
+  collectableCollisonParticle: {fileID: 198927480420149238, guid: b395d5d6eb4b4b846acc021ee036b744, type: 3}
   jump: {x: 0, y: 0, z: 0}
   boundx: 2.25
   speed: 4
@@ -6037,7 +6037,7 @@ MonoBehaviour:
   ButtonSequenceID: SequenceQTE
   WispSeqeuenceID: CircleQT
   GetButtonID: SequenceGetButton
-  EnableTiger: 
+  EnableTiger: TigerTrack
 --- !u!111 &6049481308520189063
 Animation:
   m_ObjectHideFlags: 0
@@ -6045,7 +6045,7 @@ Animation:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4717308977694728311}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Animation: {fileID: 1827226128182048838, guid: 22e0cb282d42b6b4a9dfad38fd98f493, type: 3}
   m_Animations:

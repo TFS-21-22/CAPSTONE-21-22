@@ -65,7 +65,7 @@ public class PauseMenuManager : MonoBehaviour
         QualitySettings.vSyncCount = 0;
 
         //Set Volume to 0.5f
-        waterSFX.volume = GameManager.instance.SFXVolume;
+       // waterSFX.volume = GameManager.instance.SFXVolume;
         waterVolumeSlider.value = GameManager.instance.SFXVolume;
         musicVolumeSlider.value = GameManager.instance.musicVolume;
         music.volume = GameManager.instance.musicVolume;
@@ -128,10 +128,6 @@ public class PauseMenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {        
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Application.Quit();
-        }
 
         ////////for hayden spline testing //HUD contains if-else statement if game is paused or not
         if (Input.GetKeyDown(KeyCode.KeypadPlus))
