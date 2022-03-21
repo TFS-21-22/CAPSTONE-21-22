@@ -2643,7 +2643,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1405672985}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4143,17 +4143,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 638574321}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 8.284793, y: 8.284793, z: 8.284793}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1405672985}
-  m_RootOrder: 6
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -244, y: 288}
+  m_AnchoredPosition: {x: -128.12506, y: 353.17966}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &638574323
@@ -4739,7 +4739,7 @@ RectTransform:
   - {fileID: 1239539209}
   - {fileID: 458917627}
   m_Father: {fileID: 1405672985}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6185,7 +6185,7 @@ RectTransform:
   - {fileID: 1235343623}
   - {fileID: 612969966}
   m_Father: {fileID: 1405672985}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8892,7 +8892,6 @@ RectTransform:
   - {fileID: 1812177062}
   - {fileID: 712927177}
   - {fileID: 870253023}
-  - {fileID: 638574322}
   - {fileID: 1046623940}
   - {fileID: 735484519}
   - {fileID: 364216226}
@@ -8916,7 +8915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f13c24f4493a084db72dbc8d9f13812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Title: {fileID: 638574321}
+  Title: {fileID: 0}
   MainMenu: {fileID: 1046623939}
   startButton: {fileID: 342028634}
   compendiumButton: {fileID: 1275361005}
