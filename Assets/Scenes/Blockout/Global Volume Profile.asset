@@ -1,21 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6705995864216831872
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97c23e3b12dc18c42a140437e53d3951, type: 3}
-  m_Name: Tonemapping
-  m_EditorClassIdentifier: 
-  active: 1
-  mode:
-    m_OverrideState: 1
-    m_Value: 2
 --- !u!114 &-6307134143226287339
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -72,52 +56,6 @@ MonoBehaviour:
   saturation:
     m_OverrideState: 1
     m_Value: -15
---- !u!114 &-2708443669455599640
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c01700fd266d6914ababb731e09af2eb, type: 3}
-  m_Name: DepthOfField
-  m_EditorClassIdentifier: 
-  active: 1
-  mode:
-    m_OverrideState: 1
-    m_Value: 1
-  gaussianStart:
-    m_OverrideState: 1
-    m_Value: 60
-  gaussianEnd:
-    m_OverrideState: 1
-    m_Value: 80
-  gaussianMaxRadius:
-    m_OverrideState: 1
-    m_Value: 0.5
-  highQualitySampling:
-    m_OverrideState: 1
-    m_Value: 1
-  focusDistance:
-    m_OverrideState: 1
-    m_Value: 26.08
-  aperture:
-    m_OverrideState: 1
-    m_Value: 3.5
-  focalLength:
-    m_OverrideState: 1
-    m_Value: 52
-  bladeCount:
-    m_OverrideState: 1
-    m_Value: 7
-  bladeCurvature:
-    m_OverrideState: 1
-    m_Value: 0.74
-  bladeRotation:
-    m_OverrideState: 1
-    m_Value: 180
 --- !u!114 &-771583648272049639
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -150,12 +88,10 @@ MonoBehaviour:
   m_Name: Global Volume Profile
   m_EditorClassIdentifier: 
   components:
-  - {fileID: -6705995864216831872}
   - {fileID: -5750494838188949826}
   - {fileID: 6594378090385759717}
   - {fileID: 1001805311488558809}
   - {fileID: -6307134143226287339}
-  - {fileID: -2708443669455599640}
   - {fileID: -771583648272049639}
 --- !u!114 &1001805311488558809
 MonoBehaviour:
