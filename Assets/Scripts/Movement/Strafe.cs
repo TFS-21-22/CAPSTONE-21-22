@@ -294,6 +294,12 @@ public class Strafe : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if(other.gameObject.CompareTag("TigerDamageZone"))
+        {
+            //Remove health
+            //Play hurt audio
+            
+        }
  
         if (other.gameObject.CompareTag("Obstacle"))
         {

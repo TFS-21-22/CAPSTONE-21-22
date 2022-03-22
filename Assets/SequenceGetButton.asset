@@ -26,18 +26,6 @@ MonoBehaviour:
     mEndSample: 5576953
   - mStartSample: 5658369
     mEndSample: 5658369
-  - mStartSample: 6635353
-    mEndSample: 6635353
-  - mStartSample: 6716769
-    mEndSample: 6716769
-  - mStartSample: 6798184
-    mEndSample: 6798184
-  - mStartSample: 7286676
-    mEndSample: 7286676
-  - mStartSample: 7449507
-    mEndSample: 7449507
-  - mStartSample: 7612338
-    mEndSample: 7612338
   _SerializedPayloadTypes: []
   _AssetPayloads: []
   _AssetPayloadIdxs: 

@@ -23,6 +23,7 @@ TagManager:
   - Lily2
   - Lily3
   - Lily4
+  - TigerDamageZone
   layers:
   - Default
   - TransparentFX

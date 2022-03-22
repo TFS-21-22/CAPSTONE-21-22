@@ -262,8 +262,6 @@ public class RhythmCanvas : MonoBehaviour
 
         if (_currentEnemy.gameObject.CompareTag("Tiger"))
         {
-            StartCoroutine(tigerScript.MoveTiger());
-
             if (_damageTiger)
             {
                 float damageAmount = 20f;

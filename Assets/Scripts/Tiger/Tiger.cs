@@ -6,103 +6,275 @@ using System;
 using Random = UnityEngine.Random;
 public class Tiger : MonoBehaviour
 {
-    Strafe strafeScript;
-
+    public Strafe strafeScript;
+    Animator tigerAnim;
     public Slider healthSlider;
     //Player
-    [SerializeField] private Transform player;
+    [SerializeField] private Transform tigerParent;
     //Projectile
-    [SerializeField] private GameObject projectile;
+    [SerializeField] private GameObject projectilePrefab;
+    private GameObject bullet;
+    private GameObject bullet2;
+    private GameObject bullet3;
+
     [SerializeField] private Transform projectileSpawnLocation;
-    public Transform[] projectileHitLocations = new Transform[3];
     //Particles
     [SerializeField] private ParticleSystem roarParticle;
-    [SerializeField] private ParticleSystem bulletImpactParticle;
+    //Claw positions
+    [SerializeField] private Transform[] tigerDamgeZones;
+    [SerializeField] private Transform[] clawPositions;
+    [SerializeField] private Transform[] lanes;
 
-    int shotsFired = 0;
+
+    [SerializeField] private Transform startPosition;
+
+    private int clawPosIndex;
+    //Audio
+    public AudioSource roarSound;
+    //Bool
+    public bool attacking = false;
+    private bool shooting = false;
+    private int bulletsFired = 0;
+    private bool chooseClawLane = true;
+    private bool inRange = false;
+    private bool getLane = true;
+    //Pool
+    Queue<GameObject> pool;
+
+    private bool chooseCurrentLane = true;
     public int currentLane = 0;
     public float currentHealth = 100f;
+    private float moveDistance;
+    private int chosenLocation;
+
+    private enum enTigerState
+    {
+        ResetPosition,
+        Claw,
+        Move,
+        Shoot,
+    }
+
+    private enTigerState TigerState;
 
     private void OnEnable()
     {
-        StartCoroutine(MoveTiger());
-        healthSlider.gameObject.SetActive(true);
+        TigerState = enTigerState.Move;
+        bullet = null;
+        shooting = false;
     }
 
-    private void OnDisable()
+    void Start()
     {
-        healthSlider.gameObject.SetActive(false);
+        tigerAnim = GetComponent<Animator>();
+    }
+
+    
+
+    private void Update()
+    {
+        print(TigerState);
+
+        switch (TigerState)
+        {
+            case enTigerState.ResetPosition:
+                ResetPosition(startPosition.position);
+
+                break;
+            case enTigerState.Claw:
+
+                if(!inRange)
+                {
+                    ChooseClawPosition();
+                }
+
+                break;
+
+            case enTigerState.Move:
+
+                //Moves tiger left or right
+                if(getLane)
+                {
+                    getLane = false;
+                    currentLane = GetLane();
+                }
+                else
+                {
+                    MoveToLanePosition();
+                }
+
+                break;
+
+            case enTigerState.Shoot:
+
+                if (!shooting)
+                {
+                    if(bulletsFired < 3)
+                    {
+                        
+                        GetProjectile();
+                        TigerState = enTigerState.Move;
+                    }
+                }
+
+                if (bulletsFired >= 3)
+                {
+                    print("CLAW STATe");
+                    TigerState = enTigerState.Claw;
+                }
+
+                break;
+        }
+
+        //Animator
+        tigerAnim.SetBool("Attack", attacking);
+
+        //Health bar
+        if (healthSlider)
+        {
+            healthSlider.value = currentHealth;
+        }
+    }
+
+    public void MoveToLanePosition()
+    {
+        float distance = Vector3.Distance(tigerParent.transform.position, lanes[chosenLocation].position);
+
+        if (distance < 0.001f)
+        {
+            
+
+            if(bulletsFired <= 3)
+            {
+                bullet = null;
+                shooting = false;
+                TigerState = enTigerState.Shoot;
+            }
+            else
+            {
+                TigerState = enTigerState.Claw;
+            }
+
+        }
+        else
+        {
+            float speed = 4f;
+            float step = speed * Time.deltaTime; // calculate distance to move
+            tigerParent.position = Vector3.MoveTowards(tigerParent.transform.position, lanes[chosenLocation].position, step);
+        }
     }
 
     private void GetProjectile()
     {
-        Instantiate(projectile, projectileSpawnLocation.transform.position, projectileSpawnLocation.transform.rotation);
-    }
+        shooting = true;
+        if (bullet == null)
+        {
+            bullet = Instantiate(projectilePrefab, projectileSpawnLocation.transform.position, projectileSpawnLocation.transform.rotation);
+            bulletsFired++;
+        }
 
-   private void Update()
+        roarParticle.gameObject.SetActive(true);
+        roarSound.Play();
+        roarParticle.gameObject.SetActive(false);
+        TigerState = enTigerState.Move;
+    }
+    public void ResetPosition(Vector3 endPos)
     {
-        print("Health = " + currentHealth);
-        if(healthSlider)
-        {
-            healthSlider.value = currentHealth;
-        }
+        float distance = Vector3.Distance(tigerParent.transform.position, endPos);
 
-        if (currentHealth <= 0)
+        if (distance < 0.001f)
         {
-            strafeScript.tigerAlive = false;
-            Destroy(this);
+            bulletsFired = 0;
+            currentLane = 0;
+            shooting = false;
+            chooseClawLane = true;
+            chooseCurrentLane = true;
+            getLane = true;
+            TigerState = enTigerState.Move;
+           
+        }
+        else
+        {
+            float speed = 4f;
+            float step = speed * Time.deltaTime; // calculate distance to move
+            tigerParent.position = Vector3.MoveTowards(tigerParent.transform.position, endPos, step);
         }
     }
 
+
+    public void ChooseClawPosition()
+    {
+        if (chooseClawLane)
+        {
+            clawPosIndex = Random.Range(0, 3);
+            chooseClawLane = false;
+        }
+
+        Vector3 positionChosen = clawPositions[clawPosIndex].position;
+        float boxDuration = 2f;
+        float distance = Vector3.Distance(tigerParent.transform.position, positionChosen);
+
+        print("Distance - " + distance);
+        if (distance < 0.001f)
+        {
+            inRange = true;
+            StartCoroutine(ChooseDamageBox(boxDuration));
+        }
+        else
+        {
+            float speed = 4f;
+            float step = speed * Time.deltaTime; // calculate distance to move
+            tigerParent.position = Vector3.MoveTowards(tigerParent.transform.position, positionChosen, step);
+        }
+    }
+
+    private IEnumerator ChooseDamageBox(float _wait)
+    {
+        float waitForQTE = 8f;
+        if (!roarSound.isPlaying)
+            roarSound.Play();
+
+        roarParticle.gameObject.SetActive(true);
+        yield return new WaitForSecondsRealtime(_wait);
+        //Attack animation
+        tigerDamgeZones[clawPosIndex].gameObject.SetActive(true);
+        yield return new WaitForSecondsRealtime(_wait);
+        tigerDamgeZones[clawPosIndex].gameObject.SetActive(false);
+        roarParticle.gameObject.SetActive(false);
+        yield return new WaitForSecondsRealtime(waitForQTE);
+        TigerState = enTigerState.ResetPosition;
+        bulletsFired = 0;
+        chooseClawLane = true;
+        chooseCurrentLane = true;
+        inRange = false;
+        
+
+    }
+
+    
     private int RandomLane(int minOffsetValue, int maxOffsetValue)
     {
         return Random.Range(minOffsetValue, maxOffsetValue);
     }
-    public IEnumerator MoveTiger()
+    public int GetLane()
     {
-
-        float moveTime = 2f;
-        float moveDistance;
-        int chosenDirection;
-        var validChoice = new int[] { 0, 2 };
+        int[] centerLaneChoices = new int[] { 0, 2 };
 
         if (currentLane == 0)
         {
-            chosenDirection = RandomLane(1, 2);
-
-            if (chosenDirection == 1)
-                moveDistance = 2f;
-            else
-                moveDistance = 4f;
+            //Choses lane to move to
+            return chosenLocation = RandomLane(1, 2);
         }
         else if (currentLane == 1)
         {
-            chosenDirection = RandomLane(0, 2);
-
-            if (chosenDirection == 0)
-                moveDistance = -2f;
-            else
-                moveDistance = 2f;
+            return chosenLocation = RandomLane(0, 2);
         }
         else
         {
-            chosenDirection = validChoice[Random.Range(0, validChoice.Length)];
-
-            if (chosenDirection == 1)
-                moveDistance = -2f;
-            else
-                moveDistance = -4f;
+            int index = Random.Range(0, 1);
+            return chosenLocation = centerLaneChoices[index];
         }
-
-
-        int id = LeanTween.moveLocalX(this.gameObject, moveDistance, moveTime).id;
-        while (LeanTween.isTweening(id))
-        {
-            yield return null;
-        }
-        currentLane = chosenDirection;
-        LeanTween.cancel(id);
-        GetProjectile();
+               
     }
 
 
