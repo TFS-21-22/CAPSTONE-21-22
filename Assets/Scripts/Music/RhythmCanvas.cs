@@ -260,8 +260,6 @@ public class RhythmCanvas : MonoBehaviour
 
         if (_currentEnemy.gameObject.CompareTag("Tiger"))
         {
-            StartCoroutine(tigerScript.MoveTiger());
-
             if (_damageTiger)
             {
                 float damageAmount = 20f;
@@ -281,6 +279,6 @@ public class RhythmCanvas : MonoBehaviour
             tiger.SetActive(false);
         }
 
-        tigerScript.attacking = false;
+        //tigerScript.attacking = false;
     }
 }
