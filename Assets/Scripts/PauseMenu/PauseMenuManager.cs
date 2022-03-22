@@ -11,11 +11,11 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private RhythmCanvas rhythmCanvas;
     [SerializeField] private Strafe strafeScript;
     [SerializeField] private AudioSource music;
-    [SerializeField] private AudioSource waterSFX;
+    //[SerializeField] private AudioSource waterSFX;
     [SerializeField] private AudioSource fireAmabience;
     [SerializeField] private AudioSource forestAmbience;
     [SerializeField] private Slider musicVolumeSlider;
-    [SerializeField] private Slider waterVolumeSlider;
+    //[SerializeField] private Slider waterVolumeSlider;
 
     //Buttons
     [SerializeField] private Button resumeButton;
@@ -65,8 +65,8 @@ public class PauseMenuManager : MonoBehaviour
         QualitySettings.vSyncCount = 0;
 
         //Set Volume to 0.5f
-        waterSFX.volume = GameManager.instance.SFXVolume;
-        waterVolumeSlider.value = GameManager.instance.SFXVolume;
+       // waterSFX.volume = GameManager.instance.SFXVolume;
+      //  waterVolumeSlider.value = GameManager.instance.SFXVolume;
         musicVolumeSlider.value = GameManager.instance.musicVolume;
         music.volume = GameManager.instance.musicVolume;
         fullscreenToggle.isOn = GameManager.instance.screenMode;
@@ -166,7 +166,7 @@ public class PauseMenuManager : MonoBehaviour
 
                     //Disable Audio + BeatMaster
                     music.Pause();
-                    waterSFX.Pause();
+                   // waterSFX.Pause();
                     fireAmabience.Pause();
                     forestAmbience.Pause();
 
@@ -192,7 +192,7 @@ public class PauseMenuManager : MonoBehaviour
 
                     //Disable Audio + BeatMaster
                     music.UnPause();
-                    waterSFX.UnPause();
+                   // waterSFX.UnPause();
                     fireAmabience.UnPause();
                     forestAmbience.UnPause();
 
@@ -236,7 +236,7 @@ public class PauseMenuManager : MonoBehaviour
     private void ApplyGraphics()
     {
         music.volume = musicVolumeSlider.value;
-        waterSFX.volume = waterVolumeSlider.value;
+        //waterSFX.volume = waterVolumeSlider.value;
 
         if (vsyncToggle.isOn)
         {
@@ -303,7 +303,7 @@ public class PauseMenuManager : MonoBehaviour
 
         //Disable Audio + BeatMaster
         music.UnPause();
-        waterSFX.UnPause();
+       // waterSFX.UnPause();
 
         //Disable Canvas
         if (!rhythmCanvas.gameObject.activeSelf)
