@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 8517506255031689321}
   - component: {fileID: -8526111503136589884}
   - component: {fileID: 8843348073702653343}
-  - component: {fileID: 1737702802712636752}
   - component: {fileID: 898222431799911698}
   m_Layer: 0
   m_Name: Coconut
@@ -151,20 +150,6 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &1737702802712636752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7891172846839348839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d957773812e938d458200b9e456a5b07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animCom: {fileID: 8843348073702653343}
-  eventID: AnimLightingTrack
 --- !u!95 &898222431799911698
 Animator:
   serializedVersion: 4
