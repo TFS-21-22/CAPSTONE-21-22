@@ -23,6 +23,12 @@ public class MusicalAnimTrigger : MonoBehaviour
         Koreographer.Instance.RegisterForEvents(eventID, OnAnimationTrigger);
     }
 
+  //  void OnAnimationTrigger(KoreographyEvent evt)
+   // {
+     //   animCom.Stop();
+     //   animCom.Play();
+  //  }
+
     private void Update()
     {
         if (anim)

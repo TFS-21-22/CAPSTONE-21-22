@@ -162,4 +162,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animCom: {fileID: 661068160156596584}
-  eventID: BeatTrackMain
+  eventID: AnimLightingTrack
+  poseCount: 0
+  anim: {fileID: 0}
