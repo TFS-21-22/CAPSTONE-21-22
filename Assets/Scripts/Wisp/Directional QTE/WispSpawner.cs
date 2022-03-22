@@ -43,6 +43,7 @@ public class WispSpawner : MonoBehaviour
     public void Spawn(KeyCode dir)
     {
         Rigidbody temp;
+        print(dir);
         if (dir == KeyCode.LeftArrow)
         {
             temp = Instantiate(wispPrefab, spawns[0].position, spawns[0].rotation);

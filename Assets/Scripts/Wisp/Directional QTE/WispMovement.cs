@@ -8,8 +8,6 @@ public class WispMovement : MonoBehaviour
     public float force;
     public GameObject player;
     public QuickTimeEvent QTE;
-    public GameObject birds;
-    public ParticleSystem poofParticle;
 
     public float timer;
 
@@ -17,7 +15,7 @@ public class WispMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        StartCoroutine(Poof());
+        
     }
 
     // Update is called once per frame
@@ -26,30 +24,14 @@ public class WispMovement : MonoBehaviour
         transform.LookAt(player.transform);
         rb.AddForce(transform.forward * force, ForceMode.Impulse);
         timer += Time.deltaTime;
-
         if (timer >= 1.1 && timer <= 2 && QTE.correctButtonSwitch == true)
         {
-            StartCoroutine(Poof());
-            birds.SetActive(false);
-            force = 0;
+            Destroy(gameObject);
         }
         else if (timer >= 2.2)
         {
             //GameManager.instance.health--;
-            StartCoroutine(Poof());
-            birds.SetActive(false);
-            force = 0;
-        }
-    }
-
-    IEnumerator Poof()
-    {
-        poofParticle.Play();
-        yield return new WaitForSeconds(0.3f);
-        poofParticle.Pause();
-        if (birds.activeSelf == false)
-        {
-            Destroy(gameObject);
+            Destroy(gameObject);            
         }
     }
 }

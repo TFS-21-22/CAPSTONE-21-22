@@ -123,7 +123,7 @@ public class Strafe : MonoBehaviour
         if (GameManager.instance.koreoReader == true)
         {
             //Listener - start boss fight
-            tiger.GetComponent<Tiger>().attacking = true;
+            print("TIGER ENABLE");
             TigerEnable();
         }           
     }
