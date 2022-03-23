@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9164837560419936799}
   - component: {fileID: 7137716928846486396}
   - component: {fileID: 214355328276925157}
+  - component: {fileID: 8806656180255413335}
   m_Layer: 0
   m_Name: lilyHealth
   m_TagString: Heart
@@ -84,6 +85,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8806656180255413335
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2192661276439953617}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0364827, y: 0.60317, z: 1.0364879}
+  m_Center: {x: 0.17697403, y: 0.2939103, z: 0.0066414364}
 --- !u!1001 &7876682092954262527
 PrefabInstance:
   m_ObjectHideFlags: 0
