@@ -260,13 +260,13 @@ public class QuickTimeEvent : MonoBehaviour
     private void EndSequence()
     {
         if (activeButtonCount >= 3)
-            StartCoroutine(EndQuickTimeEvent(1.7f));
+            StartCoroutine(EndQuickTimeEvent(1f));
         StartCoroutine(PoseCountReset());
 
-        poseVFX[0].SetActive(false);
-        poseVFX[1].SetActive(false);
-        poseVFX[2].SetActive(false);
-        poseVFX[3].SetActive(false);
+        for(int i = 0; i < poseVFX.Length; i++)
+        {
+            poseVFX[i].SetActive(false);
+        }
 
     }
 

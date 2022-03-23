@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1223223985, guid: aa81bbec85a3f423193272a7c6154986, type: 3}
+  m_Name: GetBonusButton
+  m_EditorClassIdentifier: 
+  mEventID: GetBonusButton
+  mEventList:
+  - mStartSample: 8182246
+    mEndSample: 8182246
+  - mStartSample: 8263661
+    mEndSample: 8263661
+  - mStartSample: 8345076
+    mEndSample: 8345076
+  - mStartSample: 8507907
+    mEndSample: 8507907
+  - mStartSample: 8589323
+    mEndSample: 8589323
+  - mStartSample: 8670738
+    mEndSample: 8670738
+  - mStartSample: 8833569
+    mEndSample: 8833569
+  - mStartSample: 8914984
+    mEndSample: 8914984
+  - mStartSample: 8996400
+    mEndSample: 8996400
+  - mStartSample: 9159230
+    mEndSample: 9159230
+  - mStartSample: 9240646
+    mEndSample: 9240646
+  - mStartSample: 9322061
+    mEndSample: 9322061
+  - mStartSample: 9484892
+    mEndSample: 9484892
+  - mStartSample: 9566307
+    mEndSample: 9566307
+  - mStartSample: 9647723
+    mEndSample: 9647723
+  _SerializedPayloadTypes: []
+  _AssetPayloads: []
+  _AssetPayloadIdxs: 
+  _ColorPayloads: []
+  _ColorPayloadIdxs: 
+  _CurvePayloads: []
+  _CurvePayloadIdxs: 
+  _FloatPayloads: []
+  _FloatPayloadIdxs: 
+  _GradientPayloads: []
+  _GradientPayloadIdxs: 
+  _IntPayloads: []
+  _IntPayloadIdxs: 
+  _SpectrumPayloads: []
+  _SpectrumPayloadIdxs: 
+  _TextPayloads: []
+  _TextPayloadIdxs: 

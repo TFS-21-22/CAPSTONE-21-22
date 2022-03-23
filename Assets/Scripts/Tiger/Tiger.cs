@@ -45,6 +45,11 @@ public class Tiger : MonoBehaviour
     private float moveDistance;
     private int chosenLocation;
 
+    void OnDisable()
+    {
+        healthSlider.gameObject.SetActive(false);
+    }
+
     private enum enTigerState
     {
         ResetPosition,
@@ -147,7 +152,7 @@ public class Tiger : MonoBehaviour
         }
         else
         {
-            float speed = 4f;
+            float speed = 6f;
             float step = speed * Time.deltaTime; // calculate distance to move
             tigerParent.position = Vector3.MoveTowards(tigerParent.transform.position, lanes[chosenLocation].position, step);
         }
@@ -184,7 +189,7 @@ public class Tiger : MonoBehaviour
         }
         else
         {
-            float speed = 4f;
+            float speed = 6f;
             float step = speed * Time.deltaTime; // calculate distance to move
             tigerParent.position = Vector3.MoveTowards(tigerParent.transform.position, endPos, step);
         }
@@ -209,7 +214,7 @@ public class Tiger : MonoBehaviour
         }
         else
         {
-            float speed = 4f;
+            float speed = 6f;
             float step = speed * Time.deltaTime; // calculate distance to move
             tigerParent.position = Vector3.MoveTowards(tigerParent.transform.position, positionChosen, step);
         }
@@ -217,7 +222,7 @@ public class Tiger : MonoBehaviour
 
     private IEnumerator ChooseDamageBox(float _wait)
     {
-        float waitForQTE = 8f;
+        float waitForQTE = 5f;
 
 
         roarParticle.gameObject.SetActive(true);

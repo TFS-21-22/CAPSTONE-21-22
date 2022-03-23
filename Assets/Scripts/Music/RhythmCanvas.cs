@@ -18,6 +18,7 @@ public class RhythmCanvas : MonoBehaviour
 {
     public Tiger tigerScript;
     public PauseMenuManager pauseMenuScript;
+    public Strafe strafeScript;
 
     public Image xButton;   //"X" button image
     public Image xCircle;   //"X" image outer circle
@@ -172,7 +173,7 @@ public class RhythmCanvas : MonoBehaviour
             StartCoroutine(DestroyEnemyQTE(1f, miss, currentEnemyQTE));
             if (tiger.activeSelf)
             {
-                TigerDamaged(currentEnemyQTE, true);
+                TigerDamaged(currentEnemyQTE, false);
             }
             danceAudio[0].Play();
         }
@@ -184,7 +185,7 @@ public class RhythmCanvas : MonoBehaviour
             StartCoroutine(DestroyEnemyQTE(1f, okay, currentEnemyQTE));
             if (tiger.activeSelf)
             {
-                TigerDamaged(currentEnemyQTE, true);
+                TigerDamaged(currentEnemyQTE, false);
             }
 
             QTEBool = true;
@@ -232,7 +233,7 @@ public class RhythmCanvas : MonoBehaviour
             StartCoroutine(DestroyEnemyQTE(1f, miss, currentEnemyQTE));
             if (tiger.activeSelf)
             {
-                TigerDamaged(currentEnemyQTE, true);
+                TigerDamaged(currentEnemyQTE, false);
             }
             QTEBool = false;
             print(QTEBool);
@@ -317,8 +318,13 @@ public class RhythmCanvas : MonoBehaviour
         {
             if (_damageTiger)
             {
-                float damageAmount = 20f;
+                float damageAmount = 50f;
                 tigerScript.currentHealth -= damageAmount;
+                if(tigerScript.currentHealth <= 0)
+                {
+                    strafeScript.GetComponent<Strafe>().tigerAlive = false;
+                    tiger.SetActive(false);
+                }
                 tigerAnim.SetBool("Hit", true);
                 
             }

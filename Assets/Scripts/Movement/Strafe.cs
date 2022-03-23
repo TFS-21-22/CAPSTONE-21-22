@@ -79,7 +79,17 @@ public class Strafe : MonoBehaviour
     [EventID]
     public string GetButtonID;
     [EventID]
-    public string EnableTiger;
+    public string EnableTigerID;
+    [EventID]
+    public string EnableBonusRoundID;
+    [EventID]
+    public string GetBonusButtonID;
+
+    [Header("Bonus Round Variables")]
+    public GameObject bonusRoundText;
+
+
+
 
     public AudioSource collectableImpactAudioSource;
 
@@ -92,8 +102,11 @@ public class Strafe : MonoBehaviour
 
         //Old QTE
         Koreographer.Instance.RegisterForEvents(WispSeqeuenceID, delegate { WispSequenceListener(); });     //Call sequence
-        Koreographer.Instance.RegisterForEvents(EnableTiger, delegate { TigerSequenceListener(); });        //Enable Tiger
+        Koreographer.Instance.RegisterForEvents(EnableTigerID, delegate { TigerSequenceListener(); });        //Enable Tiger
 
+        //Bonus round
+        Koreographer.Instance.RegisterForEvents(EnableBonusRoundID, delegate { EnableBonusRound(); });      //Enable bonus round
+        Koreographer.Instance.RegisterForEvents(GetBonusButtonID, delegate { GetBonusButton(); });        //Get button
     }
 
     // Start is called before the first frame update
@@ -131,6 +144,28 @@ public class Strafe : MonoBehaviour
             print("TIGER ENABLE");
             TigerEnable();
         }           
+    }
+
+    private void EnableBonusRound()
+    {
+        if (GameManager.instance.koreoReader == true && !tigerAlive)
+        {
+            //Listener - Start wisp sequence
+            quickTimeEvent.SetActive(true);
+            bonusRoundText.SetActive(true);
+        }
+    }
+
+    private void GetBonusButton()
+    {
+        if (GameManager.instance.koreoReader == true && !tigerAlive)
+        {
+            if (quickTimeEventScript.activeButtonCount < 3)
+            {
+                quickTimeEventScript.GetButton();
+            }
+        
+        }
     }
 
     private void WispSequenceListener()
@@ -185,7 +220,6 @@ public class Strafe : MonoBehaviour
     {
         tiger.SetActive(true);
         rhythmScript.currentEnemyQTE = tiger.gameObject;
-        camera.cameraPosition = SmoothCameraScript.ECameraPosition.OffsetLeft;
         camera.StartCoroutine(camera.CameraSwitch(3));
     }
 
@@ -302,6 +336,8 @@ public class Strafe : MonoBehaviour
         if(other.gameObject.CompareTag("TigerDamageZone"))
         {
             //Remove health
+            GameManager.instance.health -= 34f;
+
             //Play hurt audio
             
         }
