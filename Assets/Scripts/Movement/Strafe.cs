@@ -327,7 +327,7 @@ public class Strafe : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("TigerProjectile"))
         {
-            GameManager.instance.health--;
+            GameManager.instance.health -= 34f;
         }
     }
 
