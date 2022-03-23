@@ -339,7 +339,8 @@ public class Strafe : MonoBehaviour
             GameManager.instance.health -= 34f;
 
             //Play hurt audio
-            
+            waterImpactAudioSource.Play();
+
         }
  
         if (other.gameObject.CompareTag("Obstacle"))

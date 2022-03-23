@@ -236,7 +236,7 @@ public class RhythmCanvas : MonoBehaviour
                 TigerDamaged(currentEnemyQTE, false);
             }
             QTEBool = false;
-            print(QTEBool);
+            //print(QTEBool);
             danceAudio[0].Play();
         }
     }
