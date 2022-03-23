@@ -18,7 +18,7 @@ public class Tiger : MonoBehaviour
     //Particles
     [SerializeField] private ParticleSystem roarParticle;
     //Claw positions
-    [SerializeField] private Transform[] tigerDamgeZones;
+    [SerializeField] private Transform tigerDamgeZones;
     [SerializeField] private Transform[] clawPositions;
     [SerializeField] private Transform[] lanes;
 
@@ -27,6 +27,7 @@ public class Tiger : MonoBehaviour
 
     private int clawPosIndex;
     //Audio
+    public AudioSource tigerSwipeSFX;
     public AudioSource roarSound;
     //Bool
     public bool attacking = false;
@@ -70,7 +71,7 @@ public class Tiger : MonoBehaviour
     private void Update()
     {
         //print(TigerState);
-
+        print(TigerState);
         switch (TigerState)
         {
             case enTigerState.ResetPosition:
@@ -105,11 +106,11 @@ public class Tiger : MonoBehaviour
 
                 if (!shooting)
                 {
+                    Debug.Log("Not Shooting" + bulletsFired);
                     if(bulletsFired < 3)
                     {
                         shooting = true;
                         StartCoroutine(GetProjectile());
-                        TigerState = enTigerState.Move;
                     }
                     else if(bulletsFired >= 3)
                     {
@@ -121,10 +122,6 @@ public class Tiger : MonoBehaviour
 
                 break;
         }
-
-        //Animator
-       // tigerAnim.SetBool("Attack", attacking);
-
         //Health bar
         if (healthSlider)
         {
@@ -135,18 +132,18 @@ public class Tiger : MonoBehaviour
     public void MoveToLanePosition()
     {
         float distance = Vector3.Distance(tigerParent.transform.position, lanes[chosenLocation].position);
-
+        Debug.Log("Distance:" + distance);
         if (distance < 0.001f)
         {
             if(bulletsFired <= 3)
             {
+                shooting = false;
                 TigerState = enTigerState.Shoot;
             }
             else
             {
                 TigerState = enTigerState.Claw;
             }
-
         }
         else
         {
@@ -158,13 +155,15 @@ public class Tiger : MonoBehaviour
 
     private IEnumerator GetProjectile()
     {
-        yield return new WaitForSeconds(5f);
+        
+        yield return new WaitForSeconds(1f);
 
         Instantiate(projectilePrefab, projectileSpawnLocation.transform.position, projectileSpawnLocation.transform.rotation);
         bulletsFired++;
         roarParticle.gameObject.SetActive(true);
         roarSound.Play();
         roarParticle.gameObject.SetActive(false);
+        getLane = true;
         TigerState = enTigerState.Move;
 
     }
@@ -219,18 +218,21 @@ public class Tiger : MonoBehaviour
     private IEnumerator ChooseDamageBox(float _wait)
     {
         float waitForQTE = 8f;
-        if (!roarSound.isPlaying)
-            roarSound.Play();
+
 
         roarParticle.gameObject.SetActive(true);
         yield return new WaitForSecondsRealtime(_wait);
         tigerAnim.SetBool("Attack", true);
-        tigerDamgeZones[clawPosIndex].gameObject.SetActive(true);
+        tigerDamgeZones.gameObject.SetActive(true);
+        if (!tigerSwipeSFX.isPlaying)
+            tigerSwipeSFX.Play();
         yield return new WaitForSecondsRealtime(_wait);
         tigerAnim.SetBool("Attack", false);
-        tigerDamgeZones[clawPosIndex].gameObject.SetActive(false);
+        tigerDamgeZones.gameObject.SetActive(false);
         roarParticle.gameObject.SetActive(false);
+        healthSlider.gameObject.SetActive(true);
         yield return new WaitForSecondsRealtime(waitForQTE);
+        healthSlider.gameObject.SetActive(false);
         TigerState = enTigerState.ResetPosition;
         bulletsFired = 0;
         chooseClawLane = true;

@@ -38,8 +38,9 @@ public class WispMovement : MonoBehaviour
             StartCoroutine(DestroyWisp());
         }
         else if (timer >= 2.2)
-        {            
-            //GameManager.instance.health--;
+        {
+            float reduceHealthValue = 34f;
+            GameManager.instance.health -= reduceHealthValue;
             StartCoroutine(DestroyWisp());
         }
     }

@@ -45,36 +45,36 @@ public class CPManager : MonoBehaviour
         hud = FindObjectOfType<HUD>();
 
 
-        if (Input.GetKeyDown("1"))
-        {
-            GameManager.instance.koreoReader = false;
-            checkPoint = 0;
-            BeatMaster.instance.beatCount = 0;
-            GameManager.instance.health = 100;
-            SceneManager.LoadScene("LevelDesignBlockout");
-        }
-        if (Input.GetKeyDown("2"))
-        {
-            GameManager.instance.koreoReader = false;
-            checkPoint = 1;
-            BeatMaster.instance.beatCount = 100;
-            GameManager.instance.health = 100;
-            SceneManager.LoadScene("LevelDesignBlockout");
-        }
-        if (Input.GetKeyDown("3"))
-        {
-            GameManager.instance.koreoReader = false;
-            checkPoint = 2;
-            BeatMaster.instance.beatCount = 278;
-            GameManager.instance.health = 100;
-            SceneManager.LoadScene("LevelDesignBlockout");
-        }
+        //if (Input.GetKeyDown("1"))
+        //{
+        //    GameManager.instance.koreoReader = false;
+        //    checkPoint = 0;
+        //    BeatMaster.instance.beatCount = 0;
+        //    GameManager.instance.health = 100;
+        //    SceneManager.LoadScene("LevelDesignBlockout");
+        //}
+        //if (Input.GetKeyDown("2"))
+        //{
+        //    GameManager.instance.koreoReader = false;
+        //    checkPoint = 1;
+        //    BeatMaster.instance.beatCount = 100;
+        //    GameManager.instance.health = 100;
+        //    SceneManager.LoadScene("LevelDesignBlockout");
+        //}
+        //if (Input.GetKeyDown("3"))
+        //{
+        //    GameManager.instance.koreoReader = false;
+        //    checkPoint = 2;
+        //    BeatMaster.instance.beatCount = 278;
+        //    GameManager.instance.health = 100;
+        //    SceneManager.LoadScene("LevelDesignBlockout");
+        //}
 
-        //INSTA-LOSE BUTTON
-        if (Input.GetKeyDown("0"))
-        {
-            GameManager.instance.koreoReader = false;
-            SceneManager.LoadScene("LevelDesignBlockout");
-        }
+        //INSTA - LOSE BUTTON
+        //if (Input.GetKeyDown("0"))
+        //{
+        //    GameManager.instance.koreoReader = false;
+        //    SceneManager.LoadScene("LevelDesignBlockout");
+        //}
     }
 }

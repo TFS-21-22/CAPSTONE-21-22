@@ -128,28 +128,28 @@ public class PauseMenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {        
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Application.Quit();
-        }
+        //if (Input.GetKeyDown(KeyCode.P))
+        //{
+        //    Application.Quit();
+        //}
 
-        ////////for hayden spline testing //HUD contains if-else statement if game is paused or not
-        if (Input.GetKeyDown(KeyCode.KeypadPlus))
-        {
-            Time.timeScale = 2;
-        }
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
-        {
-            Time.timeScale = 3;
-        }
-        if (Input.GetKeyDown(KeyCode.KeypadMinus))
-        {
-            Time.timeScale = 1;
-        }
-        if (Input.GetKeyDown(KeyCode.KeypadMultiply))
-        {
-            //Time.timeScale = 0.2f;
-        }
+        //////////for hayden spline testing //HUD contains if-else statement if game is paused or not
+        //if (Input.GetKeyDown(KeyCode.KeypadPlus))
+        //{
+        //    Time.timeScale = 2;
+        //}
+        //if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        //{
+        //    Time.timeScale = 3;
+        //}
+        //if (Input.GetKeyDown(KeyCode.KeypadMinus))
+        //{
+        //    Time.timeScale = 1;
+        //}
+        //if (Input.GetKeyDown(KeyCode.KeypadMultiply))
+        //{
+        //    //Time.timeScale = 0.2f;
+        //}
         //////////
 
         if (Input.GetKeyDown(KeyCode.Escape) && music.isPlaying)
