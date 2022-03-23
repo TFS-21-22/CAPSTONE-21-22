@@ -43,7 +43,7 @@ public class QuickTimeEvent : MonoBehaviour
     public bool correctButtonSwitch;
 
     [SerializeField] private AudioSource[] audioSource = new AudioSource[4];
-
+    [SerializeField] private GameObject[] poseVFX = new GameObject[3];
 
     void OnEnable()
     {
@@ -59,7 +59,11 @@ public class QuickTimeEvent : MonoBehaviour
         inputPressedThree = false;
         poseCount = 0;
 
-        
+        poseVFX[0].SetActive(false);
+        poseVFX[1].SetActive(false);
+        poseVFX[2].SetActive(false);
+        poseVFX[3].SetActive(false);
+
     }
     // Start is called before the first frame update
     void Start()
@@ -259,6 +263,11 @@ public class QuickTimeEvent : MonoBehaviour
             StartCoroutine(EndQuickTimeEvent(1.7f));
         StartCoroutine(PoseCountReset());
 
+        poseVFX[0].SetActive(false);
+        poseVFX[1].SetActive(false);
+        poseVFX[2].SetActive(false);
+        poseVFX[3].SetActive(false);
+
     }
 
     private IEnumerator DisplayResult(GameObject _result)
@@ -292,6 +301,8 @@ public class QuickTimeEvent : MonoBehaviour
         float perfectM = 3.0f;
         float goodM = 2.0f;
         float defaultScore = 10.0f;
+
+        float damageAmount = 34.0f;
         if (sequenceOneActive)
         {
             
@@ -309,7 +320,7 @@ public class QuickTimeEvent : MonoBehaviour
                     //DESTROY WISP HERE
                     correctButtonSwitch = true;
 
-                    PoseAudio();
+                    PoseSVFX();
                 }
                 else
                 {
@@ -323,14 +334,15 @@ public class QuickTimeEvent : MonoBehaviour
                     //DESTROY WISP HERE
                     correctButtonSwitch = true;
 
-                    PoseAudio();
+                    PoseSVFX();
                 }
             }
             else
             {
                 poseCount = 0;
                 StartCoroutine(DisplayResult(missResult));
-                
+
+                GameManager.instance.health -= damageAmount;
             }
 
             
@@ -351,7 +363,7 @@ public class QuickTimeEvent : MonoBehaviour
                     //DESTROY WISP HERE
                     correctButtonSwitch = true;
 
-                    PoseAudio();
+                    PoseSVFX();
                 }
                 else
                 {
@@ -364,7 +376,7 @@ public class QuickTimeEvent : MonoBehaviour
                     //DESTROY WISP HERE
                     correctButtonSwitch = true;
 
-                    PoseAudio();
+                    PoseSVFX();
                 }
             }
             else
@@ -372,12 +384,8 @@ public class QuickTimeEvent : MonoBehaviour
                 poseCount = 0;
 
                 StartCoroutine(DisplayResult(missResult));
-                
-                
 
-                scoreMultiplier = 0;
-
-                scoreSystem.score += 0 * scoreMultiplier;
+                GameManager.instance.health -= damageAmount;
             }
 
         }
@@ -397,7 +405,7 @@ public class QuickTimeEvent : MonoBehaviour
                     //DESTROY WISP HERE
                     correctButtonSwitch = true;
 
-                    PoseAudio();
+                    PoseSVFX();
                 }
                 else
                 {
@@ -410,7 +418,7 @@ public class QuickTimeEvent : MonoBehaviour
                     //DESTROY WISP HERE
                     correctButtonSwitch = true;
 
-                    PoseAudio();
+                    PoseSVFX();
                 }
             }
             else
@@ -418,7 +426,8 @@ public class QuickTimeEvent : MonoBehaviour
                 poseCount = 0;
 
                 StartCoroutine(DisplayResult(missResult));
-              
+
+                GameManager.instance.health -= damageAmount;
             }
             
         }
@@ -508,26 +517,30 @@ public class QuickTimeEvent : MonoBehaviour
         }
     }
 
-    public void PoseAudio()
+    public void PoseSVFX()
     {
         if (poseCount == 1)
         {
             audioSource[0].Play();
+           poseVFX[0].SetActive(true);
         }
 
         if (poseCount == 2)
         {
             audioSource[1].Play();
+            poseVFX[1].SetActive(true);
         }
 
         if (poseCount == 3)
         {
             audioSource[2].Play();
+            poseVFX[2].SetActive(true);
         }
 
         if (poseCount == 4)
         {
             audioSource[3].Play();
+            poseVFX[3].SetActive(true);
         }
     }
 }

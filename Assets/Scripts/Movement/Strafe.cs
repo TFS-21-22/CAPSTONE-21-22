@@ -67,6 +67,7 @@ public class Strafe : MonoBehaviour
     public ScoreSystem scoresystem;
     public GameObject quickTimeEvent;
     public HUD hud;
+    public RhythmCanvas rC;
 
     public ResultsScreen resultsScreen;
     public Animator anim;
@@ -118,6 +119,8 @@ public class Strafe : MonoBehaviour
             //BeatMaster.instance.source.Stop();
             anim.SetBool("Death", true);
         }
+
+        anim.SetBool("SpaceBarQTE", rC.QTEBool);
     }
 
     private void TigerSequenceListener()

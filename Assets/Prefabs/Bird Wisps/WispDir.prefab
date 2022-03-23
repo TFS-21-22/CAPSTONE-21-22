@@ -96924,7 +96924,7 @@ MonoBehaviour:
   player: {fileID: 0}
   QTE: {fileID: 0}
   wispPoof: {fileID: 613972049950039733}
-  birds: {fileID: 0}
+  birds: {fileID: 1138812827361541112}
   timer: 0
 --- !u!54 &4937376385130595654
 Rigidbody:

@@ -65,6 +65,8 @@ public class RhythmCanvas : MonoBehaviour
 
     private float scoreMultiplier = 0;
 
+    public bool QTEBool = false;
+
     void OnEnable()
     {
         tigerAnim = GetComponent<Animator>();
@@ -143,6 +145,8 @@ public class RhythmCanvas : MonoBehaviour
         float goodM = 2.0f;
         float defaultScore = 10f;
 
+        
+
         scaling = true;
         pulsing = true;
         xCircle.gameObject.SetActive(true);
@@ -182,6 +186,9 @@ public class RhythmCanvas : MonoBehaviour
             {
                 TigerDamaged(currentEnemyQTE, true);
             }
+
+            QTEBool = true;
+
             danceAudio[1].Play();
         }
 
@@ -195,6 +202,8 @@ public class RhythmCanvas : MonoBehaviour
                 TigerDamaged(currentEnemyQTE, true);
             }
 
+            QTEBool = true;
+            print(QTEBool);
             scoreSystem.score += defaultScore * goodM;
             danceAudio[2].Play();
         }        
@@ -211,6 +220,8 @@ public class RhythmCanvas : MonoBehaviour
 
             scoreSystem.score += defaultScore * perfectM;
 
+            QTEBool = true;
+
             danceAudio[3].Play();
         }
 
@@ -223,7 +234,8 @@ public class RhythmCanvas : MonoBehaviour
             {
                 TigerDamaged(currentEnemyQTE, true);
             }
-
+            QTEBool = false;
+            print(QTEBool);
             danceAudio[0].Play();
         }
     }
@@ -269,6 +281,7 @@ public class RhythmCanvas : MonoBehaviour
         
         this.gameObject.SetActive(false);
 
+        QTEBool = false;
     }
 
     public void ResetRhythmTween()

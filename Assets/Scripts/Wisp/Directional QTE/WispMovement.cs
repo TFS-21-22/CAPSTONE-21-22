@@ -39,8 +39,6 @@ public class WispMovement : MonoBehaviour
         }
         else if (timer >= 2.2)
         {
-            float reduceHealthValue = 34f;
-            GameManager.instance.health -= reduceHealthValue;
             StartCoroutine(DestroyWisp());
         }
     }
@@ -48,10 +46,10 @@ public class WispMovement : MonoBehaviour
     IEnumerator DestroyWisp()
     {
         force = 0;
-        wispPoof.Play();
+       // wispPoof.Play();
         birds.SetActive(false);
         yield return new WaitForSeconds(0.4f);
-        wispPoof.Stop();
+       // wispPoof.Stop();
         Destroy(gameObject);
     }
 }

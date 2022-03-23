@@ -48,7 +48,7 @@ public class HUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float maxScore = 312.0f;
+        float maxScore = 400.0f;
 
         if (pm.isPaused)
         {
