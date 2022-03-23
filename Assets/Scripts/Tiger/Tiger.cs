@@ -123,7 +123,7 @@ public class Tiger : MonoBehaviour
         }
 
         //Animator
-        tigerAnim.SetBool("Attack", attacking);
+       // tigerAnim.SetBool("Attack", attacking);
 
         //Health bar
         if (healthSlider)
@@ -224,9 +224,10 @@ public class Tiger : MonoBehaviour
 
         roarParticle.gameObject.SetActive(true);
         yield return new WaitForSecondsRealtime(_wait);
-        //Attack animation
+        tigerAnim.SetBool("Attack", true);
         tigerDamgeZones[clawPosIndex].gameObject.SetActive(true);
         yield return new WaitForSecondsRealtime(_wait);
+        tigerAnim.SetBool("Attack", false);
         tigerDamgeZones[clawPosIndex].gameObject.SetActive(false);
         roarParticle.gameObject.SetActive(false);
         yield return new WaitForSecondsRealtime(waitForQTE);

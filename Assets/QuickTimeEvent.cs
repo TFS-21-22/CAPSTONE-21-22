@@ -42,7 +42,8 @@ public class QuickTimeEvent : MonoBehaviour
 
     public bool correctButtonSwitch;
 
-   
+    [SerializeField] private AudioSource[] audioSource = new AudioSource[4];
+
 
     void OnEnable()
     {
@@ -143,6 +144,7 @@ public class QuickTimeEvent : MonoBehaviour
             {
                 print(beatTimeOne);
                 PoseCountCheck(_keyToPress);
+               // PoseAudio();
                 inputPressed = true;
                 break;
             }
@@ -184,6 +186,7 @@ public class QuickTimeEvent : MonoBehaviour
             {
                 print(beatTimeTwo);
                 PoseCountCheck(_keyToPress);
+                //PoseAudio();
                 inputPressed = true;
                 break;
             }
@@ -224,6 +227,7 @@ public class QuickTimeEvent : MonoBehaviour
             {
                 print(beatTimeThree);
                 PoseCountCheck(_keyToPress);
+              //  PoseAudio();
                 inputPressed = true;
                 break;
             }
@@ -302,6 +306,8 @@ public class QuickTimeEvent : MonoBehaviour
 
                     //DESTROY WISP HERE
                     correctButtonSwitch = true;
+
+                    PoseAudio();
                 }
                 else
                 {
@@ -315,16 +321,19 @@ public class QuickTimeEvent : MonoBehaviour
 
                     //DESTROY WISP HERE
                     correctButtonSwitch = true;
+
+                    PoseAudio();
                 }
             }
             else
             {
+                poseCount = 0;
                 StartCoroutine(DisplayResult(missResult));
-              //  poseCount--;
+                
 
                 scoreMultiplier = 0;
 
-                scoreSystem.score += 100 * scoreMultiplier;
+                scoreSystem.score += 0 * scoreMultiplier;
             }
 
             
@@ -346,6 +355,8 @@ public class QuickTimeEvent : MonoBehaviour
 
                     //DESTROY WISP HERE
                     correctButtonSwitch = true;
+
+                    PoseAudio();
                 }
                 else
                 {
@@ -359,17 +370,21 @@ public class QuickTimeEvent : MonoBehaviour
 
                     //DESTROY WISP HERE
                     correctButtonSwitch = true;
+
+                    PoseAudio();
                 }
             }
             else
             {
+                poseCount = 0;
+
                 StartCoroutine(DisplayResult(missResult));
                 
-               // poseCount--;
+                
 
                 scoreMultiplier = 0;
 
-                scoreSystem.score += 100 * scoreMultiplier;
+                scoreSystem.score += 0 * scoreMultiplier;
             }
 
         }
@@ -390,6 +405,8 @@ public class QuickTimeEvent : MonoBehaviour
 
                     //DESTROY WISP HERE
                     correctButtonSwitch = true;
+
+                    PoseAudio();
                 }
                 else
                 {
@@ -403,17 +420,21 @@ public class QuickTimeEvent : MonoBehaviour
 
                     //DESTROY WISP HERE
                     correctButtonSwitch = true;
+
+                    PoseAudio();
                 }
             }
             else
             {
+                poseCount = 0;
+
                 StartCoroutine(DisplayResult(missResult));
 
-               // poseCount--;
+               
 
                 scoreMultiplier = 0;
 
-                scoreSystem.score += 100 * scoreMultiplier;
+                scoreSystem.score += 0 * scoreMultiplier;
             }
             
         }
@@ -479,21 +500,50 @@ public class QuickTimeEvent : MonoBehaviour
         if (currentKey == rightArrow)
         {
             poseCount = 1;
+            StartCoroutine(PoseCountReset());
+
         }
 
         if (currentKey == leftArrow)
         {
             poseCount = 2;
+            StartCoroutine(PoseCountReset());
+
         }
 
         if (currentKey == upArrow)
         {
             poseCount = 3;
+            StartCoroutine(PoseCountReset());
         }
 
         if(currentKey == downArrow)
         {
             poseCount = 4;
+            StartCoroutine(PoseCountReset());
+        }
+    }
+
+    public void PoseAudio()
+    {
+        if (poseCount == 1)
+        {
+            audioSource[0].Play();
+        }
+
+        if (poseCount == 2)
+        {
+            audioSource[1].Play();
+        }
+
+        if (poseCount == 3)
+        {
+            audioSource[2].Play();
+        }
+
+        if (poseCount == 4)
+        {
+            audioSource[3].Play();
         }
     }
 }

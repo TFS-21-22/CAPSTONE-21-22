@@ -57,8 +57,15 @@ public class RhythmCanvas : MonoBehaviour
     [EventID]
     public string eventID;
 
+    // Animators
+    public Animator tigerAnim;
+    public Animator playerAnim;
+
     void OnEnable()
     {
+        tigerAnim = GetComponent<Animator>();
+        playerAnim = GetComponent<Animator>();
+
         pulsing = false;
         scaling = false;
         keyPressed = false;
@@ -286,13 +293,21 @@ public class RhythmCanvas : MonoBehaviour
             {
                 float damageAmount = 20f;
                 tigerScript.currentHealth -= damageAmount;
+                tigerAnim.SetBool("Hit", true);
+                
             }
             else
             {
                 //Remove health
                 float damageAmount = 34f;
                 GameManager.instance.health -= damageAmount;
+                playerAnim.SetBool("HCollision", true);
+                playerAnim.SetBool("LCollision", true);
             }
+            tigerAnim.SetBool("Hit", false);
+            playerAnim.SetBool("HCollision", false);
+            playerAnim.SetBool("LCollision", false);
+
         }
         
         
