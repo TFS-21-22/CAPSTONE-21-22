@@ -96923,6 +96923,8 @@ MonoBehaviour:
   force: 0.24
   player: {fileID: 0}
   QTE: {fileID: 0}
+  wispPoof: {fileID: 613972049950039733}
+  birds: {fileID: 0}
   timer: 0
 --- !u!54 &4937376385130595654
 Rigidbody:
@@ -97746,5 +97748,10 @@ PrefabInstance:
 --- !u!4 &613972049934834677 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400004, guid: fcf3e75fc4773a04e913aab1b1a9b9f2, type: 3}
+  m_PrefabInstance: {fileID: 613972049934958961}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &613972049950039733 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19800004, guid: fcf3e75fc4773a04e913aab1b1a9b9f2, type: 3}
   m_PrefabInstance: {fileID: 613972049934958961}
   m_PrefabAsset: {fileID: 0}

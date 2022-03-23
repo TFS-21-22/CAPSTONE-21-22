@@ -10,19 +10,23 @@ public class ElephantTimeline : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playableDirector = GetComponent<PlayableDirector>();
+
+        float CPBeatOne = 0;
+        float CPBeatTwo = 45;
+        float CPBeatThree = 278;
+
         if (CPManager.instance.checkPoint == 0)
         {
-            playableDirector.time = 0;
+            playableDirector.time = CPBeatOne;
         }
         if (CPManager.instance.checkPoint == 1)
         {
-            playableDirector.time = 45;
+            playableDirector.time = CPBeatTwo;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (CPManager.instance.checkPoint == 2)
+        {
+            playableDirector.time = CPBeatThree;
+        }
     }
 }

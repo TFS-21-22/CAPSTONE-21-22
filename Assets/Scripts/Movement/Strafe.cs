@@ -80,6 +80,8 @@ public class Strafe : MonoBehaviour
     [EventID]
     public string EnableTiger;
 
+    public AudioSource collectableImpactAudioSource;
+
 
     public void Awake()
     {
@@ -351,8 +353,8 @@ public class Strafe : MonoBehaviour
 
                 hud.CollectGet(other.name);
             }
+            collectableImpactAudioSource.Play();
 
-            //collectableImpactAudioSource.PlayOneShot(lilyImpactAudioClip4);
             if (other.gameObject.GetComponent<ParticleSystem>())
             {
                 other.gameObject.GetComponent<ParticleSystem>().Stop();

@@ -52,6 +52,8 @@ public class RhythmCanvas : MonoBehaviour
     [SerializeField] private Transform buttonCenter;
     [SerializeField] private Transform[] keyPositions = new Transform[3];
 
+    public AudioSource[] danceAudio;
+
     [EventID]
     public string eventID;
 
@@ -150,7 +152,11 @@ public class RhythmCanvas : MonoBehaviour
             RandomBackgroundActive(buttonBG, false);
             StartCoroutine(ScoreTextResult(miss, 1f));                  //Display Score Result
             StartCoroutine(DestroyEnemyQTE(1f, miss, currentEnemyQTE));
-            TigerDamaged(currentEnemyQTE, false);
+            if (tiger.activeSelf)
+            {
+                TigerDamaged(currentEnemyQTE, true);
+            }
+            danceAudio[0].Play();
         }
 
         if (beatTime >= 1.111 && beatTime < 1.474)
@@ -158,8 +164,11 @@ public class RhythmCanvas : MonoBehaviour
             RandomBackgroundActive(buttonBG, false);
             StartCoroutine(ScoreTextResult(okay, 1f));                  //Display Score Result
             StartCoroutine(DestroyEnemyQTE(1f, okay, currentEnemyQTE));
-            TigerDamaged(currentEnemyQTE, false);
-
+            if (tiger.activeSelf)
+            {
+                TigerDamaged(currentEnemyQTE, true);
+            }
+            danceAudio[1].Play();
         }
 
         if (beatTime >= 1.474 && beatTime <= 1.792)
@@ -167,16 +176,23 @@ public class RhythmCanvas : MonoBehaviour
             RandomBackgroundActive(buttonBG, false);
             StartCoroutine(ScoreTextResult(good, 1f));                  //Display Score Result
             StartCoroutine(DestroyEnemyQTE(1f, good, currentEnemyQTE));
-            TigerDamaged(currentEnemyQTE, true);
-        }
-        //.173
+            if (tiger.activeSelf)
+            {
+                TigerDamaged(currentEnemyQTE, true);
+            }
+            danceAudio[2].Play();
+        }        
 
         if (beatTime > 1.792 && beatTime < 2f)
         {
             RandomBackgroundActive(buttonBG, false);
             StartCoroutine(ScoreTextResult(perfect, 1f));
             StartCoroutine(DestroyEnemyQTE(1f, perfect, currentEnemyQTE));
-            TigerDamaged(currentEnemyQTE, true);
+            if (tiger.activeSelf)
+            {
+                TigerDamaged(currentEnemyQTE, true);
+            }           
+            danceAudio[3].Play();
         }
 
         if (beatTime >= 2f)
@@ -184,7 +200,11 @@ public class RhythmCanvas : MonoBehaviour
             RandomBackgroundActive(buttonBG, false);
             StartCoroutine(ScoreTextResult(miss, 1f));
             StartCoroutine(DestroyEnemyQTE(1f, miss, currentEnemyQTE));
-            TigerDamaged(currentEnemyQTE, false);
+            if (tiger.activeSelf)
+            {
+                TigerDamaged(currentEnemyQTE, true);
+            }
+            danceAudio[0].Play();
         }
     }
 

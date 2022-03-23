@@ -9,6 +9,9 @@ public class WispMovement : MonoBehaviour
     public GameObject player;
     public QuickTimeEvent QTE;
 
+    public ParticleSystem wispPoof;
+    public GameObject birds;
+
     public float timer;
 
     // Start is called before the first frame update
@@ -24,14 +27,30 @@ public class WispMovement : MonoBehaviour
         transform.LookAt(player.transform);
         rb.AddForce(transform.forward * force, ForceMode.Impulse);
         timer += Time.deltaTime;
+
+        if (timer >= 0 && timer <= 0.4)
+        {
+            wispPoof.Play();
+        }
+
         if (timer >= 1.1 && timer <= 2 && QTE.correctButtonSwitch == true)
         {
-            Destroy(gameObject);
+            StartCoroutine(DestroyWisp());
         }
         else if (timer >= 2.2)
-        {
+        {            
             //GameManager.instance.health--;
-            Destroy(gameObject);            
+            StartCoroutine(DestroyWisp());
         }
+    }
+
+    IEnumerator DestroyWisp()
+    {
+        force = 0;
+        wispPoof.Play();
+        birds.SetActive(false);
+        yield return new WaitForSeconds(0.4f);
+        wispPoof.Stop();
+        Destroy(gameObject);
     }
 }
