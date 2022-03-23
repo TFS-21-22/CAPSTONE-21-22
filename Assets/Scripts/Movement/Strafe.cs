@@ -328,6 +328,12 @@ public class Strafe : MonoBehaviour
         if (collision.gameObject.CompareTag("TigerProjectile"))
         {
             GameManager.instance.health -= 34f;
+
+            //Play hurt audio
+            waterImpactAudioSource.Play();
+
+            anim.SetBool("HCollision", true);
+            anim.SetBool("LCollision", true);
         }
     }
 
@@ -340,6 +346,9 @@ public class Strafe : MonoBehaviour
 
             //Play hurt audio
             waterImpactAudioSource.Play();
+
+            anim.SetBool("HCollision", true);
+            anim.SetBool("LCollision", true);
 
         }
  
@@ -412,11 +421,6 @@ public class Strafe : MonoBehaviour
         //        StartCoroutine(Collision(1f));
         //    }
         //}
-
-        if (other.gameObject.CompareTag("Tiger"))
-        {
-            GameManager.instance.health--;
-        }
 
         if (other.gameObject.CompareTag("End"))
         {
@@ -499,6 +503,22 @@ public class Strafe : MonoBehaviour
             Camera.main.transform.localPosition = camPos;
             anim.SetBool("HCollision", false);
             anim.SetBool("LCollision", false);
+        }
+
+        if (other.gameObject.CompareTag("TigerDamageZone"))
+        {
+
+            anim.SetBool("HCollision", false);
+            anim.SetBool("LCollision", false);
+
+        }
+
+        if (other.gameObject.CompareTag("TigerProjectile"))
+        {
+
+            anim.SetBool("HCollision", false);
+            anim.SetBool("LCollision", false);
+
         }
 
         //if (other.gameObject.CompareTag("Log"))

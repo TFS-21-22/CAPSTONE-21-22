@@ -68,6 +68,8 @@ public class RhythmCanvas : MonoBehaviour
 
     public bool QTEBool = false;
 
+    public bool tigerStun = false;
+
     void OnEnable()
     {
         tigerAnim = GetComponent<Animator>();
@@ -118,6 +120,7 @@ public class RhythmCanvas : MonoBehaviour
         }
         else
             beatTime = 0;
+
 
     }
 
@@ -283,6 +286,10 @@ public class RhythmCanvas : MonoBehaviour
         this.gameObject.SetActive(false);
 
         QTEBool = false;
+
+        tigerStun = false;
+
+       // tigerAnim.ResetTrigger("Hit");
     }
 
     public void ResetRhythmTween()
@@ -318,6 +325,7 @@ public class RhythmCanvas : MonoBehaviour
         {
             if (_damageTiger)
             {
+                tigerStun = true;
                 float damageAmount = 50f;
                 tigerScript.currentHealth -= damageAmount;
                 if(tigerScript.currentHealth <= 0)
@@ -325,7 +333,9 @@ public class RhythmCanvas : MonoBehaviour
                     strafeScript.GetComponent<Strafe>().tigerAlive = false;
                     tiger.SetActive(false);
                 }
-                tigerAnim.SetBool("Hit", true);
+                
+
+               // tigerAnim.SetTrigger("Hit");
                 
             }
             else
@@ -333,12 +343,8 @@ public class RhythmCanvas : MonoBehaviour
                 //Remove health
                 float damageAmount = 34f;
                 GameManager.instance.health -= damageAmount;
-                playerAnim.SetBool("HCollision", true);
-                playerAnim.SetBool("LCollision", true);
+
             }
-            tigerAnim.SetBool("Hit", false);
-            playerAnim.SetBool("HCollision", false);
-            playerAnim.SetBool("LCollision", false);
 
         }
         
