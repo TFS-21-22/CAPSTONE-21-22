@@ -13,9 +13,6 @@ public class Tiger : MonoBehaviour
     [SerializeField] private Transform tigerParent;
     //Projectile
     [SerializeField] private GameObject projectilePrefab;
-    private GameObject bullet;
-    private GameObject bullet2;
-    private GameObject bullet3;
 
     [SerializeField] private Transform projectileSpawnLocation;
     //Particles
@@ -60,7 +57,6 @@ public class Tiger : MonoBehaviour
     private void OnEnable()
     {
         TigerState = enTigerState.Move;
-        bullet = null;
         shooting = false;
     }
 
@@ -73,7 +69,7 @@ public class Tiger : MonoBehaviour
 
     private void Update()
     {
-        print(TigerState);
+        //print(TigerState);
 
         switch (TigerState)
         {
@@ -111,17 +107,17 @@ public class Tiger : MonoBehaviour
                 {
                     if(bulletsFired < 3)
                     {
-                        
-                        GetProjectile();
+                        shooting = true;
+                        StartCoroutine(GetProjectile());
                         TigerState = enTigerState.Move;
+                    }
+                    else if(bulletsFired >= 3)
+                    {
+                        TigerState = enTigerState.Claw;
                     }
                 }
 
-                if (bulletsFired >= 3)
-                {
-                    print("CLAW STATe");
-                    TigerState = enTigerState.Claw;
-                }
+               
 
                 break;
         }
@@ -142,12 +138,8 @@ public class Tiger : MonoBehaviour
 
         if (distance < 0.001f)
         {
-            
-
             if(bulletsFired <= 3)
             {
-                bullet = null;
-                shooting = false;
                 TigerState = enTigerState.Shoot;
             }
             else
@@ -164,19 +156,17 @@ public class Tiger : MonoBehaviour
         }
     }
 
-    private void GetProjectile()
+    private IEnumerator GetProjectile()
     {
-        shooting = true;
-        if (bullet == null)
-        {
-            bullet = Instantiate(projectilePrefab, projectileSpawnLocation.transform.position, projectileSpawnLocation.transform.rotation);
-            bulletsFired++;
-        }
+        yield return new WaitForSeconds(5f);
 
+        Instantiate(projectilePrefab, projectileSpawnLocation.transform.position, projectileSpawnLocation.transform.rotation);
+        bulletsFired++;
         roarParticle.gameObject.SetActive(true);
         roarSound.Play();
         roarParticle.gameObject.SetActive(false);
         TigerState = enTigerState.Move;
+
     }
     public void ResetPosition(Vector3 endPos)
     {
@@ -213,8 +203,6 @@ public class Tiger : MonoBehaviour
         Vector3 positionChosen = clawPositions[clawPosIndex].position;
         float boxDuration = 2f;
         float distance = Vector3.Distance(tigerParent.transform.position, positionChosen);
-
-        print("Distance - " + distance);
         if (distance < 0.001f)
         {
             inRange = true;
