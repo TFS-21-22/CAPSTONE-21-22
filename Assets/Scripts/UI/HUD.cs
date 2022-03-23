@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class HUD : MonoBehaviour
 {
     private float score;
-    private float maxScore;
     public float collectables;
     
     public float time;
@@ -49,6 +48,8 @@ public class HUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float maxScore = 312.0f;
+
         if (pm.isPaused)
         {
             //Time.timeScale = 0;
@@ -91,6 +92,7 @@ public class HUD : MonoBehaviour
             //}
             //SCORE
             score = scoreSystem.score;
+
             scoreText.text = score.ToString();
             scoreBar.fillAmount = score / maxScore;
 

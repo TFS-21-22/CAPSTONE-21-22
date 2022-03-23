@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9164837560419936799}
   - component: {fileID: 7137716928846486396}
   - component: {fileID: 214355328276925157}
-  - component: {fileID: 8806656180255413335}
+  - component: {fileID: 8281394972845058423}
   m_Layer: 0
   m_Name: lilyHealth
   m_TagString: Heart
@@ -26,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2192661276439953617}
-  m_LocalRotation: {x: -0.08923435, y: -0.1509484, z: -0.4943919, w: 0.8513686}
+  m_LocalRotation: {x: -0.08923613, y: -0.15095209, z: -0.49439454, w: 0.85136616}
   m_LocalPosition: {x: -149.05, y: 10.491, z: -200.85}
-  m_LocalScale: {x: 1.1986189, y: 1.1986189, z: 1.1986189}
+  m_LocalScale: {x: 0.9149012, y: 0.9149011, z: 0.9149011}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7872367801842548991}
@@ -85,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8806656180255413335
-BoxCollider:
+--- !u!135 &8281394972845058423
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -96,8 +96,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0364827, y: 0.60317, z: 1.0364879}
-  m_Center: {x: 0.17697403, y: 0.2939103, z: 0.0066414364}
+  m_Radius: 0.51824397
+  m_Center: {x: 0.17697404, y: 0.29391032, z: 0.006656691}
 --- !u!1001 &7876682092954262527
 PrefabInstance:
   m_ObjectHideFlags: 0

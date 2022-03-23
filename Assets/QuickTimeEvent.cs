@@ -288,6 +288,10 @@ public class QuickTimeEvent : MonoBehaviour
 
         double minValue = 0.825594299286604;
         double maxValue = 1.21341879799962;
+
+        float perfectM = 3.0f;
+        float goodM = 2.0f;
+        float defaultScore = 10.0f;
         if (sequenceOneActive)
         {
             
@@ -300,9 +304,7 @@ public class QuickTimeEvent : MonoBehaviour
                    
                    // poseCount++;
 
-                    scoreMultiplier = 3;
-
-                    scoreSystem.score += 100 * scoreMultiplier;
+                    scoreSystem.score += defaultScore * perfectM;
 
                     //DESTROY WISP HERE
                     correctButtonSwitch = true;
@@ -315,9 +317,8 @@ public class QuickTimeEvent : MonoBehaviour
                    
                    // poseCount++;
 
-                    scoreMultiplier = 2;
 
-                    scoreSystem.score += 100 * scoreMultiplier;
+                    scoreSystem.score += defaultScore * goodM;
 
                     //DESTROY WISP HERE
                     correctButtonSwitch = true;
@@ -330,10 +331,6 @@ public class QuickTimeEvent : MonoBehaviour
                 poseCount = 0;
                 StartCoroutine(DisplayResult(missResult));
                 
-
-                scoreMultiplier = 0;
-
-                scoreSystem.score += 0 * scoreMultiplier;
             }
 
             
@@ -346,12 +343,10 @@ public class QuickTimeEvent : MonoBehaviour
                 if (beatTimeTwo >= perfectMinValue && beatTimeTwo <= perfectMaxValue)
                 {
                     StartCoroutine(DisplayResult(perfectResult));
-                    
+
                     //poseCount++;
 
-                    scoreMultiplier = 3;
-
-                    scoreSystem.score += 100 * scoreMultiplier;
+                    scoreSystem.score += defaultScore * perfectM;
 
                     //DESTROY WISP HERE
                     correctButtonSwitch = true;
@@ -361,12 +356,10 @@ public class QuickTimeEvent : MonoBehaviour
                 else
                 {
                     StartCoroutine(DisplayResult(okayResult));
-                    
-                   // poseCount++;
 
-                    scoreMultiplier = 2;
+                    // poseCount++;
 
-                    scoreSystem.score += 100 * scoreMultiplier;
+                    scoreSystem.score += defaultScore * goodM;
 
                     //DESTROY WISP HERE
                     correctButtonSwitch = true;
@@ -396,12 +389,10 @@ public class QuickTimeEvent : MonoBehaviour
                 if (beatTimeThree >= perfectMinValue && beatTimeThree <= perfectMaxValue)
                 {
                     StartCoroutine(DisplayResult(perfectResult));
-                    
+
                     //poseCount++;
 
-                    scoreMultiplier = 3;
-
-                    scoreSystem.score += 100 * scoreMultiplier;
+                    scoreSystem.score += defaultScore * perfectM;
 
                     //DESTROY WISP HERE
                     correctButtonSwitch = true;
@@ -411,12 +402,10 @@ public class QuickTimeEvent : MonoBehaviour
                 else
                 {
                     StartCoroutine(DisplayResult(okayResult));
-                   
-                   // poseCount++;
 
-                    scoreMultiplier = 2;
+                    // poseCount++;
 
-                    scoreSystem.score += 100 * scoreMultiplier;
+                    scoreSystem.score += defaultScore * goodM;
 
                     //DESTROY WISP HERE
                     correctButtonSwitch = true;
@@ -429,12 +418,7 @@ public class QuickTimeEvent : MonoBehaviour
                 poseCount = 0;
 
                 StartCoroutine(DisplayResult(missResult));
-
-               
-
-                scoreMultiplier = 0;
-
-                scoreSystem.score += 0 * scoreMultiplier;
+              
             }
             
         }

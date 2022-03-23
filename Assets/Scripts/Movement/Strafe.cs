@@ -385,6 +385,21 @@ public class Strafe : MonoBehaviour
                 resultsScreen.endHit = true;
             }
         }
+
+        if (other.gameObject.CompareTag("Heart"))
+        {
+            if (GameManager.instance.health < 100f)
+            {
+                GameManager.instance.health+= 34.0f;
+            }
+
+            if (GameManager.instance.health >= 100f)
+            {
+                GameManager.instance.health = 100f;
+            }
+
+            other.gameObject.SetActive(false);
+        }
     }
 
     void OnTriggerStay(Collider other)
@@ -457,16 +472,6 @@ public class Strafe : MonoBehaviour
         //    anim.SetBool("LCollision", false);
         //}
 
-        if (other.gameObject.CompareTag("Heart"))
-        {
-            if (GameManager.instance.health < 100)
-                GameManager.instance.health++;
-
-            if (GameManager.instance.health >= 100)
-            {
-                GameManager.instance.health = 100;
-            }
-        }
     }
 
     public void Death()
