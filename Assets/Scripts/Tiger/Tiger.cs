@@ -45,7 +45,6 @@ public class Tiger : MonoBehaviour
     private float moveDistance;
     private int chosenLocation;
 
-    public RhythmCanvas rhythmCanvas;
 
     public bool tigerStun = false;
 
@@ -68,7 +67,6 @@ public class Tiger : MonoBehaviour
     {
         TigerState = enTigerState.Move;
         shooting = false;
-        rhythmCanvas = GetComponent<RhythmCanvas>();
     }
 
     void Start()
@@ -138,11 +136,11 @@ public class Tiger : MonoBehaviour
             healthSlider.value = currentHealth;
         }
 
-        if(rhythmCanvas.tigerStun)
+        if(RhythmCanvas.instance.tigerStun)
         {
             tigerAnim.SetTrigger("Hit");
         }
-        tigerAnim.SetBool("Hit 0", rhythmCanvas.tigerStun);
+        tigerAnim.SetBool("Hit 0", RhythmCanvas.instance.tigerStun);
     }
 
     public void MoveToLanePosition()

@@ -16,6 +16,8 @@ public enum EBeatScore
 
 public class RhythmCanvas : MonoBehaviour
 {
+    public static RhythmCanvas instance;
+
     public Tiger tigerScript;
     public PauseMenuManager pauseMenuScript;
     public Strafe strafeScript;
@@ -70,6 +72,8 @@ public class RhythmCanvas : MonoBehaviour
 
     public bool tigerStun = false;
 
+    public GameObject spacebar;
+
     void OnEnable()
     {
         tigerAnim = GetComponent<Animator>();
@@ -91,7 +95,15 @@ public class RhythmCanvas : MonoBehaviour
 
     void Awake()
     {
-
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else if (instance != null)
+        {
+            Destroy(this);
+        }
     }
     // Start is called before the first frame update
     void Start()
@@ -155,6 +167,7 @@ public class RhythmCanvas : MonoBehaviour
         pulsing = true;
         xCircle.gameObject.SetActive(true);
         xCircle.transform.localScale = bigCircle;
+        spacebar.SetActive(true);
                                                           //Scales "X" outer circle
         while (xCircle.transform.localScale.x > 0.5f)
         {
@@ -168,7 +181,9 @@ public class RhythmCanvas : MonoBehaviour
                 xCircle.transform.localScale -= new Vector3(flux * Time.deltaTime, flux * Time.deltaTime, flux * Time.deltaTime);
             yield return null;
         }
-        
+
+        spacebar.SetActive(false);
+
         if ( beatTime >= 0 && beatTime < 1.111 )
         {
             RandomBackgroundActive(buttonBG, false);
@@ -258,9 +273,9 @@ public class RhythmCanvas : MonoBehaviour
         //Camera
         smoothCamera.cameraPosition = SmoothCameraScript.ECameraPosition.Normal;
         smoothCamera.StartCoroutine(smoothCamera.CameraSwitch(3));
-        xCircle.gameObject.SetActive(false); 
+        xCircle.gameObject.SetActive(false);
+       
 
-        
 
         if (_currentEnemy)
         {
@@ -333,8 +348,8 @@ public class RhythmCanvas : MonoBehaviour
                     strafeScript.GetComponent<Strafe>().tigerAlive = false;
                     tiger.SetActive(false);
                 }
-                
 
+                tigerStun = true;
                // tigerAnim.SetTrigger("Hit");
                 
             }
