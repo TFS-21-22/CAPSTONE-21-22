@@ -14,7 +14,7 @@ public class ScoreSystem : MonoBehaviour
     public float time;
     public float timer = 5.0f;
 
-    public transition2 transition;
+   // public Transition transition;
     // Start is called before the first frame update
     void Start()
     {
