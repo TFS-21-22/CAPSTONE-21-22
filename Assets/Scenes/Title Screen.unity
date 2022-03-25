@@ -5493,7 +5493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1019494619
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8584,6 +8584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: {fileID: 442158666}
   MainMenu: {fileID: 1046623939}
+  music: {fileID: 364216227}
   startButton: {fileID: 342028634}
   compendiumButton: {fileID: 1275361005}
   compendiumnBackButton: {fileID: 1355079876}
@@ -8595,7 +8596,7 @@ MonoBehaviour:
   controlsButton: {fileID: 1272693163}
   vsyncToggle: {fileID: 1375039818}
   fullscreenToggle: {fileID: 1127207824}
-  applyButton: {fileID: 0}
+  applyButton: {fileID: 1891925547}
   musicVolumeSlider: {fileID: 42225433}
   settingsMenu: {fileID: 870253022}
   compendiumMenu: {fileID: 735484518}

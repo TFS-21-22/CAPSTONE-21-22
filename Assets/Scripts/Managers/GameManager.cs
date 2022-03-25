@@ -17,21 +17,13 @@ public class GameManager : MonoBehaviour
     public float health = 100f;
     public float maxHealth = 100f;
     public bool screenMode = true;
-    public float musicVolume;
-    public float SFXVolume;
+    public float musicVolume = 0.5f;
+    public float SFXVolume = 0.5f;
     public bool koreoReader;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (musicVolume < 0)
-        {
-            musicVolume = 0.5f;
-        }
-        if (SFXVolume < 0)
-        {
-            SFXVolume = 0.5f;
-        }
 
         if (instance)
         {

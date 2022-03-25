@@ -237,6 +237,8 @@ public class PauseMenuManager : MonoBehaviour
     {
         music.volume = musicVolumeSlider.value;
         //waterSFX.volume = waterVolumeSlider.value;
+        GameManager.instance.musicVolume = musicVolumeSlider.value;
+        GameManager.instance.screenMode = fullscreenToggle.isOn;
 
         if (vsyncToggle.isOn)
         {

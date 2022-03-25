@@ -7,7 +7,8 @@ public class SettingsMenu : MonoBehaviour
 {
     [SerializeField] private GameObject Title;
     [SerializeField] private GameObject MainMenu;
-    
+    [SerializeField] private AudioSource music;
+
     //Buttons
     [SerializeField] private Button startButton;
     [SerializeField] private Button compendiumButton;
@@ -90,7 +91,9 @@ public class SettingsMenu : MonoBehaviour
         {
             videoSettingsButton.onClick.AddListener(videoSettingsMenu);
         }
-
+        music.volume = GameManager.instance.musicVolume;
+        fullscreenToggle.isOn = GameManager.instance.screenMode;
+        musicVolumeSlider.value = GameManager.instance.musicVolume;
     }
     void Start()
     {
@@ -101,6 +104,7 @@ public class SettingsMenu : MonoBehaviour
     {
         GameManager.instance.musicVolume = musicVolumeSlider.value;
         GameManager.instance.screenMode = fullscreenToggle.isOn;
+        music.volume = musicVolumeSlider.value;
         if (vsyncToggle.isOn)
         {
             QualitySettings.vSyncCount = 1;
