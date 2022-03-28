@@ -17,6 +17,11 @@ public class ToLoadingScreen : MonoBehaviour
 
     IEnumerator LoadAsynchronously(int sceneIndex)
     {
+        if(CPManager.instance)
+        {
+            CPManager.instance.scoreSaved = 0;
+        }
+        
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
 
         loadingScreen.SetActive(true);

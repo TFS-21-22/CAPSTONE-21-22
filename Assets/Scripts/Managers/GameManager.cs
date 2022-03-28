@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviour
 
     public void ReturnToMenu()
     {
+        CPManager.instance.scoreSaved = 0;
         SceneManager.LoadScene("Title Screen");
     }
 }
